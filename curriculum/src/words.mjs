@@ -209,4 +209,23 @@ export const WORDS = [
   ['shrop','s h r o p','','',S,15], ['sutrap','s u t r a p','','',E,15], ['suplit','s u p l i t','','',E,15],
   ['sucrub','s u c r u b','','',E,15], ['shurink','sh u r i nk','','',E,15], ['thurill','th u r i ll','','',E,15],
   ['sutring','s u t r i ng','','',E,15],
+
+  // ---- Unit 16: -ed (three sounds, one spelling) and compound words (no new letter-sounds)
+  ['jumped','j u m p ed_t','','とんだ',C,16], ['picked','p i ck ed_t','','えらんだ',C,16], ['kicked','k i ck ed_t','⚽','けった',C,16],
+  ['asked','a s k ed_t','','きいた',C,16], ['fished','f i sh ed_t','🎣','つりをした',C,16], ['wished','w i sh ed_t','','ねがった',C,16],
+  ['checked','ch e ck ed_t','','しらべた',C,16], ['bumped','b u m p ed_t','','ぶつけた',C,16], ['camped','c a m p ed_t','','キャンプした',C,16],
+  ['sniffed','s n i ff ed_t','','くんくんした',C,16], ['rushed','r u sh ed_t','','いそいだ',C,16], ['dashed','d a sh ed_t','','かけた',C,16],
+  ['crashed','c r a sh ed_t','','ぶつかった',C,16], ['splashed','s p l a sh ed_t','💦','はねかけた',C,16], ['stamped','s t a m p ed_t','','ふみつけた',C,16],
+  ['filled','f i ll ed_d','','いっぱいにした',C,16], ['banged','b a ng ed_d','','たたいた',C,16], ['buzzed','b u zz ed_d','🐝','ブンブンした',C,16],
+  ['yelled','y e ll ed_d','','さけんだ',C,16], ['spilled','s p i ll ed_d','','こぼした',C,16], ['smelled','s m e ll ed_d','👃','においをかいだ',C,16],
+  ['rested','r e s t ed_id','😌','やすんだ',C,16], ['landed','l a n d ed_id','','ちゃくりくした',C,16], ['lifted','l i f t ed_id','','もちあげた',C,16],
+  ['handed','h a n d ed_id','','わたした',C,16], ['hunted','h u n t ed_id','','さがした',C,16], ['tested','t e s t ed_id','','テストした',C,16],
+  ['lasted','l a s t ed_id','','つづいた',C,16], ['melted','m e l t ed_id','🫠','とけた',C,16], ['listed','l i s t ed_id','','リストにした',C,16],
+  ['sunset','s u n s e t','🌇','ゆうやけ',C,16], ['desktop','d e s k t o p','🖥️','デスクトップ',L,16], ['catfish','c a t f i sh','🐟','ナマズ',C,16],
+  ['hotdog','h o t d o g','🌭','ホットドッグ',L,16], ['bathtub','b a th t u b','🛁','よくそう',C,16], ['backpack','b a ck p a ck','🎒','リュック',L,16],
+  ['pigpen','p i g p e n','','ぶたごや',C,16], ['sunhat','s u n h a t','👒','ぼうし',C,16], ['cobweb','c o b w e b','🕸️','くものす',C,16],
+  ['laptop','l a p t o p','💻','ノートパソコン',L,16], ['uphill','u p h i ll','','のぼりざか',C,16], ['bedbug','b e d b u g','','ナンキンムシ',C,16],
+  ['zumped','z u m p ed_t','','',S,16], ['vilked','v i l k ed_t','','',S,16], ['vunked','v u nk ed_t','','',S,16],
+  ['zelled','z e ll ed_d','','',S,16], ['pazzed','p a zz ed_d','','',S,16], ['sulled','s u ll ed_d','','',S,16],
+  ['bifted','b i f t ed_id','','',S,16], ['gunded','g u n d ed_id','','',S,16], ['vosted','v o s t ed_id','','',S,16],
 ];

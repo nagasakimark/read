@@ -150,7 +150,7 @@ export function stepQuestions(C, state, step, rng, ctx) {
   switch (step.type) {
     case 'retrieval': {
       // Priority: reteach -> GPCs still climbing the ladder (lowest rung first) -> due for review -> everything else seen.
-      const seen = Object.values(state.items).filter(i => (i.kind === 'gpc' || i.kind === 'tricky') && i.a.length
+      const seen = Object.values(state.items).filter(i => (i.kind === 'gpc' || i.kind === 'tricky') && i.a.length && C.gpcs[i.id.slice(4)]?.type !== 'suffix'
         && (i.kind === 'tricky' ? (C.tricky[i.id.slice(3)]?.release ?? 99) : (C.gpcs[i.id.slice(4)]?.unit ?? 99)) <= unit);
       const rank = i => (state.reteach.includes(i.id) ? -2 : i.kind === 'gpc' && i.rung < M.K.mastered ? -1 : 0);
       const sorted = seen.map(i => ({ i, k: rank(i), p: M.recallProb(i, ctx.now), r: i.rung }))

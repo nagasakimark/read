@@ -3,7 +3,7 @@
 > GENERATED from `curriculum/src/course.mjs` by `tools/build_course_doc.mjs`. Edit the data, not this file.
 > Teaching order and pedagogy follow `docs/BLUEPRINT.md`. Every threshold marked **DR** is a design recommendation to validate with real children.
 
-Status: **16 of 39 units authored** (Units 0-15); the other 23 are specified here and unlock as they are written. Audio and pictures are placeholders (eSpeak voice, emoji) until recordings and artwork replace them; practice games are planned (section 9).
+Status: **17 of 39 units authored** (Units 0-16); the other 22 are specified here and unlock as they are written. Audio and pictures are placeholders (eSpeak voice, emoji) until recordings and artwork replace them; practice games are planned (section 9).
 
 ## 1. Pedagogy: the principles that decide the order
 
@@ -100,7 +100,7 @@ Example words: U8: ship, shop, fish, dish, chin, chip, much, such | U9: thin, th
 | 13 | Initial l-clusters (l の ならび) | Adjacent consonants (no new GPCs) | — | bl cl fl gl pl sl | r/l inside clusters | here, when | authored |
 | 14 | Initial r-clusters (r の ならび) | Adjacent consonants (no new GPCs) | — | br cr dr fr gr tr | r/l (fly/fry), b/v | out, little | authored |
 | 15 | Three-consonant onsets + -ing (3つの しいん と -ing) | Inflection (-ing, -ed) | — | CCCVC: str spl scr shr thr (thr only after th is secure); suffix -ing (base + ing; ng already known) | Three-consonant onsets; -ing is not "ingu" | were, your | authored |
-| 16 | Suffix -ed + compound words (-ed と ふたつの ことば) | Inflection (-ing, -ed) | — | -ed says /t/ /d/ or /ɪd/; compound words made of closed syllables | -ed is not "edo" / "to" | — | planned |
+| 16 | Suffix -ed + compound words (-ed と ふたつの ことば) | Inflection (-ing, -ed) | ed /t/ jumped; ed /d/ filled; ed /ɪd/ landed | -ed says /t/ /d/ or /ɪd/; compound words made of closed syllables | -ed is not "edo" / "to" | — | authored |
 
 Example words: U11: hand, tent, jump, desk, milk, gift, best, lunch | U12: stop, spin, swim, snap, skip, step | U13: black, clap, flag, glad, plan, slip | U14: frog, drum, crab, trip, grin, brush | U15: strap, split, scrub, shrink, jumping, singing | U16: jumped, filled, landed, sunset, desktop, catfish
 

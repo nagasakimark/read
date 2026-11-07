@@ -67,6 +67,10 @@ export const GPCS = [
   // Unit 10: ng / nk (final only)
   ['ng','ng',['ng'],10,'digraph-final',null,[['ring','💍'],['king','🤴'],['sing','🎤']]],
   ['nk','nk',['ng','k'],10,'digraph-final',null,[['bank','🏦'],['sink','🚰'],['junk','🗑️']]],
+  // suffix -ed: one spelling, three sounds. Taught as word endings (unit 16 patterns), never as stand-alone sound cards.
+  ['ed_t','ed',['t'],16,'suffix',null,null],
+  ['ed_d','ed',['d'],16,'suffix',null,null],
+  ['ed_id','ed',['i','d'],16,'suffix',null,null],
 ].map(([id,g,ph,unit,type,bank,fbank]) => ({ id, g, ph, unit, type, ...(bank ? { bank } : {}), ...(fbank ? { fbank } : {}) }));
 
 // Plural-/s/ contrast words used as lures when teaching final /z/ (sz). Not GPC data; build copies it to meta.

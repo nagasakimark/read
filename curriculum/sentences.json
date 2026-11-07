@@ -188,5 +188,25 @@
   "unit": 15,
   "text": "Were you at the pond?",
   "pic": "🏞️"
+ },
+ {
+  "unit": 16,
+  "text": "Sam jumped on the sand.",
+  "pic": "🏖️"
+ },
+ {
+  "unit": 16,
+  "text": "Meg filled a cup.",
+  "pic": "🥛"
+ },
+ {
+  "unit": 16,
+  "text": "The sunset was red.",
+  "pic": "🌇"
+ },
+ {
+  "unit": 16,
+  "text": "Dan kicked the backpack.",
+  "pic": "🎒"
  }
 ]

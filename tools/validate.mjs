@@ -34,7 +34,7 @@ const introduced = new Set();
 C.units.forEach((u, i) => {
   if (u.id !== i) err(`unit order: expected id ${i}, got ${u.id}`);
   for (const p of u.prereqs) if (p >= u.id) err(`unit ${u.id}: prerequisite ${p} is not earlier`);
-  for (const g of u.newGpcs) {
+  for (const g of [...u.newGpcs, ...(u.suffixGpcs || [])]) {
     if (!C.gpcs[g]) { err(`unit ${u.id}: unknown GPC ${g}`); continue; }
     if (introduced.has(g)) err(`GPC ${g} introduced twice`);
     introduced.add(g);
@@ -87,7 +87,8 @@ for (const p of C.packs) for (const set of p.sets) {
     const a = C.words[set[i]], b = C.words[set[j]];
     if (!a || !b) continue;
     const diff = a.g.length === b.g.length ? a.g.filter((g, k) => g !== b.g[k]).length : 99;
-    if (p.epen) { if (!(b.tier === 'epen' && b.g.length === a.g.length + 1 && b.g.some((_, i) => b.g.filter((__, k) => k !== i).join() === a.g.join()))) err(`pack ${p.id}: ${a.id}/${b.id} must be a word plus one extra vowel`); }
+    if (p.suffix) { if (!(b.g.slice(0, -1).join() === a.g.join() && C.gpcs[b.g.at(-1)]?.type === 'suffix')) err(`pack ${p.id}: ${a.id}/${b.id} must be a word and the same word plus a suffix`); }
+    else if (p.epen) { if (!(b.tier === 'epen' && b.g.length === a.g.length + 1 && b.g.some((_, i) => b.g.filter((__, k) => k !== i).join() === a.g.join()))) err(`pack ${p.id}: ${a.id}/${b.id} must be a word plus one extra vowel`); }
     else if (diff !== 1) err(`pack ${p.id}: ${a.id}/${b.id} do not differ by exactly one GPC`);
   }
 }
@@ -148,7 +149,7 @@ for (const w of C.wordList.filter(w => w.tier !== 'silly')) {
     const cu = COURSE[au.id];
     if (!cu) { err(`course: authored unit ${au.id} missing from course map`); continue; }
     if (cu.stage !== au.stage) err(`course: unit ${au.id} stage differs (course ${cu.stage}, authored ${au.stage})`);
-    const a = (au.groups || []).flat().sort().join(','), c = cu.gpcs.map(g => g[0]).sort().join(',');
+    const a = [...(au.groups || []).flat(), ...(au.suffixGpcs || [])].sort().join(','), c = cu.gpcs.map(g => g[0]).sort().join(',');
     if (a !== c) err(`course: unit ${au.id} GPCs differ (authored [${a}] vs course [${c}])`);
     const at = (au.tricky || []).flat().map(x => x.toLowerCase()).sort().join(','), ct = cu.tricky.map(x => x.toLowerCase()).sort().join(',');
     if (at !== ct) warn(`course: unit ${au.id} tricky words differ (authored [${at}] vs course [${ct}])`);

@@ -875,5 +875,33 @@
     "🗑️"
    ]
   ]
+ },
+ {
+  "id": "ed_t",
+  "g": "ed",
+  "ph": [
+   "t"
+  ],
+  "unit": 16,
+  "type": "suffix"
+ },
+ {
+  "id": "ed_d",
+  "g": "ed",
+  "ph": [
+   "d"
+  ],
+  "unit": 16,
+  "type": "suffix"
+ },
+ {
+  "id": "ed_id",
+  "g": "ed",
+  "ph": [
+   "i",
+   "d"
+  ],
+  "unit": 16,
+  "type": "suffix"
  }
 ]

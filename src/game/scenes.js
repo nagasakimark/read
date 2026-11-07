@@ -132,19 +132,21 @@ export class MasteryScene {
     const { app } = this, C = app.C, st = app.state;
     const back = new Btn({ x: 12, y: 10, w: 76, h: 56, icon: '🏠', size: 30, color: '#e8a23a', onTap: () => app.goHome() });
     this.ui = [back];
-    C.gpcList.forEach((g, i) => {
-      const col = i % 8, row = Math.floor(i / 8), x = 40 + col * 164, y = 84 + row * 100;
-      this.ui.push(new Btn({ x, y, w: 150, h: 88, shadow: false, customDraw: (c, u) => {
+    const gl = C.gpcList.filter(g => g.type !== 'suffix');
+    gl.forEach((g, i) => {
+      const col = i % 12, row = Math.floor(i / 12), x = 30 + col * 110, y = 76 + row * 80;
+      this.ui.push(new Btn({ x, y, w: 102, h: 72, shadow: false, customDraw: (c, u) => {
         const it = st.items['gpc:' + g.id], r = it?.rung || 0, got = r >= M.K.mastered, seen = !!it?.a.length;
-        rr(c, 0, 4, u.w, u.h, 22); c.fillStyle = 'rgba(30,50,70,.25)'; c.fill();
-        rr(c, 0, 0, u.w, u.h, 22); c.fillStyle = got ? '#7be0ad' : seen ? '#e7f3fb' : '#c3ced7'; c.fill(); c.lineWidth = got ? 6 : 3; c.strokeStyle = got ? '#fff' : '#a8b9c6'; c.stroke();
-        text(c, seen || got ? gLabel(g) : '?', u.w / 2, 38, { size: gLabel(g).length > 1 ? 48 : 58, color: got ? '#175d3b' : '#5b7385' });
-        for (let k = 0; k < 6; k++) { c.fillStyle = k < r ? '#ffb400' : 'rgba(0,0,0,.15)'; c.beginPath(); c.arc(u.w / 2 - 50 + k * 20, 74, 6, 0, 7); c.fill(); }
+        rr(c, 0, 4, u.w, u.h, 18); c.fillStyle = 'rgba(30,50,70,.25)'; c.fill();
+        rr(c, 0, 0, u.w, u.h, 18); c.fillStyle = got ? '#7be0ad' : seen ? '#e7f3fb' : '#c3ced7'; c.fill(); c.lineWidth = got ? 5 : 3; c.strokeStyle = got ? '#fff' : '#a8b9c6'; c.stroke();
+        text(c, seen || got ? gLabel(g) : '?', u.w / 2, 30, { size: gLabel(g).length > 1 ? 34 : 42, color: got ? '#175d3b' : '#5b7385' });
+        for (let k = 0; k < 6; k++) { c.fillStyle = k < r ? '#ffb400' : 'rgba(0,0,0,.15)'; c.beginPath(); c.arc(u.w / 2 - 35 + k * 14, 60, 4.5, 0, 7); c.fill(); }
       }, onTap: () => { if (st.items['gpc:' + g.id]) app.audio.play(['gpc:' + g.id]); } }));
     });
-    C.trickyList.forEach((t, i) => this.ui.push(new Btn({ x: 40 + i * 80, y: 520, w: 74, h: 60, shadow: false, customDraw: (c, u) => {
-      const it = st.items['tr:' + t.id], r = it?.rung || 0; rr(c, 0, 0, u.w, u.h, 14); c.fillStyle = r >= M.K.mastered ? '#ffc3d0' : it ? '#fff' : '#c3ced7'; c.fill();
-      text(c, it ? t.t : '?', u.w / 2, u.h / 2 + 4, { size: 26, color: '#a3203f' }); if (r >= M.K.mastered) text(c, '♥', u.w - 12, 12, { size: 16, color: '#e8365d' });
+    const ty0 = 76 + Math.ceil(gl.length / 12) * 80 + 14;
+    C.trickyList.forEach((t, i) => this.ui.push(new Btn({ x: 30 + (i % 17) * 78, y: ty0 + Math.floor(i / 17) * 54, w: 72, h: 48, shadow: false, customDraw: (c, u) => {
+      const it = st.items['tr:' + t.id], r = it?.rung || 0; rr(c, 0, 0, u.w, u.h, 12); c.fillStyle = r >= M.K.mastered ? '#ffc3d0' : it ? '#fff' : '#c3ced7'; c.fill();
+      text(c, it ? t.t : '?', u.w / 2, u.h / 2 + 3, { size: t.t.length > 5 ? 20 : 24, color: '#a3203f' }); if (r >= M.K.mastered) text(c, '♥', u.w - 11, 11, { size: 14, color: '#e8365d' });
     }, onTap: () => { if (st.items['tr:' + t.id]) app.audio.play(['w:' + t.id]); } })));
   }
   update(dt) { this.t += dt; }
@@ -181,14 +183,14 @@ export class TeacherScene {
     text(c, next ? `Now: Unit ${next.unit}, lesson ${next.lessonId}` : 'All units complete 🎉', 40, 86, { size: 22, color: '#23394b', align: 'left' });
     if (gate && !gate.open) { text(c, 'To pass: ' + gate.reasons.slice(0, 3).join(' · '), 40, 114, { size: 17, color: '#7d4a00', align: 'left', weight: 'normal' }); }
     // GPC rung table
-    C.gpcList.forEach((g, i) => {
-      const col = i % 4, row = Math.floor(i / 4), x = 40 + col * 235, y = 140 + row * 52;
+    C.gpcList.filter(g => g.type !== 'suffix').forEach((g, i) => {
+      const col = i % 6, row = Math.floor(i / 6), x = 40 + col * 218, y = 140 + row * 50;
       const it = st.items['gpc:' + g.id], r = it?.rung || 0;
-      rr(c, x, y, 220, 44, 10); c.fillStyle = r >= M.K.mastered ? '#d8f5e3' : it ? '#fff' : '#e8eef2'; c.fill(); c.lineWidth = 2; c.strokeStyle = '#cfdbe4'; c.stroke();
+      rr(c, x, y, 208, 44, 10); c.fillStyle = r >= M.K.mastered ? '#d8f5e3' : it ? '#fff' : '#e8eef2'; c.fill(); c.lineWidth = 2; c.strokeStyle = '#cfdbe4'; c.stroke();
       text(c, gLabel(g), x + 30, y + 24, { size: gLabel(g).length > 2 ? 22 : 28, color: '#23394b' });
-      for (let k = 0; k < 6; k++) { c.fillStyle = k < r ? '#ffb400' : '#d5dee5'; c.fillRect(x + 66 + k * 20, y + 14, 16, 16); }
+      for (let k = 0; k < 6; k++) { c.fillStyle = k < r ? '#ffb400' : '#d5dee5'; c.fillRect(x + 62 + k * 18, y + 14, 14, 16); }
       const acc = it && it.a.length ? Math.round((it.a.reduce((s, a) => s + a.ok, 0) / it.a.length) * 100) : null;
-      text(c, acc == null ? '–' : acc + '%', x + 214, y + 24, { size: 16, color: '#4a6275', align: 'right', weight: 'normal' });
+      text(c, acc == null ? '–' : acc + '%', x + 202, y + 24, { size: 16, color: '#4a6275', align: 'right', weight: 'normal' });
     });
     const conf = M.confusionPairs(st, 2).slice(0, 5);
     text(c, 'Frequent mix-ups (teach-first, tried-instead): ' + (conf.length ? conf.map(x => `${x.pair[0]}→${x.pair[1]} ×${x.n}`).join('   ') : 'none yet'), 40, 566, { size: 16, color: '#4a6275', align: 'left', weight: 'normal' });

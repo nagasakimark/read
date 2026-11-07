@@ -29,7 +29,7 @@ export class Curriculum {
     this.lessons = Object.fromEntries(d.units.flatMap(u => u.lessons.map(l => [l.id, l])));
   }
 
-  gpcsUpTo(unit) { return this.gpcList.filter(g => g.unit <= unit); }
+  gpcsUpTo(unit) { return this.gpcList.filter(g => g.unit <= unit && g.type !== 'suffix'); }
   isVowelGpc(id) { return VOWELS.has(id); }
   displayWord(w) { return typeof w === 'string' ? (this.words[w]?.t ?? w) : w.t; }
 

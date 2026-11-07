@@ -33,4 +33,6 @@ export const PACKS = [
     sets:[['blush','brush'],['plank','prank']] },
   { id:'cp_epen_15', unit:15, epen:true, name:'strap / sutrap', ja:'3つの しいんの あいだに「う」を いれないでね：strap',
     sets:[['strap','sutrap'],['split','suplit'],['scrub','sucrub'],['shrink','shurink'],['thrill','thurill'],['string','sutring']] },
+  { id:'cp_ed_16', unit:16, suffix:true, name:'jump / jumped', ja:'さいごの「ト」「ド」を わすれずに：jumped',
+    sets:[['jump','jumped'],['pick','picked'],['kick','kicked'],['fish','fished'],['fill','filled'],['land','landed']] },
 ];

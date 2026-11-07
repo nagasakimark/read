@@ -68,3 +68,12 @@ Headless playthrough: `node tools/play.mjs <lessons> <accuracy> <skipToUnit>` (n
 - **Bug found by simulation and fixed:** a unit could deadlock if a story question was missed, because practice lessons never offered the story again. Practice lessons now re-offer unread / unanswered stories.
 - Verification: validate 0 errors; random/first/last bots never pass; perfect learner finishes in 97 lessons; 85% learner in 139; 60% learner held back; headless play of Unit 11 clean.
 - Next: Unit 15 (three-consonant onsets + -ing) and Unit 16 (-ed, compounds; `-ed` needs a word-sum activity and /t/ /d/ /ɪd/ sorting), then Stage 4.
+
+## Units 15-16 (this session)
+
+- **U15** three-consonant starts (str spl scr shr thr) and **-ing** as a word-ending pattern (`ing$`), tricky words were / your; epenthesis pack `cp_epen_15`.
+- **U16** **-ed** and compound words. -ed is spelled one way but says /t/, /d/ or /ɪd/, so it is three `suffix` GPCs (`ed_t`, `ed_d`, `ed_id`) that appear only inside words (never as sound cards, never as lures, never in retrieval). Patterns `ed_t$`, `ed_d$`, `ed_id$`; pack `cp_ed_16` (jump / jumped etc.) trains hearing the ending. Compounds: sunset, desktop, catfish, backpack, laptop...
+- Stage 3 (Units 11-16) is now fully authored. 664 words, 34 tricky, 42 stories, 42 sentences, 17 units, 41 GPCs. Audio regenerated (1,799 keys).
+- Fixed: gem-collection screen overflowed (tricky words ran off screen); now 12 per row and wraps. Teacher table uses 6 columns so all GPCs fit 1366x598.
+- Known: Unit 15 takes ~14 lessons for a perfect learner (rare patterns shr/thr/scr need many varied words); consider adding words or relaxing the pattern gate after the pilot.
+- Next: Stage 4 (long vowels: ee oo, ai oa, igh ow oi, oo ar or, ur er air ear, y). These ARE new GPCs, so lessons use the standard template with the minimal-pair and "sort" activities.

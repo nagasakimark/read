@@ -50,7 +50,7 @@ const units = UNITS.map(u => {
   } else {
     mk(1, 'consolidate', []);
   }
-  return { id: u.id, stage: u.stage, name: u.name, ja: u.ja, newGpcs: (u.groups || []).flat(), newPatterns: (u.patterns || []).flat().map(x => x.replace(/ /g, '')), newTricky: u.tricky.flat(),
+  return { id: u.id, stage: u.stage, name: u.name, ja: u.ja, newGpcs: (u.groups || []).flat(), suffixGpcs: u.suffixGpcs || [], newPatterns: (u.patterns || []).flat().map(x => x.replace(/ /g, '')), newTricky: u.tricky.flat(),
     prereqs: u.id > 1 ? [u.id - 1] : [0], packs: PACKS.filter(p => p.unit === u.id).map(p => p.id), lessons,
     stories: st, mastery: { rungRequired: 4, storyAccuracy: 0.9, questionsCorrect: st.length ? 2 : 0 } };
 });

@@ -53,7 +53,7 @@ function simulate(label, answer, { maxLessons, gapDays = 1, seed = 1 } = {}) {
     for (const it of Object.values(state.items)) if (it.kind === 'gpc') peak[it.id] = Math.max(peak[it.id] || 0, it.rung);
     clock.now += gapDays * DAY;
   }
-  const rungs = C.gpcList.map(g => [g.id, state.items[M.keys.gpc(g.id)]?.rung ?? 0]);
+  const rungs = C.gpcList.filter(g => g.type !== 'suffix').map(g => [g.id, state.items[M.keys.gpc(g.id)]?.rung ?? 0]);
   const unitsPassed = C.units.filter(u => M.isUnitPassed(state, u.id)).map(u => u.id);
   return { label, state, lessons, qs, rungs, peak, unitsPassed, perUnit, finished: !M.nextLesson(C, state) };
 }

@@ -20,4 +20,5 @@ export const UNITS = [
   { id:13, stage:3, name:'l-clusters', ja:'l の ならび', patterns:[['^b l','^c l'],['^f l','^g l'],['^p l','^s l']], tricky:[['here'],['when'],[]] },
   { id:14, stage:3, name:'r-clusters', ja:'r の ならび', patterns:[['^b r','^c r'],['^d r','^f r'],['^g r','^t r','^p r']], tricky:[['out'],['little'],[]] },
   { id:15, stage:3, name:'Three-letter starts and -ing', ja:'3つの しいん と -ing', patterns:[['^s t r','^s p l'],['^s c r','^sh r','^th r'],['i ng$']], tricky:[['were'],['your'],[]] },
+  { id:16, stage:3, name:'-ed and compound words', ja:'-ed と ふたつの ことば', patterns:[['ed_t$'],['ed_d$'],['ed_id$']], suffixGpcs:['ed_t','ed_d','ed_id'], tricky:[[],[],[]] },
 ];

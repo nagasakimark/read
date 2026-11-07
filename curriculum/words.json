@@ -12625,5 +12625,1260 @@
   "pat": [
    "ing$"
   ]
+ },
+ {
+  "id": "jumped",
+  "t": "jumped",
+  "g": [
+   "j",
+   "u",
+   "m",
+   "p",
+   "ed_t"
+  ],
+  "u": 16,
+  "ph": [
+   "dj",
+   "u",
+   "m",
+   "p",
+   "t"
+  ],
+  "pic": "",
+  "ja": "とんだ",
+  "tier": "common",
+  "pat": [
+   "ed_t$"
+  ]
+ },
+ {
+  "id": "picked",
+  "t": "picked",
+  "g": [
+   "p",
+   "i",
+   "ck",
+   "ed_t"
+  ],
+  "u": 16,
+  "ph": [
+   "p",
+   "i",
+   "k",
+   "t"
+  ],
+  "pic": "",
+  "ja": "えらんだ",
+  "tier": "common",
+  "pat": [
+   "ed_t$"
+  ]
+ },
+ {
+  "id": "kicked",
+  "t": "kicked",
+  "g": [
+   "k",
+   "i",
+   "ck",
+   "ed_t"
+  ],
+  "u": 16,
+  "ph": [
+   "k",
+   "i",
+   "k",
+   "t"
+  ],
+  "pic": "⚽",
+  "ja": "けった",
+  "tier": "common",
+  "pat": [
+   "ed_t$"
+  ]
+ },
+ {
+  "id": "asked",
+  "t": "asked",
+  "g": [
+   "a",
+   "s",
+   "k",
+   "ed_t"
+  ],
+  "u": 16,
+  "ph": [
+   "a",
+   "s",
+   "k",
+   "t"
+  ],
+  "pic": "",
+  "ja": "きいた",
+  "tier": "common",
+  "pat": [
+   "ed_t$"
+  ]
+ },
+ {
+  "id": "fished",
+  "t": "fished",
+  "g": [
+   "f",
+   "i",
+   "sh",
+   "ed_t"
+  ],
+  "u": 16,
+  "ph": [
+   "f",
+   "i",
+   "sh",
+   "t"
+  ],
+  "pic": "🎣",
+  "ja": "つりをした",
+  "tier": "common",
+  "pat": [
+   "ed_t$"
+  ]
+ },
+ {
+  "id": "wished",
+  "t": "wished",
+  "g": [
+   "w",
+   "i",
+   "sh",
+   "ed_t"
+  ],
+  "u": 16,
+  "ph": [
+   "w",
+   "i",
+   "sh",
+   "t"
+  ],
+  "pic": "",
+  "ja": "ねがった",
+  "tier": "common",
+  "pat": [
+   "ed_t$"
+  ]
+ },
+ {
+  "id": "checked",
+  "t": "checked",
+  "g": [
+   "ch",
+   "e",
+   "ck",
+   "ed_t"
+  ],
+  "u": 16,
+  "ph": [
+   "ch",
+   "e",
+   "k",
+   "t"
+  ],
+  "pic": "",
+  "ja": "しらべた",
+  "tier": "common",
+  "pat": [
+   "ed_t$"
+  ]
+ },
+ {
+  "id": "bumped",
+  "t": "bumped",
+  "g": [
+   "b",
+   "u",
+   "m",
+   "p",
+   "ed_t"
+  ],
+  "u": 16,
+  "ph": [
+   "b",
+   "u",
+   "m",
+   "p",
+   "t"
+  ],
+  "pic": "",
+  "ja": "ぶつけた",
+  "tier": "common",
+  "pat": [
+   "ed_t$"
+  ]
+ },
+ {
+  "id": "camped",
+  "t": "camped",
+  "g": [
+   "c",
+   "a",
+   "m",
+   "p",
+   "ed_t"
+  ],
+  "u": 16,
+  "ph": [
+   "k",
+   "a",
+   "m",
+   "p",
+   "t"
+  ],
+  "pic": "",
+  "ja": "キャンプした",
+  "tier": "common",
+  "pat": [
+   "ed_t$"
+  ]
+ },
+ {
+  "id": "sniffed",
+  "t": "sniffed",
+  "g": [
+   "s",
+   "n",
+   "i",
+   "ff",
+   "ed_t"
+  ],
+  "u": 16,
+  "ph": [
+   "s",
+   "n",
+   "i",
+   "f",
+   "t"
+  ],
+  "pic": "",
+  "ja": "くんくんした",
+  "tier": "common",
+  "pat": [
+   "^sn",
+   "ed_t$"
+  ]
+ },
+ {
+  "id": "rushed",
+  "t": "rushed",
+  "g": [
+   "r",
+   "u",
+   "sh",
+   "ed_t"
+  ],
+  "u": 16,
+  "ph": [
+   "r",
+   "u",
+   "sh",
+   "t"
+  ],
+  "pic": "",
+  "ja": "いそいだ",
+  "tier": "common",
+  "pat": [
+   "ed_t$"
+  ]
+ },
+ {
+  "id": "dashed",
+  "t": "dashed",
+  "g": [
+   "d",
+   "a",
+   "sh",
+   "ed_t"
+  ],
+  "u": 16,
+  "ph": [
+   "d",
+   "a",
+   "sh",
+   "t"
+  ],
+  "pic": "",
+  "ja": "かけた",
+  "tier": "common",
+  "pat": [
+   "ed_t$"
+  ]
+ },
+ {
+  "id": "crashed",
+  "t": "crashed",
+  "g": [
+   "c",
+   "r",
+   "a",
+   "sh",
+   "ed_t"
+  ],
+  "u": 16,
+  "ph": [
+   "k",
+   "r",
+   "a",
+   "sh",
+   "t"
+  ],
+  "pic": "",
+  "ja": "ぶつかった",
+  "tier": "common",
+  "pat": [
+   "^cr",
+   "ed_t$"
+  ]
+ },
+ {
+  "id": "splashed",
+  "t": "splashed",
+  "g": [
+   "s",
+   "p",
+   "l",
+   "a",
+   "sh",
+   "ed_t"
+  ],
+  "u": 16,
+  "ph": [
+   "s",
+   "p",
+   "l",
+   "a",
+   "sh",
+   "t"
+  ],
+  "pic": "💦",
+  "ja": "はねかけた",
+  "tier": "common",
+  "pat": [
+   "^sp",
+   "^spl",
+   "ed_t$"
+  ]
+ },
+ {
+  "id": "stamped",
+  "t": "stamped",
+  "g": [
+   "s",
+   "t",
+   "a",
+   "m",
+   "p",
+   "ed_t"
+  ],
+  "u": 16,
+  "ph": [
+   "s",
+   "t",
+   "a",
+   "m",
+   "p",
+   "t"
+  ],
+  "pic": "",
+  "ja": "ふみつけた",
+  "tier": "common",
+  "pat": [
+   "^st",
+   "ed_t$"
+  ]
+ },
+ {
+  "id": "filled",
+  "t": "filled",
+  "g": [
+   "f",
+   "i",
+   "ll",
+   "ed_d"
+  ],
+  "u": 16,
+  "ph": [
+   "f",
+   "i",
+   "l",
+   "d"
+  ],
+  "pic": "",
+  "ja": "いっぱいにした",
+  "tier": "common",
+  "pat": [
+   "ed_d$"
+  ]
+ },
+ {
+  "id": "banged",
+  "t": "banged",
+  "g": [
+   "b",
+   "a",
+   "ng",
+   "ed_d"
+  ],
+  "u": 16,
+  "ph": [
+   "b",
+   "a",
+   "ng",
+   "d"
+  ],
+  "pic": "",
+  "ja": "たたいた",
+  "tier": "common",
+  "pat": [
+   "ed_d$"
+  ]
+ },
+ {
+  "id": "buzzed",
+  "t": "buzzed",
+  "g": [
+   "b",
+   "u",
+   "zz",
+   "ed_d"
+  ],
+  "u": 16,
+  "ph": [
+   "b",
+   "u",
+   "z",
+   "d"
+  ],
+  "pic": "🐝",
+  "ja": "ブンブンした",
+  "tier": "common",
+  "pat": [
+   "ed_d$"
+  ]
+ },
+ {
+  "id": "yelled",
+  "t": "yelled",
+  "g": [
+   "y",
+   "e",
+   "ll",
+   "ed_d"
+  ],
+  "u": 16,
+  "ph": [
+   "y",
+   "e",
+   "l",
+   "d"
+  ],
+  "pic": "",
+  "ja": "さけんだ",
+  "tier": "common",
+  "pat": [
+   "ed_d$"
+  ]
+ },
+ {
+  "id": "spilled",
+  "t": "spilled",
+  "g": [
+   "s",
+   "p",
+   "i",
+   "ll",
+   "ed_d"
+  ],
+  "u": 16,
+  "ph": [
+   "s",
+   "p",
+   "i",
+   "l",
+   "d"
+  ],
+  "pic": "",
+  "ja": "こぼした",
+  "tier": "common",
+  "pat": [
+   "^sp",
+   "ed_d$"
+  ]
+ },
+ {
+  "id": "smelled",
+  "t": "smelled",
+  "g": [
+   "s",
+   "m",
+   "e",
+   "ll",
+   "ed_d"
+  ],
+  "u": 16,
+  "ph": [
+   "s",
+   "m",
+   "e",
+   "l",
+   "d"
+  ],
+  "pic": "👃",
+  "ja": "においをかいだ",
+  "tier": "common",
+  "pat": [
+   "^sm",
+   "ed_d$"
+  ]
+ },
+ {
+  "id": "rested",
+  "t": "rested",
+  "g": [
+   "r",
+   "e",
+   "s",
+   "t",
+   "ed_id"
+  ],
+  "u": 16,
+  "ph": [
+   "r",
+   "e",
+   "s",
+   "t",
+   "i",
+   "d"
+  ],
+  "pic": "😌",
+  "ja": "やすんだ",
+  "tier": "common",
+  "pat": [
+   "ed_id$"
+  ]
+ },
+ {
+  "id": "landed",
+  "t": "landed",
+  "g": [
+   "l",
+   "a",
+   "n",
+   "d",
+   "ed_id"
+  ],
+  "u": 16,
+  "ph": [
+   "l",
+   "a",
+   "n",
+   "d",
+   "i",
+   "d"
+  ],
+  "pic": "",
+  "ja": "ちゃくりくした",
+  "tier": "common",
+  "pat": [
+   "ed_id$"
+  ]
+ },
+ {
+  "id": "lifted",
+  "t": "lifted",
+  "g": [
+   "l",
+   "i",
+   "f",
+   "t",
+   "ed_id"
+  ],
+  "u": 16,
+  "ph": [
+   "l",
+   "i",
+   "f",
+   "t",
+   "i",
+   "d"
+  ],
+  "pic": "",
+  "ja": "もちあげた",
+  "tier": "common",
+  "pat": [
+   "ed_id$"
+  ]
+ },
+ {
+  "id": "handed",
+  "t": "handed",
+  "g": [
+   "h",
+   "a",
+   "n",
+   "d",
+   "ed_id"
+  ],
+  "u": 16,
+  "ph": [
+   "h",
+   "a",
+   "n",
+   "d",
+   "i",
+   "d"
+  ],
+  "pic": "",
+  "ja": "わたした",
+  "tier": "common",
+  "pat": [
+   "ed_id$"
+  ]
+ },
+ {
+  "id": "hunted",
+  "t": "hunted",
+  "g": [
+   "h",
+   "u",
+   "n",
+   "t",
+   "ed_id"
+  ],
+  "u": 16,
+  "ph": [
+   "h",
+   "u",
+   "n",
+   "t",
+   "i",
+   "d"
+  ],
+  "pic": "",
+  "ja": "さがした",
+  "tier": "common",
+  "pat": [
+   "ed_id$"
+  ]
+ },
+ {
+  "id": "tested",
+  "t": "tested",
+  "g": [
+   "t",
+   "e",
+   "s",
+   "t",
+   "ed_id"
+  ],
+  "u": 16,
+  "ph": [
+   "t",
+   "e",
+   "s",
+   "t",
+   "i",
+   "d"
+  ],
+  "pic": "",
+  "ja": "テストした",
+  "tier": "common",
+  "pat": [
+   "ed_id$"
+  ]
+ },
+ {
+  "id": "lasted",
+  "t": "lasted",
+  "g": [
+   "l",
+   "a",
+   "s",
+   "t",
+   "ed_id"
+  ],
+  "u": 16,
+  "ph": [
+   "l",
+   "a",
+   "s",
+   "t",
+   "i",
+   "d"
+  ],
+  "pic": "",
+  "ja": "つづいた",
+  "tier": "common",
+  "pat": [
+   "ed_id$"
+  ]
+ },
+ {
+  "id": "melted",
+  "t": "melted",
+  "g": [
+   "m",
+   "e",
+   "l",
+   "t",
+   "ed_id"
+  ],
+  "u": 16,
+  "ph": [
+   "m",
+   "e",
+   "l",
+   "t",
+   "i",
+   "d"
+  ],
+  "pic": "🫠",
+  "ja": "とけた",
+  "tier": "common",
+  "pat": [
+   "ed_id$"
+  ]
+ },
+ {
+  "id": "listed",
+  "t": "listed",
+  "g": [
+   "l",
+   "i",
+   "s",
+   "t",
+   "ed_id"
+  ],
+  "u": 16,
+  "ph": [
+   "l",
+   "i",
+   "s",
+   "t",
+   "i",
+   "d"
+  ],
+  "pic": "",
+  "ja": "リストにした",
+  "tier": "common",
+  "pat": [
+   "ed_id$"
+  ]
+ },
+ {
+  "id": "sunset",
+  "t": "sunset",
+  "g": [
+   "s",
+   "u",
+   "n",
+   "s",
+   "e",
+   "t"
+  ],
+  "u": 16,
+  "ph": [
+   "s",
+   "u",
+   "n",
+   "s",
+   "e",
+   "t"
+  ],
+  "pic": "🌇",
+  "ja": "ゆうやけ",
+  "tier": "common"
+ },
+ {
+  "id": "desktop",
+  "t": "desktop",
+  "g": [
+   "d",
+   "e",
+   "s",
+   "k",
+   "t",
+   "o",
+   "p"
+  ],
+  "u": 16,
+  "ph": [
+   "d",
+   "e",
+   "s",
+   "k",
+   "t",
+   "o",
+   "p"
+  ],
+  "pic": "🖥️",
+  "ja": "デスクトップ",
+  "tier": "loanword"
+ },
+ {
+  "id": "catfish",
+  "t": "catfish",
+  "g": [
+   "c",
+   "a",
+   "t",
+   "f",
+   "i",
+   "sh"
+  ],
+  "u": 16,
+  "ph": [
+   "k",
+   "a",
+   "t",
+   "f",
+   "i",
+   "sh"
+  ],
+  "pic": "🐟",
+  "ja": "ナマズ",
+  "tier": "common"
+ },
+ {
+  "id": "hotdog",
+  "t": "hotdog",
+  "g": [
+   "h",
+   "o",
+   "t",
+   "d",
+   "o",
+   "g"
+  ],
+  "u": 16,
+  "ph": [
+   "h",
+   "o",
+   "t",
+   "d",
+   "o",
+   "g"
+  ],
+  "pic": "🌭",
+  "ja": "ホットドッグ",
+  "tier": "loanword"
+ },
+ {
+  "id": "bathtub",
+  "t": "bathtub",
+  "g": [
+   "b",
+   "a",
+   "th",
+   "t",
+   "u",
+   "b"
+  ],
+  "u": 16,
+  "ph": [
+   "b",
+   "a",
+   "th",
+   "t",
+   "u",
+   "b"
+  ],
+  "pic": "🛁",
+  "ja": "よくそう",
+  "tier": "common"
+ },
+ {
+  "id": "backpack",
+  "t": "backpack",
+  "g": [
+   "b",
+   "a",
+   "ck",
+   "p",
+   "a",
+   "ck"
+  ],
+  "u": 16,
+  "ph": [
+   "b",
+   "a",
+   "k",
+   "p",
+   "a",
+   "k"
+  ],
+  "pic": "🎒",
+  "ja": "リュック",
+  "tier": "loanword"
+ },
+ {
+  "id": "pigpen",
+  "t": "pigpen",
+  "g": [
+   "p",
+   "i",
+   "g",
+   "p",
+   "e",
+   "n"
+  ],
+  "u": 16,
+  "ph": [
+   "p",
+   "i",
+   "g",
+   "p",
+   "e",
+   "n"
+  ],
+  "pic": "",
+  "ja": "ぶたごや",
+  "tier": "common"
+ },
+ {
+  "id": "sunhat",
+  "t": "sunhat",
+  "g": [
+   "s",
+   "u",
+   "n",
+   "h",
+   "a",
+   "t"
+  ],
+  "u": 16,
+  "ph": [
+   "s",
+   "u",
+   "n",
+   "h",
+   "a",
+   "t"
+  ],
+  "pic": "👒",
+  "ja": "ぼうし",
+  "tier": "common"
+ },
+ {
+  "id": "cobweb",
+  "t": "cobweb",
+  "g": [
+   "c",
+   "o",
+   "b",
+   "w",
+   "e",
+   "b"
+  ],
+  "u": 16,
+  "ph": [
+   "k",
+   "o",
+   "b",
+   "w",
+   "e",
+   "b"
+  ],
+  "pic": "🕸️",
+  "ja": "くものす",
+  "tier": "common"
+ },
+ {
+  "id": "laptop",
+  "t": "laptop",
+  "g": [
+   "l",
+   "a",
+   "p",
+   "t",
+   "o",
+   "p"
+  ],
+  "u": 16,
+  "ph": [
+   "l",
+   "a",
+   "p",
+   "t",
+   "o",
+   "p"
+  ],
+  "pic": "💻",
+  "ja": "ノートパソコン",
+  "tier": "loanword"
+ },
+ {
+  "id": "uphill",
+  "t": "uphill",
+  "g": [
+   "u",
+   "p",
+   "h",
+   "i",
+   "ll"
+  ],
+  "u": 16,
+  "ph": [
+   "u",
+   "p",
+   "h",
+   "i",
+   "l"
+  ],
+  "pic": "",
+  "ja": "のぼりざか",
+  "tier": "common"
+ },
+ {
+  "id": "bedbug",
+  "t": "bedbug",
+  "g": [
+   "b",
+   "e",
+   "d",
+   "b",
+   "u",
+   "g"
+  ],
+  "u": 16,
+  "ph": [
+   "b",
+   "e",
+   "d",
+   "b",
+   "u",
+   "g"
+  ],
+  "pic": "",
+  "ja": "ナンキンムシ",
+  "tier": "common"
+ },
+ {
+  "id": "zumped",
+  "t": "zumped",
+  "g": [
+   "z",
+   "u",
+   "m",
+   "p",
+   "ed_t"
+  ],
+  "u": 16,
+  "ph": [
+   "z",
+   "u",
+   "m",
+   "p",
+   "t"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly",
+  "pat": [
+   "ed_t$"
+  ]
+ },
+ {
+  "id": "vilked",
+  "t": "vilked",
+  "g": [
+   "v",
+   "i",
+   "l",
+   "k",
+   "ed_t"
+  ],
+  "u": 16,
+  "ph": [
+   "v",
+   "i",
+   "l",
+   "k",
+   "t"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly",
+  "pat": [
+   "ed_t$"
+  ]
+ },
+ {
+  "id": "vunked",
+  "t": "vunked",
+  "g": [
+   "v",
+   "u",
+   "nk",
+   "ed_t"
+  ],
+  "u": 16,
+  "ph": [
+   "v",
+   "u",
+   "ng",
+   "k",
+   "t"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly",
+  "pat": [
+   "ed_t$"
+  ]
+ },
+ {
+  "id": "zelled",
+  "t": "zelled",
+  "g": [
+   "z",
+   "e",
+   "ll",
+   "ed_d"
+  ],
+  "u": 16,
+  "ph": [
+   "z",
+   "e",
+   "l",
+   "d"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly",
+  "pat": [
+   "ed_d$"
+  ]
+ },
+ {
+  "id": "pazzed",
+  "t": "pazzed",
+  "g": [
+   "p",
+   "a",
+   "zz",
+   "ed_d"
+  ],
+  "u": 16,
+  "ph": [
+   "p",
+   "a",
+   "z",
+   "d"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly",
+  "pat": [
+   "ed_d$"
+  ]
+ },
+ {
+  "id": "sulled",
+  "t": "sulled",
+  "g": [
+   "s",
+   "u",
+   "ll",
+   "ed_d"
+  ],
+  "u": 16,
+  "ph": [
+   "s",
+   "u",
+   "l",
+   "d"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly",
+  "pat": [
+   "ed_d$"
+  ]
+ },
+ {
+  "id": "bifted",
+  "t": "bifted",
+  "g": [
+   "b",
+   "i",
+   "f",
+   "t",
+   "ed_id"
+  ],
+  "u": 16,
+  "ph": [
+   "b",
+   "i",
+   "f",
+   "t",
+   "i",
+   "d"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly",
+  "pat": [
+   "ed_id$"
+  ]
+ },
+ {
+  "id": "gunded",
+  "t": "gunded",
+  "g": [
+   "g",
+   "u",
+   "n",
+   "d",
+   "ed_id"
+  ],
+  "u": 16,
+  "ph": [
+   "g",
+   "u",
+   "n",
+   "d",
+   "i",
+   "d"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly",
+  "pat": [
+   "ed_id$"
+  ]
+ },
+ {
+  "id": "vosted",
+  "t": "vosted",
+  "g": [
+   "v",
+   "o",
+   "s",
+   "t",
+   "ed_id"
+  ],
+  "u": 16,
+  "ph": [
+   "v",
+   "o",
+   "s",
+   "t",
+   "i",
+   "d"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly",
+  "pat": [
+   "ed_id$"
+  ]
  }
 ]

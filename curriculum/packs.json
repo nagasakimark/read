@@ -370,5 +370,38 @@
     "sutring"
    ]
   ]
+ },
+ {
+  "id": "cp_ed_16",
+  "unit": 16,
+  "suffix": true,
+  "name": "jump / jumped",
+  "ja": "さいごの「ト」「ド」を わすれずに：jumped",
+  "sets": [
+   [
+    "jump",
+    "jumped"
+   ],
+   [
+    "pick",
+    "picked"
+   ],
+   [
+    "kick",
+    "kicked"
+   ],
+   [
+    "fish",
+    "fished"
+   ],
+   [
+    "fill",
+    "filled"
+   ],
+   [
+    "land",
+    "landed"
+   ]
+  ]
  }
 ]

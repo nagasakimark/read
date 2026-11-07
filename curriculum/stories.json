@@ -1303,6 +1303,158 @@
   ]
  },
  {
+  "id": "s16a",
+  "unit": 16,
+  "title": "Camping",
+  "topic": "places",
+  "focus": [],
+  "pats": [
+   "ed_t$",
+   "ed_id$",
+   "ed_d$"
+  ],
+  "pages": [
+   {
+    "text": "Sam and Dan camped.",
+    "pic": "👦🧒🏕️"
+   },
+   {
+    "text": "They jumped and splashed.",
+    "pic": "🤸💦"
+   },
+   {
+    "text": "They rested in the tent.",
+    "pic": "⛺😌"
+   },
+   {
+    "text": "The sunset was red.",
+    "pic": "🌇"
+   }
+  ],
+  "questions": [
+   {
+    "q": "Where did they rest?",
+    "type": "literal",
+    "answer": [
+     "⛺",
+     "tent"
+    ],
+    "distractors": [
+     [
+      "🛏️",
+      "bed"
+     ],
+     [
+      "🚌",
+      "bus"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s16b",
+  "unit": 16,
+  "title": "The Catfish",
+  "topic": "animals",
+  "focus": [],
+  "pats": [
+   "ed_t$",
+   "ed_d$"
+  ],
+  "pages": [
+   {
+    "text": "Meg fished.",
+    "pic": "👧🎣"
+   },
+   {
+    "text": "She got a catfish.",
+    "pic": "👧🐟"
+   },
+   {
+    "text": "It kicked and splashed.",
+    "pic": "🐟💦"
+   },
+   {
+    "text": "Meg yelled.",
+    "pic": "👧"
+   },
+   {
+    "text": "She let the catfish go.",
+    "pic": "👧🐟"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What did Meg get?",
+    "type": "literal",
+    "answer": [
+     "🐟",
+     "catfish"
+    ],
+    "distractors": [
+     [
+      "🐸",
+      "frog"
+     ],
+     [
+      "🦀",
+      "crab"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s16c",
+  "unit": 16,
+  "title": "The Backpack",
+  "topic": "school",
+  "focus": [],
+  "pats": [
+   "ed_d$",
+   "ed_id$"
+  ],
+  "pages": [
+   {
+    "text": "Ken filled a backpack.",
+    "pic": "🧒🎒"
+   },
+   {
+    "text": "He lifted it.",
+    "pic": "🎒⬆️"
+   },
+   {
+    "text": "He handed it to Dan.",
+    "pic": "🧒🎒🧒"
+   },
+   {
+    "text": "Dan was glad.",
+    "pic": "🧒😊"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What did Ken fill?",
+    "type": "literal",
+    "answer": [
+     "🎒",
+     "backpack"
+    ],
+    "distractors": [
+     [
+      "🧢",
+      "cap"
+     ],
+     [
+      "🥤",
+      "cup"
+     ]
+    ]
+   }
+  ]
+ },
+ {
   "id": "s4a",
   "unit": 4,
   "title": "The Red Hat",

@@ -1106,7 +1106,26 @@
    "kind": "inflection",
    "title": "Suffix -ed + compound words",
    "ja": "-ed と ふたつの ことば",
-   "gpcs": [],
+   "gpcs": [
+    [
+     "ed_t",
+     "ed",
+     "t",
+     "jumped"
+    ],
+    [
+     "ed_d",
+     "ed",
+     "d",
+     "filled"
+    ],
+    [
+     "ed_id",
+     "ed",
+     "ɪd",
+     "landed"
+    ]
+   ],
    "concepts": [
     "-ed says /t/ /d/ or /ɪd/",
     "compound words made of closed syllables"
@@ -1125,7 +1144,7 @@
     15
    ],
    "activities": [],
-   "status": "planned"
+   "status": "authored"
   },
   {
    "id": 17,
