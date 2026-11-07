@@ -43,7 +43,7 @@ export function planLesson(C, state, lessonSpec, rng, now = Date.now()) {
     if (seenAny) retr(6);
     const pack = packs.length ? packs.filter(p => p.unit === unit)[0] || rng.pick(packs) : null;
     if (pack) steps.push({ type: 'minpair', pack: pack.id, n: 5 });
-    const reteach = state.reteach.filter(id => id.startsWith('gpc:')).map(id => id.slice(4)).filter(g => !lessonSpec.newGpcs.includes(g) && C.gpcs[g]).slice(0, 1);
+    const reteach = state.reteach.filter(id => id.startsWith('gpc:')).map(id => id.slice(4)).filter(g => !lessonSpec.newGpcs.includes(g) && C.gpcs[g] && C.gpcs[g].type !== 'suffix').slice(0, 1);
     for (const g of lessonSpec.newGpcs.slice(0, MAX_NEW + 2)) steps.push({ type: 'meet', gpc: g });
     for (const g of reteach) steps.push({ type: 'meet', gpc: g, reteach: true });
     steps.push({ type: 'blend', n: 4, focus: lessonSpec.newGpcs });

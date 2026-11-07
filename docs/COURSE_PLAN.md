@@ -3,7 +3,7 @@
 > GENERATED from `curriculum/src/course.mjs` by `tools/build_course_doc.mjs`. Edit the data, not this file.
 > Teaching order and pedagogy follow `docs/BLUEPRINT.md`. Every threshold marked **DR** is a design recommendation to validate with real children.
 
-Status: **17 of 39 units authored** (Units 0-16); the other 22 are specified here and unlock as they are written. Audio and pictures are placeholders (eSpeak voice, emoji) until recordings and artwork replace them; practice games are planned (section 9).
+Status: **23 of 39 units authored** (Units 0-22); the other 16 are specified here and unlock as they are written. Audio and pictures are placeholders (eSpeak voice, emoji) until recordings and artwork replace them; practice games are planned (section 9).
 
 ## 1. Pedagogy: the principles that decide the order
 
@@ -112,12 +112,12 @@ Example words: U11: hand, tent, jump, desk, milk, gift, best, lunch | U12: stop,
 
 | Unit | Teaches | Kind | New GPCs (IPA) | Concepts | Contrast pack | Tricky words | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 17 | ee, oo (long) (ee oo) | Vowel sound, one spelling | ee /iː/ tree; oo /uː/ moon | — | i/ee (ship/sheep); length is a native strength | — | planned |
-| 18 | ai, oa (ai oa) | Vowel sound, one spelling | ai /eɪ/ rain; oa /oʊ/ boat | — | Glide: "rain" is not "reen", "boat" is not "booto" | — | planned |
-| 19 | igh, ow (cow), oi (igh ow oi) | Vowel sound, one spelling | igh /aɪ/ night; ow /aʊ/ cow; oi /ɔɪ/ coin | — | Diphthongs /aɪ/ /aʊ/ /ɔɪ/ | — | planned |
-| 20 | oo (short), ar, or (oo ar or) | Vowel sound, one spelling | oo /ʊ/ book; ar /ɑr/ car; or /ɔr/ fork | — | oo/oo (book/moon); rhotic vowels (accent en-US) | — | planned |
-| 21 | ur, er, air, ear (ur er air ear) | Vowel sound, one spelling | ur /ɜr/ turn; er /ɚ/ letter; air /ɛr/ hair; ear /ɪr/ hear | — | Rhotic vowels; final -er is not "aa" | — | planned |
-| 22 | y as /i/ and /aɪ/; simple code review (y と ふくしゅう) | Vowel sound, one spelling | y /i/ happy; y /aɪ/ my | consolidation of the simple code | — | — | planned |
+| 17 | ee, oo (long) (ee oo) | Vowel sound, one spelling | ee /iː/ tree; oo /uː/ moon | — | i/ee (ship/sheep); length is a native strength | — | authored |
+| 18 | ai, oa (ai oa) | Vowel sound, one spelling | ai /eɪ/ rain; oa /oʊ/ boat | — | Glide: "rain" is not "reen", "boat" is not "booto" | — | authored |
+| 19 | igh, ow (cow), oi (igh ow oi) | Vowel sound, one spelling | igh /aɪ/ night; ow /aʊ/ cow; oi /ɔɪ/ coin | — | Diphthongs /aɪ/ /aʊ/ /ɔɪ/ | — | authored |
+| 20 | oo (short), ar, or (oo ar or) | Vowel sound, one spelling | oo /ʊ/ book; ar /ɑr/ car; or /ɔr/ fork | — | oo/oo (book/moon); rhotic vowels (accent en-US) | — | authored |
+| 21 | ur, er, air, ear (ur er air ear) | Vowel sound, one spelling | ur /ɜr/ turn; er /ɚ/ letter; air /ɛr/ hair; ear /ɪr/ hear | — | Rhotic vowels; final -er is not "aa" | — | authored |
+| 22 | y as /i/ and /aɪ/; simple code review (y と ふくしゅう) | Vowel sound, one spelling | y /i/ happy; y /aɪ/ my | consolidation of the simple code | — | — | authored |
 
 Example words: U17: see, tree, green, sheep, moon, food, spoon | U18: rain, train, tail, boat, coat, road | U19: night, light, high, cow, down, coin, oil | U20: book, look, foot, car, star, park, fork, corn | U21: turn, hurt, burn, letter, sister, hair, fair, ear, hear | U22: happy, funny, sunny, my, fly, sky
 

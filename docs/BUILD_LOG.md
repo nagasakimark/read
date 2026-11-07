@@ -77,3 +77,13 @@ Headless playthrough: `node tools/play.mjs <lessons> <accuracy> <skipToUnit>` (n
 - Fixed: gem-collection screen overflowed (tricky words ran off screen); now 12 per row and wraps. Teacher table uses 6 columns so all GPCs fit 1366x598.
 - Known: Unit 15 takes ~14 lessons for a perfect learner (rare patterns shr/thr/scr need many varied words); consider adding words or relaxing the pattern gate after the pilot.
 - Next: Stage 4 (long vowels: ee oo, ai oa, igh ow oi, oo ar or, ur er air ear, y). These ARE new GPCs, so lessons use the standard template with the minimal-pair and "sort" activities.
+
+## Stage 4: vowel teams (this session)
+
+- **Units 17-22** authored: ee/oo, ai/oa, igh/ow/oi, oo(short)/ar/or, ur/er + air/ear, y as /i/ and /ai/. 16 new GPCs, each with a `vbank` (pictured words with the sound inside). Types `vowel` (mid-word only) and `vowel-open` (can end a word: igh, ow, oi-less, y).
+- Recall-flash for vowel GPCs uses the position cue "なかの おと" (sound is inside the word) and highlights the middle boxes; vowel lures are listed first from Unit 17 on.
+- Real-word lures now need an identical GPC split (fixes hand/hang style mismatches that crashed chains).
+- Packs: cp_i_ee, cp_a_ai, cp_o_oa, cp_i_igh, cp_oo_oo, cp_ar_or, cp_air_ear. 18 stories added (60 total), tricky words unchanged.
+- Totals: 41 phonemes, 57 GPCs, 983 words, 34 tricky, 60 stories, 23 units. Audio regenerated.
+- Verification: validate 0 errors; all guess-bot checks pass (perfect learner 157 lessons through Unit 22; 85% learner 215; 60% held back); headless play clean for Unit 17.
+- Next: Stage 5 (split digraphs a_e i_e o_e u_e, ay, ea, alternative sounds...) needs a new split-tiles activity.

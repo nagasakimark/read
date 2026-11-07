@@ -403,5 +403,135 @@
     "landed"
    ]
   ]
+ },
+ {
+  "id": "cp_i_ee",
+  "unit": 17,
+  "loose": true,
+  "name": "i / ee",
+  "ja": "ee は ながく「イー」：ship / sheep",
+  "sets": [
+   [
+    "ship",
+    "sheep"
+   ],
+   [
+    "fill",
+    "feel"
+   ],
+   [
+    "sick",
+    "seek"
+   ]
+  ]
+ },
+ {
+  "id": "cp_a_ai",
+  "unit": 18,
+  "name": "a / ai",
+  "ja": "ai は「エイ」とのばすよ：ran / rain",
+  "sets": [
+   [
+    "ran",
+    "rain"
+   ],
+   [
+    "pan",
+    "pain"
+   ],
+   [
+    "bat",
+    "bait"
+   ]
+  ]
+ },
+ {
+  "id": "cp_o_oa",
+  "unit": 18,
+  "name": "o / oa",
+  "ja": "oa は「オウ」とのばすよ：cot / coat",
+  "sets": [
+   [
+    "cot",
+    "coat"
+   ],
+   [
+    "got",
+    "goat"
+   ],
+   [
+    "rod",
+    "road"
+   ]
+  ]
+ },
+ {
+  "id": "cp_i_igh",
+  "unit": 19,
+  "name": "i / igh",
+  "ja": "igh は「アイ」：sit / sight",
+  "sets": [
+   [
+    "sit",
+    "sight"
+   ],
+   [
+    "fit",
+    "fight"
+   ]
+  ]
+ },
+ {
+  "id": "cp_oo_oo",
+  "unit": 20,
+  "loose": true,
+  "name": "oo / oo",
+  "ja": "oo は 2つの おと：book / boot",
+  "sets": [
+   [
+    "book",
+    "boot"
+   ],
+   [
+    "cook",
+    "cool"
+   ]
+  ]
+ },
+ {
+  "id": "cp_ar_or",
+  "unit": 20,
+  "name": "ar / or",
+  "ja": "ar は「アー」，or は「オー」",
+  "sets": [
+   [
+    "farm",
+    "form"
+   ],
+   [
+    "part",
+    "port"
+   ],
+   [
+    "barn",
+    "born"
+   ]
+  ]
+ },
+ {
+  "id": "cp_air_ear",
+  "unit": 21,
+  "name": "air / ear",
+  "ja": "air は「エア」，ear は「イア」",
+  "sets": [
+   [
+    "hair",
+    "hear"
+   ],
+   [
+    "fair",
+    "fear"
+   ]
+  ]
  }
 ]

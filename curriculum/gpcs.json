@@ -877,6 +877,438 @@
   ]
  },
  {
+  "id": "ee",
+  "g": "ee",
+  "ph": [
+   "ee"
+  ],
+  "unit": 17,
+  "type": "vowel-open",
+  "vbank": [
+   [
+    "tree",
+    "🌳"
+   ],
+   [
+    "sheep",
+    "🐑"
+   ],
+   [
+    "bee",
+    "🐝"
+   ],
+   [
+    "feet",
+    "🦶"
+   ]
+  ]
+ },
+ {
+  "id": "oo",
+  "g": "oo",
+  "ph": [
+   "oo"
+  ],
+  "unit": 17,
+  "type": "vowel-open",
+  "vbank": [
+   [
+    "moon",
+    "🌙"
+   ],
+   [
+    "spoon",
+    "🥄"
+   ],
+   [
+    "zoo",
+    "🦒"
+   ],
+   [
+    "boot",
+    "🥾"
+   ]
+  ]
+ },
+ {
+  "id": "ai",
+  "g": "ai",
+  "ph": [
+   "ai"
+  ],
+  "unit": 18,
+  "type": "vowel",
+  "vbank": [
+   [
+    "rain",
+    "🌧️"
+   ],
+   [
+    "train",
+    "🚂"
+   ],
+   [
+    "snail",
+    "🐌"
+   ],
+   [
+    "mail",
+    "📬"
+   ]
+  ]
+ },
+ {
+  "id": "oa",
+  "g": "oa",
+  "ph": [
+   "oa"
+  ],
+  "unit": 18,
+  "type": "vowel",
+  "vbank": [
+   [
+    "boat",
+    "⛵"
+   ],
+   [
+    "goat",
+    "🐐"
+   ],
+   [
+    "coat",
+    "🧥"
+   ],
+   [
+    "soap",
+    "🧼"
+   ]
+  ]
+ },
+ {
+  "id": "igh",
+  "g": "igh",
+  "ph": [
+   "igh"
+  ],
+  "unit": 19,
+  "type": "vowel-open",
+  "vbank": [
+   [
+    "night",
+    "🌃"
+   ],
+   [
+    "light",
+    "💡"
+   ],
+   [
+    "high",
+    "🧗"
+   ],
+   [
+    "flight",
+    "✈️"
+   ]
+  ]
+ },
+ {
+  "id": "ow_au",
+  "g": "ow",
+  "ph": [
+   "ow"
+  ],
+  "unit": 19,
+  "type": "vowel-open",
+  "vbank": [
+   [
+    "cow",
+    "🐄"
+   ],
+   [
+    "clown",
+    "🤡"
+   ],
+   [
+    "owl",
+    "🦉"
+   ],
+   [
+    "crown",
+    "👑"
+   ]
+  ]
+ },
+ {
+  "id": "oi",
+  "g": "oi",
+  "ph": [
+   "oi"
+  ],
+  "unit": 19,
+  "type": "vowel",
+  "vbank": [
+   [
+    "coin",
+    "🪙"
+   ],
+   [
+    "oil",
+    "🛢️"
+   ],
+   [
+    "boil",
+    "♨️"
+   ],
+   [
+    "foil",
+    "🧻"
+   ]
+  ]
+ },
+ {
+  "id": "oo_s",
+  "g": "oo",
+  "ph": [
+   "uu"
+  ],
+  "unit": 20,
+  "type": "vowel",
+  "vbank": [
+   [
+    "book",
+    "📖"
+   ],
+   [
+    "foot",
+    "🦶"
+   ],
+   [
+    "wood",
+    "🪵"
+   ],
+   [
+    "hook",
+    "🪝"
+   ]
+  ]
+ },
+ {
+  "id": "ar",
+  "g": "ar",
+  "ph": [
+   "ar"
+  ],
+  "unit": 20,
+  "type": "vowel-open",
+  "vbank": [
+   [
+    "car",
+    "🚗"
+   ],
+   [
+    "star",
+    "⭐"
+   ],
+   [
+    "shark",
+    "🦈"
+   ],
+   [
+    "farm",
+    "🚜"
+   ]
+  ]
+ },
+ {
+  "id": "or",
+  "g": "or",
+  "ph": [
+   "or"
+  ],
+  "unit": 20,
+  "type": "vowel-open",
+  "vbank": [
+   [
+    "fork",
+    "🍴"
+   ],
+   [
+    "corn",
+    "🌽"
+   ],
+   [
+    "storm",
+    "⛈️"
+   ],
+   [
+    "horse",
+    "🐴"
+   ]
+  ]
+ },
+ {
+  "id": "ur",
+  "g": "ur",
+  "ph": [
+   "ur"
+  ],
+  "unit": 21,
+  "type": "vowel-open",
+  "vbank": [
+   [
+    "turtle",
+    "🐢"
+   ],
+   [
+    "purple",
+    "🟣"
+   ],
+   [
+    "nurse",
+    "🧑‍⚕️"
+   ],
+   [
+    "burger",
+    "🍔"
+   ]
+  ]
+ },
+ {
+  "id": "er",
+  "g": "er",
+  "ph": [
+   "ur"
+  ],
+  "unit": 21,
+  "type": "vowel-open",
+  "vbank": [
+   [
+    "letter",
+    "✉️"
+   ],
+   [
+    "ladder",
+    "🪜"
+   ],
+   [
+    "hammer",
+    "🔨"
+   ],
+   [
+    "sister",
+    "👧"
+   ]
+  ]
+ },
+ {
+  "id": "air",
+  "g": "air",
+  "ph": [
+   "air"
+  ],
+  "unit": 21,
+  "type": "vowel-open",
+  "vbank": [
+   [
+    "hair",
+    "💇"
+   ],
+   [
+    "chair",
+    "🪑"
+   ],
+   [
+    "stair",
+    "🪜"
+   ],
+   [
+    "pear",
+    "🍐"
+   ]
+  ]
+ },
+ {
+  "id": "ear",
+  "g": "ear",
+  "ph": [
+   "ear"
+  ],
+  "unit": 21,
+  "type": "vowel-open",
+  "vbank": [
+   [
+    "ear",
+    "👂"
+   ],
+   [
+    "deer",
+    "🦌"
+   ],
+   [
+    "beard",
+    "🧔"
+   ],
+   [
+    "gear",
+    "⚙️"
+   ]
+  ]
+ },
+ {
+  "id": "y_i",
+  "g": "y",
+  "ph": [
+   "ee"
+  ],
+  "unit": 22,
+  "type": "vowel-open",
+  "vbank": [
+   [
+    "bunny",
+    "🐰"
+   ],
+   [
+    "puppy",
+    "🐶"
+   ],
+   [
+    "baby",
+    "👶"
+   ],
+   [
+    "happy",
+    "😊"
+   ]
+  ]
+ },
+ {
+  "id": "y_ai",
+  "g": "y",
+  "ph": [
+   "igh"
+  ],
+  "unit": 22,
+  "type": "vowel-open",
+  "vbank": [
+   [
+    "fly",
+    "🪰"
+   ],
+   [
+    "sky",
+    "🌌"
+   ],
+   [
+    "spy",
+    "🕵️"
+   ],
+   [
+    "cry",
+    "😢"
+   ]
+  ]
+ },
+ {
   "id": "ed_t",
   "g": "ed",
   "ph": [

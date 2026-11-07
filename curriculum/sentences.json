@@ -208,5 +208,95 @@
   "unit": 16,
   "text": "Dan kicked the backpack.",
   "pic": "🎒"
+ },
+ {
+  "unit": 17,
+  "text": "The sheep can sleep.",
+  "pic": "🐑"
+ },
+ {
+  "unit": 17,
+  "text": "I can see the moon.",
+  "pic": "🌙"
+ },
+ {
+  "unit": 17,
+  "text": "Meet me at the zoo.",
+  "pic": "🦒"
+ },
+ {
+  "unit": 18,
+  "text": "Meg can paint a boat.",
+  "pic": "🎨"
+ },
+ {
+  "unit": 18,
+  "text": "The train is in the rain.",
+  "pic": "🚂"
+ },
+ {
+  "unit": 18,
+  "text": "Sam got a coat and a hat.",
+  "pic": "🧥"
+ },
+ {
+  "unit": 19,
+  "text": "The owl sat in the town.",
+  "pic": "🦉"
+ },
+ {
+  "unit": 19,
+  "text": "Now the light is bright.",
+  "pic": "💡"
+ },
+ {
+  "unit": 19,
+  "text": "The cow is brown.",
+  "pic": "🐄"
+ },
+ {
+  "unit": 20,
+  "text": "Look at the star.",
+  "pic": "⭐"
+ },
+ {
+  "unit": 20,
+  "text": "Sam took a good book.",
+  "pic": "📖"
+ },
+ {
+  "unit": 20,
+  "text": "The shark is in the dark.",
+  "pic": "🦈"
+ },
+ {
+  "unit": 21,
+  "text": "Her sister is under the chair.",
+  "pic": "🪑"
+ },
+ {
+  "unit": 21,
+  "text": "Dan has a letter.",
+  "pic": "✉️"
+ },
+ {
+  "unit": 21,
+  "text": "The dinner is hot.",
+  "pic": "🍽️"
+ },
+ {
+  "unit": 22,
+  "text": "The puppy is happy.",
+  "pic": "🐶"
+ },
+ {
+  "unit": 22,
+  "text": "My sister is shy.",
+  "pic": "👧"
+ },
+ {
+  "unit": 22,
+  "text": "The sky is not dry.",
+  "pic": "🌌"
  }
 ]

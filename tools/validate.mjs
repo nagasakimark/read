@@ -87,7 +87,8 @@ for (const p of C.packs) for (const set of p.sets) {
     const a = C.words[set[i]], b = C.words[set[j]];
     if (!a || !b) continue;
     const diff = a.g.length === b.g.length ? a.g.filter((g, k) => g !== b.g[k]).length : 99;
-    if (p.suffix) { if (!(b.g.slice(0, -1).join() === a.g.join() && C.gpcs[b.g.at(-1)]?.type === 'suffix')) err(`pack ${p.id}: ${a.id}/${b.id} must be a word and the same word plus a suffix`); }
+    if (p.loose) { /* contrast pack whose members differ by more than one GPC (e.g. book / boot) */ }
+    else if (p.suffix) { if (!(b.g.slice(0, -1).join() === a.g.join() && C.gpcs[b.g.at(-1)]?.type === 'suffix')) err(`pack ${p.id}: ${a.id}/${b.id} must be a word and the same word plus a suffix`); }
     else if (p.epen) { if (!(b.tier === 'epen' && b.g.length === a.g.length + 1 && b.g.some((_, i) => b.g.filter((__, k) => k !== i).join() === a.g.join()))) err(`pack ${p.id}: ${a.id}/${b.id} must be a word plus one extra vowel`); }
     else if (diff !== 1) err(`pack ${p.id}: ${a.id}/${b.id} do not differ by exactly one GPC`);
   }
@@ -97,7 +98,7 @@ for (const p of C.packs) for (const set of p.sets) {
 for (const g of C.gpcList) {
   const real = C.wordsWithGpc(g.id, 99).filter(w => w.tier !== 'name');
   if (real.length < 3) warn(`GPC ${g.id}: only ${real.length} real words contain it (need >=3 for varied practice)`);
-  if (g.type === 'single' && !['sz'].includes(g.id) && (!(g.bank || g.fbank) || (g.bank || g.fbank).length < 3)) warn(`GPC ${g.id}: mnemonic/initial-sound bank has < 3 entries`);
+  if ((g.type === 'single' || g.type.startsWith('vowel')) && !['sz'].includes(g.id) && (!(g.bank || g.fbank || g.vbank) || (g.bank || g.fbank || g.vbank).length < 3)) warn(`GPC ${g.id}: mnemonic/initial-sound bank has < 3 entries`);
 }
 // every GPC needs silly words of its own for transfer probes (rung 4 needs 5 unseen-word attempts)
 for (const g of C.gpcList) {

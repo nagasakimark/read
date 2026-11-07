@@ -1,7 +1,7 @@
 // Curriculum model: pure logic, no DOM. Works in the browser (JSON via fetch) and in Node (tools/*).
 // Blueprint: "The educational curriculum should be independent of the game engine and user interface."
 
-export const VOWELS = new Set(['a', 'e', 'i', 'o', 'u']);
+export const VOWELS = new Set(['a', 'e', 'i', 'o', 'u', 'ee', 'oo', 'ai', 'oa', 'igh', 'ow_au', 'oi', 'oo_s', 'ar', 'or', 'ur', 'er', 'air', 'ear', 'y_i', 'y_ai']);
 const PUNCT = /^[\s.,!?;:"'“”‘’()]+|[\s.,!?;:"'“”‘’()]+$/g;
 
 /** Split text into tokens: {raw (as written), key (lowercase, punctuation stripped)} */
@@ -73,7 +73,7 @@ export class Curriculum {
   _allowedAt(g, pos, len, prev) {
     const isV = VOWELS.has(g.id);
     if (g.type === 'doubled' || g.type === 'digraph-final' || g.id === 'sz') return pos === len - 1 && VOWELS.has(prev);
-    if (isV) return pos > 0 && pos < len - 1;
+    if (isV) return pos > 0 && (pos < len - 1 || g.type === 'vowel-open');
     if (pos === len - 1) return !['c', 'k', 'h', 'j', 'v', 'w', 'y', 'qu', 'r'].includes(g.id);
     if (pos === 0) return g.id !== 'x' && g.type !== 'doubled' && g.type !== 'digraph-final' && g.id !== 'sz';
     return false;
@@ -96,7 +96,7 @@ export class Curriculum {
         const ids = w.g.slice(); ids[i] = g.id;
         const text = ids.map(x => this.gpcs[x].g).join('');
         if (text === w.t.toLowerCase()) continue;
-        res.push({ text, ids, pos: i, real: this.wordList.find(x => x.t.toLowerCase() === text && x.u <= unit && x.tier !== 'silly' && x.tier !== 'epen') || null });
+        res.push({ text, ids, pos: i, real: this.wordList.find(x => x.t.toLowerCase() === text && x.u <= unit && x.tier !== 'silly' && x.tier !== 'epen' && x.g.length === ids.length && x.g.every((gid, k) => this.gpcs[gid].g === this.gpcs[ids[k]].g)) || null });
       }
     });
     return res;

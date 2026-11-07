@@ -10,6 +10,7 @@ export const GPC_LURES = {
   o:['a','u','e'], d:['b','t','g'], g:['d','c','j'], c:['k','o','e'], k:['c','t','h'], e:['i','a','o'], u:['o','a','n'],
   r:['l','h','n'], h:['n','f','b'], b:['d','p','v'], f:['v','h','t'], l:['r','i','t'], j:['g','y','z'], v:['f','b','w'],
   w:['v','m','y'], x:['s','z','k'], y:['i','j','w'], z:['s','x','j'], qu:['g','p','d'],
+  ee:['oo','ai','i'], oo:['ee','oa','u'], ai:['ee','oa','a'], oa:['oo','ai','o'], igh:['ee','i','ai'], ow_au:['oa','oo','oi'], oi:['ow_au','ai','oa'], oo_s:['oo','u','oa'], ar:['or','a','ur'], or:['ar','o','er'], ur:['er','or','ar'], er:['ur','ar','or'], air:['ear','ar','ai'], ear:['air','ee','er'], y_i:['ee','i','igh'], y_ai:['igh','y_i','i'],
   ff:['ll','ss','ck'], ll:['ff','ss','ck'], ss:['ff','ll','ck'], ck:['ll','ss','ff'], zz:['ss','ll','ff'], sz:['s','z','x'], sh:['s','ch','th'], thv:['th','d','z'], ng:['n','g','m'], nk:['ng','n','k'], ch:['sh','k','th'], th:['s','f','sh'],
 };
 const SYLL_WORDS = [ // [word, emoji, syllables] -- Stage 0 syllable awareness (pictures only; not decoded)
@@ -33,6 +34,7 @@ export function gpcLureIds(C, id, unit, rng, n, force = null) {
   if (force && ok(force)) out.push(force);
   for (const x of pool) if (out.length < n && !out.includes(x)) out.push(x);
   const rest = rng.shuffle(C.gpcsUpTo(unit).map(g => g.id).filter(x => ok(x) && !out.includes(x) && (tgt.type === 'doubled' || tgt.type === 'digraph-final' ? C.gpcs[x].type !== 'single' || out.length >= 1 : true)));
+  if (VOWELS.has(id) && unit >= 17) rest.sort((a, b) => (VOWELS.has(b) ? 1 : 0) - (VOWELS.has(a) ? 1 : 0));   // vowel teams: vowel lures first
   for (const x of rest) if (out.length < n) out.push(x);
   // two different GPCs with the same grapheme (s / sz) must not both appear
   return dedupe(out, x => C.gpcs[x].g).filter(x => C.gpcs[x].g !== tgt.g).slice(0, n);
@@ -47,11 +49,15 @@ export function listenPick(C, id, unit, rng, n = 3, force = null) {
 
 export function recallFlash(C, id, unit, rng, n = 4) {
   const g = C.gpcs[id];
-  const pos = g.bank ? 'initial' : 'final';
-  const bank = g.bank || g.fbank;
+  const pos = g.vbank ? 'inside' : g.bank ? 'initial' : 'final';
+  const bank = g.vbank || g.bank || g.fbank;
   const ans = rng.pick(bank);
   let pool = [];
-  if (pos === 'initial') {
+  if (pos === 'inside') {   // vowel sounds: pictured words that contain the sound vs words with other vowel sounds
+    pool = C.gpcList.filter(x => (x.vbank || (VOWELS.has(x.id) && x.bank)) && x.id !== id && x.ph.join() !== g.ph.join() && x.unit <= Math.max(unit, 4))
+      .flatMap(x => (x.vbank || x.bank).filter(b => !b[0].includes(g.g)).map(b => ({ b, gpc: x.id })));
+    pool = dedupe(rng.shuffle(pool), p => p.gpc);
+  } else if (pos === 'initial') {
     pool = C.gpcList.filter(x => x.bank && x.ph.join() !== g.ph.join() && x.unit <= Math.max(unit, 3)).flatMap(x => rng.sample(x.bank, 1).map(b => ({ b, gpc: x.id })));
   } else {
     pool = C.gpcList.filter(x => x.fbank && x.unit <= unit && x.ph.join() !== g.ph.join()).flatMap(x => rng.sample(x.fbank, 1).map(b => ({ b, gpc: x.id })));

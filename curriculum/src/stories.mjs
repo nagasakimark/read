@@ -103,6 +103,61 @@ export const STORIES = [
   { id:'s16c', unit:16, title:'The Backpack', topic:'school', focus:[], pats:['ed_d$','ed_id$'], pages:[
       { text:'Ken filled a backpack.', pic:'🧒🎒' }, { text:'He lifted it.', pic:'🎒⬆️' }, { text:'He handed it to Dan.', pic:'🧒🎒🧒' }, { text:'Dan was glad.', pic:'🧒😊' } ],
     questions:[ Q('What did Ken fill?', ['🎒','backpack'], ['🧢','cap'], ['🥤','cup']) ] },
+  // ---------------- Stage 4
+  { id:'s17a', unit:17, title:'The Green Tree', topic:'nature', focus:['ee','oo'], pages:[
+      { text:'A bee sat in a green tree.', pic:'🐝🌳' }, { text:'The bee can see a seed.', pic:'🐝🌱' }, { text:'The seed fell in the pond.', pic:'🌱🏞️' }, { text:'Soon it is a tree.', pic:'🌳' } ],
+    questions:[ Q('Where did the bee sit?', ['🌳','tree'], ['🛏️','bed'], ['🪵','log']) ] },
+  { id:'s17b', unit:17, title:'The Zoo', topic:'animals', focus:['ee','oo'], pages:[
+      { text:'Sam is at the zoo.', pic:'👦🦒' }, { text:'He can see a sheep.', pic:'👦🐑' }, { text:'The sheep can sleep.', pic:'🐑😴' }, { text:'The moon is up.', pic:'🌙' } ],
+    questions:[ Q('Where is Sam?', ['🦒','zoo'], ['🛏️','bed'], ['🚌','bus']) ] },
+  { id:'s17c', unit:17, title:'Cool Food', topic:'food', focus:['ee','oo'], pages:[
+      { text:'Meg got some food.', pic:'👧🍱' }, { text:'She got a spoon.', pic:'👧🥄' }, { text:'The food was cool.', pic:'🍱😎' }, { text:'Meg and Tom feed the sheep.', pic:'👧🧒🐑' } ],
+    questions:[ Q('What did Meg get?', ['🥄','spoon'], ['🥤','cup'], ['🍴','fork']) ] },
+  { id:'s18a', unit:18, title:'The Train', topic:'places', focus:['ai','oa'], pages:[
+      { text:'A train sat in the rain.', pic:'🚂🌧️' }, { text:'The train can not wait.', pic:'🚂' }, { text:'Sam and Meg run to the train.', pic:'👦👧🚂' }, { text:'They got on the train.', pic:'🚂😊' } ],
+    questions:[ Q('What sat in the rain?', ['🚂','train'], ['🚌','bus'], ['🚐','van']) ] },
+  { id:'s18b', unit:18, title:'The Goat on the Boat', topic:'animals', focus:['ai','oa'], pages:[
+      { text:'A goat got on a boat.', pic:'🐐⛵' }, { text:'The boat can float.', pic:'⛵🌊' }, { text:'The goat has a coat.', pic:'🐐🧥' }, { text:'The goat is glad.', pic:'🐐😊' } ],
+    questions:[ Q('What got on the boat?', ['🐐','goat'], ['🐔','hen'], ['🐷','pig']) ] },
+  { id:'s18c', unit:18, title:'The Snail', topic:'animals', focus:['ai','oa'], pages:[
+      { text:'A snail sat on the road.', pic:'🐌🛣️' }, { text:'The snail can not run.', pic:'🐌' }, { text:'Rain is on the snail.', pic:'🌧️🐌' }, { text:'The snail is glad.', pic:'🐌😊' } ],
+    questions:[ Q('What sat on the road?', ['🐌','snail'], ['🐸','frog'], ['🐜','ant']) ] },
+  { id:'s19a', unit:19, title:'Night Light', topic:'home', focus:['igh','ow_au','oi'], pages:[
+      { text:'It is night.', pic:'🌃' }, { text:'Dan has a light.', pic:'🧒💡' }, { text:'The light is bright.', pic:'💡✨' }, { text:'Dan can see the moon.', pic:'🧒🌙' } ],
+    questions:[ Q('What does Dan have?', ['💡','light'], ['🧢','cap'], ['🥤','cup']) ] },
+  { id:'s19b', unit:19, title:'The Brown Cow', topic:'animals', focus:['igh','ow_au','oi'], pages:[
+      { text:'A brown cow sat down.', pic:'🐄' }, { text:'The cow can not get up.', pic:'🐄' }, { text:'A clown ran to the cow.', pic:'🤡🐄' }, { text:'Now the cow is up!', pic:'🐄🎉' } ],
+    questions:[ Q('What sat down?', ['🐄','cow'], ['🐔','hen'], ['🐷','pig']) ] },
+  { id:'s19c', unit:19, title:'The Coin', topic:'home', focus:['igh','ow_au','oi'], pages:[
+      { text:'Tom got a coin.', pic:'🧒🪙' }, { text:'It fell in the oil.', pic:'🪙🛢️' }, { text:'Tom can point at it.', pic:'🧒👉' }, { text:'Dan can get the coin.', pic:'🧒🪙' } ],
+    questions:[ Q('What fell in the oil?', ['🪙','coin'], ['🥤','cup'], ['🧢','cap']) ] },
+  { id:'s20a', unit:20, title:'The Park', topic:'places', focus:['oo_s','ar','or'], pages:[
+      { text:'Sam and Dan go to the park.', pic:'👦🧒🏞️' }, { text:'It is dark.', pic:'🌑' }, { text:'They look at a star.', pic:'👀⭐' }, { text:'The star is far.', pic:'⭐' } ],
+    questions:[ Q('Where did they go?', ['🏞️','park'], ['🛏️','bed'], ['🚌','bus']) ] },
+  { id:'s20b', unit:20, title:'The Farm', topic:'places', focus:['oo_s','ar','or'], pages:[
+      { text:'Meg is at the farm.', pic:'👧🚜' }, { text:'She took a look at the barn.', pic:'👧🏚️' }, { text:'The corn is good.', pic:'🌽' }, { text:'Meg has a good book.', pic:'👧📖' } ],
+    questions:[ Q('Where is Meg?', ['🚜','farm'], ['🏖️','sand'], ['⛺','tent']) ] },
+  { id:'s20c', unit:20, title:'The Storm', topic:'weather', focus:['oo_s','ar','or'], pages:[
+      { text:'It is a storm.', pic:'⛈️' }, { text:'The rain is hard.', pic:'🌧️' }, { text:'Sam and Meg sort the corn.', pic:'👦👧🌽' }, { text:'It is a short storm.', pic:'⛈️' } ],
+    questions:[ Q('What is hard?', ['🌧️','rain'], ['☀️','sun'], ['🌙','moon']) ] },
+  { id:'s21a', unit:21, title:'The Letter', topic:'people', focus:['ur','er','air','ear'], pages:[
+      { text:'Meg has a sister.', pic:'👧👧' }, { text:'Her sister has a letter.', pic:'👧✉️' }, { text:'The letter is from Dan.', pic:'✉️🧒' }, { text:'Her sister is glad.', pic:'👧😊' } ],
+    questions:[ Q('What has her sister?', ['✉️','letter'], ['🧢','cap'], ['🥤','cup']) ] },
+  { id:'s21b', unit:21, title:'The Chair', topic:'home', focus:['ur','er','air','ear'], pages:[
+      { text:'A chair is in the yard.', pic:'🪑' }, { text:'Dan sat in the chair.', pic:'🧒🪑' }, { text:'Dan can hear a bee.', pic:'🧒🐝' }, { text:'The bee is near his ear.', pic:'🐝👂' } ],
+    questions:[ Q('Where did Dan sit?', ['🪑','chair'], ['🛏️','bed'], ['🪵','log']) ] },
+  { id:'s21c', unit:21, title:'The Hurt Cat', topic:'animals', focus:['ur','er','air','ear'], pages:[
+      { text:'The cat has fur.', pic:'🐱' }, { text:'The cat got hurt.', pic:'🐱🤕' }, { text:'Meg can hug it.', pic:'👧🐱' }, { text:'The cat is better.', pic:'🐱😊' } ],
+    questions:[ Q('What got hurt?', ['🐱','cat'], ['🐶','dog'], ['🐔','hen']) ] },
+  { id:'s22a', unit:22, title:'The Happy Bunny', topic:'animals', focus:['y_i','y_ai'], pages:[
+      { text:'The bunny is happy.', pic:'🐰😊' }, { text:'It is sunny.', pic:'☀️' }, { text:'The bunny can jump.', pic:'🐰🤸' }, { text:'The bunny is not shy.', pic:'🐰' } ],
+    questions:[ Q('Who is happy?', ['🐰','bunny'], ['🐶','dog'], ['🐔','hen']) ] },
+  { id:'s22b', unit:22, title:'The Sky', topic:'weather', focus:['y_i','y_ai'], pages:[
+      { text:'Look at the sky.', pic:'👀🌌' }, { text:'A jet can fly in the sky.', pic:'✈️' }, { text:'It is not rainy.', pic:'☀️' }, { text:'The sky is red.', pic:'🌇' } ],
+    questions:[ Q('What can fly?', ['✈️','jet'], ['🐌','snail'], ['🐷','pig']) ] },
+  { id:'s22c', unit:22, title:'The Silly Puppy', topic:'animals', focus:['y_i','y_ai'], pages:[
+      { text:'The puppy is silly.', pic:'🐶🤪' }, { text:'It can jump and run.', pic:'🐶🏃' }, { text:'It got muddy.', pic:'🐶🟤' }, { text:'Meg can try to dry it.', pic:'👧🐶' } ],
+    questions:[ Q('Who is silly?', ['🐶','puppy'], ['🐱','cat'], ['🐔','hen']) ] },
   // ---------------- Unit 4
   { id:'s4a', unit:4, title:'The Red Hat', topic:'animals', focus:['k','e','u','r','h'], pages:[
       { text:'A hen got a red hat.', pic:'🐔🎩' }, { text:'The hen ran.', pic:'🐔' }, { text:'The hen ran to Ken.', pic:'🐔🧒' }, { text:'Ken got the hen.', pic:'🧒🐔' } ],
@@ -163,4 +218,10 @@ export const SENTENCES = [
   { unit:14, text:'The frog can jump.', pic:'🐸' }, { unit:14, text:'Bring a brush.', pic:'🖌️' }, { unit:14, text:'Tom has a little truck.', pic:'🚚' }, { unit:14, text:'The crab is out.', pic:'🦀' },
   { unit:15, text:'Dan is jumping.', pic:'🤸' }, { unit:15, text:'Tom is camping.', pic:'🏕️' }, { unit:15, text:'Your hat is red.', pic:'🎩' }, { unit:15, text:'Were you at the pond?', pic:'🏞️' },
   { unit:16, text:'Sam jumped on the sand.', pic:'🏖️' }, { unit:16, text:'Meg filled a cup.', pic:'🥛' }, { unit:16, text:'The sunset was red.', pic:'🌇' }, { unit:16, text:'Dan kicked the backpack.', pic:'🎒' },
+  { unit:17, text:'The sheep can sleep.', pic:'🐑' }, { unit:17, text:'I can see the moon.', pic:'🌙' }, { unit:17, text:'Meet me at the zoo.', pic:'🦒' },
+  { unit:18, text:'Meg can paint a boat.', pic:'🎨' }, { unit:18, text:'The train is in the rain.', pic:'🚂' }, { unit:18, text:'Sam got a coat and a hat.', pic:'🧥' },
+  { unit:19, text:'The owl sat in the town.', pic:'🦉' }, { unit:19, text:'Now the light is bright.', pic:'💡' }, { unit:19, text:'The cow is brown.', pic:'🐄' },
+  { unit:20, text:'Look at the star.', pic:'⭐' }, { unit:20, text:'Sam took a good book.', pic:'📖' }, { unit:20, text:'The shark is in the dark.', pic:'🦈' },
+  { unit:21, text:'Her sister is under the chair.', pic:'🪑' }, { unit:21, text:'Dan has a letter.', pic:'✉️' }, { unit:21, text:'The dinner is hot.', pic:'🍽️' },
+  { unit:22, text:'The puppy is happy.', pic:'🐶' }, { unit:22, text:'My sister is shy.', pic:'👧' }, { unit:22, text:'The sky is not dry.', pic:'🌌' },
 ];

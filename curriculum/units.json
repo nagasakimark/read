@@ -2036,5 +2036,715 @@
    "storyAccuracy": 0.9,
    "questionsCorrect": 2
   }
+ },
+ {
+  "id": 17,
+  "stage": 4,
+  "name": "ee oo",
+  "ja": "ee oo",
+  "newGpcs": [
+   "ee",
+   "oo"
+  ],
+  "suffixGpcs": [],
+  "newPatterns": [],
+  "newTricky": [],
+  "prereqs": [
+   16
+  ],
+  "packs": [
+   "cp_i_ee"
+  ],
+  "lessons": [
+   {
+    "id": "L17_1",
+    "unit": 17,
+    "kind": "teach",
+    "newGpcs": [
+     "ee"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L17_2",
+    "unit": 17,
+    "kind": "teach",
+    "newGpcs": [
+     "oo"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L17_3",
+    "unit": 17,
+    "kind": "consolidate",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s17a",
+      "read": 1
+     }
+    ]
+   },
+   {
+    "id": "L17_4",
+    "unit": 17,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s17a",
+      "read": 2
+     },
+     {
+      "id": "s17a",
+      "read": 3
+     },
+     {
+      "id": "s17b",
+      "read": 1
+     },
+     {
+      "id": "s17b",
+      "read": 2
+     }
+    ]
+   },
+   {
+    "id": "L17_5",
+    "unit": 17,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s17b",
+      "read": 3
+     },
+     {
+      "id": "s17c",
+      "read": 1
+     },
+     {
+      "id": "s17c",
+      "read": 2
+     },
+     {
+      "id": "s17c",
+      "read": 3
+     }
+    ]
+   }
+  ],
+  "stories": [
+   "s17a",
+   "s17b",
+   "s17c"
+  ],
+  "mastery": {
+   "rungRequired": 4,
+   "storyAccuracy": 0.9,
+   "questionsCorrect": 2
+  }
+ },
+ {
+  "id": 18,
+  "stage": 4,
+  "name": "ai oa",
+  "ja": "ai oa",
+  "newGpcs": [
+   "ai",
+   "oa"
+  ],
+  "suffixGpcs": [],
+  "newPatterns": [],
+  "newTricky": [],
+  "prereqs": [
+   17
+  ],
+  "packs": [
+   "cp_a_ai",
+   "cp_o_oa"
+  ],
+  "lessons": [
+   {
+    "id": "L18_1",
+    "unit": 18,
+    "kind": "teach",
+    "newGpcs": [
+     "ai"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L18_2",
+    "unit": 18,
+    "kind": "teach",
+    "newGpcs": [
+     "oa"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L18_3",
+    "unit": 18,
+    "kind": "consolidate",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s18a",
+      "read": 1
+     }
+    ]
+   },
+   {
+    "id": "L18_4",
+    "unit": 18,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s18a",
+      "read": 2
+     },
+     {
+      "id": "s18a",
+      "read": 3
+     },
+     {
+      "id": "s18b",
+      "read": 1
+     },
+     {
+      "id": "s18b",
+      "read": 2
+     }
+    ]
+   },
+   {
+    "id": "L18_5",
+    "unit": 18,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s18b",
+      "read": 3
+     },
+     {
+      "id": "s18c",
+      "read": 1
+     },
+     {
+      "id": "s18c",
+      "read": 2
+     },
+     {
+      "id": "s18c",
+      "read": 3
+     }
+    ]
+   }
+  ],
+  "stories": [
+   "s18a",
+   "s18b",
+   "s18c"
+  ],
+  "mastery": {
+   "rungRequired": 4,
+   "storyAccuracy": 0.9,
+   "questionsCorrect": 2
+  }
+ },
+ {
+  "id": 19,
+  "stage": 4,
+  "name": "igh ow oi",
+  "ja": "igh ow oi",
+  "newGpcs": [
+   "igh",
+   "ow_au",
+   "oi"
+  ],
+  "suffixGpcs": [],
+  "newPatterns": [],
+  "newTricky": [],
+  "prereqs": [
+   18
+  ],
+  "packs": [
+   "cp_i_igh"
+  ],
+  "lessons": [
+   {
+    "id": "L19_1",
+    "unit": 19,
+    "kind": "teach",
+    "newGpcs": [
+     "igh"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L19_2",
+    "unit": 19,
+    "kind": "teach",
+    "newGpcs": [
+     "ow_au"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L19_3",
+    "unit": 19,
+    "kind": "teach",
+    "newGpcs": [
+     "oi"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L19_4",
+    "unit": 19,
+    "kind": "consolidate",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s19a",
+      "read": 1
+     }
+    ]
+   },
+   {
+    "id": "L19_5",
+    "unit": 19,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s19a",
+      "read": 2
+     },
+     {
+      "id": "s19a",
+      "read": 3
+     },
+     {
+      "id": "s19b",
+      "read": 1
+     },
+     {
+      "id": "s19b",
+      "read": 2
+     }
+    ]
+   },
+   {
+    "id": "L19_6",
+    "unit": 19,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s19b",
+      "read": 3
+     },
+     {
+      "id": "s19c",
+      "read": 1
+     },
+     {
+      "id": "s19c",
+      "read": 2
+     },
+     {
+      "id": "s19c",
+      "read": 3
+     }
+    ]
+   }
+  ],
+  "stories": [
+   "s19a",
+   "s19b",
+   "s19c"
+  ],
+  "mastery": {
+   "rungRequired": 4,
+   "storyAccuracy": 0.9,
+   "questionsCorrect": 2
+  }
+ },
+ {
+  "id": 20,
+  "stage": 4,
+  "name": "oo ar or",
+  "ja": "oo ar or",
+  "newGpcs": [
+   "oo_s",
+   "ar",
+   "or"
+  ],
+  "suffixGpcs": [],
+  "newPatterns": [],
+  "newTricky": [],
+  "prereqs": [
+   19
+  ],
+  "packs": [
+   "cp_oo_oo",
+   "cp_ar_or"
+  ],
+  "lessons": [
+   {
+    "id": "L20_1",
+    "unit": 20,
+    "kind": "teach",
+    "newGpcs": [
+     "oo_s"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L20_2",
+    "unit": 20,
+    "kind": "teach",
+    "newGpcs": [
+     "ar"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L20_3",
+    "unit": 20,
+    "kind": "teach",
+    "newGpcs": [
+     "or"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L20_4",
+    "unit": 20,
+    "kind": "consolidate",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s20a",
+      "read": 1
+     }
+    ]
+   },
+   {
+    "id": "L20_5",
+    "unit": 20,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s20a",
+      "read": 2
+     },
+     {
+      "id": "s20a",
+      "read": 3
+     },
+     {
+      "id": "s20b",
+      "read": 1
+     },
+     {
+      "id": "s20b",
+      "read": 2
+     }
+    ]
+   },
+   {
+    "id": "L20_6",
+    "unit": 20,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s20b",
+      "read": 3
+     },
+     {
+      "id": "s20c",
+      "read": 1
+     },
+     {
+      "id": "s20c",
+      "read": 2
+     },
+     {
+      "id": "s20c",
+      "read": 3
+     }
+    ]
+   }
+  ],
+  "stories": [
+   "s20a",
+   "s20b",
+   "s20c"
+  ],
+  "mastery": {
+   "rungRequired": 4,
+   "storyAccuracy": 0.9,
+   "questionsCorrect": 2
+  }
+ },
+ {
+  "id": 21,
+  "stage": 4,
+  "name": "ur er air ear",
+  "ja": "ur er air ear",
+  "newGpcs": [
+   "ur",
+   "er",
+   "air",
+   "ear"
+  ],
+  "suffixGpcs": [],
+  "newPatterns": [],
+  "newTricky": [],
+  "prereqs": [
+   20
+  ],
+  "packs": [
+   "cp_air_ear"
+  ],
+  "lessons": [
+   {
+    "id": "L21_1",
+    "unit": 21,
+    "kind": "teach",
+    "newGpcs": [
+     "ur",
+     "er"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L21_2",
+    "unit": 21,
+    "kind": "teach",
+    "newGpcs": [
+     "air",
+     "ear"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L21_3",
+    "unit": 21,
+    "kind": "consolidate",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s21a",
+      "read": 1
+     }
+    ]
+   },
+   {
+    "id": "L21_4",
+    "unit": 21,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s21a",
+      "read": 2
+     },
+     {
+      "id": "s21a",
+      "read": 3
+     },
+     {
+      "id": "s21b",
+      "read": 1
+     },
+     {
+      "id": "s21b",
+      "read": 2
+     }
+    ]
+   },
+   {
+    "id": "L21_5",
+    "unit": 21,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s21b",
+      "read": 3
+     },
+     {
+      "id": "s21c",
+      "read": 1
+     },
+     {
+      "id": "s21c",
+      "read": 2
+     },
+     {
+      "id": "s21c",
+      "read": 3
+     }
+    ]
+   }
+  ],
+  "stories": [
+   "s21a",
+   "s21b",
+   "s21c"
+  ],
+  "mastery": {
+   "rungRequired": 4,
+   "storyAccuracy": 0.9,
+   "questionsCorrect": 2
+  }
+ },
+ {
+  "id": 22,
+  "stage": 4,
+  "name": "y says ee / eye",
+  "ja": "y が「イー」「アイ」",
+  "newGpcs": [
+   "y_i",
+   "y_ai"
+  ],
+  "suffixGpcs": [],
+  "newPatterns": [],
+  "newTricky": [],
+  "prereqs": [
+   21
+  ],
+  "packs": [],
+  "lessons": [
+   {
+    "id": "L22_1",
+    "unit": 22,
+    "kind": "teach",
+    "newGpcs": [
+     "y_i"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L22_2",
+    "unit": 22,
+    "kind": "teach",
+    "newGpcs": [
+     "y_ai"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L22_3",
+    "unit": 22,
+    "kind": "consolidate",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s22a",
+      "read": 1
+     }
+    ]
+   },
+   {
+    "id": "L22_4",
+    "unit": 22,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s22a",
+      "read": 2
+     },
+     {
+      "id": "s22a",
+      "read": 3
+     },
+     {
+      "id": "s22b",
+      "read": 1
+     },
+     {
+      "id": "s22b",
+      "read": 2
+     }
+    ]
+   },
+   {
+    "id": "L22_5",
+    "unit": 22,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s22b",
+      "read": 3
+     },
+     {
+      "id": "s22c",
+      "read": 1
+     },
+     {
+      "id": "s22c",
+      "read": 2
+     },
+     {
+      "id": "s22c",
+      "read": 3
+     }
+    ]
+   }
+  ],
+  "stories": [
+   "s22a",
+   "s22b",
+   "s22c"
+  ],
+  "mastery": {
+   "rungRequired": 4,
+   "storyAccuracy": 0.9,
+   "questionsCorrect": 2
+  }
  }
 ]

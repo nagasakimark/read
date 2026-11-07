@@ -37,7 +37,7 @@ for g in gpcs:
     add('gpc:' + g['id'], f'[[{mn}]]', rate=110, cont=bool(ph['cont']) if len(g['ph']) == 1 else False)
 spoken = {w['t'] for w in words} | {t['id'] for t in tricky}
 for g in gpcs:
-    for b in (g.get('bank') or []) + (g.get('fbank') or []): spoken.add(b[0])
+    for b in (g.get('bank') or []) + (g.get('fbank') or []) + (g.get('vbank') or []): spoken.add(b[0])
 for t in sorted(spoken):
     add('w:' + t, t, rate=120)
     manifest['b:' + t] = manifest['w:' + t]

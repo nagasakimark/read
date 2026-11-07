@@ -173,9 +173,9 @@ export class LessonScene {
           text(c, p.grapheme, 765, p.context ? 150 : 178, { size: p.grapheme.length > 1 ? 120 : 160, color: '#ff5a3c' });
           if (p.context) drawSegments(c, segmentWord(p.context, 's', 'final'), 765, 245, 54);
           // position cue: a word bar with the start or end highlighted
-          const fin = p.position === 'final';
-          for (let i = 0; i < 4; i++) { rr(c, 940 + i * 36, 160, 30, 30, 8); c.fillStyle = (fin ? i === 3 : i === 0) ? '#ff5a3c' : '#d6e4ee'; c.fill(); }
-          text(c, fin ? 'おわりの おと' : 'はじめの おと', 1030, 220, { size: 26, color: '#2d4a5e', font: JP });
+          const fin = p.position === 'final', mid = p.position === 'inside';
+          for (let i = 0; i < 4; i++) { rr(c, 940 + i * 36, 160, 30, 30, 8); c.fillStyle = (mid ? (i === 1 || i === 2) : fin ? i === 3 : i === 0) ? '#ff5a3c' : '#d6e4ee'; c.fill(); }
+          text(c, mid ? 'なかの おと' : fin ? 'おわりの おと' : 'はじめの おと', 1030, 220, { size: 26, color: '#2d4a5e', font: JP });
         } else if (p.text) {
           rr(c, 600, 70, 380, 200, 36); c.fillStyle = '#fff'; c.fill(); c.lineWidth = 5; c.strokeStyle = '#bcd3e3'; c.stroke();
           text(c, p.text, 790, 172, { size: p.text.length > 4 ? 96 : 120, color: '#23394b' });

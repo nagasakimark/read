@@ -14,6 +14,10 @@ export const PHONEMES = [
   ['y','j','j','smile',true],   ['z','z','z','teeth',true],
   ['sh','ʃ','S','round',true],  ['ch','tʃ','tS','teeth',false],['th','θ','T','tongueOut',true],
   ['dh','ð','D','tongueOut',true], ['ng','ŋ','N','throat',true],
+  // Stage 4 vowels (en-US)
+  ['ee','iː','i:','smile',true], ['oo','uː','u:','round',true], ['ai','eɪ','eI','smile',true], ['oa','oʊ','oU','round',true],
+  ['igh','aɪ','aI','open',true], ['ow','aʊ','aU','open',true], ['oi','ɔɪ','OI','round',true], ['uu','ʊ','U','round',true],
+  ['ar','ɑr','A@','open',true], ['or','ɔr','O@','round',true], ['ur','ɜr','3:','mid',true], ['air','ɛr','e@','open',true], ['ear','ɪr','i@','smile',true],
 ].map(([id,ipa,esp,mouth,cont]) => ({ id, ipa, esp, mouth, cont }));
 
 // id, grapheme, phonemes, unit, type, mnemonic bank [word, emoji] (first = mnemonic), note
@@ -67,11 +71,29 @@ export const GPCS = [
   // Unit 10: ng / nk (final only)
   ['ng','ng',['ng'],10,'digraph-final',null,[['ring','💍'],['king','🤴'],['sing','🎤']]],
   ['nk','nk',['ng','k'],10,'digraph-final',null,[['bank','🏦'],['sink','🚰'],['junk','🗑️']]],
+
+  // ---- Stage 4: vowel sounds. vbank = pictured words that CONTAIN the sound (mnemonic first). type vowel-open can end a word.
+  ['ee','ee',['ee'],17,'vowel-open',null,null,[['tree','🌳'],['sheep','🐑'],['bee','🐝'],['feet','🦶']]],
+  ['oo','oo',['oo'],17,'vowel-open',null,null,[['moon','🌙'],['spoon','🥄'],['zoo','🦒'],['boot','🥾']]],
+  ['ai','ai',['ai'],18,'vowel',null,null,[['rain','🌧️'],['train','🚂'],['snail','🐌'],['mail','📬']]],
+  ['oa','oa',['oa'],18,'vowel',null,null,[['boat','⛵'],['goat','🐐'],['coat','🧥'],['soap','🧼']]],
+  ['igh','igh',['igh'],19,'vowel-open',null,null,[['night','🌃'],['light','💡'],['high','🧗'],['flight','✈️']]],
+  ['ow_au','ow',['ow'],19,'vowel-open',null,null,[['cow','🐄'],['clown','🤡'],['owl','🦉'],['crown','👑']]],
+  ['oi','oi',['oi'],19,'vowel',null,null,[['coin','🪙'],['oil','🛢️'],['boil','♨️'],['foil','🧻']]],
+  ['oo_s','oo',['uu'],20,'vowel',null,null,[['book','📖'],['foot','🦶'],['wood','🪵'],['hook','🪝']]],
+  ['ar','ar',['ar'],20,'vowel-open',null,null,[['car','🚗'],['star','⭐'],['shark','🦈'],['farm','🚜']]],
+  ['or','or',['or'],20,'vowel-open',null,null,[['fork','🍴'],['corn','🌽'],['storm','⛈️'],['horse','🐴']]],
+  ['ur','ur',['ur'],21,'vowel-open',null,null,[['turtle','🐢'],['purple','🟣'],['nurse','🧑‍⚕️'],['burger','🍔']]],
+  ['er','er',['ur'],21,'vowel-open',null,null,[['letter','✉️'],['ladder','🪜'],['hammer','🔨'],['sister','👧']]],
+  ['air','air',['air'],21,'vowel-open',null,null,[['hair','💇'],['chair','🪑'],['stair','🪜'],['pear','🍐']]],
+  ['ear','ear',['ear'],21,'vowel-open',null,null,[['ear','👂'],['deer','🦌'],['beard','🧔'],['gear','⚙️']]],
+  ['y_i','y',['ee'],22,'vowel-open',null,null,[['bunny','🐰'],['puppy','🐶'],['baby','👶'],['happy','😊']]],
+  ['y_ai','y',['igh'],22,'vowel-open',null,null,[['fly','🪰'],['sky','🌌'],['spy','🕵️'],['cry','😢']]],
   // suffix -ed: one spelling, three sounds. Taught as word endings (unit 16 patterns), never as stand-alone sound cards.
   ['ed_t','ed',['t'],16,'suffix',null,null],
   ['ed_d','ed',['d'],16,'suffix',null,null],
   ['ed_id','ed',['i','d'],16,'suffix',null,null],
-].map(([id,g,ph,unit,type,bank,fbank]) => ({ id, g, ph, unit, type, ...(bank ? { bank } : {}), ...(fbank ? { fbank } : {}) }));
+].map(([id,g,ph,unit,type,bank,fbank,vbank]) => ({ id, g, ph, unit, type, ...(bank ? { bank } : {}), ...(fbank ? { fbank } : {}), ...(vbank ? { vbank } : {}) }));
 
 // Plural-/s/ contrast words used as lures when teaching final /z/ (sz). Not GPC data; build copies it to meta.
 export const S_FINAL_BANK = [['cats','🐱'],['hats','🎩'],['cups','🥤']];

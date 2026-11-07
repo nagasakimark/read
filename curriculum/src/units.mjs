@@ -21,4 +21,10 @@ export const UNITS = [
   { id:14, stage:3, name:'r-clusters', ja:'r の ならび', patterns:[['^b r','^c r'],['^d r','^f r'],['^g r','^t r','^p r']], tricky:[['out'],['little'],[]] },
   { id:15, stage:3, name:'Three-letter starts and -ing', ja:'3つの しいん と -ing', patterns:[['^s t r','^s p l'],['^s c r','^sh r','^th r'],['i ng$']], tricky:[['were'],['your'],[]] },
   { id:16, stage:3, name:'-ed and compound words', ja:'-ed と ふたつの ことば', patterns:[['ed_t$'],['ed_d$'],['ed_id$']], suffixGpcs:['ed_t','ed_d','ed_id'], tricky:[[],[],[]] },
+  { id:17, stage:4, name:'ee oo', ja:'ee oo', groups:[['ee'],['oo']], tricky:[[],[]] },
+  { id:18, stage:4, name:'ai oa', ja:'ai oa', groups:[['ai'],['oa']], tricky:[[],[]] },
+  { id:19, stage:4, name:'igh ow oi', ja:'igh ow oi', groups:[['igh'],['ow_au'],['oi']], tricky:[[],[],[]] },
+  { id:20, stage:4, name:'oo ar or', ja:'oo ar or', groups:[['oo_s'],['ar'],['or']], tricky:[[],[],[]] },
+  { id:21, stage:4, name:'ur er air ear', ja:'ur er air ear', groups:[['ur','er'],['air','ear']], tricky:[[],[]] },
+  { id:22, stage:4, name:'y says ee / eye', ja:'y が「イー」「アイ」', groups:[['y_i'],['y_ai']], tricky:[[],[]] },
 ];

@@ -1455,6 +1455,882 @@
   ]
  },
  {
+  "id": "s17a",
+  "unit": 17,
+  "title": "The Green Tree",
+  "topic": "nature",
+  "focus": [
+   "ee",
+   "oo"
+  ],
+  "pages": [
+   {
+    "text": "A bee sat in a green tree.",
+    "pic": "🐝🌳"
+   },
+   {
+    "text": "The bee can see a seed.",
+    "pic": "🐝🌱"
+   },
+   {
+    "text": "The seed fell in the pond.",
+    "pic": "🌱🏞️"
+   },
+   {
+    "text": "Soon it is a tree.",
+    "pic": "🌳"
+   }
+  ],
+  "questions": [
+   {
+    "q": "Where did the bee sit?",
+    "type": "literal",
+    "answer": [
+     "🌳",
+     "tree"
+    ],
+    "distractors": [
+     [
+      "🛏️",
+      "bed"
+     ],
+     [
+      "🪵",
+      "log"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s17b",
+  "unit": 17,
+  "title": "The Zoo",
+  "topic": "animals",
+  "focus": [
+   "ee",
+   "oo"
+  ],
+  "pages": [
+   {
+    "text": "Sam is at the zoo.",
+    "pic": "👦🦒"
+   },
+   {
+    "text": "He can see a sheep.",
+    "pic": "👦🐑"
+   },
+   {
+    "text": "The sheep can sleep.",
+    "pic": "🐑😴"
+   },
+   {
+    "text": "The moon is up.",
+    "pic": "🌙"
+   }
+  ],
+  "questions": [
+   {
+    "q": "Where is Sam?",
+    "type": "literal",
+    "answer": [
+     "🦒",
+     "zoo"
+    ],
+    "distractors": [
+     [
+      "🛏️",
+      "bed"
+     ],
+     [
+      "🚌",
+      "bus"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s17c",
+  "unit": 17,
+  "title": "Cool Food",
+  "topic": "food",
+  "focus": [
+   "ee",
+   "oo"
+  ],
+  "pages": [
+   {
+    "text": "Meg got some food.",
+    "pic": "👧🍱"
+   },
+   {
+    "text": "She got a spoon.",
+    "pic": "👧🥄"
+   },
+   {
+    "text": "The food was cool.",
+    "pic": "🍱😎"
+   },
+   {
+    "text": "Meg and Tom feed the sheep.",
+    "pic": "👧🧒🐑"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What did Meg get?",
+    "type": "literal",
+    "answer": [
+     "🥄",
+     "spoon"
+    ],
+    "distractors": [
+     [
+      "🥤",
+      "cup"
+     ],
+     [
+      "🍴",
+      "fork"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s18a",
+  "unit": 18,
+  "title": "The Train",
+  "topic": "places",
+  "focus": [
+   "ai",
+   "oa"
+  ],
+  "pages": [
+   {
+    "text": "A train sat in the rain.",
+    "pic": "🚂🌧️"
+   },
+   {
+    "text": "The train can not wait.",
+    "pic": "🚂"
+   },
+   {
+    "text": "Sam and Meg run to the train.",
+    "pic": "👦👧🚂"
+   },
+   {
+    "text": "They got on the train.",
+    "pic": "🚂😊"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What sat in the rain?",
+    "type": "literal",
+    "answer": [
+     "🚂",
+     "train"
+    ],
+    "distractors": [
+     [
+      "🚌",
+      "bus"
+     ],
+     [
+      "🚐",
+      "van"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s18b",
+  "unit": 18,
+  "title": "The Goat on the Boat",
+  "topic": "animals",
+  "focus": [
+   "ai",
+   "oa"
+  ],
+  "pages": [
+   {
+    "text": "A goat got on a boat.",
+    "pic": "🐐⛵"
+   },
+   {
+    "text": "The boat can float.",
+    "pic": "⛵🌊"
+   },
+   {
+    "text": "The goat has a coat.",
+    "pic": "🐐🧥"
+   },
+   {
+    "text": "The goat is glad.",
+    "pic": "🐐😊"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What got on the boat?",
+    "type": "literal",
+    "answer": [
+     "🐐",
+     "goat"
+    ],
+    "distractors": [
+     [
+      "🐔",
+      "hen"
+     ],
+     [
+      "🐷",
+      "pig"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s18c",
+  "unit": 18,
+  "title": "The Snail",
+  "topic": "animals",
+  "focus": [
+   "ai",
+   "oa"
+  ],
+  "pages": [
+   {
+    "text": "A snail sat on the road.",
+    "pic": "🐌🛣️"
+   },
+   {
+    "text": "The snail can not run.",
+    "pic": "🐌"
+   },
+   {
+    "text": "Rain is on the snail.",
+    "pic": "🌧️🐌"
+   },
+   {
+    "text": "The snail is glad.",
+    "pic": "🐌😊"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What sat on the road?",
+    "type": "literal",
+    "answer": [
+     "🐌",
+     "snail"
+    ],
+    "distractors": [
+     [
+      "🐸",
+      "frog"
+     ],
+     [
+      "🐜",
+      "ant"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s19a",
+  "unit": 19,
+  "title": "Night Light",
+  "topic": "home",
+  "focus": [
+   "igh",
+   "ow_au",
+   "oi"
+  ],
+  "pages": [
+   {
+    "text": "It is night.",
+    "pic": "🌃"
+   },
+   {
+    "text": "Dan has a light.",
+    "pic": "🧒💡"
+   },
+   {
+    "text": "The light is bright.",
+    "pic": "💡✨"
+   },
+   {
+    "text": "Dan can see the moon.",
+    "pic": "🧒🌙"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What does Dan have?",
+    "type": "literal",
+    "answer": [
+     "💡",
+     "light"
+    ],
+    "distractors": [
+     [
+      "🧢",
+      "cap"
+     ],
+     [
+      "🥤",
+      "cup"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s19b",
+  "unit": 19,
+  "title": "The Brown Cow",
+  "topic": "animals",
+  "focus": [
+   "igh",
+   "ow_au",
+   "oi"
+  ],
+  "pages": [
+   {
+    "text": "A brown cow sat down.",
+    "pic": "🐄"
+   },
+   {
+    "text": "The cow can not get up.",
+    "pic": "🐄"
+   },
+   {
+    "text": "A clown ran to the cow.",
+    "pic": "🤡🐄"
+   },
+   {
+    "text": "Now the cow is up!",
+    "pic": "🐄🎉"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What sat down?",
+    "type": "literal",
+    "answer": [
+     "🐄",
+     "cow"
+    ],
+    "distractors": [
+     [
+      "🐔",
+      "hen"
+     ],
+     [
+      "🐷",
+      "pig"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s19c",
+  "unit": 19,
+  "title": "The Coin",
+  "topic": "home",
+  "focus": [
+   "igh",
+   "ow_au",
+   "oi"
+  ],
+  "pages": [
+   {
+    "text": "Tom got a coin.",
+    "pic": "🧒🪙"
+   },
+   {
+    "text": "It fell in the oil.",
+    "pic": "🪙🛢️"
+   },
+   {
+    "text": "Tom can point at it.",
+    "pic": "🧒👉"
+   },
+   {
+    "text": "Dan can get the coin.",
+    "pic": "🧒🪙"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What fell in the oil?",
+    "type": "literal",
+    "answer": [
+     "🪙",
+     "coin"
+    ],
+    "distractors": [
+     [
+      "🥤",
+      "cup"
+     ],
+     [
+      "🧢",
+      "cap"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s20a",
+  "unit": 20,
+  "title": "The Park",
+  "topic": "places",
+  "focus": [
+   "oo_s",
+   "ar",
+   "or"
+  ],
+  "pages": [
+   {
+    "text": "Sam and Dan go to the park.",
+    "pic": "👦🧒🏞️"
+   },
+   {
+    "text": "It is dark.",
+    "pic": "🌑"
+   },
+   {
+    "text": "They look at a star.",
+    "pic": "👀⭐"
+   },
+   {
+    "text": "The star is far.",
+    "pic": "⭐"
+   }
+  ],
+  "questions": [
+   {
+    "q": "Where did they go?",
+    "type": "literal",
+    "answer": [
+     "🏞️",
+     "park"
+    ],
+    "distractors": [
+     [
+      "🛏️",
+      "bed"
+     ],
+     [
+      "🚌",
+      "bus"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s20b",
+  "unit": 20,
+  "title": "The Farm",
+  "topic": "places",
+  "focus": [
+   "oo_s",
+   "ar",
+   "or"
+  ],
+  "pages": [
+   {
+    "text": "Meg is at the farm.",
+    "pic": "👧🚜"
+   },
+   {
+    "text": "She took a look at the barn.",
+    "pic": "👧🏚️"
+   },
+   {
+    "text": "The corn is good.",
+    "pic": "🌽"
+   },
+   {
+    "text": "Meg has a good book.",
+    "pic": "👧📖"
+   }
+  ],
+  "questions": [
+   {
+    "q": "Where is Meg?",
+    "type": "literal",
+    "answer": [
+     "🚜",
+     "farm"
+    ],
+    "distractors": [
+     [
+      "🏖️",
+      "sand"
+     ],
+     [
+      "⛺",
+      "tent"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s20c",
+  "unit": 20,
+  "title": "The Storm",
+  "topic": "weather",
+  "focus": [
+   "oo_s",
+   "ar",
+   "or"
+  ],
+  "pages": [
+   {
+    "text": "It is a storm.",
+    "pic": "⛈️"
+   },
+   {
+    "text": "The rain is hard.",
+    "pic": "🌧️"
+   },
+   {
+    "text": "Sam and Meg sort the corn.",
+    "pic": "👦👧🌽"
+   },
+   {
+    "text": "It is a short storm.",
+    "pic": "⛈️"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What is hard?",
+    "type": "literal",
+    "answer": [
+     "🌧️",
+     "rain"
+    ],
+    "distractors": [
+     [
+      "☀️",
+      "sun"
+     ],
+     [
+      "🌙",
+      "moon"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s21a",
+  "unit": 21,
+  "title": "The Letter",
+  "topic": "people",
+  "focus": [
+   "ur",
+   "er",
+   "air",
+   "ear"
+  ],
+  "pages": [
+   {
+    "text": "Meg has a sister.",
+    "pic": "👧👧"
+   },
+   {
+    "text": "Her sister has a letter.",
+    "pic": "👧✉️"
+   },
+   {
+    "text": "The letter is from Dan.",
+    "pic": "✉️🧒"
+   },
+   {
+    "text": "Her sister is glad.",
+    "pic": "👧😊"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What has her sister?",
+    "type": "literal",
+    "answer": [
+     "✉️",
+     "letter"
+    ],
+    "distractors": [
+     [
+      "🧢",
+      "cap"
+     ],
+     [
+      "🥤",
+      "cup"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s21b",
+  "unit": 21,
+  "title": "The Chair",
+  "topic": "home",
+  "focus": [
+   "ur",
+   "er",
+   "air",
+   "ear"
+  ],
+  "pages": [
+   {
+    "text": "A chair is in the yard.",
+    "pic": "🪑"
+   },
+   {
+    "text": "Dan sat in the chair.",
+    "pic": "🧒🪑"
+   },
+   {
+    "text": "Dan can hear a bee.",
+    "pic": "🧒🐝"
+   },
+   {
+    "text": "The bee is near his ear.",
+    "pic": "🐝👂"
+   }
+  ],
+  "questions": [
+   {
+    "q": "Where did Dan sit?",
+    "type": "literal",
+    "answer": [
+     "🪑",
+     "chair"
+    ],
+    "distractors": [
+     [
+      "🛏️",
+      "bed"
+     ],
+     [
+      "🪵",
+      "log"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s21c",
+  "unit": 21,
+  "title": "The Hurt Cat",
+  "topic": "animals",
+  "focus": [
+   "ur",
+   "er",
+   "air",
+   "ear"
+  ],
+  "pages": [
+   {
+    "text": "The cat has fur.",
+    "pic": "🐱"
+   },
+   {
+    "text": "The cat got hurt.",
+    "pic": "🐱🤕"
+   },
+   {
+    "text": "Meg can hug it.",
+    "pic": "👧🐱"
+   },
+   {
+    "text": "The cat is better.",
+    "pic": "🐱😊"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What got hurt?",
+    "type": "literal",
+    "answer": [
+     "🐱",
+     "cat"
+    ],
+    "distractors": [
+     [
+      "🐶",
+      "dog"
+     ],
+     [
+      "🐔",
+      "hen"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s22a",
+  "unit": 22,
+  "title": "The Happy Bunny",
+  "topic": "animals",
+  "focus": [
+   "y_i",
+   "y_ai"
+  ],
+  "pages": [
+   {
+    "text": "The bunny is happy.",
+    "pic": "🐰😊"
+   },
+   {
+    "text": "It is sunny.",
+    "pic": "☀️"
+   },
+   {
+    "text": "The bunny can jump.",
+    "pic": "🐰🤸"
+   },
+   {
+    "text": "The bunny is not shy.",
+    "pic": "🐰"
+   }
+  ],
+  "questions": [
+   {
+    "q": "Who is happy?",
+    "type": "literal",
+    "answer": [
+     "🐰",
+     "bunny"
+    ],
+    "distractors": [
+     [
+      "🐶",
+      "dog"
+     ],
+     [
+      "🐔",
+      "hen"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s22b",
+  "unit": 22,
+  "title": "The Sky",
+  "topic": "weather",
+  "focus": [
+   "y_i",
+   "y_ai"
+  ],
+  "pages": [
+   {
+    "text": "Look at the sky.",
+    "pic": "👀🌌"
+   },
+   {
+    "text": "A jet can fly in the sky.",
+    "pic": "✈️"
+   },
+   {
+    "text": "It is not rainy.",
+    "pic": "☀️"
+   },
+   {
+    "text": "The sky is red.",
+    "pic": "🌇"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What can fly?",
+    "type": "literal",
+    "answer": [
+     "✈️",
+     "jet"
+    ],
+    "distractors": [
+     [
+      "🐌",
+      "snail"
+     ],
+     [
+      "🐷",
+      "pig"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s22c",
+  "unit": 22,
+  "title": "The Silly Puppy",
+  "topic": "animals",
+  "focus": [
+   "y_i",
+   "y_ai"
+  ],
+  "pages": [
+   {
+    "text": "The puppy is silly.",
+    "pic": "🐶🤪"
+   },
+   {
+    "text": "It can jump and run.",
+    "pic": "🐶🏃"
+   },
+   {
+    "text": "It got muddy.",
+    "pic": "🐶🟤"
+   },
+   {
+    "text": "Meg can try to dry it.",
+    "pic": "👧🐶"
+   }
+  ],
+  "questions": [
+   {
+    "q": "Who is silly?",
+    "type": "literal",
+    "answer": [
+     "🐶",
+     "puppy"
+    ],
+    "distractors": [
+     [
+      "🐱",
+      "cat"
+     ],
+     [
+      "🐔",
+      "hen"
+     ]
+    ]
+   }
+  ]
+ },
+ {
   "id": "s4a",
   "unit": 4,
   "title": "The Red Hat",

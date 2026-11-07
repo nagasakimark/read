@@ -194,5 +194,96 @@
   "esp": "N",
   "mouth": "throat",
   "cont": true
+ },
+ {
+  "id": "ee",
+  "ipa": "iː",
+  "esp": "i:",
+  "mouth": "smile",
+  "cont": true
+ },
+ {
+  "id": "oo",
+  "ipa": "uː",
+  "esp": "u:",
+  "mouth": "round",
+  "cont": true
+ },
+ {
+  "id": "ai",
+  "ipa": "eɪ",
+  "esp": "eI",
+  "mouth": "smile",
+  "cont": true
+ },
+ {
+  "id": "oa",
+  "ipa": "oʊ",
+  "esp": "oU",
+  "mouth": "round",
+  "cont": true
+ },
+ {
+  "id": "igh",
+  "ipa": "aɪ",
+  "esp": "aI",
+  "mouth": "open",
+  "cont": true
+ },
+ {
+  "id": "ow",
+  "ipa": "aʊ",
+  "esp": "aU",
+  "mouth": "open",
+  "cont": true
+ },
+ {
+  "id": "oi",
+  "ipa": "ɔɪ",
+  "esp": "OI",
+  "mouth": "round",
+  "cont": true
+ },
+ {
+  "id": "uu",
+  "ipa": "ʊ",
+  "esp": "U",
+  "mouth": "round",
+  "cont": true
+ },
+ {
+  "id": "ar",
+  "ipa": "ɑr",
+  "esp": "A@",
+  "mouth": "open",
+  "cont": true
+ },
+ {
+  "id": "or",
+  "ipa": "ɔr",
+  "esp": "O@",
+  "mouth": "round",
+  "cont": true
+ },
+ {
+  "id": "ur",
+  "ipa": "ɜr",
+  "esp": "3:",
+  "mouth": "mid",
+  "cont": true
+ },
+ {
+  "id": "air",
+  "ipa": "ɛr",
+  "esp": "e@",
+  "mouth": "open",
+  "cont": true
+ },
+ {
+  "id": "ear",
+  "ipa": "ɪr",
+  "esp": "i@",
+  "mouth": "smile",
+  "cont": true
  }
 ]
