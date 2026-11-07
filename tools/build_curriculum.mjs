@@ -10,6 +10,7 @@ import { TRICKY } from '../curriculum/src/tricky.mjs';
 import { PACKS } from '../curriculum/src/packs.mjs';
 import { STORIES, SENTENCES } from '../curriculum/src/stories.mjs';
 import { UNITS } from '../curriculum/src/units.mjs';
+import { STAGES, KINDS, COURSE, CHECKPOINTS, REVIEW_POINTS, THEMES } from '../curriculum/src/course.mjs';
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const out = (name, data) => fs.writeFileSync(path.join(root, 'curriculum', name), JSON.stringify(data, null, 1) + '\n');
@@ -51,7 +52,7 @@ const units = UNITS.map(u => {
 });
 
 out('meta.json', { contentVersion: '0.1.0', accent: 'en-US', sFinalBank: S_FINAL_BANK, builtFrom: 'curriculum/src', blueprint: 'docs/BLUEPRINT.md',
-  stages: [ { id: 0, name: 'Listening' }, { id: 1, name: 'First sounds' }, { id: 2, name: 'Digraphs' } ] });
+  stages: STAGES.map(({ id, name, ja }) => ({ id, name, ja })) });
 out('phonemes.json', PHONEMES);
 out('gpcs.json', GPCS);
 out('words.json', words);
@@ -60,4 +61,9 @@ out('packs.json', PACKS);
 out('stories.json', STORIES);
 out('sentences.json', SENTENCES);
 out('units.json', units);
+// ---- full course map (authored + planned units); status derived from what is actually authored
+const authored = new Set(UNITS.map(u => u.id));
+const course = { stages: STAGES, kinds: KINDS, checkpoints: CHECKPOINTS, reviewPoints: REVIEW_POINTS, themes: THEMES,
+  units: COURSE.map(u => ({ ...u, status: authored.has(u.id) ? 'authored' : 'planned' })) };
+out('course.json', course);
 console.log(`built: ${PHONEMES.length} phonemes, ${GPCS.length} GPCs, ${words.length} words, ${tricky.length} tricky, ${STORIES.length} stories, ${SENTENCES.length} sentences, ${units.length} units`);

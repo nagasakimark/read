@@ -17,8 +17,8 @@ export const PACKS = [
     sets:[['sip','ship'],['sell','shell'],['sock','shock']] },
   { id:'cp_ch_sh', unit:8, name:'ch / sh', ja:'ch は「チ」，sh は「シ」',
     sets:[['chip','ship'],['chop','shop'],['chin','shin']] },
-  { id:'cp_th_s', unit:8, name:'th / s / t', ja:'th は したを はさんで「ス」',
+  { id:'cp_th_s', unit:9, name:'th / s / t', ja:'th は したを はさんで「ス」',
     sets:[['thick','sick'],['thin','tin'],['math','mat']] },
-  { id:'cp_n_ng', unit:9, name:'n / ng', ja:'ng は のどの おくで「ン」',
+  { id:'cp_n_ng', unit:10, name:'n / ng', ja:'ng は のどの おくで「ン」',
     sets:[['ran','rang'],['sun','sung'],['ban','bang']] },
 ];

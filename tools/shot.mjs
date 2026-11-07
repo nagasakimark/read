@@ -14,5 +14,6 @@ const snap = n => page.screenshot({ path: `/tmp/shots/${n}.png` });
 await page.goto(`http://localhost:${port}/`); await page.waitForTimeout(800); await snap('1_boot');
 await page.mouse.click(683, 300); await page.waitForTimeout(1200); await snap('2_profiles');
 await page.mouse.click(255, 225); await page.waitForTimeout(800); await snap('3_home');
+await page.evaluate(()=>{const s=window.__app.eng.scene||window.__app.eng.stack?.at(-1);s.page=3;s.build();}); await page.waitForTimeout(500); await snap('4_stage3');
 console.log('errors:', errors.length ? errors : 'none');
 await browser.close(); srv.close();

@@ -144,25 +144,24 @@
  {
   "id": "s8a",
   "unit": 8,
-  "title": "Beth and the Fish",
+  "title": "Josh and the Fish",
   "topic": "animals",
   "focus": [
    "sh",
-   "ch",
-   "th"
+   "ch"
   ],
   "pages": [
    {
-    "text": "Beth has a fish.",
-    "pic": "👧🐟"
+    "text": "Josh has a fish.",
+    "pic": "👦🐟"
    },
    {
     "text": "The fish is in a dish.",
     "pic": "🐟🍽️"
    },
    {
-    "text": "Beth got a wish.",
-    "pic": "👧🌠"
+    "text": "Josh got a wish.",
+    "pic": "👦🌠"
    }
   ],
   "questions": [
@@ -193,8 +192,7 @@
   "topic": "animals",
   "focus": [
    "sh",
-   "ch",
-   "th"
+   "ch"
   ],
   "pages": [
    {
@@ -242,26 +240,25 @@
   "topic": "places",
   "focus": [
    "sh",
-   "ch",
-   "th"
+   "ch"
   ],
   "pages": [
    {
-    "text": "Beth was at the shop.",
-    "pic": "👧🏪"
+    "text": "Josh is at the shop.",
+    "pic": "👦🏪"
    },
    {
-    "text": "She got a shell.",
-    "pic": "👧🐚"
+    "text": "He got a shell.",
+    "pic": "👦🐚"
    },
    {
-    "text": "She got a thick rug.",
-    "pic": "👧🧶"
+    "text": "He got a red rug.",
+    "pic": "👦🧶"
    }
   ],
   "questions": [
    {
-    "q": "Where was Beth?",
+    "q": "Where is Josh?",
     "type": "literal",
     "answer": [
      "🏪",
@@ -273,8 +270,8 @@
       "bed"
      ],
      [
-      "🛁",
-      "bath"
+      "🏦",
+      "bank"
      ]
     ]
    }
@@ -283,6 +280,142 @@
  {
   "id": "s9a",
   "unit": 9,
+  "title": "Beth in the Bath",
+  "topic": "home",
+  "focus": [
+   "th",
+   "thv"
+  ],
+  "pages": [
+   {
+    "text": "Beth is in the bath.",
+    "pic": "👧🛁"
+   },
+   {
+    "text": "The bath is hot.",
+    "pic": "🛁♨️"
+   },
+   {
+    "text": "Beth sat in the bath.",
+    "pic": "👧🛁"
+   }
+  ],
+  "questions": [
+   {
+    "q": "Where is Beth?",
+    "type": "literal",
+    "answer": [
+     "🛁",
+     "bath"
+    ],
+    "distractors": [
+     [
+      "🛏️",
+      "bed"
+     ],
+     [
+      "🏪",
+      "shop"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s9b",
+  "unit": 9,
+  "title": "This and That",
+  "topic": "school",
+  "focus": [
+   "th",
+   "thv"
+  ],
+  "pages": [
+   {
+    "text": "This is a thin pen.",
+    "pic": "🖊️"
+   },
+   {
+    "text": "That is a thick pen.",
+    "pic": "🖍️"
+   },
+   {
+    "text": "Beth has this pen.",
+    "pic": "👧🖊️"
+   },
+   {
+    "text": "Josh has that pen.",
+    "pic": "👦🖍️"
+   }
+  ],
+  "questions": [
+   {
+    "q": "Who has the thin pen?",
+    "type": "literal",
+    "answer": [
+     "👧",
+     "Beth"
+    ],
+    "distractors": [
+     [
+      "👦",
+      "Josh"
+     ],
+     [
+      "🐥",
+      "Chuck"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s9c",
+  "unit": 9,
+  "title": "The Moth",
+  "topic": "animals",
+  "focus": [
+   "th",
+   "thv"
+  ],
+  "pages": [
+   {
+    "text": "A moth sat on the path.",
+    "pic": "🦋🛤️"
+   },
+   {
+    "text": "Beth sat on the path.",
+    "pic": "👧🛤️"
+   },
+   {
+    "text": "The moth is thin.",
+    "pic": "🦋"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What sat on the path?",
+    "type": "literal",
+    "answer": [
+     "🦋",
+     "moth"
+    ],
+    "distractors": [
+     [
+      "🐱",
+      "cat"
+     ],
+     [
+      "🐷",
+      "pig"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s10a",
+  "unit": 10,
   "title": "The King",
   "topic": "people",
   "focus": [
@@ -325,8 +458,8 @@
   ]
  },
  {
-  "id": "s9b",
-  "unit": 9,
+  "id": "s10b",
+  "unit": 10,
   "title": "At the Bank",
   "topic": "places",
   "focus": [
@@ -369,8 +502,8 @@
   ]
  },
  {
-  "id": "s9c",
-  "unit": 9,
+  "id": "s10c",
+  "unit": 10,
   "title": "Chuck in the Sink",
   "topic": "animals",
   "focus": [

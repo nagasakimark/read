@@ -204,6 +204,42 @@
   "noteJa": "e は「イー」"
  },
  {
+  "id": "have",
+  "t": "have",
+  "parts": [
+   "h",
+   "a",
+   "*ve"
+  ],
+  "release": 8,
+  "decodableFrom": 31,
+  "noteEn": "The v is followed by a silent e.",
+  "noteJa": "have は 最後に e が つくよ"
+ },
+ {
+  "id": "they",
+  "t": "they",
+  "parts": [
+   "th",
+   "*ey"
+  ],
+  "release": 9,
+  "decodableFrom": null,
+  "noteEn": "\"ey\" says /eɪ/ (ay).",
+  "noteJa": "they は「ゼイ」"
+ },
+ {
+  "id": "are",
+  "t": "are",
+  "parts": [
+   "*are"
+  ],
+  "release": 9,
+  "decodableFrom": null,
+  "noteEn": "\"are\" says /ɑr/ (ar).",
+  "noteJa": "are は「アー」"
+ },
+ {
   "id": "was",
   "t": "was",
   "parts": [
@@ -211,9 +247,45 @@
    "*a",
    "s"
   ],
-  "release": 8,
+  "release": 9,
   "decodableFrom": null,
   "noteEn": "a says /ʌ/ here and s says /z/.",
   "noteJa": "was は「ウォズ」"
+ },
+ {
+  "id": "what",
+  "t": "what",
+  "parts": [
+   "*wh",
+   "a",
+   "t"
+  ],
+  "release": 10,
+  "decodableFrom": 31,
+  "noteEn": "\"wh\" says /w/ and a says /ʌ/.",
+  "noteJa": "what は「ワット」"
+ },
+ {
+  "id": "my",
+  "t": "my",
+  "parts": [
+   "m",
+   "*y"
+  ],
+  "release": 10,
+  "decodableFrom": 22,
+  "noteEn": "y says /aɪ/ (eye).",
+  "noteJa": "y は「アイ」"
+ },
+ {
+  "id": "all",
+  "t": "all",
+  "parts": [
+   "*all"
+  ],
+  "release": 10,
+  "decodableFrom": 29,
+  "noteEn": "\"all\" says /ɔl/.",
+  "noteJa": "all は「オール」"
  }
 ]

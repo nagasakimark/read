@@ -152,7 +152,7 @@
  },
  {
   "id": "cp_th_s",
-  "unit": 8,
+  "unit": 9,
   "name": "th / s / t",
   "ja": "th は したを はさんで「ス」",
   "sets": [
@@ -172,7 +172,7 @@
  },
  {
   "id": "cp_n_ng",
-  "unit": 9,
+  "unit": 10,
   "name": "n / ng",
   "ja": "ng は のどの おくで「ン」",
   "sets": [

@@ -814,24 +814,22 @@
  {
   "id": 8,
   "stage": 2,
-  "name": "sh ch th",
-  "ja": "sh ch th",
+  "name": "sh ch",
+  "ja": "sh ch",
   "newGpcs": [
    "sh",
-   "ch",
-   "th"
+   "ch"
   ],
   "newTricky": [
    "she",
-   "was"
+   "have"
   ],
   "prereqs": [
    7
   ],
   "packs": [
    "cp_s_sh",
-   "cp_ch_sh",
-   "cp_th_s"
+   "cp_ch_sh"
   ],
   "lessons": [
    {
@@ -839,8 +837,7 @@
     "unit": 8,
     "kind": "teach",
     "newGpcs": [
-     "sh",
-     "ch"
+     "sh"
     ],
     "newTricky": [
      "she"
@@ -852,10 +849,10 @@
     "unit": 8,
     "kind": "teach",
     "newGpcs": [
-     "th"
+     "ch"
     ],
     "newTricky": [
-     "was"
+     "have"
     ],
     "stories": []
    },
@@ -937,18 +934,22 @@
  {
   "id": 9,
   "stage": 2,
-  "name": "ng nk",
-  "ja": "ng nk",
+  "name": "th (two sounds)",
+  "ja": "th（2つの おと）",
   "newGpcs": [
-   "ng",
-   "nk"
+   "th",
+   "thv"
   ],
-  "newTricky": [],
+  "newTricky": [
+   "they",
+   "are",
+   "was"
+  ],
   "prereqs": [
    8
   ],
   "packs": [
-   "cp_n_ng"
+   "cp_th_s"
   ],
   "lessons": [
    {
@@ -956,9 +957,12 @@
     "unit": 9,
     "kind": "teach",
     "newGpcs": [
-     "ng"
+     "th"
     ],
-    "newTricky": [],
+    "newTricky": [
+     "they",
+     "are"
+    ],
     "stories": []
    },
    {
@@ -966,9 +970,11 @@
     "unit": 9,
     "kind": "teach",
     "newGpcs": [
-     "nk"
+     "thv"
     ],
-    "newTricky": [],
+    "newTricky": [
+     "was"
+    ],
     "stories": []
    },
    {
@@ -1039,6 +1045,127 @@
    "s9a",
    "s9b",
    "s9c"
+  ],
+  "mastery": {
+   "rungRequired": 4,
+   "storyAccuracy": 0.9,
+   "questionsCorrect": 2
+  }
+ },
+ {
+  "id": 10,
+  "stage": 2,
+  "name": "ng nk",
+  "ja": "ng nk",
+  "newGpcs": [
+   "ng",
+   "nk"
+  ],
+  "newTricky": [
+   "what",
+   "my",
+   "all"
+  ],
+  "prereqs": [
+   9
+  ],
+  "packs": [
+   "cp_n_ng"
+  ],
+  "lessons": [
+   {
+    "id": "L10_1",
+    "unit": 10,
+    "kind": "teach",
+    "newGpcs": [
+     "ng"
+    ],
+    "newTricky": [
+     "what",
+     "my"
+    ],
+    "stories": []
+   },
+   {
+    "id": "L10_2",
+    "unit": 10,
+    "kind": "teach",
+    "newGpcs": [
+     "nk"
+    ],
+    "newTricky": [
+     "all"
+    ],
+    "stories": []
+   },
+   {
+    "id": "L10_3",
+    "unit": 10,
+    "kind": "consolidate",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s10a",
+      "read": 1
+     }
+    ]
+   },
+   {
+    "id": "L10_4",
+    "unit": 10,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s10a",
+      "read": 2
+     },
+     {
+      "id": "s10a",
+      "read": 3
+     },
+     {
+      "id": "s10b",
+      "read": 1
+     },
+     {
+      "id": "s10b",
+      "read": 2
+     }
+    ]
+   },
+   {
+    "id": "L10_5",
+    "unit": 10,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s10b",
+      "read": 3
+     },
+     {
+      "id": "s10c",
+      "read": 1
+     },
+     {
+      "id": "s10c",
+      "read": 2
+     },
+     {
+      "id": "s10c",
+      "read": 3
+     }
+    ]
+   }
+  ],
+  "stories": [
+   "s10a",
+   "s10b",
+   "s10c"
   ],
   "mastery": {
    "rungRequired": 4,

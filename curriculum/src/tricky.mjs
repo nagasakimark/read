@@ -19,5 +19,11 @@ export const TRICKY = [
   ['do',['d','*o'],7,null,'o says /uː/ (oo).','o は「ウー」'],
   ['said',['s','*ai','d'],7,null,'ai says /ɛ/ (eh).','ai は「エ」'],
   ['she',['sh','*e'],8,26,'e says /iː/ (ee).','e は「イー」'],
-  ['was',['w','*a','s'],8,null,'a says /ʌ/ here and s says /z/.','was は「ウォズ」'],
+  ['have',['h','a','*ve'],8,31,'The v is followed by a silent e.','have は 最後に e が つくよ'],
+  ['they',['th','*ey'],9,null,'"ey" says /eɪ/ (ay).','they は「ゼイ」'],
+  ['are',['*are'],9,null,'"are" says /ɑr/ (ar).','are は「アー」'],
+  ['was',['w','*a','s'],9,null,'a says /ʌ/ here and s says /z/.','was は「ウォズ」'],
+  ['what',['*wh','a','t'],10,31,'"wh" says /w/ and a says /ʌ/.','what は「ワット」'],
+  ['my',['m','*y'],10,22,'y says /aɪ/ (eye).','y は「アイ」'],
+  ['all',['*all'],10,29,'"all" says /ɔl/.','all は「オール」'],
 ];

@@ -12,6 +12,7 @@ export function tokenize(text) {
 export class Curriculum {
   constructor(d) {
     this.meta = d.meta;
+    this.course = d.course || null; // full course map (authored + planned units)
     this.phonemes = Object.fromEntries(d.phonemes.map(p => [p.id, p]));
     this.gpcList = d.gpcs;
     this.gpcs = Object.fromEntries(d.gpcs.map(g => [g.id, g]));

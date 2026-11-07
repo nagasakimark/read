@@ -7,5 +7,5 @@ const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', '..')
 export function loadCurriculumNode() {
   const rd = n => JSON.parse(fs.readFileSync(path.join(root, 'curriculum', n + '.json'), 'utf8'));
   return new Curriculum({ meta: rd('meta'), phonemes: rd('phonemes'), gpcs: rd('gpcs'), words: rd('words'),
-    tricky: rd('tricky'), packs: rd('packs'), stories: rd('stories'), sentences: rd('sentences'), units: rd('units') });
+    tricky: rd('tricky'), packs: rd('packs'), stories: rd('stories'), sentences: rd('sentences'), units: rd('units'), course: rd('course') });
 }

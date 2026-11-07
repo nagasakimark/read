@@ -789,7 +789,7 @@
   "ph": [
    "th"
   ],
-  "unit": 8,
+  "unit": 9,
   "type": "digraph",
   "bank": [
    [
@@ -807,12 +807,35 @@
   ]
  },
  {
+  "id": "thv",
+  "g": "th",
+  "ph": [
+   "dh"
+  ],
+  "unit": 9,
+  "type": "digraph",
+  "bank": [
+   [
+    "this",
+    "👉"
+   ],
+   [
+    "that",
+    "👈"
+   ],
+   [
+    "them",
+    "👥"
+   ]
+  ]
+ },
+ {
   "id": "ng",
   "g": "ng",
   "ph": [
    "ng"
   ],
-  "unit": 9,
+  "unit": 10,
   "type": "digraph-final",
   "fbank": [
    [
@@ -836,7 +859,7 @@
    "ng",
    "k"
   ],
-  "unit": 9,
+  "unit": 10,
   "type": "digraph-final",
   "fbank": [
    [

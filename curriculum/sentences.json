@@ -76,21 +76,31 @@
  },
  {
   "unit": 8,
-  "text": "Beth has a ship.",
-  "pic": "👧🚢"
+  "text": "Josh has a ship.",
+  "pic": "👦🚢"
  },
  {
   "unit": 9,
+  "text": "Beth has this pen.",
+  "pic": "👧🖊️"
+ },
+ {
+  "unit": 9,
+  "text": "That is a thin rug.",
+  "pic": "🧶"
+ },
+ {
+  "unit": 10,
   "text": "The king sang.",
   "pic": "🤴🎶"
  },
  {
-  "unit": 9,
+  "unit": 10,
   "text": "I think she has a ring.",
   "pic": "💍"
  },
  {
-  "unit": 9,
+  "unit": 10,
   "text": "Thank you!",
   "pic": "🙏"
  }

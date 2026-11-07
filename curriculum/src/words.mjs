@@ -109,4 +109,7 @@ export const WORDS = [
   ['sunk','s u nk','','しずんだ',C], ['rank','r a nk','','じゅんい',L], ['think','th i nk','🤔','おもう',C], ['thank','th a nk','🙏','ありがとう',C], ['pink','p i nk','🎀','ピンク',L],
   ['tank','t a nk','','タンク',L], ['rings','r i ng sz','💍💍','ゆびわ(たち)',C], ['kings','k i ng sz','🤴🤴','おうさま(たち)',C],
   ['pung','p u ng','','',S], ['teng','t e ng','','',S], ['jing','j i ng','','',S], ['tunk','t u nk','','',S], ['lonk','l o nk','','',S], ['pank','p a nk','','',S],
+  // ---- Unit 9 (voiced th)
+  ['this','thv i s','👉','これ',F], ['that','thv a t','👈','あれ',F], ['them','thv e m','👥','かれらを',F], ['then','thv e n','','それから',F], ['than','thv a n','','より',F],
+  ['thus','thv u s','','したがって',C], ['with','w i thv','','いっしょに',F], ['thom','thv o m','','',S], ['thep','thv e p','','',S],
 ];

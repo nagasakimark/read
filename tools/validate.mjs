@@ -114,6 +114,49 @@ for (const w of C.wordList.filter(w => w.tier !== 'silly')) {
   if (lures < 2) warn(`word ${w.id}: only ${lures} one-GPC lure strings at U${w.u}`);
 }
 
+// ---- course map integrity (docs/COURSE_PLAN.md is generated from the same data)
+{
+  const { STAGES, COURSE, CHECKPOINTS, KINDS } = await import('../curriculum/src/course.mjs');
+  const { UNITS } = await import('../curriculum/src/units.mjs');
+  const { GPCS } = await import('../curriculum/src/gpcs.mjs');
+  const ids = COURSE.map(u => u.id);
+  ids.forEach((id, i) => { if (id !== i) err(`course: unit ids must be 0..N in order (got ${id} at ${i})`); });
+  const stageIds = new Set(STAGES.map(s => s.id));
+  const seenG = new Map(), seenW = new Map();
+  for (const u of COURSE) {
+    if (!stageIds.has(u.stage)) err(`course: unit ${u.id} has unknown stage ${u.stage}`);
+    if (!KINDS[u.kind]) err(`course: unit ${u.id} has unknown kind ${u.kind}`);
+    if (u.id > 0 && !u.prereq.length) err(`course: unit ${u.id} has no prerequisite`);
+    for (const p of u.prereq) if (p >= u.id) err(`course: unit ${u.id} depends on later unit ${p}`);
+    if (u.id > 0 && u.stage < COURSE[u.id - 1].stage) err(`course: stage goes backwards at unit ${u.id}`);
+    for (const [gid] of u.gpcs) {
+      if (seenG.has(gid)) err(`course: GPC ${gid} taught in both unit ${seenG.get(gid)} and ${u.id}`);
+      seenG.set(gid, u.id);
+    }
+    for (const t of u.tricky) {
+      if (seenW.has(t)) err(`course: tricky word ${t} listed in units ${seenW.get(t)} and ${u.id}`);
+      seenW.set(t, u.id);
+    }
+    if (!u.ja) err(`course: unit ${u.id} has no Japanese label`);
+  }
+  for (const s of STAGES) for (const id of s.units) if (COURSE[id]?.stage !== s.id) err(`course: stage ${s.id} lists unit ${id} which belongs to stage ${COURSE[id]?.stage}`);
+  for (const c of CHECKPOINTS) if (!COURSE[c.after]) err(`course: checkpoint ${c.id} after unknown unit ${c.after}`);
+  // authored content must agree with the course map
+  const gpcUnit = Object.fromEntries(GPCS.map(g => [g.id, g.unit]));
+  for (const au of UNITS) {
+    const cu = COURSE[au.id];
+    if (!cu) { err(`course: authored unit ${au.id} missing from course map`); continue; }
+    if (cu.stage !== au.stage) err(`course: unit ${au.id} stage differs (course ${cu.stage}, authored ${au.stage})`);
+    const a = (au.groups || []).flat().sort().join(','), c = cu.gpcs.map(g => g[0]).sort().join(',');
+    if (a !== c) err(`course: unit ${au.id} GPCs differ (authored [${a}] vs course [${c}])`);
+    const at = (au.tricky || []).flat().map(x => x.toLowerCase()).sort().join(','), ct = cu.tricky.map(x => x.toLowerCase()).sort().join(',');
+    if (at !== ct) warn(`course: unit ${au.id} tricky words differ (authored [${at}] vs course [${ct}])`);
+  }
+  for (const [g, u] of Object.entries(gpcUnit)) if (!seenG.has(g)) err(`course: authored GPC ${g} (unit ${u}) missing from course map`);
+  const authoredN = UNITS.length;
+  if (authoredN < COURSE.length) warn(`course: ${COURSE.length - authoredN} of ${COURSE.length} units are planned only (units ${authoredN}-${COURSE.length - 1})`);
+}
+
 for (const e of errors) console.error('ERROR ', e);
 for (const w of warns) console.warn('WARN  ', w);
 console.log(`\nvalidate: ${errors.length} error(s), ${warns.length} warning(s); ${C.wordList.length} words, ${C.storyList.length} stories, ${C.units.length} units`);

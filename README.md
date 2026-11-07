@@ -20,3 +20,7 @@ npm test           # validator + guess-bot simulations
 ```
 
 See `docs/BUILD_LOG.md` for status against the blueprint and `tools/recorder.html` to record real voices.
+
+## Course plan
+
+`docs/COURSE_PLAN.md` is generated from `curriculum/src/course.mjs` (`node tools/build_course_doc.mjs`). It lists all 39 units and which are authored.

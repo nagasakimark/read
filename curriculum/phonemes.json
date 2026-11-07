@@ -182,6 +182,13 @@
   "cont": true
  },
  {
+  "id": "dh",
+  "ipa": "ð",
+  "esp": "D",
+  "mouth": "tongueOut",
+  "cont": true
+ },
+ {
   "id": "ng",
   "ipa": "ŋ",
   "esp": "N",

@@ -20,15 +20,43 @@
  "stages": [
   {
    "id": 0,
-   "name": "Listening"
+   "name": "Sound start",
+   "ja": "おとあそび"
   },
   {
    "id": 1,
-   "name": "First sounds"
+   "name": "Alphabet code",
+   "ja": "もじと おと"
   },
   {
    "id": 2,
-   "name": "Digraphs"
+   "name": "Consonant digraphs",
+   "ja": "ふたもじ ひとおと"
+  },
+  {
+   "id": 3,
+   "name": "Adjacent consonants and first inflections",
+   "ja": "ならぶ しいん"
+  },
+  {
+   "id": 4,
+   "name": "Long vowels and other vowels, one spelling each",
+   "ja": "ながい おと"
+  },
+  {
+   "id": 5,
+   "name": "Split digraphs, alternative spellings and pronunciations",
+   "ja": "おなじ おと ちがう つづり"
+  },
+  {
+   "id": 6,
+   "name": "Multisyllable words and morphology",
+   "ja": "ながい ことば"
+  },
+  {
+   "id": 7,
+   "name": "Fluency and reading-for-meaning bridge",
+   "ja": "すらすら よもう"
   }
  ]
 }

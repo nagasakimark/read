@@ -48,3 +48,14 @@ Headless playthrough: `node tools/play.mjs <lessons> <accuracy> <skipToUnit>` (n
 - Confusion drills could hog a sound's practice forever (a repeatedly confused sound never got recall practice) → drills now fire ~35% of the time.
 - Final-position recall pool leaked sounds from later units.
 - Long dictation sentences overflowed the stage → tile size adapts.
+
+
+## Course foundation pass (this session)
+
+- Realigned authored content with the blueprint numbering: **Units 0-10** (U8 sh ch, U9 th voiced/unvoiced, U10 ng nk). 38 GPCs, 330 words, 24 tricky words, 24 stories, 21 sentences, 11 units.
+- Added `curriculum/src/course.mjs`: the full **Stage 0-7, Unit 0-38** map (strands, exit milestones, unit kinds, GPC/IPA inventory, concepts, contrast packs, tricky words, prerequisites, checkpoints, review points, themes). Emitted as `curriculum/course.json`.
+- `tools/validate.mjs` now checks course integrity (each GPC and tricky word taught once, prerequisites precede units, stages monotonic, authored units match the course map).
+- `tools/build_course_doc.mjs` generates `docs/COURSE_PLAN.md` from the same data (pedagogy, Japanese plan, stage tables, lesson variants, checkpoints, definition of done, engine backlog, open decisions).
+- Home screen is now a stage-paged map of all 39 units; unauthored units show "soon"; end of authored content shows "coming soon" instead of a trophy.
+- Verification: validate 0 errors; guess-bot passes (perfect 71 lessons, 85% learner 92 lessons, 60% learner held back); headless smoke test clean.
+- Next: author Units 11-16 (clusters need the new `cluster-segment` and epenthesis-listening activities), then Stage 4.

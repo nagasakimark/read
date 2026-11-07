@@ -14,23 +14,33 @@ export const STORIES = [
       { text:'Sam can pat a cat.', pic:'👦🐱' }, { text:'Sam can pat a dog.', pic:'👦🐶' }, { text:'Sam did not pat a pig.', pic:'👦🐷' } ],
     questions:[ Q('What did Sam not pat?', ['🐷','pig'], ['🐱','cat'], ['🐶','dog']) ] },
   // ---------------- Unit 8
-  { id:'s8a', unit:8, title:'Beth and the Fish', topic:'animals', focus:['sh','ch','th'], pages:[
-      { text:'Beth has a fish.', pic:'👧🐟' }, { text:'The fish is in a dish.', pic:'🐟🍽️' }, { text:'Beth got a wish.', pic:'👧🌠' } ],
+  { id:'s8a', unit:8, title:'Josh and the Fish', topic:'animals', focus:['sh','ch'], pages:[
+      { text:'Josh has a fish.', pic:'👦🐟' }, { text:'The fish is in a dish.', pic:'🐟🍽️' }, { text:'Josh got a wish.', pic:'👦🌠' } ],
     questions:[ Q('What is in the dish?', ['🐟','fish'], ['🐱','cat'], ['🐷','pig']) ] },
-  { id:'s8b', unit:8, title:'Chuck the Chick', topic:'animals', focus:['sh','ch','th'], pages:[
+  { id:'s8b', unit:8, title:'Chuck the Chick', topic:'animals', focus:['sh','ch'], pages:[
       { text:'Chuck is a chick.', pic:'🐥' }, { text:'Chuck can hop.', pic:'🐥' }, { text:'Chuck can chat.', pic:'🐥💬' }, { text:'Chuck sat on a ship.', pic:'🐥🚢' } ],
     questions:[ Q('What did Chuck sit on?', ['🚢','ship'], ['🛏️','cot'], ['🧢','cap']) ] },
-  { id:'s8c', unit:8, title:'At the Shop', topic:'places', focus:['sh','ch','th'], pages:[
-      { text:'Beth was at the shop.', pic:'👧🏪' }, { text:'She got a shell.', pic:'👧🐚' }, { text:'She got a thick rug.', pic:'👧🧶' } ],
-    questions:[ Q('Where was Beth?', ['🏪','shop'], ['🛏️','bed'], ['🛁','bath']) ] },
+  { id:'s8c', unit:8, title:'At the Shop', topic:'places', focus:['sh','ch'], pages:[
+      { text:'Josh is at the shop.', pic:'👦🏪' }, { text:'He got a shell.', pic:'👦🐚' }, { text:'He got a red rug.', pic:'👦🧶' } ],
+    questions:[ Q('Where is Josh?', ['🏪','shop'], ['🛏️','bed'], ['🏦','bank']) ] },
   // ---------------- Unit 9
-  { id:'s9a', unit:9, title:'The King', topic:'people', focus:['ng','nk'], pages:[
+  { id:'s9a', unit:9, title:'Beth in the Bath', topic:'home', focus:['th','thv'], pages:[
+      { text:'Beth is in the bath.', pic:'👧🛁' }, { text:'The bath is hot.', pic:'🛁♨️' }, { text:'Beth sat in the bath.', pic:'👧🛁' } ],
+    questions:[ Q('Where is Beth?', ['🛁','bath'], ['🛏️','bed'], ['🏪','shop']) ] },
+  { id:'s9b', unit:9, title:'This and That', topic:'school', focus:['th','thv'], pages:[
+      { text:'This is a thin pen.', pic:'🖊️' }, { text:'That is a thick pen.', pic:'🖍️' }, { text:'Beth has this pen.', pic:'👧🖊️' }, { text:'Josh has that pen.', pic:'👦🖍️' } ],
+    questions:[ Q('Who has the thin pen?', ['👧','Beth'], ['👦','Josh'], ['🐥','Chuck']) ] },
+  { id:'s9c', unit:9, title:'The Moth', topic:'animals', focus:['th','thv'], pages:[
+      { text:'A moth sat on the path.', pic:'🦋🛤️' }, { text:'Beth sat on the path.', pic:'👧🛤️' }, { text:'The moth is thin.', pic:'🦋' } ],
+    questions:[ Q('What sat on the path?', ['🦋','moth'], ['🐱','cat'], ['🐷','pig']) ] },
+  // ---------------- Unit 10
+  { id:'s10a', unit:10, title:'The King', topic:'people', focus:['ng','nk'], pages:[
       { text:'The king has a ring.', pic:'🤴💍' }, { text:'The king can sing.', pic:'🤴🎤' }, { text:'The king sang.', pic:'🤴🎶' } ],
     questions:[ Q('What has the king?', ['💍','ring'], ['🧢','cap'], ['🥤','cup']) ] },
-  { id:'s9b', unit:9, title:'At the Bank', topic:'places', focus:['ng','nk'], pages:[
+  { id:'s10b', unit:10, title:'At the Bank', topic:'places', focus:['ng','nk'], pages:[
       { text:'Beth is at the bank.', pic:'👧🏦' }, { text:'She got cash.', pic:'👧💵' }, { text:'She can thank Josh.', pic:'👧🙏' } ],
     questions:[ Q('Where is Beth?', ['🏦','bank'], ['🏪','shop'], ['🛁','bath']) ] },
-  { id:'s9c', unit:9, title:'Chuck in the Sink', topic:'animals', focus:['ng','nk'], pages:[
+  { id:'s10c', unit:10, title:'Chuck in the Sink', topic:'animals', focus:['ng','nk'], pages:[
       { text:'Chuck sat in a sink.', pic:'🐥🚰' }, { text:'Chuck can sing.', pic:'🐥🎤' }, { text:'Chuck is a pink chick.', pic:'🐥🎀' } ],
     questions:[ Q('What did Chuck sit in?', ['🚰','sink'], ['🛏️','bed'], ['🍽️','dish']) ] },
   // ---------------- Unit 4
@@ -84,6 +94,7 @@ export const SENTENCES = [
   { unit:5, text:'Bob got a big bag.', pic:'🧑👜' }, { unit:5, text:'Bill is sick.', pic:'🤒' },
   { unit:6, text:'Jack got a van.', pic:'🧑🚐' }, { unit:6, text:'We can win.', pic:'🏆' },
   { unit:7, text:'Meg has hens.', pic:'👧🐔' }, { unit:7, text:'Do you like jam?', pic:'🍓' },
-  { unit:8, text:'Chuck is a chick.', pic:'🐥' }, { unit:8, text:'She got a fish.', pic:'👧🐟' }, { unit:8, text:'Beth has a ship.', pic:'👧🚢' },
-  { unit:9, text:'The king sang.', pic:'🤴🎶' }, { unit:9, text:'I think she has a ring.', pic:'💍' }, { unit:9, text:'Thank you!', pic:'🙏' },
+  { unit:8, text:'Chuck is a chick.', pic:'🐥' }, { unit:8, text:'She got a fish.', pic:'👧🐟' }, { unit:8, text:'Josh has a ship.', pic:'👦🚢' },
+  { unit:9, text:'Beth has this pen.', pic:'👧🖊️' }, { unit:9, text:'That is a thin rug.', pic:'🧶' },
+  { unit:10, text:'The king sang.', pic:'🤴🎶' }, { unit:10, text:'I think she has a ring.', pic:'💍' }, { unit:10, text:'Thank you!', pic:'🙏' },
 ];

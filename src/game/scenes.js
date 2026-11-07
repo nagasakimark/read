@@ -54,53 +54,72 @@ export class ProfileScene {
 
 // ------------------------------------------------------------------ home: the path through the units
 export class HomeScene {
-  constructor(app) { this.app = app; this.t = 0; this.ui = []; this.parts = new Particles(); }
+  constructor(app) { this.app = app; this.t = 0; this.ui = []; this.parts = new Particles(); this.page = null; }
   enter() {
     const { app } = this, C = app.C, st = app.state;
     this.next = M.nextLesson(C, st);
-    this.nodes = C.units.map((u, i) => ({ u, x: 110 + i * 160, y: 330 + Math.sin(i * 0.9) * 70 - (i % 2) * 20 }));
-    const cur = this.next?.unit ?? C.units.length - 1;
-    this.cur = cur;
-    const play = new Btn({ x: W / 2 - 150, y: 470, w: 300, h: 100, label: this.next ? '▶ あそぶ' : '🏆', size: 52, font: JP, color: '#58c46a', onTap: () => this.play() });
+    this.cur = this.next?.unit ?? C.units.length - 1;
+    this.stages = C.course?.stages || [{ id: 0, name: '', ja: '', units: C.units.map(u => u.id) }];
+    const curStage = this.stages.find(s => s.units.includes(this.cur)) || this.stages[0];
+    if (this.page === null) this.page = this.stages.indexOf(curStage);
+    this.build();
+  }
+  build() {
+    const { app } = this, C = app.C, st = app.state;
+    const stage = this.stages[this.page];
+    const n = stage.units.length, gap = Math.min(170, (W - 220) / Math.max(1, n - 1));
+    const x0 = W / 2 - (gap * (n - 1)) / 2;
+    this.nodes = stage.units.map((id, i) => {
+      const au = C.units.find(u => u.id === id), cu = C.course?.units[id];
+      return { id, au, cu, x: x0 + i * gap, y: 300 + Math.sin(i * 0.9) * 55 - (i % 2) * 16 };
+    });
+    const allDone = !this.next;
+    const play = new Btn({ x: W / 2 - 150, y: 470, w: 300, h: 100, label: allDone ? '🌱 もうすぐ…' : '▶ あそぶ', size: allDone ? 40 : 52, font: JP, color: allDone ? '#8fb08a' : '#58c46a', onTap: () => this.play() });
     const stars = new Btn({ x: W - 90, y: 12, w: 76, h: 66, icon: '⭐', size: 38, color: '#f2b63c', onTap: () => app.eng.go(new MasteryScene(app)) });
     const gear = new Btn({ x: W - 176, y: 12, w: 76, h: 66, icon: '⚙️', size: 34, color: '#7d95a8', onTap: () => app.eng.go(new TeacherScene(app)) });
     const who = new Btn({ x: 14, y: 12, w: 76, h: 66, icon: '👥', size: 34, color: '#a478e8', onTap: () => app.chooseProfile() });
     this.ui = [play, stars, gear, who];
-    this.nodes.forEach(n => this.ui.push(new Btn({ x: n.x - 52, y: n.y - 52, w: 104, h: 104, shadow: false, customDraw: () => {}, onTap: () => this.tapNode(n) })));
+    if (this.page > 0) this.ui.push(new Btn({ x: 14, y: 250, w: 64, h: 110, label: '◀', size: 40, color: '#5aa7d6', onTap: () => { this.page--; this.build(); } }));
+    if (this.page < this.stages.length - 1) this.ui.push(new Btn({ x: W - 78, y: 250, w: 64, h: 110, label: '▶', size: 40, color: '#5aa7d6', onTap: () => { this.page++; this.build(); } }));
+    this.nodes.forEach(nd => this.ui.push(new Btn({ x: nd.x - 52, y: nd.y - 52, w: 104, h: 104, shadow: false, customDraw: () => {}, onTap: () => this.tapNode(nd) })));
   }
   tapNode(n) {
     const { app } = this, st = app.state;
-    if (M.isUnitPassed(st, n.u.id)) return app.eng.go(new LessonScene(app, practiceSpec(n.u.id)));
-    if (n.u.id === this.cur) return this.play();
+    if (n.au && M.isUnitPassed(st, n.id)) return app.eng.go(new LessonScene(app, practiceSpec(n.id)));
+    if (n.au && n.id === this.cur) return this.play();
     app.audio.sfx('bad'); this.shake = 1; app.eng.tween(this, { shake: 0 }, 400, 'out');
   }
   play() {
-    const { app } = this; if (!this.next) return;
+    const { app } = this; if (!this.next) { app.audio.sfx('bad'); return; }
     const spec = this.next.kind === 'practice' ? practiceSpec(this.next.unit) : app.C.lessons[this.next.lessonId];
     app.eng.go(new LessonScene(app, spec));
   }
   update(dt) { this.t += dt; this.parts.update(dt); }
   draw(c) {
-    const { app } = this, st = app.state;
+    const { app } = this, st = app.state, stage = this.stages[this.page];
     background(c, this.t, 'day');
-    // winding path
+    text(c, `Stage ${stage.id}  ${stage.ja}`, W / 2, 34, { size: 34, color: '#23394b', font: JP });
+    text(c, stage.name, W / 2, 70, { size: 20, color: '#4a6275' });
     c.lineCap = 'round'; c.lineJoin = 'round'; c.strokeStyle = '#e8d3a0'; c.lineWidth = 46; c.beginPath();
     this.nodes.forEach((n, i) => (i ? c.lineTo(n.x, n.y) : c.moveTo(n.x, n.y))); c.stroke();
     c.strokeStyle = '#f7ebc8'; c.lineWidth = 8; c.setLineDash([2, 18]); c.stroke(); c.setLineDash([]);
     this.nodes.forEach(n => {
-      const passed = M.isUnitPassed(st, n.u.id), open = M.isUnitOpen(app.C, st, n.u.id) || n.u.id === 0, isCur = n.u.id === this.cur;
+      const planned = !n.au;
+      const passed = !planned && M.isUnitPassed(st, n.id), open = !planned && (M.isUnitOpen(app.C, st, n.id) || n.id === 0), isCur = !planned && n.id === this.cur;
       const r = 48 + (isCur ? Math.sin(this.t * 4) * 3 : 0);
       c.fillStyle = 'rgba(30,50,70,.3)'; c.beginPath(); c.arc(n.x, n.y + 6, r, 0, 7); c.fill();
-      c.fillStyle = passed ? '#ffd23f' : isCur ? '#fff' : open ? '#e8f6ff' : '#b5c3cf'; c.beginPath(); c.arc(n.x, n.y, r, 0, 7); c.fill();
+      c.fillStyle = planned ? '#d5dde4' : passed ? '#ffd23f' : isCur ? '#fff' : open ? '#e8f6ff' : '#b5c3cf'; c.beginPath(); c.arc(n.x, n.y, r, 0, 7); c.fill();
       c.lineWidth = 6; c.strokeStyle = isCur ? '#58c46a' : '#fff'; c.stroke();
-      const label = n.u.id === 0 ? '👂' : n.u.newGpcs.slice(0, 4).join(' ');
-      if (!open && !passed) text(c, '🔒', n.x, n.y, { size: 38 });
-      else text(c, label, n.x, n.y + 2, { size: n.u.id === 0 ? 46 : n.u.newGpcs.length > 4 ? 22 : 28, color: passed ? '#7a5a00' : '#23394b' });
+      const lab = n.id === 0 ? '👂' : n.au ? n.au.newGpcs.map(g => gLabel(app.C.gpcs[g])).slice(0, 4).join(' ') : (n.cu.gpcs.map(g => g[1]).slice(0, 4).join(' ') || (n.cu.concepts[0] || '…').replace(/[:(].*/, '').trim().split(' ').slice(0, 3).join(' '));
+      if (planned) { text(c, lab, n.x, n.y - 6, { size: lab.length > 6 ? 20 : 28, color: '#8a9aa7' }); text(c, 'soon', n.x, n.y + 24, { size: 18, color: '#8a9aa7' }); }
+      else if (!open && !passed) text(c, '🔒', n.x, n.y, { size: 38 });
+      else text(c, lab, n.x, n.y + 2, { size: n.id === 0 ? 46 : lab.length > 8 ? 22 : 28, color: passed ? '#7a5a00' : '#23394b' });
       if (passed) text(c, '✔', n.x + 38, n.y - 38, { size: 30, color: '#2f9e44' });
-      text(c, n.u.id === 0 ? '' : 'Unit ' + n.u.id, n.x, n.y + 78, { size: 20, color: '#4a6275' });
+      text(c, n.id === 0 ? '' : 'Unit ' + n.id, n.x, n.y + 78, { size: 20, color: '#4a6275' });
     });
-    const cn = this.nodes.find(n => n.u.id === this.cur);
+    const cn = this.nodes.find(n => n.id === this.cur && n.au);
     if (cn) drawMonster(c, cn.x, cn.y - 100 + (this.shake ? Math.sin(this.t * 60) * 6 * this.shake : 0), 120, { color: app.colorHex, mood: 'happy', t: this.t, hat: hatFor(passedCount(st)) });
+    if (!this.next && stage.id === 2) text(c, 'つぎの ユニットは じゅんびちゅう！ Next units are on their way.', W / 2, 440, { size: 22, color: '#4a6275', font: JP });
     drawUI(c, this.ui);
     this.parts.draw(c);
   }
