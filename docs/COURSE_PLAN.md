@@ -3,7 +3,7 @@
 > GENERATED from `curriculum/src/course.mjs` by `tools/build_course_doc.mjs`. Edit the data, not this file.
 > Teaching order and pedagogy follow `docs/BLUEPRINT.md`. Every threshold marked **DR** is a design recommendation to validate with real children.
 
-Status: **11 of 39 units authored** (Units 0-10); the other 28 are specified here and unlock as they are written. Audio and pictures are placeholders (eSpeak voice, emoji) until recordings and artwork replace them; practice games are planned (section 9).
+Status: **15 of 39 units authored** (Units 0-14); the other 24 are specified here and unlock as they are written. Audio and pictures are placeholders (eSpeak voice, emoji) until recordings and artwork replace them; practice games are planned (section 9).
 
 ## 1. Pedagogy: the principles that decide the order
 
@@ -95,10 +95,10 @@ Example words: U8: ship, shop, fish, dish, chin, chip, much, such | U9: thin, th
 
 | Unit | Teaches | Kind | New GPCs (IPA) | Concepts | Contrast pack | Tricky words | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 11 | Final clusters (CVCC) (おわりの ならぶ しいん) | Adjacent consonants (no new GPCs) | — | nd nt mp st sk lk ft nch (and nk review) | Cluster epenthesis: "hand" vs "hando" | come, some | planned |
-| 12 | Initial s-clusters (s ではじまる ならび) | Adjacent consonants (no new GPCs) | — | st sp sn sm sw sk | "stop" vs "sutoppu" | one, there | planned |
-| 13 | Initial l-clusters (l の ならび) | Adjacent consonants (no new GPCs) | — | bl cl fl gl pl sl | r/l inside clusters | here, when | planned |
-| 14 | Initial r-clusters (r の ならび) | Adjacent consonants (no new GPCs) | — | br cr dr fr gr tr | r/l (fly/fry), b/v | out, little | planned |
+| 11 | Final clusters (CVCC) (おわりの ならぶ しいん) | Adjacent consonants (no new GPCs) | — | nd nt mp st sk lk ft nch (and nk review) | Cluster epenthesis: "hand" vs "hando" | come, some | authored |
+| 12 | Initial s-clusters (s ではじまる ならび) | Adjacent consonants (no new GPCs) | — | st sp sn sm sw sk | "stop" vs "sutoppu" | one, there | authored |
+| 13 | Initial l-clusters (l の ならび) | Adjacent consonants (no new GPCs) | — | bl cl fl gl pl sl | r/l inside clusters | here, when | authored |
+| 14 | Initial r-clusters (r の ならび) | Adjacent consonants (no new GPCs) | — | br cr dr fr gr tr | r/l (fly/fry), b/v | out, little | authored |
 | 15 | Three-consonant onsets + -ing (3つの しいん と -ing) | Inflection (-ing, -ed) | — | CCCVC: str spl scr shr thr (thr only after th is secure); suffix -ing (base + ing; ng already known) | Three-consonant onsets; -ing is not "ingu" | were, your | planned |
 | 16 | Suffix -ed + compound words (-ed と ふたつの ことば) | Inflection (-ing, -ed) | — | -ed says /t/ /d/ or /ɪd/; compound words made of closed syllables | -ed is not "edo" / "to" | — | planned |
 
@@ -179,7 +179,7 @@ Every lesson follows the nine-step template in the blueprint (meet, listen, reca
 | Oral listening (`oral`) | Short games only, no print. Same/different words, first sounds, syllable taps. | same-different, initial-sound, syllable |
 | New letter-sound(s) (`code`) | Standard 9-step template. 1-2 new GPCs per lesson (max 2 in Stage 1). | meet, listen-pick, recall-flash, blend-choose, spell-tiles, read-match, word-chain, pseudo, heart, dictation, story |
 | Digraph (two letters, one sound) (`digraph`) | Standard template; the digraph is ONE tile; minimal-pair listening before print. | meet, minimal-pair, spell-tiles (digraph = one tile), blend-choose, word-chain, pseudo, story |
-| Adjacent consonants (no new GPCs) (`cluster`) | Stretch-and-segment: one Elkonin box per sound, tiles per letter. Contrast "real word" vs "word + extra vowel" in listening. Blend sound by sound, never as chunks. | cluster-segment (new), epenthesis-listen (new), blend-choose, spell-tiles, word-chain, pseudo, story |
+| Adjacent consonants (no new GPCs) (`cluster`) | Stretch-and-segment: one Elkonin box per sound, tiles per letter. Contrast "real word" vs "word + extra vowel" in listening. Blend sound by sound, never as chunks. | cluster-segment (new), epenthesis-listen (word vs word+vowel pack), blend-choose, spell-tiles, word-chain, pseudo, story |
 | Inflection (-ing, -ed) (`inflection`) | Word sums (base + ending), ending-sound sort (/t/ /d/ /ɪd/), spell by adding the ending to a known base. | word-sum (new), ed-sound-sort (new), spell-tiles, dictation, story |
 | Vowel sound, one spelling (`vowel`) | Standard template plus length/glide modelling in the mouth cue; sorts against the nearest short vowel. | meet, minimal-pair, sort (new), blend-choose, spell-tiles, pseudo, story |
 | Split digraph (`split`) | The two letters are one unit with a gap: tiles with a gap slot. Word chains between short and long vowel words (cap → cape). | split-tiles (new), word-chain, sort (new), spell-tiles, pseudo, story |
@@ -232,7 +232,6 @@ Activities the course needs that are not built yet, in the order the units need 
 | Activity | First needed at unit |
 | --- | --- |
 | cluster-segment | 11 |
-| epenthesis-listen | 11 |
 | word-sum | 15 |
 | ed-sound-sort | 15 |
 | sort | 17 |

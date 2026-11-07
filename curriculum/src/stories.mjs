@@ -43,6 +43,46 @@ export const STORIES = [
   { id:'s10c', unit:10, title:'Chuck in the Sink', topic:'animals', focus:['ng','nk'], pages:[
       { text:'Chuck sat in a sink.', pic:'🐥🚰' }, { text:'Chuck can sing.', pic:'🐥🎤' }, { text:'Chuck is a pink chick.', pic:'🐥🎀' } ],
     questions:[ Q('What did Chuck sit in?', ['🚰','sink'], ['🛏️','bed'], ['🍽️','dish']) ] },
+  // ---------------- Unit 11
+  { id:'s11a', unit:11, title:'Camp Fun', topic:'places', focus:[], pats:['nd$','nt$','mp$'], pages:[
+      { text:'Sam and Dan went to camp.', pic:'👦🧒🏕️' }, { text:'They set up a tent.', pic:'⛺' }, { text:'Dan got a lamp.', pic:'🧒💡' }, { text:'It is fun at camp.', pic:'🏕️' } ],
+    questions:[ Q('What did they set up?', ['⛺','tent'], ['🛏️','bed'], ['🚌','bus']) ] },
+  { id:'s11b', unit:11, title:'The Best Nest', topic:'animals', focus:[], pats:['st$','sk$','nd$'], pages:[
+      { text:'A hen sat on a nest.', pic:'🐔🪺' }, { text:'She can rest.', pic:'😌' }, { text:'Ken is with the hen.', pic:'🧒🐔' }, { text:'The nest is the best.', pic:'🪺🏅' } ],
+    questions:[ Q('What did the hen sit on?', ['🪺','nest'], ['📦','box'], ['🛏️','bed']) ] },
+  { id:'s11c', unit:11, title:'Milk and Lunch', topic:'food', focus:[], pats:['lk$','nch$','st$','ft$'], pages:[
+      { text:'Meg has a desk.', pic:'👧🪑' }, { text:'Meg has some milk.', pic:'👧🥛' }, { text:'Meg and Josh munch.', pic:'👧🧒🍱' }, { text:'It is the best lunch!', pic:'🍱🏅' } ],
+    questions:[ Q('What has Meg?', ['🥛','milk'], ['🥤','cup'], ['🐔','hen']) ] },
+  // ---------------- Unit 12
+  { id:'s12a', unit:12, title:'Swim, Dan, Swim', topic:'sports', focus:[], pats:['^st','^sp','^sn','^sm','^sw','^sk'], pages:[
+      { text:'Dan can swim.', pic:'🧒🏊' }, { text:'He swam fast.', pic:'🧒💨' }, { text:'Dan did not stop.', pic:'🧒🏊' }, { text:'Then Dan got a snack.', pic:'🧒🍪' } ],
+    questions:[ Q('What can Dan do?', ['🏊','swim'], ['🏃','run'], ['😴','nap']) ] },
+  { id:'s12b', unit:12, title:'Spin and Skip', topic:'sports', focus:[], pats:['^sp','^sk','^st'], pages:[
+      { text:'Meg can spin.', pic:'👧🌀' }, { text:'Ken can skip.', pic:'🧒🪢' }, { text:'Meg can skip and spin.', pic:'👧🪢🌀' }, { text:'It is fun!', pic:'🎉' } ],
+    questions:[ Q('What can Ken do?', ['🪢','skip'], ['🤸','jump'], ['🏊','swim']) ] },
+  { id:'s12c', unit:12, title:'The Spill', topic:'home', focus:[], pats:['^sp','^st'], pages:[
+      { text:'Spill, spill, spill!', pic:'🥛💦' }, { text:'There is milk on the step.', pic:'🥛👣' }, { text:'Tom can stop the spill.', pic:'🧒🛑' }, { text:'Tom got a mop.', pic:'🧒🧹' } ],
+    questions:[ Q('What did Tom get?', ['🧹','mop'], ['🥛','milk'], ['🐷','pig']) ] },
+  // ---------------- Unit 13
+  { id:'s13a', unit:13, title:'The Black Cat', topic:'animals', focus:[], pats:['^bl','^cl','^fl','^gl','^pl','^sl'], pages:[
+      { text:'A black cat sat on a block.', pic:'🐈‍⬛🧱' }, { text:'The cat was glad.', pic:'🐈‍⬛😊' }, { text:'It can flip and flop.', pic:'🐈‍⬛🤸' }, { text:'Then it can slip.', pic:'🐈‍⬛' } ],
+    questions:[ Q('What sat on a block?', ['🐈‍⬛','cat'], ['🐶','dog'], ['🐷','pig']) ] },
+  { id:'s13b', unit:13, title:'The Plan', topic:'food', focus:[], pats:['^pl','^gl','^bl'], pages:[
+      { text:'Bob has a plan.', pic:'🧑💡' }, { text:'He got a plum.', pic:'🧑🍑' }, { text:'He got a glass of milk.', pic:'🧑🥛' }, { text:'Bob is glad.', pic:'🧑😊' } ],
+    questions:[ Q('What did Bob get?', ['🍑','plum'], ['🐜','ant'], ['🛷','sled']) ] },
+  { id:'s13c', unit:13, title:'The Slim Slug', topic:'animals', focus:[], pats:['^sl','^fl','^cl'], pages:[
+      { text:'A slim slug sat on a flat rock.', pic:'🐌🪨' }, { text:'The slug can slip.', pic:'🐌' }, { text:'It can not clap.', pic:'🐌👏' }, { text:'It is a glad slug.', pic:'🐌😊' } ],
+    questions:[ Q('Who sat on the rock?', ['🐌','slug'], ['🐀','rat'], ['🐔','hen']) ] },
+  // ---------------- Unit 14
+  { id:'s14a', unit:14, title:'The Frog and the Crab', topic:'animals', focus:[], pats:['^fr','^cr','^dr','^gr','^tr','^br'], pages:[
+      { text:'A frog sat on a rock.', pic:'🐸🪨' }, { text:'A crab went to the frog.', pic:'🦀🐸' }, { text:'The frog and the crab swim.', pic:'🐸🦀🏊' }, { text:'It is fun!', pic:'🎉' } ],
+    questions:[ Q('What sat on the rock?', ['🐸','frog'], ['🦀','crab'], ['🐔','hen']) ] },
+  { id:'s14b', unit:14, title:'The Truck', topic:'places', focus:[], pats:['^tr','^dr','^br'], pages:[
+      { text:'Tom has a red truck.', pic:'🧒🚚' }, { text:'The truck can bring a trunk.', pic:'🚚🧳' }, { text:'Tom can drop the trunk.', pic:'🧒🧳' }, { text:'Tom is glad.', pic:'🧒😊' } ],
+    questions:[ Q('What has Tom?', ['🚚','truck'], ['🚌','bus'], ['🚐','van']) ] },
+  { id:'s14c', unit:14, title:'Drip, Drip, Drum', topic:'home', focus:[], pats:['^dr','^gr','^fr'], pages:[
+      { text:'Drip, drip, drip!', pic:'💧' }, { text:'Meg can drum.', pic:'👧🥁' }, { text:'Drum, drum, drum!', pic:'🥁' }, { text:'The drum is from Dan.', pic:'🥁🧒' } ],
+    questions:[ Q('What can Meg do?', ['🥁','drum'], ['🏊','swim'], ['🏃','run']) ] },
   // ---------------- Unit 4
   { id:'s4a', unit:4, title:'The Red Hat', topic:'animals', focus:['k','e','u','r','h'], pages:[
       { text:'A hen got a red hat.', pic:'🐔🎩' }, { text:'The hen ran.', pic:'🐔' }, { text:'The hen ran to Ken.', pic:'🐔🧒' }, { text:'Ken got the hen.', pic:'🧒🐔' } ],
@@ -97,4 +137,8 @@ export const SENTENCES = [
   { unit:8, text:'Chuck is a chick.', pic:'🐥' }, { unit:8, text:'She got a fish.', pic:'👧🐟' }, { unit:8, text:'Josh has a ship.', pic:'👦🚢' },
   { unit:9, text:'Beth has this pen.', pic:'👧🖊️' }, { unit:9, text:'That is a thin rug.', pic:'🧶' },
   { unit:10, text:'The king sang.', pic:'🤴🎶' }, { unit:10, text:'I think she has a ring.', pic:'💍' }, { unit:10, text:'Thank you!', pic:'🙏' },
+  { unit:11, text:'Sam went to camp.', pic:'🏕️' }, { unit:11, text:'Dan got a gift.', pic:'🎁' }, { unit:11, text:'Come and jump on the sand.', pic:'🏖️' },
+  { unit:12, text:'Dan can swim fast.', pic:'🏊' }, { unit:12, text:'Meg can skip and spin.', pic:'🪢' }, { unit:12, text:'There is a snack in the bag.', pic:'🍪' },
+  { unit:13, text:'The clock is black.', pic:'🕐' }, { unit:13, text:'Bob can clap and flip.', pic:'👏' }, { unit:13, text:'Here is a glass of milk.', pic:'🥛' },
+  { unit:14, text:'The frog can jump.', pic:'🐸' }, { unit:14, text:'Bring a brush.', pic:'🖌️' }, { unit:14, text:'Tom has a little truck.', pic:'🚚' }, { unit:14, text:'The crab is out.', pic:'🦀' },
 ];

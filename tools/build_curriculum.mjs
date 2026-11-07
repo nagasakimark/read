@@ -16,11 +16,14 @@ const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const out = (name, data) => fs.writeFileSync(path.join(root, 'curriculum', name), JSON.stringify(data, null, 1) + '\n');
 const gpcById = Object.fromEntries(GPCS.map(g => [g.id, g]));
 
-const words = WORDS.map(([t, g, pic, ja, tier]) => {
+// consonant-cluster patterns, e.g. 'n d$' (final) or '^s t' (initial); id = spec without spaces
+const patSpecs = UNITS.flatMap(u => (u.patterns || []).flat()).map(sp => ({ id: sp.replace(/ /g, ''), seq: sp.replace(/[\^$]/g, '').trim().split(' '), initial: sp.startsWith('^') }));
+const words = WORDS.map(([t, g, pic, ja, tier, uo]) => {
   const ids = g.split(' ');
   const unit = Math.max(...ids.map(i => gpcById[i]?.unit ?? 99));
   const ph = ids.flatMap(i => gpcById[i]?.ph ?? []);
-  return { id: t.toLowerCase(), t, g: ids, u: unit, ph, pic, ja, tier };
+  const pat = patSpecs.filter(p => p.initial ? p.seq.every((x, i) => ids[i] === x) : p.seq.every((x, i) => ids[ids.length - p.seq.length + i] === x)).map(p => p.id);
+  return { id: t.toLowerCase(), t, g: ids, u: uo ?? unit, ph, pic, ja, tier, ...(pat.length ? { pat } : {}) };
 });
 
 const tricky = TRICKY.map(([t, parts, release, decodableFrom, noteEn, noteJa]) =>
@@ -35,9 +38,10 @@ const units = UNITS.map(u => {
       lessons: ['L0_1','L0_2','L0_3'].map((id, i) => ({ id, unit: 0, kind: 'oral', oralSet: i + 1 })) };
   }
   const lessons = [];
-  u.groups.forEach((g, i) => lessons.push({ id: `L${u.id}_${i + 1}`, unit: u.id, kind: 'teach', newGpcs: g, newTricky: u.tricky[i] || [], stories: [] }));
+  const G = u.patterns || u.groups;
+  G.forEach((g, i) => lessons.push({ id: `L${u.id}_${i + 1}`, unit: u.id, kind: 'teach', newGpcs: u.patterns ? [] : g, ...(u.patterns ? { newPats: g.map(x => x.replace(/ /g, '')) } : {}), newTricky: u.tricky[i] || [], stories: [] }));
   const st = storiesByUnit[u.id] || [];
-  const n = u.groups.length;
+  const n = G.length;
   const mk = (k, kind, stories) => lessons.push({ id: `L${u.id}_${n + k}`, unit: u.id, kind, newGpcs: [], newTricky: [], stories });
   if (st.length) {
     mk(1, 'consolidate', [{ id: st[0], read: 1 }]);
@@ -46,7 +50,7 @@ const units = UNITS.map(u => {
   } else {
     mk(1, 'consolidate', []);
   }
-  return { id: u.id, stage: u.stage, name: u.name, ja: u.ja, newGpcs: u.groups.flat(), newTricky: u.tricky.flat(),
+  return { id: u.id, stage: u.stage, name: u.name, ja: u.ja, newGpcs: (u.groups || []).flat(), newPatterns: (u.patterns || []).flat().map(x => x.replace(/ /g, '')), newTricky: u.tricky.flat(),
     prereqs: u.id > 1 ? [u.id - 1] : [0], packs: PACKS.filter(p => p.unit === u.id).map(p => p.id), lessons,
     stories: st, mastery: { rungRequired: 4, storyAccuracy: 0.9, questionsCorrect: st.length ? 2 : 0 } };
 });

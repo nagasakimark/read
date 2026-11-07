@@ -287,5 +287,107 @@
   "decodableFrom": 29,
   "noteEn": "\"all\" says /ɔl/.",
   "noteJa": "all は「オール」"
+ },
+ {
+  "id": "come",
+  "t": "come",
+  "parts": [
+   "c",
+   "*o",
+   "m",
+   "e"
+  ],
+  "release": 11,
+  "decodableFrom": null,
+  "noteEn": "o says /ʌ/ (uh); the e is silent.",
+  "noteJa": "come は「カム」"
+ },
+ {
+  "id": "some",
+  "t": "some",
+  "parts": [
+   "s",
+   "*o",
+   "m",
+   "e"
+  ],
+  "release": 11,
+  "decodableFrom": null,
+  "noteEn": "o says /ʌ/ (uh); the e is silent.",
+  "noteJa": "some は「サム」"
+ },
+ {
+  "id": "one",
+  "t": "one",
+  "parts": [
+   "*one"
+  ],
+  "release": 12,
+  "decodableFrom": null,
+  "noteEn": "\"one\" says /wʌn/.",
+  "noteJa": "one は「ワン」"
+ },
+ {
+  "id": "there",
+  "t": "there",
+  "parts": [
+   "th",
+   "*ere"
+  ],
+  "release": 12,
+  "decodableFrom": null,
+  "noteEn": "\"ere\" says /ɛr/ (air).",
+  "noteJa": "there は「ゼア」"
+ },
+ {
+  "id": "here",
+  "t": "here",
+  "parts": [
+   "h",
+   "*ere"
+  ],
+  "release": 13,
+  "decodableFrom": null,
+  "noteEn": "\"ere\" says /ɪr/ (ear).",
+  "noteJa": "here は「ヒア」"
+ },
+ {
+  "id": "when",
+  "t": "when",
+  "parts": [
+   "*wh",
+   "e",
+   "n"
+  ],
+  "release": 13,
+  "decodableFrom": 31,
+  "noteEn": "\"wh\" says /w/.",
+  "noteJa": "when は「ウェン」"
+ },
+ {
+  "id": "out",
+  "t": "out",
+  "parts": [
+   "*ou",
+   "t"
+  ],
+  "release": 14,
+  "decodableFrom": 29,
+  "noteEn": "\"ou\" says /aʊ/ (ow).",
+  "noteJa": "out は「アウト」"
+ },
+ {
+  "id": "little",
+  "t": "little",
+  "parts": [
+   "l",
+   "i",
+   "t",
+   "*tle"
+  ],
+  "release": 14,
+  "decodableFrom": null,
+  "noteEn": "\"ttle\" says /təl/.",
+  "noteJa": "little は「リトル」"
  }
 ]

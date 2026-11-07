@@ -189,5 +189,153 @@
     "bang"
    ]
   ]
+ },
+ {
+  "id": "cp_epen_11",
+  "unit": 11,
+  "epen": true,
+  "name": "hand / hando",
+  "ja": "さいごに「お」「う」を つけないでね：hand",
+  "sets": [
+   [
+    "hand",
+    "hando"
+   ],
+   [
+    "tent",
+    "tento"
+   ],
+   [
+    "jump",
+    "jumpu"
+   ],
+   [
+    "desk",
+    "desku"
+   ],
+   [
+    "best",
+    "besto"
+   ],
+   [
+    "milk",
+    "milku"
+   ]
+  ]
+ },
+ {
+  "id": "cp_epen_12",
+  "unit": 12,
+  "epen": true,
+  "name": "stop / sutop",
+  "ja": "s のあとに「う」を いれないでね：stop",
+  "sets": [
+   [
+    "stop",
+    "sutop"
+   ],
+   [
+    "spin",
+    "supin"
+   ],
+   [
+    "swim",
+    "suwim"
+   ],
+   [
+    "skip",
+    "sukip"
+   ],
+   [
+    "snap",
+    "sunap"
+   ],
+   [
+    "smell",
+    "sumell"
+   ]
+  ]
+ },
+ {
+  "id": "cp_epen_13",
+  "unit": 13,
+  "epen": true,
+  "name": "black / bulack",
+  "ja": "b と l のあいだに「う」を いれないでね：black",
+  "sets": [
+   [
+    "black",
+    "bulack"
+   ],
+   [
+    "clap",
+    "culap"
+   ],
+   [
+    "flag",
+    "fulag"
+   ],
+   [
+    "glad",
+    "gulad"
+   ],
+   [
+    "plan",
+    "pulan"
+   ],
+   [
+    "slip",
+    "sulip"
+   ]
+  ]
+ },
+ {
+  "id": "cp_epen_14",
+  "unit": 14,
+  "epen": true,
+  "name": "brush / burush",
+  "ja": "b と r のあいだに「う」を いれないでね：brush",
+  "sets": [
+   [
+    "brush",
+    "burush"
+   ],
+   [
+    "crab",
+    "curab"
+   ],
+   [
+    "drum",
+    "dorum"
+   ],
+   [
+    "frog",
+    "furog"
+   ],
+   [
+    "grab",
+    "gurab"
+   ],
+   [
+    "trip",
+    "torip"
+   ]
+  ]
+ },
+ {
+  "id": "cp_l_r_14",
+  "unit": 14,
+  "name": "l / r in clusters",
+  "ja": "l は したを うえに，r は したを まるめる",
+  "sets": [
+   [
+    "blush",
+    "brush"
+   ],
+   [
+    "plank",
+    "prank"
+   ]
+  ]
  }
 ]

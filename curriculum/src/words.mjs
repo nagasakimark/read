@@ -3,7 +3,7 @@
 // A word's unit = highest unit of its GPCs (derived by the build script, never hand-typed).
 // Pictures are emoji placeholders; replace with custom art by adding `image` later.
 // Vocabulary filter (blueprint): obscure CVC words (nab, vat, cog...) only as marked "silly".
-const C='common', L='loanword', N='name', S='silly', F='function';
+const E='epen', C='common', L='loanword', N='name', S='silly', F='function';
 export const WORDS = [
   // ---- Unit 1: s a m t
   ['at','a t','','',F], ['am','a m','','',F], ['sat','s a t','','すわった',C],
@@ -112,4 +112,82 @@ export const WORDS = [
   // ---- Unit 9 (voiced th)
   ['this','thv i s','👉','これ',F], ['that','thv a t','👈','あれ',F], ['them','thv e m','👥','かれらを',F], ['then','thv e n','','それから',F], ['than','thv a n','','より',F],
   ['thus','thv u s','','したがって',C], ['with','w i thv','','いっしょに',F], ['thom','thv o m','','',S], ['thep','thv e p','','',S],
+
+  // ---- Unit 11: final clusters (no new GPCs; 6th field = unit override). Tier 'epen' = word + extra vowel, listening contrast only.
+  ['hand','h a n d','✋','て',C,11], ['sand','s a n d','🏖️','すな',C,11], ['land','l a n d','🏝️','りく',C,11], ['band','b a n d','🎸','バンド',L,11],
+  ['bend','b e n d','','まげる',C,11], ['send','s e n d','','おくる',C,11], ['pond','p o n d','','いけ',C,11], ['and','a n d','','と',F,11],
+  ['tent','t e n t','⛺','テント',L,11], ['ant','a n t','🐜','あり',C,11], ['bent','b e n t','','まがった',C,11], ['went','w e n t','','いった',C,11],
+  ['hunt','h u n t','','さがす',C,11], ['hint','h i n t','','ヒント',L,11], ['pant','p a n t','','はあはあ',C,11],
+  ['jump','j u m p','🤸','とぶ',C,11], ['bump','b u m p','','ぶつかる',C,11], ['lamp','l a m p','💡','ランプ',L,11], ['camp','c a m p','🏕️','キャンプ',L,11],
+  ['pump','p u m p','','ポンプ',L,11], ['limp','l i m p','','ひきずる',C,11], ['ramp','r a m p','','スロープ',L,11], ['dump','d u m p','','すてる',C,11],
+  ['best','b e s t','🏅','いちばん',C,11], ['nest','n e s t','🪺','す',C,11], ['rest','r e s t','😌','やすむ',C,11], ['test','t e s t','📝','テスト',L,11],
+  ['vest','v e s t','🦺','ベスト',L,11], ['west','w e s t','','にし',C,11], ['fast','f a s t','💨','はやい',C,11], ['last','l a s t','','さいご',C,11],
+  ['mist','m i s t','','きり',C,11], ['list','l i s t','','リスト',L,11], ['dust','d u s t','','ほこり',C,11], ['just','j u s t','','ちょうど',C,11],
+  ['must','m u s t','','～しなきゃ',C,11], ['fist','f i s t','✊','こぶし',C,11],
+  ['desk','d e s k','','つくえ',C,11], ['task','t a s k','','しごと',C,11], ['mask','m a s k','😷','マスク',L,11], ['risk','r i s k','','きけん',C,11],
+  ['disk','d i s k','💿','ディスク',L,11], ['dusk','d u s k','','ゆうぐれ',C,11], ['ask','a s k','','きく',C,11],
+  ['milk','m i l k','🥛','ぎゅうにゅう',C,11], ['silk','s i l k','','きぬ',C,11], ['sulk','s u l k','','ふてくされる',C,11], ['bulk','b u l k','','たくさん',C,11],
+  ['gift','g i f t','🎁','プレゼント',C,11], ['lift','l i f t','','もちあげる',C,11], ['left','l e f t','','ひだり',C,11], ['raft','r a f t','','いかだ',C,11], ['shift','sh i f t','','かわる',C,11],
+  ['lunch','l u n ch','🍱','おひる',C,11], ['bunch','b u n ch','','たば',C,11], ['punch','p u n ch','🥊','パンチ',L,11], ['bench','b e n ch','','ベンチ',L,11],
+  ['pinch','p i n ch','','つまむ',C,11], ['inch','i n ch','','インチ',L,11], ['munch','m u n ch','','もぐもぐ',C,11],
+  ['gund','g u n d','','',S,11], ['vond','v o n d','','',S,11], ['hend','h e n d','','',S,11], ['sont','s o n t','','',S,11], ['vant','v a n t','','',S,11], ['zent','z e n t','','',S,11],
+  ['vump','v u m p','','',S,11], ['demp','d e m p','','',S,11], ['bimp','b i m p','','',S,11], ['vust','v u s t','','',S,11], ['mest','m e s t','','',S,11], ['zast','z a s t','','',S,11],
+  ['mosk','m o s k','','',S,11], ['vask','v a s k','','',S,11], ['pesk','p e s k','','',S,11], ['zelk','z e l k','','',S,11], ['dalk','d a l k','','',S,11],
+  ['zift','z i f t','','',S,11], ['vaft','v a f t','','',S,11], ['mift','m i f t','','',S,11], ['zunch','z u n ch','','',S,11], ['vench','v e n ch','','',S,11], ['zonch','z o n ch','','',S,11],
+  ['hando','h a n d o','','',E,11], ['tento','t e n t o','','',E,11], ['jumpu','j u m p u','','',E,11], ['desku','d e s k u','','',E,11], ['besto','b e s t o','','',E,11], ['milku','m i l k u','','',E,11],
+
+  // ---- Unit 12: initial s-clusters (no new GPCs)
+  ['stop','s t o p','🛑','とまる',C,12], ['step','s t e p','👣','あしどり',C,12], ['stick','s t i ck','','えだ',C,12],
+  ['stuck','s t u ck','','はまった',C,12], ['stand','s t a n d','','たつ',C,12], ['stamp','s t a m p','','スタンプ',L,12],
+  ['stuff','s t u ff','','もの',C,12], ['spin','s p i n','🌀','まわる',C,12], ['spot','s p o t','','てん',C,12],
+  ['spell','s p e ll','','つづる',C,12], ['spill','s p i ll','','こぼす',C,12], ['spend','s p e n d','','つかう',C,12],
+  ['spit','s p i t','','つば',C,12], ['snap','s n a p','','パチン',C,12], ['snip','s n i p','','チョキン',C,12],
+  ['snack','s n a ck','🍪','おやつ',C,12], ['snug','s n u g','','ぴったり',C,12], ['sniff','s n i ff','','くんくん',C,12],
+  ['smell','s m e ll','👃','におい',C,12], ['smash','s m a sh','','くだく',C,12], ['smug','s m u g','','とくいげ',C,12],
+  ['smack','s m a ck','','ピシャリ',C,12], ['swim','s w i m','🏊','およぐ',C,12], ['swam','s w a m','','およいだ',C,12],
+  ['swing','s w i ng','','ブランコ',C,12], ['swish','s w i sh','','シュッ',C,12], ['swell','s w e ll','','ふくらむ',C,12],
+  ['skip','s k i p','','スキップ',L,12], ['skin','s k i n','','はだ',C,12], ['skid','s k i d','','すべる',C,12],
+  ['skill','s k i ll','','ぎじゅつ',C,12], ['stup','s t u p','','',S,12], ['spom','s p o m','','',S,12],
+  ['snib','s n i b','','',S,12], ['smip','s m i p','','',S,12], ['swep','s w e p','','',S,12],
+  ['skem','s k e m','','',S,12], ['stog','s t o g','','',S,12], ['spim','s p i m','','',S,12],
+  ['sutop','s u t o p','','',E,12], ['supin','s u p i n','','',E,12], ['suwim','s u w i m','','',E,12],
+  ['sukip','s u k i p','','',E,12], ['sunap','s u n a p','','',E,12], ['sumell','s u m e ll','','',E,12],
+
+  // ---- Unit 13: initial l-clusters (no new GPCs)
+  ['black','b l a ck','⚫','くろ',C,13], ['block','b l o ck','🧱','ブロック',L,13], ['blend','b l e n d','','まぜる',C,13],
+  ['blob','b l o b','','しずく',C,13], ['blush','b l u sh','','あかくなる',C,13], ['clap','c l a p','👏','はくしゅ',C,13],
+  ['clip','c l i p','📎','クリップ',L,13], ['club','c l u b','','クラブ',L,13], ['clock','c l o ck','🕐','とけい',C,13],
+  ['clam','c l a m','','あさり',C,13], ['cliff','c l i ff','','がけ',C,13], ['class','c l a ss','','クラス',L,13],
+  ['flag','f l a g','🚩','はた',C,13], ['flap','f l a p','','はばたく',C,13], ['flat','f l a t','','たいら',C,13],
+  ['flip','f l i p','','ひっくりかえす',C,13], ['flop','f l o p','','ぺたん',C,13], ['fled','f l e d','','にげた',C,13],
+  ['glad','g l a d','','うれしい',C,13], ['glass','g l a ss','','ガラス',C,13], ['glum','g l u m','','しょんぼり',C,13],
+  ['gloss','g l o ss','','つや',C,13], ['plan','p l a n','','けいかく',C,13], ['plum','p l u m','🍑','すもも',C,13],
+  ['plug','p l u g','🔌','プラグ',L,13], ['plus','p l u s','','プラス',L,13], ['plot','p l o t','','はなし',C,13],
+  ['plant','p l a n t','🌱','うえき',C,13], ['plank','p l a nk','','いた',C,13], ['slip','s l i p','','すべる',C,13],
+  ['slap','s l a p','','パチン',C,13], ['slam','s l a m','','バタン',C,13], ['slim','s l i m','','ほそい',C,13],
+  ['slug','s l u g','🐌','ナメクジ',C,13], ['slot','s l o t','','すきま',C,13], ['sled','s l e d','🛷','そり',C,13],
+  ['blem','b l e m','','',S,13], ['clud','c l u d','','',S,13], ['flug','f l u g','','',S,13],
+  ['glep','g l e p','','',S,13], ['plof','p l o f','','',S,13], ['slib','s l i b','','',S,13],
+  ['clob','c l o b','','',S,13], ['flim','f l i m','','',S,13], ['bulack','b u l a ck','','',E,13],
+  ['culap','c u l a p','','',E,13], ['fulag','f u l a g','','',E,13], ['gulad','g u l a d','','',E,13],
+  ['pulan','p u l a n','','',E,13], ['sulip','s u l i p','','',E,13],
+
+  // ---- Unit 14: initial r-clusters (no new GPCs)
+  ['brick','b r i ck','','れんが',C,14], ['bring','b r i ng','','もってくる',C,14], ['brush','b r u sh','🖌️','ブラシ',C,14],
+  ['brag','b r a g','','じまんする',C,14], ['brass','b r a ss','','しんちゅう',C,14], ['crab','c r a b','🦀','かに',C,14],
+  ['crop','c r o p','','さくもつ',C,14], ['cross','c r o ss','','じゅうじ',C,14], ['crush','c r u sh','','つぶす',C,14],
+  ['crash','c r a sh','','ガシャン',C,14], ['crack','c r a ck','','ひび',C,14], ['crunch','c r u n ch','','ポリポリ',C,14],
+  ['drum','d r u m','🥁','たいこ',C,14], ['drop','d r o p','💧','おとす',C,14], ['drip','d r i p','','ぽたぽた',C,14],
+  ['dress','d r e ss','👗','ドレス',L,14], ['drink','d r i nk','','のむ',C,14], ['frog','f r o g','🐸','かえる',C,14],
+  ['from','f r o m','','～から',C,14], ['fresh','f r e sh','','しんせん',C,14], ['frost','f r o s t','','しも',C,14],
+  ['grab','g r a b','','つかむ',C,14], ['grin','g r i n','😁','にっこり',C,14], ['grip','g r i p','','にぎる',C,14],
+  ['grass','g r a ss','🌿','くさ',C,14], ['grub','g r u b','','いもむし',C,14], ['trip','t r i p','','たび',C,14],
+  ['trap','t r a p','','わな',C,14], ['trick','t r i ck','','てじな',C,14], ['truck','t r u ck','🚚','トラック',L,14],
+  ['trash','t r a sh','🗑️','ごみ',C,14], ['trunk','t r u nk','','トランク',L,14], ['press','p r e ss','','おす',C,14],
+  ['print','p r i n t','','いんさつ',C,14], ['prop','p r o p','','こどうぐ',C,14], ['prank','p r a nk','','いたずら',C,14],
+  ['brem','b r e m','','',S,14], ['cron','c r o n','','',S,14], ['drib','d r i b','','',S,14],
+  ['frem','f r e m','','',S,14], ['grop','g r o p','','',S,14], ['trum','t r u m','','',S,14],
+  ['prib','p r i b','','',S,14], ['brup','b r u p','','',S,14], ['burush','b u r u sh','','',E,14],
+  ['curab','c u r a b','','',E,14], ['dorum','d o r u m','','',E,14], ['furog','f u r o g','','',E,14],
+  ['gurab','g u r a b','','',E,14], ['torip','t o r i p','','',E,14],
 ];

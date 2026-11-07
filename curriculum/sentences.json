@@ -103,5 +103,70 @@
   "unit": 10,
   "text": "Thank you!",
   "pic": "🙏"
+ },
+ {
+  "unit": 11,
+  "text": "Sam went to camp.",
+  "pic": "🏕️"
+ },
+ {
+  "unit": 11,
+  "text": "Dan got a gift.",
+  "pic": "🎁"
+ },
+ {
+  "unit": 11,
+  "text": "Come and jump on the sand.",
+  "pic": "🏖️"
+ },
+ {
+  "unit": 12,
+  "text": "Dan can swim fast.",
+  "pic": "🏊"
+ },
+ {
+  "unit": 12,
+  "text": "Meg can skip and spin.",
+  "pic": "🪢"
+ },
+ {
+  "unit": 12,
+  "text": "There is a snack in the bag.",
+  "pic": "🍪"
+ },
+ {
+  "unit": 13,
+  "text": "The clock is black.",
+  "pic": "🕐"
+ },
+ {
+  "unit": 13,
+  "text": "Bob can clap and flip.",
+  "pic": "👏"
+ },
+ {
+  "unit": 13,
+  "text": "Here is a glass of milk.",
+  "pic": "🥛"
+ },
+ {
+  "unit": 14,
+  "text": "The frog can jump.",
+  "pic": "🐸"
+ },
+ {
+  "unit": 14,
+  "text": "Bring a brush.",
+  "pic": "🖌️"
+ },
+ {
+  "unit": 14,
+  "text": "Tom has a little truck.",
+  "pic": "🚚"
+ },
+ {
+  "unit": 14,
+  "text": "The crab is out.",
+  "pic": "🦀"
  }
 ]

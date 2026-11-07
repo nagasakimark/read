@@ -26,4 +26,12 @@ export const TRICKY = [
   ['what',['*wh','a','t'],10,31,'"wh" says /w/ and a says /ʌ/.','what は「ワット」'],
   ['my',['m','*y'],10,22,'y says /aɪ/ (eye).','y は「アイ」'],
   ['all',['*all'],10,29,'"all" says /ɔl/.','all は「オール」'],
+  ['come',['c','*o','m','e'],11,null,'o says /ʌ/ (uh); the e is silent.','come は「カム」'],
+  ['some',['s','*o','m','e'],11,null,'o says /ʌ/ (uh); the e is silent.','some は「サム」'],
+  ['one',['*one'],12,null,'"one" says /wʌn/.','one は「ワン」'],
+  ['there',['th','*ere'],12,null,'"ere" says /ɛr/ (air).','there は「ゼア」'],
+  ['here',['h','*ere'],13,null,'"ere" says /ɪr/ (ear).','here は「ヒア」'],
+  ['when',['*wh','e','n'],13,31,'"wh" says /w/.','when は「ウェン」'],
+  ['out',['*ou','t'],14,29,'"ou" says /aʊ/ (ow).','out は「アウト」'],
+  ['little',['l','i','t','*tle'],14,null,'"ttle" says /təl/.','little は「リトル」'],
 ];

@@ -22,6 +22,23 @@ export function planLesson(C, state, lessonSpec, rng, now = Date.now()) {
     return steps;
   }
 
+  if (kind === 'teach' && lessonSpec.newPats?.length) {
+    // cluster lesson (no new letter-sounds): hear the extra-vowel contrast, then blend/spell words with the pattern
+    const pats = lessonSpec.newPats;
+    retr(6);
+    const pk = packs.filter(p => p.unit === unit)[0];
+    if (pk) steps.push({ type: 'minpair', pack: pk.id, n: 5 });
+    steps.push({ type: 'blend', n: 5, focus: [], pats });
+    steps.push({ type: 'spell', n: 4, focus: [], pats });
+    steps.push({ type: 'readmatch', n: 2, focus: [], pats });
+    if (C.sillyAt(unit).length >= 3) steps.push({ type: 'pseudo', n: 3, focus: [], pats });
+    const tr = lessonSpec.newTricky || [];
+    if (tr.length) steps.push({ type: 'heart', words: tr, intro: true });
+    if (C.sentences.some(x => x.unit <= unit)) steps.push({ type: 'dictation', n: 1 });
+    steps.push({ type: 'close' });
+    return steps;
+  }
+
   if (kind === 'teach') {
     if (seenAny) retr(6);
     const pack = packs.length ? packs.filter(p => p.unit === unit)[0] || rng.pick(packs) : null;
@@ -45,12 +62,20 @@ export function planLesson(C, state, lessonSpec, rng, now = Date.now()) {
     retr(10);
     const pack = packs.length ? rng.pick(packs) : null;
     if (pack) steps.push({ type: 'minpair', pack: pack.id, n: 4 });
-    steps.push({ type: 'blend', n: 3, focus: u.newGpcs, weak: true });
-    steps.push({ type: 'readmatch', n: 3, focus: u.newGpcs });
-    steps.push({ type: 'chain', n: 3, focus: u.newGpcs });
-    steps.push({ type: 'spell', n: 3, focus: u.newGpcs, weak: true });
-    if (C.sillyAt(unit).length >= 3) steps.push({ type: 'pseudo', n: 5, focus: u.newGpcs });
+    steps.push({ type: 'blend', n: 3, focus: u.newGpcs, pats: u.newPatterns, weak: true });
+    steps.push({ type: 'readmatch', n: 3, focus: u.newGpcs, pats: u.newPatterns });
+    if (u.newGpcs.length) steps.push({ type: 'chain', n: 3, focus: u.newGpcs });
+    steps.push({ type: 'spell', n: 3, focus: u.newGpcs, pats: u.newPatterns, weak: true });
+    if (C.sillyAt(unit).length >= 3) steps.push({ type: 'pseudo', n: 5, focus: u.newGpcs, pats: u.newPatterns });
     for (const s of lessonSpec.stories || []) steps.push({ type: 'story', story: s.id, read: s.read });
+    if (kind === 'practice') {   // gate needs stories read well and questions answered: offer them again if still unmet
+      const us = M.unitState(state, unit);
+      for (const id of u.stories || []) {
+        const rec = us.stories[id];
+        if ((rec?.r1 ?? 0) < M.K.storyAccuracy) steps.push({ type: 'story', story: id, read: 1 });
+        if (rec?.q !== true) steps.push({ type: 'story', story: id, read: 3 });
+      }
+    }
     const trk = C.trickyList.filter(t => t.release <= unit).map(t => t.id);
     if (trk.length) steps.push({ type: 'heart', words: trk.slice(-2), intro: false });
     if (C.sentences.some(s => s.unit <= unit)) steps.push({ type: 'dictation', n: 1 });
@@ -61,8 +86,8 @@ export function planLesson(C, state, lessonSpec, rng, now = Date.now()) {
   // 'story' / 'review' lessons: connected text, with brief retrieval and transfer probes around it
   retr(5);
   for (const s of lessonSpec.stories || []) steps.push({ type: 'story', story: s.id, read: s.read });
-  if (C.sillyAt(unit).length >= 3) steps.push({ type: 'pseudo', n: 4, focus: u.newGpcs });
-  steps.push({ type: 'spell', n: 2, focus: u.newGpcs, weak: true });
+  if (C.sillyAt(unit).length >= 3) steps.push({ type: 'pseudo', n: 4, focus: u.newGpcs, pats: u.newPatterns });
+  steps.push({ type: 'spell', n: 2, focus: u.newGpcs, pats: u.newPatterns, weak: true });
   steps.push({ type: 'dictation', n: 1 });
   steps.push({ type: 'close' });
   return steps;
@@ -74,14 +99,14 @@ export function planLesson(C, state, lessonSpec, rng, now = Date.now()) {
 export const NEEDS = ['recog', 'recall', 'apply', 'transfer', 'recall', 'apply', 'apply'];
 const needScore = (state, g, req) => { const r = M.rungOf(state, M.keys.gpc(g)); return r === req ? 1 : r < req ? 0.5 : 0.1; };
 
-function pickWords(C, state, unit, focus, n, rng, ctx, { req = 2, pictured = false, silly = false } = {}) {
+function pickWords(C, state, unit, focus, n, rng, ctx, { req = 2, pictured = false, silly = false, pats = null } = {}) {
   let pool = silly ? C.sillyAt(unit) : C.wordsAt(unit, { names: false, functionWords: false });
   // Unit 1 has only a handful of words (s a m t): widen to names and small function words rather than starve practice.
   if (!silly && pool.filter(w => !pictured || w.pic).length < 6) pool = C.wordsAt(unit, { names: !pictured, functionWords: !pictured });
   if (pictured) pool = pool.filter(w => w.pic);
   const fresh = pool.filter(w => !ctx.used.has(w.id));
   const base = fresh.length >= Math.min(n, pool.length) ? fresh : pool;
-  const scored = base.map(w => ({ w, s: w.g.reduce((a, g) => a + needScore(state, g, req) * (focus?.includes(g) ? 1.5 : 1), 0) / Math.sqrt(w.g.length) + rng.next() * 0.6 }))
+  const scored = base.map(w => ({ w, s: w.g.reduce((a, g) => a + needScore(state, g, req) * (focus?.includes(g) ? 1.5 : 1), 0) / Math.sqrt(w.g.length) + rng.next() * 0.6 + (pats?.length && w.pat?.some(p => pats.includes(p)) ? 4 : 0) }))
     .sort((a, b) => b.s - a.s).map(o => o.w);
   const out = scored.slice(0, n);
   out.forEach(w => ctx.used.add(w.id));
@@ -144,11 +169,11 @@ export function stepQuestions(C, state, step, rng, ctx) {
       break;
     }
     case 'minpair': { const p = C.packs.find(x => x.id === step.pack); for (let i = 0; i < step.n; i++) push(Q.minimalPair(C, p, rng)); break; }
-    case 'blend': for (const w of pickWords(C, state, unit, step.focus, step.n, rng, ctx, { req: 2 })) push(Q.blendChoose(C, w.id, unit, rng)); break;
-    case 'spell': for (const w of pickWords(C, state, unit, step.focus, step.n, rng, ctx, { req: 2 })) push(Q.spellTiles(C, w.id, unit, rng)); break;
-    case 'readmatch': for (const w of pickWords(C, state, unit, step.focus, step.n + 2, rng, ctx, { pictured: true, req: 2 })) { if (out.length < step.n) push(Q.readMatchPicture(C, w.id, unit, rng)); } break;
+    case 'blend': for (const w of pickWords(C, state, unit, step.focus, step.n, rng, ctx, { req: 2, pats: step.pats })) push(Q.blendChoose(C, w.id, unit, rng)); break;
+    case 'spell': for (const w of pickWords(C, state, unit, step.focus, step.n, rng, ctx, { req: 2, pats: step.pats })) push(Q.spellTiles(C, w.id, unit, rng)); break;
+    case 'readmatch': for (const w of pickWords(C, state, unit, step.focus, step.n + 2, rng, ctx, { pictured: true, req: 2, pats: step.pats })) { if (out.length < step.n) push(Q.readMatchPicture(C, w.id, unit, rng)); } break;
     case 'chain': { const qs = Q.wordChains(C, unit, rng, step.n + 1, step.focus); qs.forEach(push); break; }
-    case 'pseudo': for (const w of pickWords(C, state, unit, step.focus, step.n, rng, ctx, { silly: true, req: 3 })) push(Q.pseudoWord(C, w.id, unit, rng)); break;
+    case 'pseudo': for (const w of pickWords(C, state, unit, step.focus, step.n, rng, ctx, { silly: true, req: 3, pats: step.pats })) push(Q.pseudoWord(C, w.id, unit, rng)); break;
     case 'heart': for (const id of step.words) { push(Q.trickyChoose(C, id, unit, rng)); push(Q.heartBuild(C, id, unit, rng)); } break;
     case 'dictation': {
       const pool = C.sentences.filter(s => s.unit <= unit).sort((a, b) => b.unit - a.unit);

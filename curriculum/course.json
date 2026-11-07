@@ -173,7 +173,7 @@
    "template": "Stretch-and-segment: one Elkonin box per sound, tiles per letter. Contrast \"real word\" vs \"word + extra vowel\" in listening. Blend sound by sound, never as chunks.",
    "activities": [
     "cluster-segment (new)",
-    "epenthesis-listen (new)",
+    "epenthesis-listen (word vs word+vowel pack)",
     "blend-choose",
     "spell-tiles",
     "word-chain",
@@ -981,7 +981,7 @@
     10
    ],
    "activities": [],
-   "status": "planned"
+   "status": "authored"
   },
   {
    "id": 12,
@@ -1010,7 +1010,7 @@
     11
    ],
    "activities": [],
-   "status": "planned"
+   "status": "authored"
   },
   {
    "id": 13,
@@ -1039,7 +1039,7 @@
     12
    ],
    "activities": [],
-   "status": "planned"
+   "status": "authored"
   },
   {
    "id": 14,
@@ -1068,7 +1068,7 @@
     13
    ],
    "activities": [],
-   "status": "planned"
+   "status": "authored"
   },
   {
    "id": 15,

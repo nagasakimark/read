@@ -21,6 +21,7 @@ export const SYLL_BANK = SYLL_WORDS;
 
 const dedupe = (arr, f = x => x) => { const s = new Set(); return arr.filter(x => { const k = f(x); if (s.has(k)) return false; s.add(k); return true; }); };
 const credits = (ids, kind = 'gpc') => dedupe(ids).map(id => ({ id: kind === 'gpc' ? keys.gpc(id) : id, kind }));
+const wcredits = w => [...credits(w.g), ...(w.pat || []).map(p => ({ id: 'pat:' + p, kind: 'pat' }))];
 const place = (rng, correct, others) => { const opts = rng.shuffle([{ ...correct, _ok: true }, ...others]); return { options: opts, answer: opts.findIndex(o => o._ok) }; };
 
 // ------------------------------------------------------------------ GPC recognition / recall
@@ -87,7 +88,7 @@ export function blendChoose(C, wordId, unit, rng) {
   const { options, answer } = place(rng, { label: w.t, word: wordId }, lures.map(m => ({ label: m.text })));
   return { type: 'choice', act: 'blend-choose', ev: 'apply', skill: 'decode', item: 'word:' + wordId, word: wordId,
     prompt: { talk: w.g.map(g => 'gpc:' + g), audio: [], after: ['w:' + wordId], pic: w.pic, hidePicUntilAnswer: true }, options, answer, opts: options.length,
-    credits: credits(w.g) };
+    credits: wcredits(w) };
 }
 
 export function readMatchPicture(C, wordId, unit, rng) {
@@ -99,7 +100,7 @@ export function readMatchPicture(C, wordId, unit, rng) {
   if (lures.length < 2) return null;
   const { options, answer } = place(rng, { pic: w.pic, word: wordId }, lures.map(x => ({ pic: x.pic, word: x.id })));
   return { type: 'choice', act: 'read-match', ev: 'apply', skill: 'decode', item: 'word:' + wordId, word: wordId,
-    prompt: { text: w.t, audio: [], after: ['w:' + wordId] }, options, answer, opts: options.length, credits: credits(w.g) };
+    prompt: { text: w.t, audio: [], after: ['w:' + wordId] }, options, answer, opts: options.length, credits: wcredits(w) };
 }
 
 export function pseudoWord(C, wordId, unit, rng) {
@@ -111,7 +112,7 @@ export function pseudoWord(C, wordId, unit, rng) {
   for (const m of [...fake, ...real]) if (lures.length < 2 && !lures.some(l => l.text === m.text)) lures.push(m);
   const { options, answer } = place(rng, { label: w.t, word: wordId }, lures.map(m => ({ label: m.text })));
   return { type: 'choice', act: 'pseudo', ev: 'transfer', skill: 'decode', item: 'word:' + wordId, word: wordId,
-    prompt: { audio: ['w:' + wordId], replay: true, monster: true }, options, answer, opts: options.length, credits: credits(w.g) };
+    prompt: { audio: ['w:' + wordId], replay: true, monster: true }, options, answer, opts: options.length, credits: wcredits(w) };
 }
 
 // ------------------------------------------------------------------ encoding (constructed)
@@ -128,7 +129,7 @@ export function spellTiles(C, wordId, unit, rng, extra = 2) {
   for (const l of cand) { if (added >= extra) break; if (used.has(C.gpcs[l].g)) continue; used.add(C.gpcs[l].g); tray.push({ gpc: l, label: C.gpcs[l].g }); added++; }
   return { type: 'build', act: 'spell-tiles', ev: 'apply', skill: 'encode', item: 'word:' + wordId, word: wordId,
     prompt: { audio: ['w:' + wordId], pic: w.pic, replay: true }, slots, tray: rng.shuffle(tray), opts: tray.length,
-    sim: { steps: slots.map((_, i) => tray.length - i) }, credits: credits(w.g) };
+    sim: { steps: slots.map((_, i) => tray.length - i) }, credits: wcredits(w) };
 }
 
 export function heartBuild(C, trickyId, unit, rng) {
@@ -232,7 +233,7 @@ export function applyResult(state, C, q, res, now, record) {
     q.tokens.forEach((k, i) => {
       const ok = res.tokOk ? !!res.tokOk[i] : !!res.ok;
       const c = C.classify(k, 99);
-      if (c.kind === 'word') for (const g of dedupe(c.word.g)) record(state, keys.gpc(g), 'gpc', { ...base, ok });
+      if (c.kind === 'word') { for (const g of dedupe(c.word.g)) record(state, keys.gpc(g), 'gpc', { ...base, ok }); for (const pt of c.word.pat || []) record(state, 'pat:' + pt, 'pat', { ...base, ok }); }
       else if (c.kind === 'tricky') record(state, keys.tricky(c.tricky.id), 'tricky', { ...base, ok });
     });
     return;

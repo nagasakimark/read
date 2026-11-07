@@ -41,6 +41,7 @@
    "m",
    "t"
   ],
+  "newPatterns": [],
   "newTricky": [],
   "prereqs": [
    0
@@ -95,6 +96,7 @@
    "n",
    "p"
   ],
+  "newPatterns": [],
   "newTricky": [
    "i"
   ],
@@ -153,6 +155,7 @@
    "g",
    "c"
   ],
+  "newPatterns": [],
   "newTricky": [
    "a",
    "the"
@@ -275,6 +278,7 @@
    "r",
    "h"
   ],
+  "newPatterns": [],
   "newTricky": [
    "to",
    "no",
@@ -414,6 +418,7 @@
    "ss",
    "ck"
   ],
+  "newPatterns": [],
   "newTricky": [
    "is",
    "of"
@@ -563,6 +568,7 @@
    "zz",
    "qu"
   ],
+  "newPatterns": [],
   "newTricky": [
    "he",
    "we",
@@ -712,6 +718,7 @@
   "newGpcs": [
    "sz"
   ],
+  "newPatterns": [],
   "newTricky": [
    "like",
    "do",
@@ -820,6 +827,7 @@
    "sh",
    "ch"
   ],
+  "newPatterns": [],
   "newTricky": [
    "she",
    "have"
@@ -940,6 +948,7 @@
    "th",
    "thv"
   ],
+  "newPatterns": [],
   "newTricky": [
    "they",
    "are",
@@ -1061,6 +1070,7 @@
    "ng",
    "nk"
   ],
+  "newPatterns": [],
   "newTricky": [
    "what",
    "my",
@@ -1166,6 +1176,573 @@
    "s10a",
    "s10b",
    "s10c"
+  ],
+  "mastery": {
+   "rungRequired": 4,
+   "storyAccuracy": 0.9,
+   "questionsCorrect": 2
+  }
+ },
+ {
+  "id": 11,
+  "stage": 3,
+  "name": "Final clusters",
+  "ja": "おわりの ならぶ しいん",
+  "newGpcs": [],
+  "newPatterns": [
+   "nd$",
+   "nt$",
+   "mp$",
+   "st$",
+   "sk$",
+   "lk$",
+   "ft$",
+   "nch$"
+  ],
+  "newTricky": [
+   "come",
+   "some"
+  ],
+  "prereqs": [
+   10
+  ],
+  "packs": [
+   "cp_epen_11"
+  ],
+  "lessons": [
+   {
+    "id": "L11_1",
+    "unit": 11,
+    "kind": "teach",
+    "newGpcs": [],
+    "newPats": [
+     "nd$",
+     "nt$",
+     "mp$"
+    ],
+    "newTricky": [
+     "come"
+    ],
+    "stories": []
+   },
+   {
+    "id": "L11_2",
+    "unit": 11,
+    "kind": "teach",
+    "newGpcs": [],
+    "newPats": [
+     "st$",
+     "sk$"
+    ],
+    "newTricky": [
+     "some"
+    ],
+    "stories": []
+   },
+   {
+    "id": "L11_3",
+    "unit": 11,
+    "kind": "teach",
+    "newGpcs": [],
+    "newPats": [
+     "lk$",
+     "ft$",
+     "nch$"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L11_4",
+    "unit": 11,
+    "kind": "consolidate",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s11a",
+      "read": 1
+     }
+    ]
+   },
+   {
+    "id": "L11_5",
+    "unit": 11,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s11a",
+      "read": 2
+     },
+     {
+      "id": "s11a",
+      "read": 3
+     },
+     {
+      "id": "s11b",
+      "read": 1
+     },
+     {
+      "id": "s11b",
+      "read": 2
+     }
+    ]
+   },
+   {
+    "id": "L11_6",
+    "unit": 11,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s11b",
+      "read": 3
+     },
+     {
+      "id": "s11c",
+      "read": 1
+     },
+     {
+      "id": "s11c",
+      "read": 2
+     },
+     {
+      "id": "s11c",
+      "read": 3
+     }
+    ]
+   }
+  ],
+  "stories": [
+   "s11a",
+   "s11b",
+   "s11c"
+  ],
+  "mastery": {
+   "rungRequired": 4,
+   "storyAccuracy": 0.9,
+   "questionsCorrect": 2
+  }
+ },
+ {
+  "id": 12,
+  "stage": 3,
+  "name": "s-clusters",
+  "ja": "s ではじまる ならび",
+  "newGpcs": [],
+  "newPatterns": [
+   "^st",
+   "^sp",
+   "^sn",
+   "^sm",
+   "^sw",
+   "^sk"
+  ],
+  "newTricky": [
+   "one",
+   "there"
+  ],
+  "prereqs": [
+   11
+  ],
+  "packs": [
+   "cp_epen_12"
+  ],
+  "lessons": [
+   {
+    "id": "L12_1",
+    "unit": 12,
+    "kind": "teach",
+    "newGpcs": [],
+    "newPats": [
+     "^st",
+     "^sp"
+    ],
+    "newTricky": [
+     "one"
+    ],
+    "stories": []
+   },
+   {
+    "id": "L12_2",
+    "unit": 12,
+    "kind": "teach",
+    "newGpcs": [],
+    "newPats": [
+     "^sn",
+     "^sm"
+    ],
+    "newTricky": [
+     "there"
+    ],
+    "stories": []
+   },
+   {
+    "id": "L12_3",
+    "unit": 12,
+    "kind": "teach",
+    "newGpcs": [],
+    "newPats": [
+     "^sw",
+     "^sk"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L12_4",
+    "unit": 12,
+    "kind": "consolidate",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s12a",
+      "read": 1
+     }
+    ]
+   },
+   {
+    "id": "L12_5",
+    "unit": 12,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s12a",
+      "read": 2
+     },
+     {
+      "id": "s12a",
+      "read": 3
+     },
+     {
+      "id": "s12b",
+      "read": 1
+     },
+     {
+      "id": "s12b",
+      "read": 2
+     }
+    ]
+   },
+   {
+    "id": "L12_6",
+    "unit": 12,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s12b",
+      "read": 3
+     },
+     {
+      "id": "s12c",
+      "read": 1
+     },
+     {
+      "id": "s12c",
+      "read": 2
+     },
+     {
+      "id": "s12c",
+      "read": 3
+     }
+    ]
+   }
+  ],
+  "stories": [
+   "s12a",
+   "s12b",
+   "s12c"
+  ],
+  "mastery": {
+   "rungRequired": 4,
+   "storyAccuracy": 0.9,
+   "questionsCorrect": 2
+  }
+ },
+ {
+  "id": 13,
+  "stage": 3,
+  "name": "l-clusters",
+  "ja": "l の ならび",
+  "newGpcs": [],
+  "newPatterns": [
+   "^bl",
+   "^cl",
+   "^fl",
+   "^gl",
+   "^pl",
+   "^sl"
+  ],
+  "newTricky": [
+   "here",
+   "when"
+  ],
+  "prereqs": [
+   12
+  ],
+  "packs": [
+   "cp_epen_13"
+  ],
+  "lessons": [
+   {
+    "id": "L13_1",
+    "unit": 13,
+    "kind": "teach",
+    "newGpcs": [],
+    "newPats": [
+     "^bl",
+     "^cl"
+    ],
+    "newTricky": [
+     "here"
+    ],
+    "stories": []
+   },
+   {
+    "id": "L13_2",
+    "unit": 13,
+    "kind": "teach",
+    "newGpcs": [],
+    "newPats": [
+     "^fl",
+     "^gl"
+    ],
+    "newTricky": [
+     "when"
+    ],
+    "stories": []
+   },
+   {
+    "id": "L13_3",
+    "unit": 13,
+    "kind": "teach",
+    "newGpcs": [],
+    "newPats": [
+     "^pl",
+     "^sl"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L13_4",
+    "unit": 13,
+    "kind": "consolidate",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s13a",
+      "read": 1
+     }
+    ]
+   },
+   {
+    "id": "L13_5",
+    "unit": 13,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s13a",
+      "read": 2
+     },
+     {
+      "id": "s13a",
+      "read": 3
+     },
+     {
+      "id": "s13b",
+      "read": 1
+     },
+     {
+      "id": "s13b",
+      "read": 2
+     }
+    ]
+   },
+   {
+    "id": "L13_6",
+    "unit": 13,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s13b",
+      "read": 3
+     },
+     {
+      "id": "s13c",
+      "read": 1
+     },
+     {
+      "id": "s13c",
+      "read": 2
+     },
+     {
+      "id": "s13c",
+      "read": 3
+     }
+    ]
+   }
+  ],
+  "stories": [
+   "s13a",
+   "s13b",
+   "s13c"
+  ],
+  "mastery": {
+   "rungRequired": 4,
+   "storyAccuracy": 0.9,
+   "questionsCorrect": 2
+  }
+ },
+ {
+  "id": 14,
+  "stage": 3,
+  "name": "r-clusters",
+  "ja": "r の ならび",
+  "newGpcs": [],
+  "newPatterns": [
+   "^br",
+   "^cr",
+   "^dr",
+   "^fr",
+   "^gr",
+   "^tr",
+   "^pr"
+  ],
+  "newTricky": [
+   "out",
+   "little"
+  ],
+  "prereqs": [
+   13
+  ],
+  "packs": [
+   "cp_epen_14",
+   "cp_l_r_14"
+  ],
+  "lessons": [
+   {
+    "id": "L14_1",
+    "unit": 14,
+    "kind": "teach",
+    "newGpcs": [],
+    "newPats": [
+     "^br",
+     "^cr"
+    ],
+    "newTricky": [
+     "out"
+    ],
+    "stories": []
+   },
+   {
+    "id": "L14_2",
+    "unit": 14,
+    "kind": "teach",
+    "newGpcs": [],
+    "newPats": [
+     "^dr",
+     "^fr"
+    ],
+    "newTricky": [
+     "little"
+    ],
+    "stories": []
+   },
+   {
+    "id": "L14_3",
+    "unit": 14,
+    "kind": "teach",
+    "newGpcs": [],
+    "newPats": [
+     "^gr",
+     "^tr",
+     "^pr"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L14_4",
+    "unit": 14,
+    "kind": "consolidate",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s14a",
+      "read": 1
+     }
+    ]
+   },
+   {
+    "id": "L14_5",
+    "unit": 14,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s14a",
+      "read": 2
+     },
+     {
+      "id": "s14a",
+      "read": 3
+     },
+     {
+      "id": "s14b",
+      "read": 1
+     },
+     {
+      "id": "s14b",
+      "read": 2
+     }
+    ]
+   },
+   {
+    "id": "L14_6",
+    "unit": 14,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s14b",
+      "read": 3
+     },
+     {
+      "id": "s14c",
+      "read": 1
+     },
+     {
+      "id": "s14c",
+      "read": 2
+     },
+     {
+      "id": "s14c",
+      "read": 3
+     }
+    ]
+   }
+  ],
+  "stories": [
+   "s14a",
+   "s14b",
+   "s14c"
   ],
   "mastery": {
    "rungRequired": 4,

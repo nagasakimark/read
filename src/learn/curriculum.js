@@ -35,7 +35,7 @@ export class Curriculum {
 
   /** Real (non-silly) decodable words available at a unit. */
   wordsAt(unit, { names = true, silly = false, functionWords = true } = {}) {
-    return this.wordList.filter(w => w.u <= unit && (silly ? w.tier === 'silly' : w.tier !== 'silly')
+    return this.wordList.filter(w => w.u <= unit && (silly ? w.tier === 'silly' : w.tier !== 'silly' && w.tier !== 'epen')
       && (names || w.tier !== 'name') && (functionWords || w.tier !== 'function'));
   }
   sillyAt(unit) { return this.wordList.filter(w => w.u <= unit && w.tier === 'silly'); }
@@ -48,7 +48,7 @@ export class Curriculum {
   /** What is this token at this unit? decodable word | taught tricky word | not yet taught */
   classify(key, unit) {
     const w = this.words[key];
-    if (w && w.u <= unit && w.tier !== 'silly') return { kind: 'word', word: w };
+    if (w && w.u <= unit && w.tier !== 'silly' && w.tier !== 'epen') return { kind: 'word', word: w };
     const t = this.tricky[key];
     if (t && t.release <= unit) return { kind: 'tricky', tricky: t };
     return { kind: w || t ? 'future' : 'unknown' };
@@ -96,7 +96,7 @@ export class Curriculum {
         const ids = w.g.slice(); ids[i] = g.id;
         const text = ids.map(x => this.gpcs[x].g).join('');
         if (text === w.t.toLowerCase()) continue;
-        res.push({ text, ids, pos: i, real: this.wordList.find(x => x.t.toLowerCase() === text && x.u <= unit && x.tier !== 'silly') || null });
+        res.push({ text, ids, pos: i, real: this.wordList.find(x => x.t.toLowerCase() === text && x.u <= unit && x.tier !== 'silly' && x.tier !== 'epen') || null });
       }
     });
     return res;

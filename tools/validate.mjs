@@ -58,13 +58,13 @@ for (const t of C.trickyList) {
 }
 
 // ---- (b) stories and sentences decodability (blueprint: 100% in Stages 1-3)
-function checkText(label, text, unit, focus) {
+function checkText(label, text, unit, focus, pats) {
   const d = C.decodability(text, unit);
   if (d.pct < 1) err(`${label}: ${Math.round(d.pct * 100)}% decodable at U${unit}; bad tokens: ${d.bad.map(b => `${b.token}(${b.why})`).join(', ')}`);
-  if (focus?.length) {
+  if (focus?.length || pats?.length) {
     const content = tokenize(text).map(t => C.classify(t.key, unit)).filter(c => c.kind === 'word' && c.word.tier !== 'function');
     if (content.length) {
-      const hit = content.filter(c => c.word.g.some(g => focus.includes(g))).length;
+      const hit = content.filter(c => c.word.g.some(g => focus?.includes(g)) || c.word.pat?.some(x => pats?.includes(x))).length;
       return { content: content.length, hit };
     }
   }
@@ -72,7 +72,7 @@ function checkText(label, text, unit, focus) {
 }
 for (const s of C.storyList) {
   let content = 0, hit = 0;
-  s.pages.forEach((p, i) => { const r = checkText(`story ${s.id} p${i + 1}`, p.text, s.unit, s.focus); if (r) { content += r.content; hit += r.hit; } });
+  s.pages.forEach((p, i) => { const r = checkText(`story ${s.id} p${i + 1}`, p.text, s.unit, s.focus, s.pats); if (r) { content += r.content; hit += r.hit; } });
   if (content && hit / content < 0.3) warn(`story ${s.id}: only ${hit}/${content} content words use focus GPCs (blueprint DR: >=30%)`);
   if (!s.questions?.length) err(`story ${s.id}: no comprehension question`);
   if (s.pages.length > 6) warn(`story ${s.id}: ${s.pages.length} pages is long for Stage 1`);
@@ -87,7 +87,8 @@ for (const p of C.packs) for (const set of p.sets) {
     const a = C.words[set[i]], b = C.words[set[j]];
     if (!a || !b) continue;
     const diff = a.g.length === b.g.length ? a.g.filter((g, k) => g !== b.g[k]).length : 99;
-    if (diff !== 1) err(`pack ${p.id}: ${a.id}/${b.id} do not differ by exactly one GPC`);
+    if (p.epen) { if (!(b.tier === 'epen' && b.g.length === a.g.length + 1 && b.g.some((_, i) => b.g.filter((__, k) => k !== i).join() === a.g.join()))) err(`pack ${p.id}: ${a.id}/${b.id} must be a word plus one extra vowel`); }
+    else if (diff !== 1) err(`pack ${p.id}: ${a.id}/${b.id} do not differ by exactly one GPC`);
   }
 }
 

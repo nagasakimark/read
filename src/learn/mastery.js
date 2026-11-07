@@ -74,6 +74,11 @@ export function computeRung(it) {
     if (it.r4 != null && a.some(x => x.ok && x.t >= it.r4 + K.retentionHours * HOUR)) return 6;
     return 4;
   }
+  if (it.kind === 'pat') {   // consonant-cluster pattern: accuracy over word-level evidence (DR)
+    const l8 = lastN(a, () => true, 8);
+    if (l8.length >= 8 && sum(l8) >= 7 && new Set(l8.map(x => x.act)).size >= 2) return 4;
+    return sum(lastN(a, () => true, 5)) >= 3 ? 2 : (a.length ? 1 : 0);
+  }
   // pack / oral items: accuracy over the last 10 (reported to teachers; not a hard gate)
   const l10 = lastN(a, () => true, 10);
   if (l10.length >= 8 && sum(l10) / l10.length >= 0.8) return 4;
@@ -146,6 +151,10 @@ export function gateStatus(C, state, uid, now = Date.now()) {
   for (const g of u.newGpcs) {
     const it = state.items[keys.gpc(g)];
     if (!it || it.rung < K.mastered) reasons.push(`${g}: rung ${it?.rung ?? 0}/${K.mastered}`);
+  }
+  for (const pt of u.newPatterns || []) {
+    const it = state.items['pat:' + pt];
+    if (!it || it.rung < K.mastered) reasons.push(`${pt}: rung ${it?.rung ?? 0}/${K.mastered}`);
   }
   if (u.stories.length) {
     const us = unitState(state, uid);

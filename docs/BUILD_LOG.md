@@ -59,3 +59,12 @@ Headless playthrough: `node tools/play.mjs <lessons> <accuracy> <skipToUnit>` (n
 - Home screen is now a stage-paged map of all 39 units; unauthored units show "soon"; end of authored content shows "coming soon" instead of a trophy.
 - Verification: validate 0 errors; guess-bot passes (perfect 71 lessons, 85% learner 92 lessons, 60% learner held back); headless smoke test clean.
 - Next: author Units 11-16 (clusters need the new `cluster-segment` and epenthesis-listening activities), then Stage 4.
+
+## Units 11-14: consonant clusters (this session)
+
+- New engine concept: **cluster patterns** (`pat:nd$`, `pat:^st`) for units with no new letter-sounds. Units list `patterns` instead of `groups`; words get a `pat` list derived from their GPC sequence; every word question also credits its patterns; the unit gate needs each pattern at rung 4 (last 8 answers >= 7 correct across >= 2 activity types, DR).
+- Words can carry a unit override (6th field) so cluster words unlock in their own unit even though their GPCs were taught earlier. Tier `epen` marks a word plus an extra vowel ("hando", "sutop"), used only in listening packs (`cp_epen_11..14`, validator checks they are exactly one inserted vowel) and never as real words or pseudo-words. `cp_l_r_14` adds blush/brush, plank/prank.
+- Authored: U11 final clusters (nd nt mp st sk lk ft nch), U12 s-clusters, U13 l-clusters, U14 r-clusters; tricky words come, some, one, there, here, when, out, little. 564 words, 32 tricky, 36 stories, 34 sentences, 15 units. Audio regenerated (1,555 keys).
+- **Bug found by simulation and fixed:** a unit could deadlock if a story question was missed, because practice lessons never offered the story again. Practice lessons now re-offer unread / unanswered stories.
+- Verification: validate 0 errors; random/first/last bots never pass; perfect learner finishes in 97 lessons; 85% learner in 139; 60% learner held back; headless play of Unit 11 clean.
+- Next: Unit 15 (three-consonant onsets + -ing) and Unit 16 (-ed, compounds; `-ed` needs a word-sum activity and /t/ /d/ /ɪd/ sorting), then Stage 4.
