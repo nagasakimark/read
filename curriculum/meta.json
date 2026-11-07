@@ -1,6 +1,20 @@
 {
  "contentVersion": "0.1.0",
  "accent": "en-US",
+ "sFinalBank": [
+  [
+   "cats",
+   "🐱"
+  ],
+  [
+   "hats",
+   "🎩"
+  ],
+  [
+   "cups",
+   "🥤"
+  ]
+ ],
  "builtFrom": "curriculum/src",
  "blueprint": "docs/BLUEPRINT.md",
  "stages": [

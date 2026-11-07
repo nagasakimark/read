@@ -64,6 +64,8 @@ export const WORDS = [
   ['bet','b e t','','',C], ['ban','b a n','','',C], ['fit','f i t','','ぴったり',C], ['rap','r a p','','',C], ['cuff','c u ff','','そでぐち',C],
   ['bef','b e f','','',S], ['lub','l u b','','',S], ['fod','f o d','','',S], ['bick','b i ck','','',S],
   ['fack','f a ck','','',S], ['rell','r e ll','','',S],
+  ['beff','b e ff','','',S], ['noff','n o ff','','',S], ['pess','p e ss','','',S], ['nuss','n u ss','','',S],
+  ['mell','m e ll','','',S], ['tull','t u ll','','',S],
   // ---- Unit 6: j v w x y z zz qu
   ['jam','j a m','🍓','ジャム',L], ['jet','j e t','✈️','ジェットき',L], ['jug','j u g','🫗','みずさし',C],
   ['jog','j o g','','ジョギング',L], ['van','v a n','🚐','バン',L], ['vet','v e t','👩‍⚕️','じゅうい',C],
@@ -78,7 +80,7 @@ export const WORDS = [
   ['quack','qu a ck','🦆','ガーガー',C], ['Jack','j a ck','🧑','(なまえ)',N], ['Max','m a x','🧑','(なまえ)',N],
   ['Jim','j i m','🧒','(なまえ)',N], ['zip','z i p','🤐','ジッパー',C], ['yell','y e ll','📣','さけぶ',C], ['yum','y u m','😋','おいしい',C],
   ['jex','j e x','','',S], ['vod','v o d','','',S], ['wux','w u x','','',S], ['zim','z i m','','',S],
-  ['quep','qu e p','','',S],
+  ['quep','qu e p','','',S], ['quap','qu a p','','',S], ['yeb','y e b','','',S], ['wezz','w e zz','','',S], ['vuzz','v u zz','','',S],
   // ---- Unit 7: s says /z/ at the end (sz); plurals and verbs
   ['cats','c a t s','🐱🐱','ねこ(たち)',C], ['dogs','d o g sz','🐶🐶','いぬ(たち)',C], ['pens','p e n sz','🖊️🖊️','ペン(たち)',L],
   ['bugs','b u g sz','🐛🐛','むし(たち)',C], ['hats','h a t s','🎩🎩','ぼうし(たち)',L], ['rugs','r u g sz','','ラグ(たち)',L],
@@ -86,5 +88,6 @@ export const WORDS = [
   ['kids','k i d sz','🧒🧒','こども(たち)',C], ['legs','l e g sz','🦵🦵','あし(りょうほう)',C], ['beds','b e d sz','🛏️🛏️','ベッド(たち)',L],
   ['hugs','h u g sz','🤗','ハグする',L], ['runs','r u n sz','🏃','はしる',C], ['digs','d i g sz','⛏️','ほる',C],
   ['hops','h o p s','🐇','ぴょんぴょん',C], ['sits','s i t s','','すわる',C], ['bells','b e ll sz','🔔🔔','ベル(たち)',L],
-  ['pets','p e t s','🐕🐈','ペット(たち)',L], ['is','i sz','','です',F], ['his','h i sz','','かれの',F], ['has','h a sz','','もっている',F], ['as','a sz','','',F],
+  ['pets','p e t s','🐕🐈','ペット(たち)',L], ['mabs','m a b sz','','',S], ['tegs','t e g sz','','',S], ['fids','f i d sz','','',S],
+  ['is','i sz','','です',F], ['his','h i sz','','かれの',F], ['has','h a sz','','もっている',F], ['as','a sz','','',F],
 ];

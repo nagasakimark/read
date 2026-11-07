@@ -4,7 +4,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { PHONEMES, GPCS } from '../curriculum/src/gpcs.mjs';
+import { PHONEMES, GPCS, S_FINAL_BANK } from '../curriculum/src/gpcs.mjs';
 import { WORDS } from '../curriculum/src/words.mjs';
 import { TRICKY } from '../curriculum/src/tricky.mjs';
 import { PACKS } from '../curriculum/src/packs.mjs';
@@ -50,7 +50,7 @@ const units = UNITS.map(u => {
     stories: st, mastery: { rungRequired: 4, storyAccuracy: 0.9, questionsCorrect: st.length ? 2 : 0 } };
 });
 
-out('meta.json', { contentVersion: '0.1.0', accent: 'en-US', builtFrom: 'curriculum/src', blueprint: 'docs/BLUEPRINT.md',
+out('meta.json', { contentVersion: '0.1.0', accent: 'en-US', sFinalBank: S_FINAL_BANK, builtFrom: 'curriculum/src', blueprint: 'docs/BLUEPRINT.md',
   stages: [ { id: 0, name: 'Listening' }, { id: 1, name: 'First sounds' } ] });
 out('phonemes.json', PHONEMES);
 out('gpcs.json', GPCS);

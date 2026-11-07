@@ -95,7 +95,13 @@ for (const p of C.packs) for (const set of p.sets) {
 for (const g of C.gpcList) {
   const real = C.wordsWithGpc(g.id, 99).filter(w => w.tier !== 'name');
   if (real.length < 3) warn(`GPC ${g.id}: only ${real.length} real words contain it (need >=3 for varied practice)`);
-  if (g.type === 'single' && !['sz'].includes(g.id) && (!g.bank || g.bank.length < 3)) warn(`GPC ${g.id}: mnemonic/initial-sound bank has < 3 entries`);
+  if (g.type === 'single' && !['sz'].includes(g.id) && (!(g.bank || g.fbank) || (g.bank || g.fbank).length < 3)) warn(`GPC ${g.id}: mnemonic/initial-sound bank has < 3 entries`);
+}
+// every GPC needs silly words of its own for transfer probes (rung 4 needs 5 unseen-word attempts)
+for (const g of C.gpcList) {
+  const n = C.sillyAt(g.unit).filter(w => w.g.includes(g.id)).length;
+  if (n === 0) err(`GPC ${g.id}: no silly (pseudo) word contains it -- it can never reach rung 4`);
+  else if (n < 2) warn(`GPC ${g.id}: only ${n} silly word contains it`);
 }
 // silly words per unit for transfer probes (blueprint rung 4 needs >=5 transfer attempts)
 for (const u of C.units.filter(u => u.id >= 1)) {
