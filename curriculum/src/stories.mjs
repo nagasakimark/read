@@ -83,6 +83,16 @@ export const STORIES = [
   { id:'s14c', unit:14, title:'Drip, Drip, Drum', topic:'home', focus:[], pats:['^dr','^gr','^fr'], pages:[
       { text:'Drip, drip, drip!', pic:'💧' }, { text:'Meg can drum.', pic:'👧🥁' }, { text:'Drum, drum, drum!', pic:'🥁' }, { text:'The drum is from Dan.', pic:'🥁🧒' } ],
     questions:[ Q('What can Meg do?', ['🥁','drum'], ['🏊','swim'], ['🏃','run']) ] },
+  // ---------------- Unit 15
+  { id:'s15a', unit:15, title:'The String', topic:'home', focus:[], pats:['^str','^spl','ing$'], pages:[
+      { text:'Dan got a string.', pic:'🧒🧵' }, { text:'He can strum.', pic:'🧒🎸' }, { text:'Dan is singing.', pic:'🧒🎤' }, { text:'It is a thrill!', pic:'🎉' } ],
+    questions:[ Q('What did Dan get?', ['🧵','string'], ['🧢','cap'], ['🥤','cup']) ] },
+  { id:'s15b', unit:15, title:'Splash!', topic:'animals', focus:[], pats:['^spl','ing$'], pages:[
+      { text:'Tom is jumping.', pic:'🧒🤸' }, { text:'Tom is kicking.', pic:'🧒⚽' }, { text:'Splash! Splash!', pic:'💦' }, { text:'Tom is wet.', pic:'🧒💦' } ],
+    questions:[ Q('What is Tom doing?', ['🤸','jump'], ['😴','nap'], ['🏊','swim']) ] },
+  { id:'s15c', unit:15, title:'Shrimp Lunch', topic:'food', focus:[], pats:['^shr','ing$'], pages:[
+      { text:'Meg is fishing.', pic:'👧🎣' }, { text:'She got a shrimp.', pic:'👧🦐' }, { text:'The shrimp is in a dish.', pic:'🦐🍽️' }, { text:'It is a fresh lunch.', pic:'🍱' } ],
+    questions:[ Q('What did Meg get?', ['🦐','shrimp'], ['🐜','ant'], ['🐸','frog']) ] },
   // ---------------- Unit 4
   { id:'s4a', unit:4, title:'The Red Hat', topic:'animals', focus:['k','e','u','r','h'], pages:[
       { text:'A hen got a red hat.', pic:'🐔🎩' }, { text:'The hen ran.', pic:'🐔' }, { text:'The hen ran to Ken.', pic:'🐔🧒' }, { text:'Ken got the hen.', pic:'🧒🐔' } ],
@@ -141,4 +151,5 @@ export const SENTENCES = [
   { unit:12, text:'Dan can swim fast.', pic:'🏊' }, { unit:12, text:'Meg can skip and spin.', pic:'🪢' }, { unit:12, text:'There is a snack in the bag.', pic:'🍪' },
   { unit:13, text:'The clock is black.', pic:'🕐' }, { unit:13, text:'Bob can clap and flip.', pic:'👏' }, { unit:13, text:'Here is a glass of milk.', pic:'🥛' },
   { unit:14, text:'The frog can jump.', pic:'🐸' }, { unit:14, text:'Bring a brush.', pic:'🖌️' }, { unit:14, text:'Tom has a little truck.', pic:'🚚' }, { unit:14, text:'The crab is out.', pic:'🦀' },
+  { unit:15, text:'Dan is jumping.', pic:'🤸' }, { unit:15, text:'Tom is camping.', pic:'🏕️' }, { unit:15, text:'Your hat is red.', pic:'🎩' }, { unit:15, text:'Were you at the pond?', pic:'🏞️' },
 ];

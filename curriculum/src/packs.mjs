@@ -31,4 +31,6 @@ export const PACKS = [
     sets:[['brush','burush'],['crab','curab'],['drum','dorum'],['frog','furog'],['grab','gurab'],['trip','torip']] },
   { id:'cp_l_r_14', unit:14, name:'l / r in clusters', ja:'l は したを うえに，r は したを まるめる',
     sets:[['blush','brush'],['plank','prank']] },
+  { id:'cp_epen_15', unit:15, epen:true, name:'strap / sutrap', ja:'3つの しいんの あいだに「う」を いれないでね：strap',
+    sets:[['strap','sutrap'],['split','suplit'],['scrub','sucrub'],['shrink','shurink'],['thrill','thurill'],['string','sutring']] },
 ];

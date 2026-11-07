@@ -1155,6 +1155,154 @@
   ]
  },
  {
+  "id": "s15a",
+  "unit": 15,
+  "title": "The String",
+  "topic": "home",
+  "focus": [],
+  "pats": [
+   "^str",
+   "^spl",
+   "ing$"
+  ],
+  "pages": [
+   {
+    "text": "Dan got a string.",
+    "pic": "🧒🧵"
+   },
+   {
+    "text": "He can strum.",
+    "pic": "🧒🎸"
+   },
+   {
+    "text": "Dan is singing.",
+    "pic": "🧒🎤"
+   },
+   {
+    "text": "It is a thrill!",
+    "pic": "🎉"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What did Dan get?",
+    "type": "literal",
+    "answer": [
+     "🧵",
+     "string"
+    ],
+    "distractors": [
+     [
+      "🧢",
+      "cap"
+     ],
+     [
+      "🥤",
+      "cup"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s15b",
+  "unit": 15,
+  "title": "Splash!",
+  "topic": "animals",
+  "focus": [],
+  "pats": [
+   "^spl",
+   "ing$"
+  ],
+  "pages": [
+   {
+    "text": "Tom is jumping.",
+    "pic": "🧒🤸"
+   },
+   {
+    "text": "Tom is kicking.",
+    "pic": "🧒⚽"
+   },
+   {
+    "text": "Splash! Splash!",
+    "pic": "💦"
+   },
+   {
+    "text": "Tom is wet.",
+    "pic": "🧒💦"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What is Tom doing?",
+    "type": "literal",
+    "answer": [
+     "🤸",
+     "jump"
+    ],
+    "distractors": [
+     [
+      "😴",
+      "nap"
+     ],
+     [
+      "🏊",
+      "swim"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s15c",
+  "unit": 15,
+  "title": "Shrimp Lunch",
+  "topic": "food",
+  "focus": [],
+  "pats": [
+   "^shr",
+   "ing$"
+  ],
+  "pages": [
+   {
+    "text": "Meg is fishing.",
+    "pic": "👧🎣"
+   },
+   {
+    "text": "She got a shrimp.",
+    "pic": "👧🦐"
+   },
+   {
+    "text": "The shrimp is in a dish.",
+    "pic": "🦐🍽️"
+   },
+   {
+    "text": "It is a fresh lunch.",
+    "pic": "🍱"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What did Meg get?",
+    "type": "literal",
+    "answer": [
+     "🦐",
+     "shrimp"
+    ],
+    "distractors": [
+     [
+      "🐜",
+      "ant"
+     ],
+     [
+      "🐸",
+      "frog"
+     ]
+    ]
+   }
+  ]
+ },
+ {
   "id": "s4a",
   "unit": 4,
   "title": "The Red Hat",

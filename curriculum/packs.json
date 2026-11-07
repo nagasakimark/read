@@ -337,5 +337,38 @@
     "prank"
    ]
   ]
+ },
+ {
+  "id": "cp_epen_15",
+  "unit": 15,
+  "epen": true,
+  "name": "strap / sutrap",
+  "ja": "3つの しいんの あいだに「う」を いれないでね：strap",
+  "sets": [
+   [
+    "strap",
+    "sutrap"
+   ],
+   [
+    "split",
+    "suplit"
+   ],
+   [
+    "scrub",
+    "sucrub"
+   ],
+   [
+    "shrink",
+    "shurink"
+   ],
+   [
+    "thrill",
+    "thurill"
+   ],
+   [
+    "string",
+    "sutring"
+   ]
+  ]
  }
 ]

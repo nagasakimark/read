@@ -34,4 +34,6 @@ export const TRICKY = [
   ['when',['*wh','e','n'],13,31,'"wh" says /w/.','when は「ウェン」'],
   ['out',['*ou','t'],14,29,'"ou" says /aʊ/ (ow).','out は「アウト」'],
   ['little',['l','i','t','*tle'],14,null,'"ttle" says /təl/.','little は「リトル」'],
+  ['were',['w','*ere'],15,null,'"ere" says /ɝ/ (er).','were は「ワー」'],
+  ['your',['y','*our'],15,null,'"our" says /ɔr/ (or).','your は「ヨア」'],
 ];

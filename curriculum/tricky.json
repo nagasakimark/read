@@ -389,5 +389,29 @@
   "decodableFrom": null,
   "noteEn": "\"ttle\" says /təl/.",
   "noteJa": "little は「リトル」"
+ },
+ {
+  "id": "were",
+  "t": "were",
+  "parts": [
+   "w",
+   "*ere"
+  ],
+  "release": 15,
+  "decodableFrom": null,
+  "noteEn": "\"ere\" says /ɝ/ (er).",
+  "noteJa": "were は「ワー」"
+ },
+ {
+  "id": "your",
+  "t": "your",
+  "parts": [
+   "y",
+   "*our"
+  ],
+  "release": 15,
+  "decodableFrom": null,
+  "noteEn": "\"our\" says /ɔr/ (or).",
+  "noteJa": "your は「ヨア」"
  }
 ]

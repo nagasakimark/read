@@ -190,4 +190,23 @@ export const WORDS = [
   ['prib','p r i b','','',S,14], ['brup','b r u p','','',S,14], ['burush','b u r u sh','','',E,14],
   ['curab','c u r a b','','',E,14], ['dorum','d o r u m','','',E,14], ['furog','f u r o g','','',E,14],
   ['gurab','g u r a b','','',E,14], ['torip','t o r i p','','',E,14],
+
+  // ---- Unit 15: three-consonant starts and -ing (no new GPCs)
+  ['strap','s t r a p','','ストラップ',L,15], ['strip','s t r i p','','ほそながい',C,15], ['string','s t r i ng','🧵','ひも',C,15],
+  ['strum','s t r u m','','かきならす',C,15], ['split','s p l i t','','わる',C,15], ['splash','s p l a sh','💦','バシャッ',C,15],
+  ['splat','s p l a t','','ベチャ',C,15], ['scrub','s c r u b','','ごしごし',C,15], ['scrap','s c r a p','','くず',C,15],
+  ['scram','s c r a m','','にげろ',C,15], ['script','s c r i p t','','だいほん',L,15], ['scrunch','s c r u n ch','','くしゃっ',C,15],
+  ['shrimp','sh r i m p','🦐','えび',C,15], ['shrink','sh r i nk','','ちぢむ',C,15], ['shred','sh r e d','','ちぎる',C,15],
+  ['shrub','sh r u b','','かんぼく',C,15], ['thrill','th r i ll','','ワクワク',C,15], ['thrust','th r u s t','','つきだす',C,15],
+  ['throb','th r o b','','ずきずき',C,15], ['thrash','th r a sh','','あばれる',C,15], ['jumping','j u m p i ng','🤸','とんでいる',C,15],
+  ['camping','c a m p i ng','🏕️','キャンプ',C,15], ['resting','r e s t i ng','😌','やすんでいる',C,15], ['lifting','l i f t i ng','','もちあげている',C,15],
+  ['asking','a s k i ng','','きいている',C,15], ['sending','s e n d i ng','','おくっている',C,15], ['bumping','b u m p i ng','','ぶつかっている',C,15],
+  ['picking','p i ck i ng','','えらんでいる',C,15], ['kicking','k i ck i ng','⚽','けっている',C,15], ['checking','ch e ck i ng','','しらべている',C,15],
+  ['fishing','f i sh i ng','🎣','つりをしている',C,15], ['wishing','w i sh i ng','','ねがっている',C,15], ['ringing','r i ng i ng','🔔','なっている',C,15],
+  ['singing','s i ng i ng','🎤','うたっている',C,15], ['hunting','h u n t i ng','','さがしている',C,15], ['strem','s t r e m','','',S,15],
+  ['splog','s p l o g','','',S,15], ['scrab','s c r a b','','',S,15], ['shrem','s h r e m','','',S,15],
+  ['thrap','t h r a p','','',S,15], ['strun','s t r u n','','',S,15], ['scrim','s c r i m','','',S,15],
+  ['shrop','s h r o p','','',S,15], ['sutrap','s u t r a p','','',E,15], ['suplit','s u p l i t','','',E,15],
+  ['sucrub','s u c r u b','','',E,15], ['shurink','sh u r i nk','','',E,15], ['thurill','th u r i ll','','',E,15],
+  ['sutring','s u t r i ng','','',E,15],
 ];

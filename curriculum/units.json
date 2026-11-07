@@ -1749,5 +1749,145 @@
    "storyAccuracy": 0.9,
    "questionsCorrect": 2
   }
+ },
+ {
+  "id": 15,
+  "stage": 3,
+  "name": "Three-letter starts and -ing",
+  "ja": "3つの しいん と -ing",
+  "newGpcs": [],
+  "newPatterns": [
+   "^str",
+   "^spl",
+   "^scr",
+   "^shr",
+   "^thr",
+   "ing$"
+  ],
+  "newTricky": [
+   "were",
+   "your"
+  ],
+  "prereqs": [
+   14
+  ],
+  "packs": [
+   "cp_epen_15"
+  ],
+  "lessons": [
+   {
+    "id": "L15_1",
+    "unit": 15,
+    "kind": "teach",
+    "newGpcs": [],
+    "newPats": [
+     "^str",
+     "^spl"
+    ],
+    "newTricky": [
+     "were"
+    ],
+    "stories": []
+   },
+   {
+    "id": "L15_2",
+    "unit": 15,
+    "kind": "teach",
+    "newGpcs": [],
+    "newPats": [
+     "^scr",
+     "^shr",
+     "^thr"
+    ],
+    "newTricky": [
+     "your"
+    ],
+    "stories": []
+   },
+   {
+    "id": "L15_3",
+    "unit": 15,
+    "kind": "teach",
+    "newGpcs": [],
+    "newPats": [
+     "ing$"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L15_4",
+    "unit": 15,
+    "kind": "consolidate",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s15a",
+      "read": 1
+     }
+    ]
+   },
+   {
+    "id": "L15_5",
+    "unit": 15,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s15a",
+      "read": 2
+     },
+     {
+      "id": "s15a",
+      "read": 3
+     },
+     {
+      "id": "s15b",
+      "read": 1
+     },
+     {
+      "id": "s15b",
+      "read": 2
+     }
+    ]
+   },
+   {
+    "id": "L15_6",
+    "unit": 15,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s15b",
+      "read": 3
+     },
+     {
+      "id": "s15c",
+      "read": 1
+     },
+     {
+      "id": "s15c",
+      "read": 2
+     },
+     {
+      "id": "s15c",
+      "read": 3
+     }
+    ]
+   }
+  ],
+  "stories": [
+   "s15a",
+   "s15b",
+   "s15c"
+  ],
+  "mastery": {
+   "rungRequired": 4,
+   "storyAccuracy": 0.9,
+   "questionsCorrect": 2
+  }
  }
 ]

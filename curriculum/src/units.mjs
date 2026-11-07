@@ -19,4 +19,5 @@ export const UNITS = [
   { id:12, stage:3, name:'s-clusters', ja:'s ではじまる ならび', patterns:[['^s t','^s p'],['^s n','^s m'],['^s w','^s k']], tricky:[['one'],['there'],[]] },
   { id:13, stage:3, name:'l-clusters', ja:'l の ならび', patterns:[['^b l','^c l'],['^f l','^g l'],['^p l','^s l']], tricky:[['here'],['when'],[]] },
   { id:14, stage:3, name:'r-clusters', ja:'r の ならび', patterns:[['^b r','^c r'],['^d r','^f r'],['^g r','^t r','^p r']], tricky:[['out'],['little'],[]] },
+  { id:15, stage:3, name:'Three-letter starts and -ing', ja:'3つの しいん と -ing', patterns:[['^s t r','^s p l'],['^s c r','^sh r','^th r'],['i ng$']], tricky:[['were'],['your'],[]] },
 ];
