@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#10283a">
+<title>Let's Read English!</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<style>
+@font-face{font-family:"Andika";font-weight:400;src:url(fonts/andika-latin-400-normal.woff2) format("woff2");font-display:block}
+@font-face{font-family:"Andika";font-weight:700;src:url(fonts/andika-latin-700-normal.woff2) format("woff2");font-display:block}
+html,body{margin:0;height:100%;background:#10283a;overflow:hidden;touch-action:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+canvas{display:block;width:100vw;height:100vh;touch-action:none;outline:none}
+.preload{position:absolute;left:-999px;font-family:"Andika";font-weight:700}
+</style>
+</head>
+<body>
+<canvas id="game" tabindex="0"></canvas>
+<span class="preload">aA</span><span class="preload" style="font-weight:400">aA</span>
+<script type="module">
+await Promise.all([document.fonts.load('700 40px Andika'), document.fonts.load('400 40px Andika')]).catch(() => {});
+await import('./src/game/main.js');
+</script>
+</body>
+</html>

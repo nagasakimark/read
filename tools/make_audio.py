@@ -44,6 +44,7 @@ for t in sorted(spoken):
 texts = {s['text'] for s in sents}
 for st in stories:
     for pg in st['pages']: texts.add(pg['text'])
+    for q in st.get('questions', []): texts.add(q['q'])
 for t in sorted(texts):
     add('sent:' + t, t, rate=115)
 json.dump(manifest, open(f'{out}/manifest.json', 'w'), indent=0, sort_keys=True)
