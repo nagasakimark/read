@@ -27,4 +27,13 @@ export const UNITS = [
   { id:20, stage:4, name:'oo ar or', ja:'oo ar or', groups:[['oo_s'],['ar'],['or']], tricky:[[],[],[]] },
   { id:21, stage:4, name:'ur er air ear', ja:'ur er air ear', groups:[['ur','er'],['air','ear']], tricky:[[],[]] },
   { id:22, stage:4, name:'y says ee / eye', ja:'y が「イー」「アイ」', groups:[['y_i'],['y_ai']], tricky:[[],[]] },
+  { id:23, stage:5, name:'a_e i_e', ja:'a_e i_e', groups:[['a_e'],['i_e']], suffixGpcs:['e_s'], tricky:[[],[]] },
+  { id:24, stage:5, name:'o_e u_e e_e', ja:'o_e u_e e_e', groups:[['o_e'],['u_e','u_e_oo'],['e_e']], tricky:[[],[],[]] },
+  { id:25, stage:5, name:'ay', ja:'ay', groups:[['ay']], tricky:[[]] },
+  { id:26, stage:5, name:'ea e ey', ja:'ea e ey', groups:[['ea_i'],['e_open'],['ey']], tricky:[[],[],[]] },
+  { id:27, stage:5, name:'ow o oe ie i', ja:'ow o oe ie i', groups:[['ow_ou','o_open'],['oe'],['ie','i_open']], tricky:[[],[],[]] },
+  { id:28, stage:5, name:'ew ue ir wor', ja:'ew ue ir wor', groups:[['ew','ue'],['ir','wor']], tricky:[[],[]] },
+  { id:29, stage:5, name:'ou oy aw au', ja:'ou oy aw au', groups:[['ou','oy'],['aw','au']], tricky:[[],[]] },
+  { id:30, stage:5, name:'try the other sound', ja:'ちがう よみかた', groups:[['ea_e','ie_i'],['c_soft','g_soft'],['ch_k']], tricky:[[],[],[]] },
+  { id:31, stage:5, name:'ph wh tch dge kn wr mb ve', ja:'ph wh tch dge kn wr mb ve', groups:[['ph','wh'],['tch','dge'],['kn','wr'],['mb','ve']], tricky:[[],[],[],[]] },
 ];

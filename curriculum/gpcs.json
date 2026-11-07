@@ -1309,6 +1309,951 @@
   ]
  },
  {
+  "id": "a_e",
+  "g": "a",
+  "ph": [
+   "ai"
+  ],
+  "unit": 23,
+  "type": "split",
+  "vbank": [
+   [
+    "cake",
+    "🍰"
+   ],
+   [
+    "snake",
+    "🐍"
+   ],
+   [
+    "plate",
+    "🍽️"
+   ],
+   [
+    "lake",
+    "🏞️"
+   ]
+  ]
+ },
+ {
+  "id": "i_e",
+  "g": "i",
+  "ph": [
+   "igh"
+  ],
+  "unit": 23,
+  "type": "split",
+  "vbank": [
+   [
+    "bike",
+    "🚲"
+   ],
+   [
+    "kite",
+    "🪁"
+   ],
+   [
+    "slide",
+    "🛝"
+   ],
+   [
+    "smile",
+    "😊"
+   ]
+  ]
+ },
+ {
+  "id": "e_s",
+  "g": "e",
+  "ph": [],
+  "unit": 23,
+  "type": "silent"
+ },
+ {
+  "id": "o_e",
+  "g": "o",
+  "ph": [
+   "oa"
+  ],
+  "unit": 24,
+  "type": "split",
+  "vbank": [
+   [
+    "home",
+    "🏠"
+   ],
+   [
+    "nose",
+    "👃"
+   ],
+   [
+    "rope",
+    "🪢"
+   ],
+   [
+    "bone",
+    "🦴"
+   ]
+  ]
+ },
+ {
+  "id": "u_e",
+  "g": "u",
+  "ph": [
+   "y",
+   "oo"
+  ],
+  "unit": 24,
+  "type": "split",
+  "vbank": [
+   [
+    "cube",
+    "🧊"
+   ],
+   [
+    "cute",
+    "🥰"
+   ],
+   [
+    "mule",
+    "🫏"
+   ],
+   [
+    "mute",
+    "🔇"
+   ]
+  ]
+ },
+ {
+  "id": "u_e_oo",
+  "g": "u",
+  "ph": [
+   "oo"
+  ],
+  "unit": 24,
+  "type": "split",
+  "vbank": [
+   [
+    "tube",
+    "🧪"
+   ],
+   [
+    "flute",
+    "🪈"
+   ],
+   [
+    "rule",
+    "📏"
+   ],
+   [
+    "dune",
+    "🏜️"
+   ]
+  ]
+ },
+ {
+  "id": "e_e",
+  "g": "e",
+  "ph": [
+   "ee"
+  ],
+  "unit": 24,
+  "type": "split",
+  "vbank": [
+   [
+    "these",
+    "👉"
+   ],
+   [
+    "theme",
+    "🎨"
+   ],
+   [
+    "Steve",
+    "👦"
+   ],
+   [
+    "Pete",
+    "👦"
+   ]
+  ]
+ },
+ {
+  "id": "ay",
+  "g": "ay",
+  "ph": [
+   "ai"
+  ],
+  "unit": 25,
+  "type": "vowel-open",
+  "vbank": [
+   [
+    "day",
+    "🌞"
+   ],
+   [
+    "play",
+    "🎮"
+   ],
+   [
+    "hay",
+    "🌾"
+   ],
+   [
+    "clay",
+    "🏺"
+   ]
+  ]
+ },
+ {
+  "id": "ea_i",
+  "g": "ea",
+  "ph": [
+   "ee"
+  ],
+  "unit": 26,
+  "type": "vowel-open",
+  "vbank": [
+   [
+    "eat",
+    "🍽️"
+   ],
+   [
+    "sea",
+    "🌊"
+   ],
+   [
+    "tea",
+    "🍵"
+   ],
+   [
+    "leaf",
+    "🍃"
+   ]
+  ]
+ },
+ {
+  "id": "e_open",
+  "g": "e",
+  "ph": [
+   "ee"
+  ],
+  "unit": 26,
+  "type": "vowel-open",
+  "vbank": [
+   [
+    "he",
+    "👦"
+   ],
+   [
+    "me",
+    "🙋"
+   ],
+   [
+    "we",
+    "👫"
+   ],
+   [
+    "she",
+    "👧"
+   ]
+  ]
+ },
+ {
+  "id": "ey",
+  "g": "ey",
+  "ph": [
+   "ee"
+  ],
+  "unit": 26,
+  "type": "vowel-open",
+  "vbank": [
+   [
+    "key",
+    "🔑"
+   ],
+   [
+    "donkey",
+    "🫏"
+   ],
+   [
+    "turkey",
+    "🦃"
+   ],
+   [
+    "valley",
+    "🏞️"
+   ]
+  ]
+ },
+ {
+  "id": "ow_ou",
+  "g": "ow",
+  "ph": [
+   "oa"
+  ],
+  "unit": 27,
+  "type": "vowel-open",
+  "vbank": [
+   [
+    "snow",
+    "⛄"
+   ],
+   [
+    "window",
+    "🪟"
+   ],
+   [
+    "rainbow",
+    "🌈"
+   ],
+   [
+    "yellow",
+    "💛"
+   ]
+  ]
+ },
+ {
+  "id": "o_open",
+  "g": "o",
+  "ph": [
+   "oa"
+  ],
+  "unit": 27,
+  "type": "vowel-open",
+  "vbank": [
+   [
+    "go",
+    "🚶"
+   ],
+   [
+    "no",
+    "🚫"
+   ],
+   [
+    "old",
+    "👴"
+   ],
+   [
+    "gold",
+    "🥇"
+   ]
+  ]
+ },
+ {
+  "id": "oe",
+  "g": "oe",
+  "ph": [
+   "oa"
+  ],
+  "unit": 27,
+  "type": "vowel-open",
+  "vbank": [
+   [
+    "toe",
+    "🦶"
+   ],
+   [
+    "doe",
+    "🦌"
+   ],
+   [
+    "hoe",
+    "🧑‍🌾"
+   ],
+   [
+    "Joe",
+    "👦"
+   ]
+  ]
+ },
+ {
+  "id": "ie",
+  "g": "ie",
+  "ph": [
+   "igh"
+  ],
+  "unit": 27,
+  "type": "vowel-open",
+  "vbank": [
+   [
+    "pie",
+    "🥧"
+   ],
+   [
+    "tie",
+    "👔"
+   ],
+   [
+    "flies",
+    "🪰"
+   ],
+   [
+    "cried",
+    "😢"
+   ]
+  ]
+ },
+ {
+  "id": "i_open",
+  "g": "i",
+  "ph": [
+   "igh"
+  ],
+  "unit": 27,
+  "type": "vowel-open",
+  "vbank": [
+   [
+    "hi",
+    "👋"
+   ],
+   [
+    "find",
+    "🔎"
+   ],
+   [
+    "child",
+    "🧒"
+   ],
+   [
+    "tiger",
+    "🐯"
+   ]
+  ]
+ },
+ {
+  "id": "ew",
+  "g": "ew",
+  "ph": [
+   "oo"
+  ],
+  "unit": 28,
+  "type": "vowel-open",
+  "vbank": [
+   [
+    "new",
+    "🆕"
+   ],
+   [
+    "blew",
+    "💨"
+   ],
+   [
+    "grew",
+    "🌱"
+   ],
+   [
+    "flew",
+    "🕊️"
+   ]
+  ]
+ },
+ {
+  "id": "ue",
+  "g": "ue",
+  "ph": [
+   "oo"
+  ],
+  "unit": 28,
+  "type": "vowel-open",
+  "vbank": [
+   [
+    "blue",
+    "🟦"
+   ],
+   [
+    "glue",
+    "🧴"
+   ],
+   [
+    "clue",
+    "🔍"
+   ],
+   [
+    "true",
+    "✅"
+   ]
+  ]
+ },
+ {
+  "id": "ir",
+  "g": "ir",
+  "ph": [
+   "ur"
+  ],
+  "unit": 28,
+  "type": "vowel",
+  "vbank": [
+   [
+    "bird",
+    "🐦"
+   ],
+   [
+    "girl",
+    "👧"
+   ],
+   [
+    "shirt",
+    "👕"
+   ],
+   [
+    "dirt",
+    "🟫"
+   ]
+  ]
+ },
+ {
+  "id": "wor",
+  "g": "wor",
+  "ph": [
+   "w",
+   "ur"
+  ],
+  "unit": 28,
+  "type": "vowel",
+  "vbank": [
+   [
+    "word",
+    "📝"
+   ],
+   [
+    "worm",
+    "🪱"
+   ],
+   [
+    "world",
+    "🌍"
+   ],
+   [
+    "work",
+    "💼"
+   ]
+  ]
+ },
+ {
+  "id": "ou",
+  "g": "ou",
+  "ph": [
+   "ow"
+  ],
+  "unit": 29,
+  "type": "vowel",
+  "vbank": [
+   [
+    "house",
+    "🏠"
+   ],
+   [
+    "mouse",
+    "🐭"
+   ],
+   [
+    "cloud",
+    "☁️"
+   ],
+   [
+    "mouth",
+    "👄"
+   ]
+  ]
+ },
+ {
+  "id": "oy",
+  "g": "oy",
+  "ph": [
+   "oi"
+  ],
+  "unit": 29,
+  "type": "vowel-open",
+  "vbank": [
+   [
+    "toy",
+    "🧸"
+   ],
+   [
+    "boy",
+    "👦"
+   ],
+   [
+    "joy",
+    "😄"
+   ],
+   [
+    "cowboy",
+    "🤠"
+   ]
+  ]
+ },
+ {
+  "id": "aw",
+  "g": "aw",
+  "ph": [
+   "aw"
+  ],
+  "unit": 29,
+  "type": "vowel-open",
+  "vbank": [
+   [
+    "saw",
+    "🪚"
+   ],
+   [
+    "paw",
+    "🐾"
+   ],
+   [
+    "claw",
+    "🦞"
+   ],
+   [
+    "straw",
+    "🥤"
+   ]
+  ]
+ },
+ {
+  "id": "au",
+  "g": "au",
+  "ph": [
+   "aw"
+  ],
+  "unit": 29,
+  "type": "vowel",
+  "vbank": [
+   [
+    "launch",
+    "🚀"
+   ],
+   [
+    "haul",
+    "🚛"
+   ],
+   [
+    "vault",
+    "🏦"
+   ],
+   [
+    "haunt",
+    "👻"
+   ]
+  ]
+ },
+ {
+  "id": "ea_e",
+  "g": "ea",
+  "ph": [
+   "e"
+  ],
+  "unit": 30,
+  "type": "vowel",
+  "vbank": [
+   [
+    "bread",
+    "🍞"
+   ],
+   [
+    "head",
+    "🗣️"
+   ],
+   [
+    "feather",
+    "🪶"
+   ],
+   [
+    "weather",
+    "🌦️"
+   ]
+  ]
+ },
+ {
+  "id": "ie_i",
+  "g": "ie",
+  "ph": [
+   "ee"
+  ],
+  "unit": 30,
+  "type": "vowel",
+  "vbank": [
+   [
+    "field",
+    "🌾"
+   ],
+   [
+    "thief",
+    "🦹"
+   ],
+   [
+    "shield",
+    "🛡️"
+   ],
+   [
+    "chief",
+    "🧑‍✈️"
+   ]
+  ]
+ },
+ {
+  "id": "c_soft",
+  "g": "c",
+  "ph": [
+   "s"
+  ],
+  "unit": 30,
+  "type": "initial",
+  "bank": [
+   [
+    "city",
+    "🏙️"
+   ],
+   [
+    "circus",
+    "🎪"
+   ],
+   [
+    "cent",
+    "🪙"
+   ]
+  ]
+ },
+ {
+  "id": "g_soft",
+  "g": "g",
+  "ph": [
+   "dj"
+  ],
+  "unit": 30,
+  "type": "initial",
+  "bank": [
+   [
+    "giant",
+    "🧌"
+   ],
+   [
+    "gym",
+    "🏋️"
+   ],
+   [
+    "gem",
+    "💎"
+   ]
+  ]
+ },
+ {
+  "id": "ch_k",
+  "g": "ch",
+  "ph": [
+   "k"
+  ],
+  "unit": 30,
+  "type": "initial",
+  "bank": [
+   [
+    "school",
+    "🏫"
+   ],
+   [
+    "chorus",
+    "🎶"
+   ],
+   [
+    "Christmas",
+    "🎄"
+   ]
+  ]
+ },
+ {
+  "id": "ph",
+  "g": "ph",
+  "ph": [
+   "f"
+  ],
+  "unit": 31,
+  "type": "initial",
+  "bank": [
+   [
+    "phone",
+    "📱"
+   ],
+   [
+    "photo",
+    "📷"
+   ],
+   [
+    "pharmacy",
+    "💊"
+   ]
+  ]
+ },
+ {
+  "id": "wh",
+  "g": "wh",
+  "ph": [
+   "w"
+  ],
+  "unit": 31,
+  "type": "initial",
+  "bank": [
+   [
+    "whale",
+    "🐋"
+   ],
+   [
+    "wheel",
+    "🛞"
+   ],
+   [
+    "white",
+    "🤍"
+   ]
+  ]
+ },
+ {
+  "id": "tch",
+  "g": "tch",
+  "ph": [
+   "ch"
+  ],
+  "unit": 31,
+  "type": "digraph-final",
+  "fbank": [
+   [
+    "witch",
+    "🧙"
+   ],
+   [
+    "match",
+    "🔥"
+   ],
+   [
+    "stitch",
+    "🪡"
+   ]
+  ]
+ },
+ {
+  "id": "dge",
+  "g": "dge",
+  "ph": [
+   "dj"
+  ],
+  "unit": 31,
+  "type": "digraph-final",
+  "fbank": [
+   [
+    "bridge",
+    "🌉"
+   ],
+   [
+    "fudge",
+    "🍫"
+   ],
+   [
+    "badge",
+    "🏅"
+   ],
+   [
+    "judge",
+    "👩‍⚖️"
+   ]
+  ]
+ },
+ {
+  "id": "kn",
+  "g": "kn",
+  "ph": [
+   "n"
+  ],
+  "unit": 31,
+  "type": "initial",
+  "bank": [
+   [
+    "knee",
+    "🦵"
+   ],
+   [
+    "knife",
+    "🔪"
+   ],
+   [
+    "knot",
+    "🪢"
+   ]
+  ]
+ },
+ {
+  "id": "wr",
+  "g": "wr",
+  "ph": [
+   "r"
+  ],
+  "unit": 31,
+  "type": "initial",
+  "bank": [
+   [
+    "write",
+    "✍️"
+   ],
+   [
+    "wrap",
+    "🎁"
+   ],
+   [
+    "wrist",
+    "⌚"
+   ]
+  ]
+ },
+ {
+  "id": "mb",
+  "g": "mb",
+  "ph": [
+   "m"
+  ],
+  "unit": 31,
+  "type": "digraph-final",
+  "fbank": [
+   [
+    "lamb",
+    "🐑"
+   ],
+   [
+    "comb",
+    "🪮"
+   ],
+   [
+    "thumb",
+    "👍"
+   ],
+   [
+    "climb",
+    "🧗"
+   ]
+  ]
+ },
+ {
+  "id": "ve",
+  "g": "ve",
+  "ph": [
+   "v"
+  ],
+  "unit": 31,
+  "type": "digraph-final",
+  "fbank": [
+   [
+    "give",
+    "🎁"
+   ],
+   [
+    "olive",
+    "🫒"
+   ],
+   [
+    "live",
+    "❤️"
+   ]
+  ]
+ },
+ {
   "id": "ed_t",
   "g": "ed",
   "ph": [

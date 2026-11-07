@@ -49,4 +49,10 @@ export const PACKS = [
     sets:[['farm','form'],['part','port'],['barn','born']] },
   { id:'cp_air_ear', unit:21, name:'air / ear', ja:'air は「エア」，ear は「イア」',
     sets:[['hair','hear'],['fair','fear']] },
+  { id:'cp_split_a', unit:23, loose:true, name:'a / a_e', ja:'e がつくと「エイ」：mad / made',
+    sets:[['mad','made'],['hat','hate'],['mat','mate']] },
+  { id:'cp_split_i', unit:23, loose:true, name:'i / i_e', ja:'e がつくと「アイ」：kit / kite',
+    sets:[['kit','kite'],['bit','bite'],['hid','hide']] },
+  { id:'cp_split_o', unit:24, loose:true, name:'o / o_e, u / u_e', ja:'e がつくと のびるよ：hop / hope',
+    sets:[['hop','hope'],['not','note'],['cut','cute']] },
 ];

@@ -54,6 +54,11 @@ export function bubble(c, x, y, w, h, tail = 'left') {
 
 /** Highlight the target grapheme inside a word: returns [{s, hot}] segments. */
 export function segmentWord(word, g, pos) {
+  if (g.length === 3 && g[1] === '_') {   // split digraph a_e: light up the vowel and the final e, not the consonant between
+    const i = word.indexOf(g[0]), j = word.length - 1;
+    if (i < 0 || i >= j || word[j] !== g[2]) return [{ s: word, hot: false }];
+    return [{ s: word.slice(0, i), hot: false }, { s: g[0], hot: true }, { s: word.slice(i + 1, j), hot: false }, { s: g[2], hot: true }].filter(x => x.s);
+  }
   const i = pos === 'final' ? word.lastIndexOf(g) : word.indexOf(g);
   if (i < 0) return [{ s: word, hot: false }];
   return [{ s: word.slice(0, i), hot: false }, { s: g, hot: true }, { s: word.slice(i + g.length), hot: false }].filter(x => x.s);

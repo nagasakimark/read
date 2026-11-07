@@ -298,5 +298,140 @@
   "unit": 22,
   "text": "The sky is not dry.",
   "pic": "🌌"
+ },
+ {
+  "unit": 23,
+  "text": "Sam can bake a cake.",
+  "pic": "🍰"
+ },
+ {
+  "unit": 23,
+  "text": "Dan can ride a bike.",
+  "pic": "🚲"
+ },
+ {
+  "unit": 23,
+  "text": "The snake is at the lake.",
+  "pic": "🐍"
+ },
+ {
+  "unit": 24,
+  "text": "Pete has a rope.",
+  "pic": "🪢"
+ },
+ {
+  "unit": 24,
+  "text": "The mule is cute.",
+  "pic": "🫏"
+ },
+ {
+  "unit": 24,
+  "text": "I can hum a tune.",
+  "pic": "🎵"
+ },
+ {
+  "unit": 25,
+  "text": "We can play all day.",
+  "pic": "🎮"
+ },
+ {
+  "unit": 25,
+  "text": "The clay is gray.",
+  "pic": "🏺"
+ },
+ {
+  "unit": 25,
+  "text": "The pig can stay.",
+  "pic": "🐷"
+ },
+ {
+  "unit": 26,
+  "text": "We eat a peach.",
+  "pic": "🍑"
+ },
+ {
+  "unit": 26,
+  "text": "I see the sea.",
+  "pic": "🌊"
+ },
+ {
+  "unit": 26,
+  "text": "She has a key.",
+  "pic": "🔑"
+ },
+ {
+  "unit": 27,
+  "text": "The snow is cold.",
+  "pic": "⛄"
+ },
+ {
+  "unit": 27,
+  "text": "Joe has a pie.",
+  "pic": "🥧"
+ },
+ {
+  "unit": 27,
+  "text": "The child is kind.",
+  "pic": "🧒"
+ },
+ {
+  "unit": 28,
+  "text": "The bird is blue.",
+  "pic": "🐦"
+ },
+ {
+  "unit": 28,
+  "text": "Dan has a new shirt.",
+  "pic": "👕"
+ },
+ {
+  "unit": 28,
+  "text": "The worm is in the dirt.",
+  "pic": "🪱"
+ },
+ {
+  "unit": 29,
+  "text": "The mouse is in the house.",
+  "pic": "🐭"
+ },
+ {
+  "unit": 29,
+  "text": "The boy has a toy.",
+  "pic": "🧸"
+ },
+ {
+  "unit": 29,
+  "text": "Paul saw a hawk.",
+  "pic": "🦅"
+ },
+ {
+  "unit": 30,
+  "text": "The city is nice.",
+  "pic": "🏙️"
+ },
+ {
+  "unit": 30,
+  "text": "We have bread.",
+  "pic": "🍞"
+ },
+ {
+  "unit": 30,
+  "text": "The giraffe is at school.",
+  "pic": "🦒"
+ },
+ {
+  "unit": 31,
+  "text": "Phil has a phone.",
+  "pic": "📱"
+ },
+ {
+  "unit": 31,
+  "text": "The witch is on the bridge.",
+  "pic": "🧙"
+ },
+ {
+  "unit": 31,
+  "text": "I can climb and write.",
+  "pic": "🧗"
  }
 ]

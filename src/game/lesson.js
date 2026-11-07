@@ -8,6 +8,7 @@ import { planLesson, stepQuestions, practiceSpec } from '../learn/lessonplan.js'
 import * as M from '../learn/mastery.js';
 import * as Q from '../learn/questions.js';
 import { tokenize } from '../learn/curriculum.js';
+const gLabel = g => (g.id === 'sz' ? 's/z' : g.type === 'split' ? g.g + '_e' : g.g);
 
 const COLS = ['#ff8a5c', '#4aa3e8', '#58c46a', '#a478e8', '#f2b63c'];
 
@@ -109,12 +110,12 @@ export class LessonScene {
       customDraw: (c, u) => {
         rr(c, 0, 6, u.w, u.h, 26); c.fillStyle = 'rgba(30,50,70,.3)'; c.fill(); rr(c, 0, 0, u.w, u.h, 26); c.fillStyle = '#fff'; c.fill();
         picText(c, b[1], u.w / 2, 90, 100);
-        drawSegments(c, segmentWord(b[0], g.g, pos), u.w / 2, 190, 52, '#ff5a3c', '#23394b', u.w - 24);
+        drawSegments(c, segmentWord(b[0], gLabel(g), pos), u.w / 2, 190, 52, '#ff5a3c', '#23394b', u.w - 24);
       }, onTap: () => this.speak('b:' + b[0]) }));
     const big = new Btn({ x: 520, y: 80, w: 330, h: 230, color: '#fff', shadow: false,
       customDraw: (c, u) => {
         rr(c, 0, 8, u.w, u.h, 40); c.fillStyle = 'rgba(30,50,70,.3)'; c.fill(); rr(c, 0, 0, u.w, u.h, 40); c.fillStyle = '#fff4c2'; c.fill(); c.lineWidth = 6; c.strokeStyle = '#ffd23f'; c.stroke();
-        text(c, g.g, u.w / 2, u.h / 2 + 8, { size: g.g.length > 1 ? 150 : 190, color: '#ff5a3c' });
+        text(c, gLabel(g), u.w / 2, u.h / 2 + 8, { size: gLabel(g).length > 1 ? 150 : 190, color: '#ff5a3c' });
       }, onTap: () => { heard = true; return this.speak('gpc:' + g.id); } });
     const spk = new Btn({ x: 880, y: 140, w: 110, h: 110, shadow: false, customDraw: (c, u) => speaker(c, 55, 55, 52, this.speaking), onTap: () => { heard = true; this.speak('gpc:' + g.id); } });
     const next = new Btn({ x: 1180, y: 480, w: 160, h: 90, icon: '▶', size: 54, color: '#58c46a', onTap: () => { if (heard) done = true; } });

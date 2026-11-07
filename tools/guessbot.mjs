@@ -53,7 +53,7 @@ function simulate(label, answer, { maxLessons, gapDays = 1, seed = 1 } = {}) {
     for (const it of Object.values(state.items)) if (it.kind === 'gpc') peak[it.id] = Math.max(peak[it.id] || 0, it.rung);
     clock.now += gapDays * DAY;
   }
-  const rungs = C.gpcList.filter(g => g.type !== 'suffix').map(g => [g.id, state.items[M.keys.gpc(g.id)]?.rung ?? 0]);
+  const rungs = C.gpcList.filter(g => !['suffix', 'silent'].includes(g.type)).map(g => [g.id, state.items[M.keys.gpc(g.id)]?.rung ?? 0]);
   const unitsPassed = C.units.filter(u => M.isUnitPassed(state, u.id)).map(u => u.id);
   return { label, state, lessons, qs, rungs, peak, unitsPassed, perUnit, finished: !M.nextLesson(C, state) };
 }
@@ -80,7 +80,7 @@ for (const [name, mk] of Object.entries(strategies)) {
 
 // ---- 2. perfect learner: can finish Units 0-7
 const perfect = rng => ({ q: q => ({ ok: true, lat: 1200 }), storyAccuracy: () => 1, storyQ: () => true });
-const p = simulate('perfect', perfect, { maxLessons: 200, gapDays: 1 });
+const p = simulate('perfect', perfect, { maxLessons: 450, gapDays: 1 });
 check(p.finished, `perfect learner completes every unit (lessons: ${p.lessons}, questions: ${p.qs}, units passed: [${p.unitsPassed}])`);
 console.log('      lessons per unit:', JSON.stringify(p.perUnit));
 check(p.rungs.every(([, r]) => r >= M.K.mastered), `perfect learner masters every GPC (min rung ${Math.min(...p.rungs.map(x => x[1]))})`);
@@ -89,7 +89,7 @@ check(p.rungs.every(([, r]) => r >= M.K.mastered), `perfect learner masters ever
 const real = rng => ({ q: q => { const ok = rng.chance(0.85); const res = { ok, lat: 1500 + rng.int(1500) };
   if (!ok && q.type === 'choice') { const w = q.options.map((_, i) => i).filter(i => i !== q.answer); res.lure = q.options[rng.pick(w)].gpc; } return res; },
   storyAccuracy: () => 0.92, storyQ: () => rng.chance(0.85) });
-const rl = simulate('85%-learner', real, { maxLessons: 300, gapDays: 1, seed: 7 });
+const rl = simulate('85%-learner', real, { maxLessons: 650, gapDays: 1, seed: 7 });
 check(rl.finished, `85%-accurate learner completes every unit (lessons: ${rl.lessons}, units passed: [${rl.unitsPassed}])`);
 console.log('      lessons per unit:', JSON.stringify(rl.perUnit));
 

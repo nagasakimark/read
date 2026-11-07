@@ -21,7 +21,9 @@ const SYLL_WORDS = [ // [word, emoji, syllables] -- Stage 0 syllable awareness (
 export const SYLL_BANK = SYLL_WORDS;
 
 const dedupe = (arr, f = x => x) => { const s = new Set(); return arr.filter(x => { const k = f(x); if (s.has(k)) return false; s.add(k); return true; }); };
-const credits = (ids, kind = 'gpc') => dedupe(ids).map(id => ({ id: kind === 'gpc' ? keys.gpc(id) : id, kind }));
+const SILENT_IDS = new Set(['e_s']);   // the silent e of a split digraph earns no evidence of its own
+const lab = g => (g.type === 'split' ? g.g + '_e' : g.g);   // how a GPC is shown on a card
+const credits = (ids, kind = 'gpc') => dedupe(ids).filter(id => !SILENT_IDS.has(id)).map(id => ({ id: kind === 'gpc' ? keys.gpc(id) : id, kind }));
 const wcredits = w => [...credits(w.g), ...(w.pat || []).map(p => ({ id: 'pat:' + p, kind: 'pat' }))];
 const place = (rng, correct, others) => { const opts = rng.shuffle([{ ...correct, _ok: true }, ...others]); return { options: opts, answer: opts.findIndex(o => o._ok) }; };
 
@@ -42,7 +44,7 @@ export function gpcLureIds(C, id, unit, rng, n, force = null) {
 
 export function listenPick(C, id, unit, rng, n = 3, force = null) {
   const lures = gpcLureIds(C, id, unit, rng, n - 1, force);
-  const { options, answer } = place(rng, { label: C.gpcs[id].g, gpc: id }, lures.map(l => ({ label: C.gpcs[l].g, gpc: l })));
+  const { options, answer } = place(rng, { label: lab(C.gpcs[id]), gpc: id }, lures.map(l => ({ label: lab(C.gpcs[l]), gpc: l })));
   return { type: 'choice', act: 'listen-pick', ev: 'recog', skill: 'gpc', item: keys.gpc(id), gpc: id,
     prompt: { audio: ['gpc:' + id], replay: true }, options, answer, opts: options.length, credits: credits([id]) };
 }
@@ -69,7 +71,7 @@ export function recallFlash(C, id, unit, rng, n = 4) {
   // 's' alone is ambiguous (/s/ or /z/): show it inside a plural word so the child recalls how THIS s sounds
   const ctxWord = id === 'sz' ? rng.pick(C.wordList.filter(w => w.g.at(-1) === 'sz' && w.tier !== 'silly' && w.id !== ans[0]).map(w => w.t)) : null;
   return { type: 'choice', act: 'recall-flash', ev: 'recall', skill: 'gpc', item: keys.gpc(id), gpc: id,
-    prompt: { grapheme: g.g, position: pos, ...(ctxWord ? { context: ctxWord } : {}) }, options, answer, opts: options.length, credits: credits([id]), timed: true };
+    prompt: { grapheme: lab(g), position: pos, ...(ctxWord ? { context: ctxWord } : {}) }, options, answer, opts: options.length, credits: credits([id]), timed: true };
 }
 
 // ------------------------------------------------------------------ minimal pairs (listening; blueprint "essential for Japanese learners")
@@ -130,7 +132,8 @@ export function spellTiles(C, wordId, unit, rng, extra = 2) {
   const tray = w.g.map(g => ({ gpc: g, label: C.gpcs[g].g }));
   const cand = [];
   for (const g of w.g) for (const l of (GPC_LURES[g] || [])) if (C.gpcs[l]?.unit <= unit && !labels.has(C.gpcs[l].g) && !needPh.has(C.gpcs[l].ph.join())) cand.push(l);
-  for (const x of rng.shuffle(C.gpcsUpTo(unit).map(x => x.id))) if (!labels.has(C.gpcs[x].g) && !needPh.has(C.gpcs[x].ph.join())) cand.push(x);
+  for (const x of rng.shuffle(C.gpcsUpTo(unit).filter(x => x.type !== 'split').map(x => x.id))) if (!labels.has(C.gpcs[x].g) && !needPh.has(C.gpcs[x].ph.join())) cand.push(x);
+  extra = Math.min(extra, Math.max(0, 7 - tray.length));   // one tray row holds 7 tiles at 1366px
   const used = new Set(); let added = 0;
   for (const l of cand) { if (added >= extra) break; if (used.has(C.gpcs[l].g)) continue; used.add(C.gpcs[l].g); tray.push({ gpc: l, label: C.gpcs[l].g }); added++; }
   return { type: 'build', act: 'spell-tiles', ev: 'apply', skill: 'encode', item: 'word:' + wordId, word: wordId,
@@ -183,7 +186,7 @@ export function chainStep(C, s, unit, rng) {
   const from = C.words[s.from], to = C.words[s.to];
   const newG = C.gpcs[to.g[s.pos]];
   const lures = gpcLureIds(C, to.g[s.pos], unit, rng, 2).filter(l => C.gpcs[l].g !== C.gpcs[from.g[s.pos]].g);
-  const { options, answer } = place(rng, { label: newG.g, gpc: newG.id }, lures.slice(0, 2).map(l => ({ label: C.gpcs[l].g, gpc: l })));
+  const { options, answer } = place(rng, { label: lab(newG), gpc: newG.id }, lures.slice(0, 2).map(l => ({ label: lab(C.gpcs[l]), gpc: l })));
   return { type: 'chain', act: 'word-chain', ev: 'apply', skill: 'encode', item: 'word:' + s.to, from: s.from, to: s.to, pos: s.pos,
     start: from.g.map(g => C.gpcs[g].g), prompt: { audio: ['w:' + s.to], pic: to.pic, replay: true }, options, answer, opts: options.length,
     sim: { steps: [from.g.length, options.length] }, credits: credits([from.g[s.pos], to.g[s.pos]]) };
@@ -239,7 +242,7 @@ export function applyResult(state, C, q, res, now, record) {
     q.tokens.forEach((k, i) => {
       const ok = res.tokOk ? !!res.tokOk[i] : !!res.ok;
       const c = C.classify(k, 99);
-      if (c.kind === 'word') { for (const g of dedupe(c.word.g)) record(state, keys.gpc(g), 'gpc', { ...base, ok }); for (const pt of c.word.pat || []) record(state, 'pat:' + pt, 'pat', { ...base, ok }); }
+      if (c.kind === 'word') { for (const g of dedupe(c.word.g)) if (!SILENT_IDS.has(g)) record(state, keys.gpc(g), 'gpc', { ...base, ok }); for (const pt of c.word.pat || []) record(state, 'pat:' + pt, 'pat', { ...base, ok }); }
       else if (c.kind === 'tricky') record(state, keys.tricky(c.tricky.id), 'tricky', { ...base, ok });
     });
     return;

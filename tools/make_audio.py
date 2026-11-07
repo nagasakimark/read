@@ -31,6 +31,7 @@ def add(key, text, rate=130, pitch=65, cont=None, file=None):
     manifest[key] = f
 
 for g in gpcs:
+    if not g['ph']: continue   # silent e: no sound
     ph = phon[g['ph'][0]]
     # digraph/double letters carry one phoneme; 'qu' = k+w
     mn = ''.join(phon[x]['esp'] for x in g['ph'])

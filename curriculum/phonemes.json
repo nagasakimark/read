@@ -285,5 +285,12 @@
   "esp": "i@",
   "mouth": "smile",
   "cont": true
+ },
+ {
+  "id": "aw",
+  "ipa": "ɔ",
+  "esp": "O:",
+  "mouth": "round",
+  "cont": true
  }
 ]

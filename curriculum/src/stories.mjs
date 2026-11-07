@@ -198,6 +198,89 @@ export const STORIES = [
   { id:'s7c', unit:7, title:'Jam', topic:'food', focus:[], pages:[
       { text:'Tim said, "Do you like jam?"', pic:'🧒🍓' }, { text:'Pam said, "Yes, I do!"', pic:'👩✅' }, { text:'Pam has jam.', pic:'👩🍓' }, { text:'Tim hugs Pam.', pic:'🧒🤗👩' } ],
     questions:[ Q('What does Pam like?', ['🍓','jam'], ['🥜','nut'], ['🥤','cup']) ] },
+
+  // ---------------- Stage 5
+  { id:'s23a', unit:23, title:'The Cake', topic:'food', focus:['a_e'], pages:[
+      { text:'Sam can bake a cake.', pic:'👦🍰' }, { text:'The cake is on a plate.', pic:'🍰🍽️' }, { text:'Meg and Sam like the cake.', pic:'👧👦🍰' }, { text:'It is a big cake.', pic:'🍰' } ],
+    questions:[ Q('What can Sam bake?', ['🍰','cake'], ['🧢','cap'], ['🥤','cup']) ] },
+  { id:'s23b', unit:23, title:'The Snake at the Lake', topic:'animals', focus:['a_e'], pages:[
+      { text:'A snake is at the lake.', pic:'🐍🏞️' }, { text:'The snake sat in the shade.', pic:'🐍🌳' }, { text:'Tom ran to the gate.', pic:'🧒🚪' }, { text:'The snake is fine.', pic:'🐍😊' } ],
+    questions:[ Q('Where is the snake?', ['🏞️','lake'], ['🏖️','sand'], ['🛏️','cot']) ] },
+  { id:'s23c', unit:23, title:'Five Bikes', topic:'toys', focus:['i_e'], pages:[
+      { text:'Dan has a bike.', pic:'🧒🚲' }, { text:'Meg has a bike too.', pic:'👧🚲' }, { text:'It is time to ride.', pic:'⏰🚲' }, { text:'Dan can ride a bike to the lake.', pic:'🚲🏞️' }, { text:'Five kids like to ride.', pic:'5️⃣🧒' } ],
+    questions:[ Q('What can Dan ride?', ['🚲','bike'], ['🚌','bus'], ['🛏️','cot']) ] },
+  { id:'s24a', unit:24, title:'A Home for Pete', topic:'home', focus:['o_e','e_e'], pages:[
+      { text:'Pete has a home.', pic:'👦🏠' }, { text:'The home has a rope and a stone.', pic:'🏠🪢🪨' }, { text:'Pete woke up and hid a note.', pic:'👦📝' }, { text:'The note is in a cone.', pic:'📝🍦' } ],
+    questions:[ Q('What did Pete hide?', ['📝','note'], ['🧢','cap'], ['🥤','cup']) ] },
+  { id:'s24b', unit:24, title:'The Cute Mule', topic:'animals', focus:['u_e','u_e_oo'], pages:[
+      { text:'The mule is cute.', pic:'🫏🥰' }, { text:'The mule has a tube.', pic:'🫏🧪' }, { text:'It can hum a tune.', pic:'🎵' }, { text:'The mule ran in the sun.', pic:'🫏☀️' } ],
+    questions:[ Q('Who is cute?', ['🫏','mule'], ['🐷','pig'], ['🐔','hen']) ] },
+  { id:'s24c', unit:24, title:'Joke Time', topic:'fun', focus:['o_e'], pages:[
+      { text:'Tom can poke a hole in the cone.', pic:'🧒🍦' }, { text:'Meg got a joke.', pic:'👧😄' }, { text:'Those kids vote and like the joke.', pic:'🧒🧒🙋' }, { text:'These kids like the joke.', pic:'😄' } ],
+    questions:[ Q('Who got a joke?', ['👧','Meg'], ['🧒','Tom'], ['🐶','dog']) ] },
+  { id:'s25a', unit:25, title:'A Day to Play', topic:'fun', focus:['ay'], pages:[
+      { text:'It is a good day.', pic:'☀️' }, { text:'Meg can play in the sun.', pic:'👧☀️' }, { text:'Dan can play too.', pic:'🧒⚽' }, { text:'The kids stay and play.', pic:'🧒🧒🎮' } ],
+    questions:[ Q('What can Meg do?', ['🎮','play'], ['😴','nap'], ['🍽️','eat']) ] },
+  { id:'s25b', unit:25, title:'Gray Clay', topic:'art', focus:['ay'], pages:[
+      { text:'The clay is gray.', pic:'🏺🩶' }, { text:'Sam can make a tray.', pic:'👦🍽️' }, { text:'A ray of sun is on the tray.', pic:'☀️🍽️' }, { text:'It is a day to play.', pic:'🎮' } ],
+    questions:[ Q('What is gray?', ['🏺','clay'], ['🍰','cake'], ['🐷','pig']) ] },
+  { id:'s25c', unit:25, title:'Hay Day', topic:'farm', focus:['ay'], pages:[
+      { text:'The hay is on the way.', pic:'🌾🚜' }, { text:'The pig can stay in the hay.', pic:'🐷🌾' }, { text:'The hen can play in the hay.', pic:'🐔🌾' }, { text:'We can stay and play.', pic:'👋🐷' } ],
+    questions:[ Q('Who can stay in the hay?', ['🐷','pig'], ['🐶','dog'], ['🐱','cat']) ] },
+  { id:'s26a', unit:26, title:'Eat a Peach', topic:'food', focus:['ea_i','e_open'], pages:[
+      { text:'We eat a peach at the beach.', pic:'🍑🏖️' }, { text:'He can eat a bean.', pic:'👦🫘' }, { text:'She can eat meat.', pic:'👧🥩' }, { text:'We like to eat and sit.', pic:'🍽️' } ],
+    questions:[ Q('What do we eat?', ['🍑','peach'], ['🧢','cap'], ['🥤','cup']) ] },
+  { id:'s26b', unit:26, title:'The Sea', topic:'nature', focus:['ea_i'], pages:[
+      { text:'I see the sea.', pic:'👀🌊' }, { text:'The seal can swim in the sea.', pic:'🦭🌊' }, { text:'The team can read by the sea.', pic:'📖🌊' }, { text:'It is a dream.', pic:'💭' } ],
+    questions:[ Q('What can swim in the sea?', ['🦭','seal'], ['🐷','pig'], ['🐱','cat']) ] },
+  { id:'s26c', unit:26, title:'The Key', topic:'home', focus:['ey','e_open'], pages:[
+      { text:'Meg has a key.', pic:'👧🔑' }, { text:'The key can fit the gate.', pic:'🔑🚪' }, { text:'A donkey is in the valley.', pic:'🫏🏞️' }, { text:'The donkey can see the key.', pic:'🫏🔑' } ],
+    questions:[ Q('What does Meg have?', ['🔑','key'], ['🧢','cap'], ['🥤','cup']) ] },
+  { id:'s27a', unit:27, title:'Snow Day', topic:'weather', focus:['ow_ou','o_open'], pages:[
+      { text:'The snow is cold.', pic:'⛄🥶' }, { text:'Meg can go out in the snow.', pic:'👧⛄' }, { text:'Tom can throw the snow.', pic:'🧒❄️' }, { text:'No, I can not go in the snow.', pic:'🚫' } ],
+    questions:[ Q('What is cold?', ['⛄','snow'], ['☀️','sun'], ['🍰','cake']) ] },
+  { id:'s27b', unit:27, title:'The Rainbow', topic:'weather', focus:['ow_ou','ie','i_open'], pages:[
+      { text:'A rainbow is in the sky.', pic:'🌈' }, { text:'It is yellow and red.', pic:'💛❤️' }, { text:'The child can find a rainbow.', pic:'🧒🌈' }, { text:'The kind child said hi.', pic:'👋' } ],
+    questions:[ Q('What is in the sky?', ['🌈','rainbow'], ['🐷','pig'], ['🐱','cat']) ] },
+  { id:'s27c', unit:27, title:'A Pie for Joe', topic:'food', focus:['ie','oe'], pages:[
+      { text:'Joe has a pie.', pic:'👦🥧' }, { text:'The pie is hot.', pic:'🥧🔥' }, { text:'Joe tried to eat the pie.', pic:'👦🥧' }, { text:'Joe cried. It is hot!', pic:'😢' } ],
+    questions:[ Q('What did Joe have?', ['🥧','pie'], ['🍰','cake'], ['🥤','cup']) ] },
+  { id:'s28a', unit:28, title:'The Blue Bird', topic:'animals', focus:['ue','ir'], pages:[
+      { text:'A bird sat in a tree.', pic:'🐦🌳' }, { text:'The bird is blue.', pic:'🐦🟦' }, { text:'The girl can see the bird.', pic:'👧👀' }, { text:'The blue bird can fly.', pic:'🐦' } ],
+    questions:[ Q('What is blue?', ['🐦','bird'], ['🐷','pig'], ['🐱','cat']) ] },
+  { id:'s28b', unit:28, title:'New Shirt', topic:'clothes', focus:['ew','ir'], pages:[
+      { text:'Dan has a new shirt.', pic:'🧒👕' }, { text:'It is blue.', pic:'🟦' }, { text:'Meg has a new skirt.', pic:'👧👗' }, { text:'We like the new shirt and skirt.', pic:'👕👗' } ],
+    questions:[ Q('What is new?', ['👕','shirt'], ['🧢','cap'], ['🥤','cup']) ] },
+  { id:'s28c', unit:28, title:'Word Work', topic:'school', focus:['wor','ew'], pages:[
+      { text:'We work in the world.', pic:'🌍' }, { text:'A worm can work in the dirt.', pic:'🪱' }, { text:'The first word is new.', pic:'📝' }, { text:'The girl can read a word.', pic:'👧📖' } ],
+    questions:[ Q('What can work in the dirt?', ['🪱','worm'], ['🐷','pig'], ['🐱','cat']) ] },
+  { id:'s29a', unit:29, title:'The Mouse in the House', topic:'animals', focus:['ou'], pages:[
+      { text:'A mouse is in the house.', pic:'🐭🏠' }, { text:'The mouse is loud.', pic:'🐭🔊' }, { text:'It can run out of the house.', pic:'🐭' }, { text:'The mouse sat on the ground.', pic:'🐭' } ],
+    questions:[ Q('Where is the mouse?', ['🏠','house'], ['🏖️','sand'], ['🛏️','cot']) ] },
+  { id:'s29b', unit:29, title:'The Toy Boy', topic:'toys', focus:['oy','aw'], pages:[
+      { text:'The boy has a toy.', pic:'👦🧸' }, { text:'The boy can draw.', pic:'👦✏️' }, { text:'He saw a paw.', pic:'👀🐾' }, { text:'The boy has joy.', pic:'😄' } ],
+    questions:[ Q('What does the boy have?', ['🧸','toy'], ['🧢','cap'], ['🥤','cup']) ] },
+  { id:'s29c', unit:29, title:'Dawn on the Lawn', topic:'nature', focus:['aw','au'], pages:[
+      { text:'It is dawn on the lawn.', pic:'🌅' }, { text:'A hawk can crawl.', pic:'🦅' }, { text:'Paul saw the hawk.', pic:'🧒🦅' }, { text:'Paul can yawn.', pic:'🥱' } ],
+    questions:[ Q('Who saw the hawk?', ['🧒','Paul'], ['👧','Meg'], ['🐶','dog']) ] },
+  { id:'s30a', unit:30, title:'Bread and Weather', topic:'food', focus:['ea_e'], pages:[
+      { text:'We have bread on the plate.', pic:'🍞' }, { text:'The weather is cold.', pic:'🌦️' }, { text:'Dad is ready.', pic:'👨' }, { text:'The bread is not heavy.', pic:'🍞' } ],
+    questions:[ Q('What is on the plate?', ['🍞','bread'], ['🧢','cap'], ['🥤','cup']) ] },
+  { id:'s30b', unit:30, title:'The City', topic:'places', focus:['c_soft'], pages:[
+      { text:'The city is big.', pic:'🏙️' }, { text:'A circus is in the city.', pic:'🎪' }, { text:'It is nice.', pic:'😊' }, { text:'We can dance at the circus.', pic:'💃🎪' } ],
+    questions:[ Q('What is in the city?', ['🎪','circus'], ['🏖️','sand'], ['🛏️','cot']) ] },
+  { id:'s30c', unit:30, title:'The Gem', topic:'treasure', focus:['g_soft','ch_k'], pages:[
+      { text:'A gem is in the cage.', pic:'💎' }, { text:'The huge giraffe is at school.', pic:'🦒🏫' }, { text:'Chris can see the gem.', pic:'🧒💎' }, { text:'The chorus can sing at school.', pic:'🎶' } ],
+    questions:[ Q('What is in the cage?', ['💎','gem'], ['🧢','cap'], ['🥤','cup']) ] },
+  { id:'s31a', unit:31, title:'The Phone', topic:'tech', focus:['ph','wh'], pages:[
+      { text:'Phil has a phone.', pic:'🧒📱' }, { text:'He can take a photo.', pic:'📷' }, { text:'When it is white, it is a whale.', pic:'🐋' }, { text:'The photo is fun.', pic:'📷' } ],
+    questions:[ Q('What does Phil have?', ['📱','phone'], ['🧢','cap'], ['🥤','cup']) ] },
+  { id:'s31b', unit:31, title:'Catch the Witch', topic:'fun', focus:['tch','dge'], pages:[
+      { text:'A witch is on the bridge.', pic:'🧙🌉' }, { text:'We can catch the witch.', pic:'🥎' }, { text:'The judge has a badge.', pic:'👩‍⚖️🏅' }, { text:'The witch can not catch us.', pic:'🧙' } ],
+    questions:[ Q('Where is the witch?', ['🌉','bridge'], ['🏖️','sand'], ['🛏️','cot']) ] },
+  { id:'s31c', unit:31, title:'Write and Climb', topic:'school', focus:['kn','wr','mb'], pages:[
+      { text:'I can write with my thumb.', pic:'✍️👍' }, { text:'The lamb has a hurt knee.', pic:'🐑🦵' }, { text:'We climb and we knock.', pic:'🧗🚪' }, { text:'I can give a wrap.', pic:'🎁' } ],
+    questions:[ Q('What has a sore knee?', ['🐑','lamb'], ['🐷','pig'], ['🐱','cat']) ] },
 ];
 
 // Short decodable sentences used for dictation (word-bank tiles). Same validator rules as stories.
@@ -224,4 +307,14 @@ export const SENTENCES = [
   { unit:20, text:'Look at the star.', pic:'⭐' }, { unit:20, text:'Sam took a good book.', pic:'📖' }, { unit:20, text:'The shark is in the dark.', pic:'🦈' },
   { unit:21, text:'Her sister is under the chair.', pic:'🪑' }, { unit:21, text:'Dan has a letter.', pic:'✉️' }, { unit:21, text:'The dinner is hot.', pic:'🍽️' },
   { unit:22, text:'The puppy is happy.', pic:'🐶' }, { unit:22, text:'My sister is shy.', pic:'👧' }, { unit:22, text:'The sky is not dry.', pic:'🌌' },
+
+  { unit:23, text:'Sam can bake a cake.', pic:'🍰' }, { unit:23, text:'Dan can ride a bike.', pic:'🚲' }, { unit:23, text:'The snake is at the lake.', pic:'🐍' },
+  { unit:24, text:'Pete has a rope.', pic:'🪢' }, { unit:24, text:'The mule is cute.', pic:'🫏' }, { unit:24, text:'I can hum a tune.', pic:'🎵' },
+  { unit:25, text:'We can play all day.', pic:'🎮' }, { unit:25, text:'The clay is gray.', pic:'🏺' }, { unit:25, text:'The pig can stay.', pic:'🐷' },
+  { unit:26, text:'We eat a peach.', pic:'🍑' }, { unit:26, text:'I see the sea.', pic:'🌊' }, { unit:26, text:'She has a key.', pic:'🔑' },
+  { unit:27, text:'The snow is cold.', pic:'⛄' }, { unit:27, text:'Joe has a pie.', pic:'🥧' }, { unit:27, text:'The child is kind.', pic:'🧒' },
+  { unit:28, text:'The bird is blue.', pic:'🐦' }, { unit:28, text:'Dan has a new shirt.', pic:'👕' }, { unit:28, text:'The worm is in the dirt.', pic:'🪱' },
+  { unit:29, text:'The mouse is in the house.', pic:'🐭' }, { unit:29, text:'The boy has a toy.', pic:'🧸' }, { unit:29, text:'Paul saw a hawk.', pic:'🦅' },
+  { unit:30, text:'The city is nice.', pic:'🏙️' }, { unit:30, text:'We have bread.', pic:'🍞' }, { unit:30, text:'The giraffe is at school.', pic:'🦒' },
+  { unit:31, text:'Phil has a phone.', pic:'📱' }, { unit:31, text:'The witch is on the bridge.', pic:'🧙' }, { unit:31, text:'I can climb and write.', pic:'🧗' },
 ];

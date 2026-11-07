@@ -6,7 +6,7 @@ import { LessonScene } from './lesson.js';
 import * as M from '../learn/mastery.js';
 import { practiceSpec } from '../learn/lessonplan.js';
 
-export const gLabel = g => (g.id === 'sz' ? 's/z' : g.g);
+export const gLabel = g => (g.id === 'sz' ? 's/z' : g.type === 'split' ? g.g + '_e' : g.g);
 const passedCount = st => Object.values(st.units).filter(u => u.passed && !u.skipped).length;
 
 // ------------------------------------------------------------------ tap to start (also unlocks audio)
@@ -132,7 +132,7 @@ export class MasteryScene {
     const { app } = this, C = app.C, st = app.state;
     const back = new Btn({ x: 12, y: 10, w: 76, h: 56, icon: '🏠', size: 30, color: '#e8a23a', onTap: () => app.goHome() });
     this.ui = [back];
-    const gl = C.gpcList.filter(g => g.type !== 'suffix');
+    const gl = C.gpcList.filter(g => !['suffix', 'silent'].includes(g.type));
     gl.forEach((g, i) => {
       const col = i % 12, row = Math.floor(i / 12), x = 30 + col * 110, y = 76 + row * 80;
       this.ui.push(new Btn({ x, y, w: 102, h: 72, shadow: false, customDraw: (c, u) => {
@@ -183,7 +183,7 @@ export class TeacherScene {
     text(c, next ? `Now: Unit ${next.unit}, lesson ${next.lessonId}` : 'All units complete 🎉', 40, 86, { size: 22, color: '#23394b', align: 'left' });
     if (gate && !gate.open) { text(c, 'To pass: ' + gate.reasons.slice(0, 3).join(' · '), 40, 114, { size: 17, color: '#7d4a00', align: 'left', weight: 'normal' }); }
     // GPC rung table
-    C.gpcList.filter(g => g.type !== 'suffix').forEach((g, i) => {
+    C.gpcList.filter(g => !['suffix', 'silent'].includes(g.type)).forEach((g, i) => {
       const col = i % 6, row = Math.floor(i / 6), x = 40 + col * 218, y = 140 + row * 50;
       const it = st.items['gpc:' + g.id], r = it?.rung || 0;
       rr(c, x, y, 208, 44, 10); c.fillStyle = r >= M.K.mastered ? '#d8f5e3' : it ? '#fff' : '#e8eef2'; c.fill(); c.lineWidth = 2; c.strokeStyle = '#cfdbe4'; c.stroke();
@@ -226,9 +226,9 @@ export class ClassScene {
   }
   async say() {
     const { app } = this, it = this.items()[this.i]; if (!it) return; const C = app.C;
-    if (it.id) { this.mouth = C.phonemes[C.gpcs[it.id].ph[0]].mouth; await app.audio.play(['gpc:' + it.id]); this.mouth = null; return; }
+    if (it.id) { this.mouth = C.phonemes[C.gpcs[it.id].ph[0]]?.mouth || null; await app.audio.play(['gpc:' + it.id]); this.mouth = null; return; }
     const my = this.run = (this.run || 0) + 1;
-    for (let k = 0; k < it.w.g.length; k++) { if (this.run !== my) return; this.hl = k; this.mouth = C.phonemes[C.gpcs[it.w.g[k]].ph[0]].mouth; await app.audio.play(['gpc:' + it.w.g[k]], { gap: 0.1 }); }
+    for (let k = 0; k < it.w.g.length; k++) { if (this.run !== my) return; this.hl = k; this.mouth = C.phonemes[C.gpcs[it.w.g[k]].ph[0]]?.mouth || null; await app.audio.play(['gpc:' + it.w.g[k]], { gap: 0.1 }); }
     this.hl = -1; this.mouth = null; await app.audio.play(['w:' + it.w.id]);
   }
   update(dt) { this.t += dt; }

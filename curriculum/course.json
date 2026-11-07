@@ -1419,6 +1419,12 @@
      "i_e",
      "aɪ",
      "five"
+    ],
+    [
+     "e_s",
+     "e",
+     "∅",
+     "cake"
     ]
    ],
    "concepts": [
@@ -1439,7 +1445,7 @@
     22
    ],
    "activities": [],
-   "status": "planned"
+   "status": "authored"
   },
   {
    "id": 24,
@@ -1457,8 +1463,14 @@
     [
      "u_e",
      "u_e",
-     "uː",
+     "ju:",
      "cute"
+    ],
+    [
+     "u_e_oo",
+     "u_e",
+     "uː",
+     "rule"
     ],
     [
      "e_e",
@@ -1481,7 +1493,7 @@
     23
    ],
    "activities": [],
-   "status": "planned"
+   "status": "authored"
   },
   {
    "id": 25,
@@ -1512,7 +1524,7 @@
     24
    ],
    "activities": [],
-   "status": "planned"
+   "status": "authored"
   },
   {
    "id": 26,
@@ -1559,7 +1571,7 @@
     25
    ],
    "activities": [],
-   "status": "planned"
+   "status": "authored"
   },
   {
    "id": 27,
@@ -1618,7 +1630,7 @@
     26
    ],
    "activities": [],
-   "status": "planned"
+   "status": "authored"
   },
   {
    "id": 28,
@@ -1668,7 +1680,7 @@
     27
    ],
    "activities": [],
-   "status": "planned"
+   "status": "authored"
   },
   {
    "id": 29,
@@ -1720,7 +1732,7 @@
     28
    ],
    "activities": [],
-   "status": "planned"
+   "status": "authored"
   },
   {
    "id": 30,
@@ -1778,7 +1790,7 @@
     29
    ],
    "activities": [],
-   "status": "planned"
+   "status": "authored"
   },
   {
    "id": 31,
@@ -1856,7 +1868,7 @@
     30
    ],
    "activities": [],
-   "status": "planned"
+   "status": "authored"
   },
   {
    "id": 32,

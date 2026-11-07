@@ -43,7 +43,7 @@ export function planLesson(C, state, lessonSpec, rng, now = Date.now()) {
     if (seenAny) retr(6);
     const pack = packs.length ? packs.filter(p => p.unit === unit)[0] || rng.pick(packs) : null;
     if (pack) steps.push({ type: 'minpair', pack: pack.id, n: 5 });
-    const reteach = state.reteach.filter(id => id.startsWith('gpc:')).map(id => id.slice(4)).filter(g => !lessonSpec.newGpcs.includes(g) && C.gpcs[g] && C.gpcs[g].type !== 'suffix').slice(0, 1);
+    const reteach = state.reteach.filter(id => id.startsWith('gpc:')).map(id => id.slice(4)).filter(g => !lessonSpec.newGpcs.includes(g) && C.gpcs[g] && !['suffix', 'silent'].includes(C.gpcs[g].type)).slice(0, 1);
     for (const g of lessonSpec.newGpcs.slice(0, MAX_NEW + 2)) steps.push({ type: 'meet', gpc: g });
     for (const g of reteach) steps.push({ type: 'meet', gpc: g, reteach: true });
     steps.push({ type: 'blend', n: 4, focus: lessonSpec.newGpcs });
@@ -150,7 +150,7 @@ export function stepQuestions(C, state, step, rng, ctx) {
   switch (step.type) {
     case 'retrieval': {
       // Priority: reteach -> GPCs still climbing the ladder (lowest rung first) -> due for review -> everything else seen.
-      const seen = Object.values(state.items).filter(i => (i.kind === 'gpc' || i.kind === 'tricky') && i.a.length && C.gpcs[i.id.slice(4)]?.type !== 'suffix'
+      const seen = Object.values(state.items).filter(i => (i.kind === 'gpc' || i.kind === 'tricky') && i.a.length && !['suffix', 'silent'].includes(C.gpcs[i.id.slice(4)]?.type)
         && (i.kind === 'tricky' ? (C.tricky[i.id.slice(3)]?.release ?? 99) : (C.gpcs[i.id.slice(4)]?.unit ?? 99)) <= unit);
       const rank = i => (state.reteach.includes(i.id) ? -2 : i.kind === 'gpc' && i.rung < M.K.mastered ? -1 : 0);
       const sorted = seen.map(i => ({ i, k: rank(i), p: M.recallProb(i, ctx.now), r: i.rung }))

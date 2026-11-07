@@ -87,3 +87,14 @@ Headless playthrough: `node tools/play.mjs <lessons> <accuracy> <skipToUnit>` (n
 - Totals: 41 phonemes, 57 GPCs, 983 words, 34 tricky, 60 stories, 23 units. Audio regenerated.
 - Verification: validate 0 errors; all guess-bot checks pass (perfect learner 157 lessons through Unit 22; 85% learner 215; 60% held back); headless play clean for Unit 17.
 - Next: Stage 5 (split digraphs a_e i_e o_e u_e, ay, ea, alternative sounds...) needs a new split-tiles activity.
+
+## Stage 5: split digraphs, alternative spellings and pronunciations (this session)
+
+- **Units 23-31** authored: a_e i_e; o_e u_e e_e; ay; ea e ey; ow o oe ie i; ew ue ir wor; ou oy aw au; "try the other sound" (ea /ɛ/, ie /iː/, soft c, soft g, ch /k/); ph wh tch dge kn wr mb ve. 37 new GPCs, 1,591 words (+608), 27 stories, 27 sentences, audio 3,907 keys.
+- **Split digraphs:** a word is spelled with the vowel tile, the consonant, then a separate silent `e_s` tile (cake = c a_e k e_s). `a_e` is type `split` (shown "a_e"); `e_s` is type `silent` (no phoneme, no audio, never credited, never a lure, never a "meet" card - recorded as the unit's `suffixGpcs`). Mutation lures in a split word only swap split vowels and consonants; `segmentWord` highlights the vowel and the final e but not the consonant between.
+- New GPC types: `initial` (ph wh kn wr c_soft g_soft ch_k: word-start lures only), reuse of `vowel-open` for alternative spellings. Alternative spellings of an already-taught sound share its phoneme, so they are never offered as lures against each other.
+- Tricky words that become decodable (like, he, we, me, be, she, go, no, out, when, have) are now in the word list from their unit; `classify` still treats them as tricky before that.
+- Spell-tiles trays are capped at 7 tiles (one row at 1366 px); long words get fewer lures.
+- `tools/author_s5.py` is the authoring aid (plain spellings → GPC rows, with a_e / open / explicit token syntax).
+- Verification: validate 0 errors; all guess-bot checks pass; perfect learner finishes Units 0-31 in 215 lessons, 85% learner in 309, 60% learner held back. Caps in guessbot raised to 450 / 650 lessons.
+- Next: Stage 6 (syllables, -le/schwa, suffixes, prefixes, spelling-change, -tion/-sion/-ture) and Stage 7 fluency bridge. Needs syllable-chop / word-sum / affix activities.

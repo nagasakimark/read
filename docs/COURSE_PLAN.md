@@ -3,7 +3,7 @@
 > GENERATED from `curriculum/src/course.mjs` by `tools/build_course_doc.mjs`. Edit the data, not this file.
 > Teaching order and pedagogy follow `docs/BLUEPRINT.md`. Every threshold marked **DR** is a design recommendation to validate with real children.
 
-Status: **23 of 39 units authored** (Units 0-22); the other 16 are specified here and unlock as they are written. Audio and pictures are placeholders (eSpeak voice, emoji) until recordings and artwork replace them; practice games are planned (section 9).
+Status: **32 of 39 units authored** (Units 0-31); the other 7 are specified here and unlock as they are written. Audio and pictures are placeholders (eSpeak voice, emoji) until recordings and artwork replace them; practice games are planned (section 9).
 
 ## 1. Pedagogy: the principles that decide the order
 
@@ -129,15 +129,15 @@ Example words: U17: see, tree, green, sheep, moon, food, spoon | U18: rain, trai
 
 | Unit | Teaches | Kind | New GPCs (IPA) | Concepts | Contrast pack | Tricky words | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 23 | a_e, i_e (a_e i_e) | Split digraph | a_e /eɪ/ cake; i_e /aɪ/ five | split digraph (use this one term only) | One term: split digraph | — | planned |
-| 24 | o_e, u_e, e_e (o_e u_e e_e) | Split digraph | o_e /oʊ/ home; u_e /uː/ cute; e_e /iː/ these | — | /oʊ/, /ju:/ | — | planned |
-| 25 | ay (a long spelling for /eɪ/) (ay) | Alternative spelling of a known sound | ay /eɪ/ day | choosing a spelling: ai / ay / a_e | Choosing a spelling | — | planned |
-| 26 | Spellings of /iː/: ea, e, ey (ea e ey) | Alternative spelling of a known sound | ea /iː/ eat; e /iː/ me; ey /iː/ key | he / we / me / be become decodable | — | — | planned |
-| 27 | Spellings of /oʊ/ and /aɪ/: ow, o, oe; ie, i (ow o oe ie i) | Alternative spelling of a known sound | ow /oʊ/ snow; o /oʊ/ go; oe /oʊ/ toe; ie /aɪ/ pie; i /aɪ/ hi | go / no / so become decodable | — | — | planned |
-| 28 | Spellings of /uː/ and /ɜr/: ew, ue; ir, wor (ew ue ir wor) | Alternative spelling of a known sound | ew /uː/ new; ue /uː/ blue; ir /ɜr/ bird; wor /wɜr/ word | — | — | — | planned |
-| 29 | ou, oy, aw, au (ou oy aw au) | Alternative spelling of a known sound | ou /aʊ/ out; oy /ɔɪ/ toy; aw /ɔ/ saw; au /ɔ/ sauce | aw/au vowel is accent-dependent: check with the recorded voice | — | — | planned |
-| 30 | Alternative pronunciations: "try the other sound" (ちがう よみかた) | Alternative pronunciation of a known spelling | ea /ɛ/ head; ie /iː/ field; c /s/ city; g /dʒ/ giant; ch /k/ school | ea (bread/eat), ow (snow/cow), ie (pie/field), soft c/g before e i y | — | — | planned |
-| 31 | Consonant spellings: ph wh tch dge kn wr mb -ve (ph wh tch dge kn wr mb) | Alternative spelling of a known sound | ph /f/ phone; wh /w/ when; tch /tʃ/ catch; dge /dʒ/ bridge; kn /n/ knee; wr /r/ write; mb /m/ lamb; ve /v/ give | give / have become decodable | — | — | planned |
+| 23 | a_e, i_e (a_e i_e) | Split digraph | a_e /eɪ/ cake; i_e /aɪ/ five; e /∅/ cake | split digraph (use this one term only) | One term: split digraph | — | authored |
+| 24 | o_e, u_e, e_e (o_e u_e e_e) | Split digraph | o_e /oʊ/ home; u_e /ju:/ cute; u_e /uː/ rule; e_e /iː/ these | — | /oʊ/, /ju:/ | — | authored |
+| 25 | ay (a long spelling for /eɪ/) (ay) | Alternative spelling of a known sound | ay /eɪ/ day | choosing a spelling: ai / ay / a_e | Choosing a spelling | — | authored |
+| 26 | Spellings of /iː/: ea, e, ey (ea e ey) | Alternative spelling of a known sound | ea /iː/ eat; e /iː/ me; ey /iː/ key | he / we / me / be become decodable | — | — | authored |
+| 27 | Spellings of /oʊ/ and /aɪ/: ow, o, oe; ie, i (ow o oe ie i) | Alternative spelling of a known sound | ow /oʊ/ snow; o /oʊ/ go; oe /oʊ/ toe; ie /aɪ/ pie; i /aɪ/ hi | go / no / so become decodable | — | — | authored |
+| 28 | Spellings of /uː/ and /ɜr/: ew, ue; ir, wor (ew ue ir wor) | Alternative spelling of a known sound | ew /uː/ new; ue /uː/ blue; ir /ɜr/ bird; wor /wɜr/ word | — | — | — | authored |
+| 29 | ou, oy, aw, au (ou oy aw au) | Alternative spelling of a known sound | ou /aʊ/ out; oy /ɔɪ/ toy; aw /ɔ/ saw; au /ɔ/ sauce | aw/au vowel is accent-dependent: check with the recorded voice | — | — | authored |
+| 30 | Alternative pronunciations: "try the other sound" (ちがう よみかた) | Alternative pronunciation of a known spelling | ea /ɛ/ head; ie /iː/ field; c /s/ city; g /dʒ/ giant; ch /k/ school | ea (bread/eat), ow (snow/cow), ie (pie/field), soft c/g before e i y | — | — | authored |
+| 31 | Consonant spellings: ph wh tch dge kn wr mb -ve (ph wh tch dge kn wr mb) | Alternative spelling of a known sound | ph /f/ phone; wh /w/ when; tch /tʃ/ catch; dge /dʒ/ bridge; kn /n/ knee; wr /r/ write; mb /m/ lamb; ve /v/ give | give / have become decodable | — | — | authored |
 
 Example words: U23: cake, name, game, five, nine, bike, like | U24: home, nose, cute, tube, these | U25: day, play, say, stay | U26: eat, sea, read, he, we, me, be, key | U27: snow, go, no, so, toe, pie, tie, hi | U28: new, blue, clue, bird, girl, word, work | U29: out, house, toy, boy, saw, paw, sauce | U30: bread, head, ice, city, giant, page, school | U31: phone, when, catch, bridge, knee, write, lamb, give, have
 
