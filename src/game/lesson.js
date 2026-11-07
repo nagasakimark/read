@@ -236,7 +236,7 @@ export class LessonScene {
         rr(c, 0, 0, u.w, u.h, 28); c.fillStyle = fill; c.fill(); c.lineWidth = u.glow > 0 ? 8 : 3; c.strokeStyle = u.glow > 0 ? '#ffd23f' : '#9fb4c4'; c.stroke();
         if (o.pic) picText(c, o.pic, u.w / 2, u.h / 2 + 4, 120);
         else if (o.icon === 'same' || o.icon === 'diff') { text(c, o.icon === 'same' ? '＝' : '≠', u.w / 2, u.h / 2, { size: 120, color: '#23394b' }); }
-        else text(c, o.label, u.w / 2, u.h / 2 + 6, { size: o.label.length > 3 ? 78 : o.label.length > 1 ? 100 : 120, color: '#23394b' });
+        else text(c, o.label, u.w / 2, u.h / 2 + 6, { size: Math.min(o.label.length > 3 ? 78 : o.label.length > 1 ? 100 : 120, Math.floor((u.w - 30) / (o.label.length * 0.6))), color: '#23394b' });
         if (u.st === 'wrong') text(c, '✖', u.w - 30, 30, { size: 34, color: '#d8402c' });
       },
       onTap: async u => {
@@ -274,6 +274,17 @@ export class LessonScene {
     let size = sentence ? 44 : 78; const slotH = sentence ? 80 : 120;
     if (sentence) { const mw = sz => Math.max(...q.tray.map(t => tileW(t.label, sz))); while (size > 28 && q.slots.length * mw(size) + (q.slots.length - 1) * 14 > 960) size -= 2; }
     const labels = q.slots;
+    if (!sentence) {
+      // shrink tiles until slots + tray fit the 598px-high screen (whole-word tiles are wide)
+      const fits = sz => {
+        const sl = labels.map(l => ({ w: tileW(l, sz), x: 0, y: 0 })), tr = q.tray.map(t => ({ w: tileW(t.label, sz), x: 0, y: 0 }));
+        const sH = flow(sl, 790, 200, 960, 14, slotH + 14);
+        const tTop = Math.max(380, 245 + sH + 40);
+        const tH = flow(tr, 790, tTop, 960, 16, slotH + 18);
+        return tTop + tH <= 600;
+      };
+      while (size > 40 && !fits(size)) size -= 4;
+    }
     const trayItems = q.tray.map((t, i) => ({ label: t.label, w: tileW(t.label, size), i, placed: -1, cx: 0, cy: 0, x: 0, y: 0, shake: 0, st: 'idle' }));
     const uniW = sentence ? Math.max(...trayItems.map(t => t.w)) : 0;
     const slotItems = labels.map((l, i) => ({ label: l, w: sentence ? uniW : tileW(l, size), i, filled: -1, st: 'idle' }));
