@@ -1,0 +1,740 @@
+[
+ {
+  "id": "s",
+  "g": "s",
+  "ph": [
+   "s"
+  ],
+  "unit": 1,
+  "type": "single",
+  "bank": [
+   [
+    "sun",
+    "☀️"
+   ],
+   [
+    "snake",
+    "🐍"
+   ],
+   [
+    "soap",
+    "🧼"
+   ]
+  ]
+ },
+ {
+  "id": "a",
+  "g": "a",
+  "ph": [
+   "a"
+  ],
+  "unit": 1,
+  "type": "single",
+  "bank": [
+   [
+    "apple",
+    "🍎"
+   ],
+   [
+    "ant",
+    "🐜"
+   ],
+   [
+    "astronaut",
+    "🧑‍🚀"
+   ]
+  ]
+ },
+ {
+  "id": "m",
+  "g": "m",
+  "ph": [
+   "m"
+  ],
+  "unit": 1,
+  "type": "single",
+  "bank": [
+   [
+    "mouse",
+    "🐭"
+   ],
+   [
+    "moon",
+    "🌙"
+   ],
+   [
+    "milk",
+    "🥛"
+   ]
+  ]
+ },
+ {
+  "id": "t",
+  "g": "t",
+  "ph": [
+   "t"
+  ],
+  "unit": 1,
+  "type": "single",
+  "bank": [
+   [
+    "tiger",
+    "🐯"
+   ],
+   [
+    "tree",
+    "🌳"
+   ],
+   [
+    "tomato",
+    "🍅"
+   ]
+  ]
+ },
+ {
+  "id": "i",
+  "g": "i",
+  "ph": [
+   "i"
+  ],
+  "unit": 2,
+  "type": "single",
+  "bank": [
+   [
+    "insect",
+    "🐛"
+   ],
+   [
+    "iguana",
+    "🦎"
+   ],
+   [
+    "igloo",
+    "🧊"
+   ]
+  ]
+ },
+ {
+  "id": "n",
+  "g": "n",
+  "ph": [
+   "n"
+  ],
+  "unit": 2,
+  "type": "single",
+  "bank": [
+   [
+    "nose",
+    "👃"
+   ],
+   [
+    "nut",
+    "🥜"
+   ],
+   [
+    "nest",
+    "🪺"
+   ]
+  ]
+ },
+ {
+  "id": "p",
+  "g": "p",
+  "ph": [
+   "p"
+  ],
+  "unit": 2,
+  "type": "single",
+  "bank": [
+   [
+    "pig",
+    "🐷"
+   ],
+   [
+    "pizza",
+    "🍕"
+   ],
+   [
+    "panda",
+    "🐼"
+   ]
+  ]
+ },
+ {
+  "id": "o",
+  "g": "o",
+  "ph": [
+   "o"
+  ],
+  "unit": 3,
+  "type": "single",
+  "bank": [
+   [
+    "octopus",
+    "🐙"
+   ],
+   [
+    "otter",
+    "🦦"
+   ],
+   [
+    "ostrich",
+    "🦤"
+   ]
+  ]
+ },
+ {
+  "id": "d",
+  "g": "d",
+  "ph": [
+   "d"
+  ],
+  "unit": 3,
+  "type": "single",
+  "bank": [
+   [
+    "dog",
+    "🐶"
+   ],
+   [
+    "duck",
+    "🦆"
+   ],
+   [
+    "door",
+    "🚪"
+   ]
+  ]
+ },
+ {
+  "id": "g",
+  "g": "g",
+  "ph": [
+   "g"
+  ],
+  "unit": 3,
+  "type": "single",
+  "bank": [
+   [
+    "goat",
+    "🐐"
+   ],
+   [
+    "gorilla",
+    "🦍"
+   ],
+   [
+    "guitar",
+    "🎸"
+   ]
+  ]
+ },
+ {
+  "id": "c",
+  "g": "c",
+  "ph": [
+   "k"
+  ],
+  "unit": 3,
+  "type": "single",
+  "bank": [
+   [
+    "cat",
+    "🐱"
+   ],
+   [
+    "cake",
+    "🍰"
+   ],
+   [
+    "cow",
+    "🐄"
+   ]
+  ]
+ },
+ {
+  "id": "k",
+  "g": "k",
+  "ph": [
+   "k"
+  ],
+  "unit": 4,
+  "type": "single",
+  "bank": [
+   [
+    "kite",
+    "🪁"
+   ],
+   [
+    "key",
+    "🔑"
+   ],
+   [
+    "kangaroo",
+    "🦘"
+   ]
+  ]
+ },
+ {
+  "id": "e",
+  "g": "e",
+  "ph": [
+   "e"
+  ],
+  "unit": 4,
+  "type": "single",
+  "bank": [
+   [
+    "egg",
+    "🥚"
+   ],
+   [
+    "elephant",
+    "🐘"
+   ],
+   [
+    "envelope",
+    "✉️"
+   ]
+  ]
+ },
+ {
+  "id": "u",
+  "g": "u",
+  "ph": [
+   "u"
+  ],
+  "unit": 4,
+  "type": "single",
+  "bank": [
+   [
+    "umbrella",
+    "☂️"
+   ],
+   [
+    "up",
+    "⬆️"
+   ],
+   [
+    "umpire",
+    "🧑‍⚖️"
+   ]
+  ]
+ },
+ {
+  "id": "r",
+  "g": "r",
+  "ph": [
+   "r"
+  ],
+  "unit": 4,
+  "type": "single",
+  "bank": [
+   [
+    "rabbit",
+    "🐰"
+   ],
+   [
+    "rain",
+    "🌧️"
+   ],
+   [
+    "robot",
+    "🤖"
+   ]
+  ]
+ },
+ {
+  "id": "h",
+  "g": "h",
+  "ph": [
+   "h"
+  ],
+  "unit": 4,
+  "type": "single",
+  "bank": [
+   [
+    "hat",
+    "🎩"
+   ],
+   [
+    "horse",
+    "🐴"
+   ],
+   [
+    "house",
+    "🏠"
+   ]
+  ]
+ },
+ {
+  "id": "b",
+  "g": "b",
+  "ph": [
+   "b"
+  ],
+  "unit": 5,
+  "type": "single",
+  "bank": [
+   [
+    "banana",
+    "🍌"
+   ],
+   [
+    "bus",
+    "🚌"
+   ],
+   [
+    "bear",
+    "🐻"
+   ]
+  ]
+ },
+ {
+  "id": "f",
+  "g": "f",
+  "ph": [
+   "f"
+  ],
+  "unit": 5,
+  "type": "single",
+  "bank": [
+   [
+    "fish",
+    "🐟"
+   ],
+   [
+    "frog",
+    "🐸"
+   ],
+   [
+    "fox",
+    "🦊"
+   ]
+  ]
+ },
+ {
+  "id": "l",
+  "g": "l",
+  "ph": [
+   "l"
+  ],
+  "unit": 5,
+  "type": "single",
+  "bank": [
+   [
+    "lion",
+    "🦁"
+   ],
+   [
+    "lemon",
+    "🍋"
+   ],
+   [
+    "leaf",
+    "🍃"
+   ]
+  ]
+ },
+ {
+  "id": "ff",
+  "g": "ff",
+  "ph": [
+   "f"
+  ],
+  "unit": 5,
+  "type": "doubled",
+  "fbank": [
+   [
+    "leaf",
+    "🍃"
+   ],
+   [
+    "wolf",
+    "🐺"
+   ],
+   [
+    "roof",
+    "🏠"
+   ]
+  ]
+ },
+ {
+  "id": "ll",
+  "g": "ll",
+  "ph": [
+   "l"
+  ],
+  "unit": 5,
+  "type": "doubled",
+  "fbank": [
+   [
+    "bell",
+    "🔔"
+   ],
+   [
+    "doll",
+    "🪆"
+   ],
+   [
+    "hill",
+    "⛰️"
+   ]
+  ]
+ },
+ {
+  "id": "ss",
+  "g": "ss",
+  "ph": [
+   "s"
+  ],
+  "unit": 5,
+  "type": "doubled",
+  "fbank": [
+   [
+    "kiss",
+    "💋"
+   ],
+   [
+    "bus",
+    "🚌"
+   ],
+   [
+    "grass",
+    "🌱"
+   ]
+  ]
+ },
+ {
+  "id": "ck",
+  "g": "ck",
+  "ph": [
+   "k"
+  ],
+  "unit": 5,
+  "type": "digraph-final",
+  "fbank": [
+   [
+    "duck",
+    "🦆"
+   ],
+   [
+    "sock",
+    "🧦"
+   ],
+   [
+    "clock",
+    "🕐"
+   ]
+  ]
+ },
+ {
+  "id": "j",
+  "g": "j",
+  "ph": [
+   "dj"
+  ],
+  "unit": 6,
+  "type": "single",
+  "bank": [
+   [
+    "juice",
+    "🧃"
+   ],
+   [
+    "jet",
+    "✈️"
+   ],
+   [
+    "jam",
+    "🍓"
+   ]
+  ]
+ },
+ {
+  "id": "v",
+  "g": "v",
+  "ph": [
+   "v"
+  ],
+  "unit": 6,
+  "type": "single",
+  "bank": [
+   [
+    "van",
+    "🚐"
+   ],
+   [
+    "violin",
+    "🎻"
+   ],
+   [
+    "volcano",
+    "🌋"
+   ]
+  ]
+ },
+ {
+  "id": "w",
+  "g": "w",
+  "ph": [
+   "w"
+  ],
+  "unit": 6,
+  "type": "single",
+  "bank": [
+   [
+    "watch",
+    "⌚"
+   ],
+   [
+    "worm",
+    "🪱"
+   ],
+   [
+    "window",
+    "🪟"
+   ]
+  ]
+ },
+ {
+  "id": "x",
+  "g": "x",
+  "ph": [
+   "k",
+   "s"
+  ],
+  "unit": 6,
+  "type": "single",
+  "fbank": [
+   [
+    "box",
+    "📦"
+   ],
+   [
+    "fox",
+    "🦊"
+   ],
+   [
+    "six",
+    "6️⃣"
+   ]
+  ]
+ },
+ {
+  "id": "y",
+  "g": "y",
+  "ph": [
+   "y"
+  ],
+  "unit": 6,
+  "type": "single",
+  "bank": [
+   [
+    "yo-yo",
+    "🪀"
+   ],
+   [
+    "yellow",
+    "💛"
+   ],
+   [
+    "yak",
+    "🦬"
+   ]
+  ]
+ },
+ {
+  "id": "z",
+  "g": "z",
+  "ph": [
+   "z"
+  ],
+  "unit": 6,
+  "type": "single",
+  "bank": [
+   [
+    "zebra",
+    "🦓"
+   ],
+   [
+    "zipper",
+    "🤐"
+   ],
+   [
+    "zoo",
+    "🦒"
+   ]
+  ]
+ },
+ {
+  "id": "zz",
+  "g": "zz",
+  "ph": [
+   "z"
+  ],
+  "unit": 6,
+  "type": "doubled",
+  "fbank": [
+   [
+    "buzz",
+    "🐝"
+   ],
+   [
+    "fizz",
+    "🥤"
+   ],
+   [
+    "jazz",
+    "🎷"
+   ]
+  ]
+ },
+ {
+  "id": "qu",
+  "g": "qu",
+  "ph": [
+   "k",
+   "w"
+  ],
+  "unit": 6,
+  "type": "digraph",
+  "bank": [
+   [
+    "queen",
+    "👑"
+   ],
+   [
+    "quilt",
+    "🛏️"
+   ],
+   [
+    "quail",
+    "🐦"
+   ]
+  ]
+ },
+ {
+  "id": "sz",
+  "g": "s",
+  "ph": [
+   "z"
+  ],
+  "unit": 7,
+  "type": "single",
+  "fbank": [
+   [
+    "dogs",
+    "🐶"
+   ],
+   [
+    "pigs",
+    "🐷"
+   ],
+   [
+    "hens",
+    "🐔"
+   ]
+  ]
+ }
+]

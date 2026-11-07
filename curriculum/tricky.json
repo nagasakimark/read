@@ -1,0 +1,194 @@
+[
+ {
+  "id": "i",
+  "t": "I",
+  "parts": [
+   "*I"
+  ],
+  "release": 2,
+  "decodableFrom": null,
+  "noteEn": "I says its name: \"eye\".",
+  "noteJa": "I は「アイ」とよむよ"
+ },
+ {
+  "id": "a",
+  "t": "a",
+  "parts": [
+   "*a"
+  ],
+  "release": 3,
+  "decodableFrom": null,
+  "noteEn": "In \"a\" the letter says /ə/ (uh).",
+  "noteJa": "a は「ア」じゃなくて「ウ」みたいに よむよ"
+ },
+ {
+  "id": "the",
+  "t": "the",
+  "parts": [
+   "*the"
+  ],
+  "release": 3,
+  "decodableFrom": null,
+  "noteEn": "\"the\" is tricky: /ðə/.",
+  "noteJa": "the は とくべつ"
+ },
+ {
+  "id": "to",
+  "t": "to",
+  "parts": [
+   "t",
+   "*o"
+  ],
+  "release": 4,
+  "decodableFrom": null,
+  "noteEn": "o says /uː/ (oo).",
+  "noteJa": "o は「ウー」"
+ },
+ {
+  "id": "no",
+  "t": "no",
+  "parts": [
+   "n",
+   "*o"
+  ],
+  "release": 4,
+  "decodableFrom": null,
+  "noteEn": "o says /oʊ/ (oh).",
+  "noteJa": "o は「オウ」"
+ },
+ {
+  "id": "go",
+  "t": "go",
+  "parts": [
+   "g",
+   "*o"
+  ],
+  "release": 4,
+  "decodableFrom": null,
+  "noteEn": "o says /oʊ/ (oh).",
+  "noteJa": "o は「オウ」"
+ },
+ {
+  "id": "is",
+  "t": "is",
+  "parts": [
+   "i",
+   "*s"
+  ],
+  "release": 5,
+  "decodableFrom": 7,
+  "noteEn": "s says /z/ here (it is a z sound).",
+  "noteJa": "s は「ズ」とよむよ"
+ },
+ {
+  "id": "of",
+  "t": "of",
+  "parts": [
+   "*o",
+   "*f"
+  ],
+  "release": 5,
+  "decodableFrom": null,
+  "noteEn": "\"of\" is tricky: /əv/.",
+  "noteJa": "of は とくべつ"
+ },
+ {
+  "id": "he",
+  "t": "he",
+  "parts": [
+   "h",
+   "*e"
+  ],
+  "release": 6,
+  "decodableFrom": 26,
+  "noteEn": "e says /iː/ (ee).",
+  "noteJa": "e は「イー」"
+ },
+ {
+  "id": "we",
+  "t": "we",
+  "parts": [
+   "w",
+   "*e"
+  ],
+  "release": 6,
+  "decodableFrom": 26,
+  "noteEn": "e says /iː/ (ee).",
+  "noteJa": "e は「イー」"
+ },
+ {
+  "id": "me",
+  "t": "me",
+  "parts": [
+   "m",
+   "*e"
+  ],
+  "release": 6,
+  "decodableFrom": 26,
+  "noteEn": "e says /iː/ (ee).",
+  "noteJa": "e は「イー」"
+ },
+ {
+  "id": "be",
+  "t": "be",
+  "parts": [
+   "b",
+   "*e"
+  ],
+  "release": 6,
+  "decodableFrom": 26,
+  "noteEn": "e says /iː/ (ee).",
+  "noteJa": "e は「イー」"
+ },
+ {
+  "id": "you",
+  "t": "you",
+  "parts": [
+   "y",
+   "*ou"
+  ],
+  "release": 6,
+  "decodableFrom": null,
+  "noteEn": "\"ou\" says /uː/ here.",
+  "noteJa": "ou は「ウー」"
+ },
+ {
+  "id": "like",
+  "t": "like",
+  "parts": [
+   "l",
+   "*i",
+   "k",
+   "*e"
+  ],
+  "release": 7,
+  "decodableFrom": 23,
+  "noteEn": "i...e says /aɪ/ (eye).",
+  "noteJa": "i と e で「アイ」"
+ },
+ {
+  "id": "do",
+  "t": "do",
+  "parts": [
+   "d",
+   "*o"
+  ],
+  "release": 7,
+  "decodableFrom": null,
+  "noteEn": "o says /uː/ (oo).",
+  "noteJa": "o は「ウー」"
+ },
+ {
+  "id": "said",
+  "t": "said",
+  "parts": [
+   "s",
+   "*ai",
+   "d"
+  ],
+  "release": 7,
+  "decodableFrom": null,
+  "noteEn": "ai says /ɛ/ (eh).",
+  "noteJa": "ai は「エ」"
+ }
+]

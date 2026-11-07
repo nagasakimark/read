@@ -1,0 +1,16 @@
+// Contrast packs (blueprint: "Japanese contrast packs unlocked as both members are taught").
+// A pack unlocks at `unit`; each set is a list of word ids (lowercase) that differ in ONE sound.
+// ja = a short child-friendly hint (hiragana). These are listening/recognition drills; accented
+// production is never marked wrong (Lingua Franca Core rule in the blueprint).
+export const PACKS = [
+  { id:'cp_a_o_u', unit:4, name:'a / o / u', ja:'ねこ・こっと・かっと：ひらく くちが ちがうよ',
+    sets:[['cat','cot','cut'],['cap','cop','cup'],['hat','hot','hut']] },
+  { id:'cp_i_e', unit:4, name:'i / e', ja:'「イ」と「エ」をききわけよう',
+    sets:[['pin','pen'],['pit','pet'],['tin','ten'],['sit','set']] },
+  { id:'cp_f_h', unit:5, name:'f / h', ja:'f は はを くちびるに あてるよ',
+    sets:[['fat','hat'],['fit','hit'],['fill','hill']] },
+  { id:'cp_r_l', unit:5, name:'r / l', ja:'r と l は ちがう おと！',
+    sets:[['rock','lock'],['red','led'],['rip','lip'],['rap','lap']] },
+  { id:'cp_b_v', unit:6, name:'b / v', ja:'v は はを したの くちびるに あてるよ',
+    sets:[['bet','vet'],['ban','van'],['bat','vat']] },
+];

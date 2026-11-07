@@ -1,0 +1,163 @@
+[
+ {
+  "id": "s",
+  "ipa": "s",
+  "esp": "s",
+  "mouth": "teeth",
+  "cont": true
+ },
+ {
+  "id": "m",
+  "ipa": "m",
+  "esp": "m",
+  "mouth": "lips",
+  "cont": true
+ },
+ {
+  "id": "t",
+  "ipa": "t",
+  "esp": "t",
+  "mouth": "tongue",
+  "cont": false
+ },
+ {
+  "id": "a",
+  "ipa": "æ",
+  "esp": "a",
+  "mouth": "open",
+  "cont": true
+ },
+ {
+  "id": "i",
+  "ipa": "ɪ",
+  "esp": "I",
+  "mouth": "smile",
+  "cont": true
+ },
+ {
+  "id": "n",
+  "ipa": "n",
+  "esp": "n",
+  "mouth": "tongue",
+  "cont": true
+ },
+ {
+  "id": "p",
+  "ipa": "p",
+  "esp": "p",
+  "mouth": "lips",
+  "cont": false
+ },
+ {
+  "id": "o",
+  "ipa": "ɑ",
+  "esp": "A:",
+  "mouth": "open",
+  "cont": true
+ },
+ {
+  "id": "d",
+  "ipa": "d",
+  "esp": "d",
+  "mouth": "tongue",
+  "cont": false
+ },
+ {
+  "id": "g",
+  "ipa": "g",
+  "esp": "g",
+  "mouth": "throat",
+  "cont": false
+ },
+ {
+  "id": "k",
+  "ipa": "k",
+  "esp": "k",
+  "mouth": "throat",
+  "cont": false
+ },
+ {
+  "id": "e",
+  "ipa": "ɛ",
+  "esp": "E",
+  "mouth": "mid",
+  "cont": true
+ },
+ {
+  "id": "u",
+  "ipa": "ʌ",
+  "esp": "V",
+  "mouth": "mid",
+  "cont": true
+ },
+ {
+  "id": "r",
+  "ipa": "ɹ",
+  "esp": "r",
+  "mouth": "round",
+  "cont": true
+ },
+ {
+  "id": "h",
+  "ipa": "h",
+  "esp": "h",
+  "mouth": "mid",
+  "cont": true
+ },
+ {
+  "id": "b",
+  "ipa": "b",
+  "esp": "b",
+  "mouth": "lips",
+  "cont": false
+ },
+ {
+  "id": "f",
+  "ipa": "f",
+  "esp": "f",
+  "mouth": "teethLip",
+  "cont": true
+ },
+ {
+  "id": "l",
+  "ipa": "l",
+  "esp": "l",
+  "mouth": "tongue",
+  "cont": true
+ },
+ {
+  "id": "dj",
+  "ipa": "dʒ",
+  "esp": "dZ",
+  "mouth": "teeth",
+  "cont": false
+ },
+ {
+  "id": "v",
+  "ipa": "v",
+  "esp": "v",
+  "mouth": "teethLip",
+  "cont": true
+ },
+ {
+  "id": "w",
+  "ipa": "w",
+  "esp": "w",
+  "mouth": "round",
+  "cont": true
+ },
+ {
+  "id": "y",
+  "ipa": "j",
+  "esp": "j",
+  "mouth": "smile",
+  "cont": true
+ },
+ {
+  "id": "z",
+  "ipa": "z",
+  "esp": "z",
+  "mouth": "teeth",
+  "cont": true
+ }
+]

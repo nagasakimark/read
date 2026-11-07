@@ -1,0 +1,16 @@
+{
+ "contentVersion": "0.1.0",
+ "accent": "en-US",
+ "builtFrom": "curriculum/src",
+ "blueprint": "docs/BLUEPRINT.md",
+ "stages": [
+  {
+   "id": 0,
+   "name": "Listening"
+  },
+  {
+   "id": 1,
+   "name": "First sounds"
+  }
+ ]
+}

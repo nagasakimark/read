@@ -1,0 +1,67 @@
+[
+ {
+  "unit": 1,
+  "text": "Sam sat.",
+  "pic": "👦"
+ },
+ {
+  "unit": 2,
+  "text": "Tim sat in it.",
+  "pic": "🧒"
+ },
+ {
+  "unit": 2,
+  "text": "Pam sat in it.",
+  "pic": "👩"
+ },
+ {
+  "unit": 3,
+  "text": "Tom got a cap.",
+  "pic": "🧒🧢"
+ },
+ {
+  "unit": 3,
+  "text": "Sam can pat a dog.",
+  "pic": "👦🐶"
+ },
+ {
+  "unit": 4,
+  "text": "Ken got a red hat.",
+  "pic": "🧒🎩"
+ },
+ {
+  "unit": 4,
+  "text": "A hen sat on a rug.",
+  "pic": "🐔"
+ },
+ {
+  "unit": 5,
+  "text": "Bob got a big bag.",
+  "pic": "🧑👜"
+ },
+ {
+  "unit": 5,
+  "text": "Bill is sick.",
+  "pic": "🤒"
+ },
+ {
+  "unit": 6,
+  "text": "Jack got a van.",
+  "pic": "🧑🚐"
+ },
+ {
+  "unit": 6,
+  "text": "We can win.",
+  "pic": "🏆"
+ },
+ {
+  "unit": 7,
+  "text": "Meg has hens.",
+  "pic": "👧🐔"
+ },
+ {
+  "unit": 7,
+  "text": "Do you like jam?",
+  "pic": "🍓"
+ }
+]

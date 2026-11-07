@@ -1,0 +1,746 @@
+[
+ {
+  "id": "s3a",
+  "unit": 3,
+  "title": "The Cap",
+  "topic": "animals",
+  "focus": [
+   "o",
+   "c",
+   "d",
+   "g"
+  ],
+  "pages": [
+   {
+    "text": "Tom got a cap.",
+    "pic": "🧒🧢"
+   },
+   {
+    "text": "The cat sat in the cap.",
+    "pic": "🐱🧢"
+   },
+   {
+    "text": "Tom pat the cat.",
+    "pic": "🧒🐱"
+   }
+  ],
+  "questions": [
+   {
+    "q": "Who sat in the cap?",
+    "type": "literal",
+    "answer": [
+     "🐱",
+     "cat"
+    ],
+    "distractors": [
+     [
+      "🐶",
+      "dog"
+     ],
+     [
+      "🐷",
+      "pig"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s3b",
+  "unit": 3,
+  "title": "Pig and Dog",
+  "topic": "animals",
+  "focus": [
+   "o",
+   "c",
+   "d",
+   "g"
+  ],
+  "pages": [
+   {
+    "text": "A pig sat.",
+    "pic": "🐷"
+   },
+   {
+    "text": "A dog sat.",
+    "pic": "🐶"
+   },
+   {
+    "text": "Tom sat on a cot.",
+    "pic": "🧒🛏️"
+   },
+   {
+    "text": "The dog got on the cot.",
+    "pic": "🐶🛏️"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What did the dog get on?",
+    "type": "literal",
+    "answer": [
+     "🛏️",
+     "cot"
+    ],
+    "distractors": [
+     [
+      "🧢",
+      "cap"
+     ],
+     [
+      "🍲",
+      "pot"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s3c",
+  "unit": 3,
+  "title": "Sam Can Pat",
+  "topic": "animals",
+  "focus": [
+   "o",
+   "c",
+   "d",
+   "g"
+  ],
+  "pages": [
+   {
+    "text": "Sam can pat a cat.",
+    "pic": "👦🐱"
+   },
+   {
+    "text": "Sam can pat a dog.",
+    "pic": "👦🐶"
+   },
+   {
+    "text": "Sam did not pat a pig.",
+    "pic": "👦🐷"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What did Sam not pat?",
+    "type": "literal",
+    "answer": [
+     "🐷",
+     "pig"
+    ],
+    "distractors": [
+     [
+      "🐱",
+      "cat"
+     ],
+     [
+      "🐶",
+      "dog"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s4a",
+  "unit": 4,
+  "title": "The Red Hat",
+  "topic": "animals",
+  "focus": [
+   "k",
+   "e",
+   "u",
+   "r",
+   "h"
+  ],
+  "pages": [
+   {
+    "text": "A hen got a red hat.",
+    "pic": "🐔🎩"
+   },
+   {
+    "text": "The hen ran.",
+    "pic": "🐔"
+   },
+   {
+    "text": "The hen ran to Ken.",
+    "pic": "🐔🧒"
+   },
+   {
+    "text": "Ken got the hen.",
+    "pic": "🧒🐔"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What did the hen get?",
+    "type": "literal",
+    "answer": [
+     "🎩",
+     "hat"
+    ],
+    "distractors": [
+     [
+      "🧢",
+      "cap"
+     ],
+     [
+      "🥤",
+      "cup"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s4b",
+  "unit": 4,
+  "title": "Go, Meg, Go!",
+  "topic": "sports",
+  "focus": [
+   "k",
+   "e",
+   "u",
+   "r",
+   "h"
+  ],
+  "pages": [
+   {
+    "text": "Meg can run.",
+    "pic": "👧🏃"
+   },
+   {
+    "text": "Ken can run.",
+    "pic": "🧒🏃"
+   },
+   {
+    "text": "Go, Meg, go!",
+    "pic": "👧"
+   },
+   {
+    "text": "Go, Ken, go!",
+    "pic": "🧒"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What can Meg do?",
+    "type": "literal",
+    "answer": [
+     "🏃",
+     "run"
+    ],
+    "distractors": [
+     [
+      "😴",
+      "nap"
+     ],
+     [
+      "🤗",
+      "hug"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s4c",
+  "unit": 4,
+  "title": "Hot Sun",
+  "topic": "weather",
+  "focus": [
+   "k",
+   "e",
+   "u",
+   "r",
+   "h"
+  ],
+  "pages": [
+   {
+    "text": "The sun got hot.",
+    "pic": "☀️🔥"
+   },
+   {
+    "text": "Ken got a cup.",
+    "pic": "🧒🥤"
+   },
+   {
+    "text": "Ken got up.",
+    "pic": "🧒⬆️"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What got hot?",
+    "type": "literal",
+    "answer": [
+     "☀️",
+     "sun"
+    ],
+    "distractors": [
+     [
+      "🐔",
+      "hen"
+     ],
+     [
+      "🐀",
+      "rat"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s5a",
+  "unit": 5,
+  "title": "The Big Bug",
+  "topic": "animals",
+  "focus": [
+   "b",
+   "f",
+   "l",
+   "ll",
+   "ck"
+  ],
+  "pages": [
+   {
+    "text": "A big bug sat on a log.",
+    "pic": "🐛🪵"
+   },
+   {
+    "text": "The big bug fell in the mud.",
+    "pic": "🐛🟤"
+   },
+   {
+    "text": "Bob got the bug.",
+    "pic": "🧑🐛"
+   },
+   {
+    "text": "Bob let the bug go.",
+    "pic": "🧑🐛"
+   }
+  ],
+  "questions": [
+   {
+    "q": "Where did the bug fall?",
+    "type": "literal",
+    "answer": [
+     "🟤",
+     "mud"
+    ],
+    "distractors": [
+     [
+      "🪵",
+      "log"
+     ],
+     [
+      "🛏️",
+      "bed"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s5b",
+  "unit": 5,
+  "title": "In the Bag",
+  "topic": "toys",
+  "focus": [
+   "b",
+   "f",
+   "l",
+   "ll",
+   "ck"
+  ],
+  "pages": [
+   {
+    "text": "Ben got a bag.",
+    "pic": "🧒👜"
+   },
+   {
+    "text": "In the bag is a duck.",
+    "pic": "👜🦆"
+   },
+   {
+    "text": "In the bag is a doll.",
+    "pic": "👜🪆"
+   },
+   {
+    "text": "In the bag is a sock.",
+    "pic": "👜🧦"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What is in the bag?",
+    "type": "literal",
+    "answer": [
+     "🦆",
+     "duck"
+    ],
+    "distractors": [
+     [
+      "🐷",
+      "pig"
+     ],
+     [
+      "🚌",
+      "bus"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s5c",
+  "unit": 5,
+  "title": "Sick Bill",
+  "topic": "home",
+  "focus": [
+   "b",
+   "f",
+   "l",
+   "ll",
+   "ss",
+   "ck"
+  ],
+  "pages": [
+   {
+    "text": "Bill is sick.",
+    "pic": "🤒"
+   },
+   {
+    "text": "Bill is in bed.",
+    "pic": "🛏️"
+   },
+   {
+    "text": "Meg got a cup.",
+    "pic": "👧🥤"
+   },
+   {
+    "text": "Bill is not sad.",
+    "pic": "🙂"
+   }
+  ],
+  "questions": [
+   {
+    "q": "Where is Bill?",
+    "type": "literal",
+    "answer": [
+     "🛏️",
+     "bed"
+    ],
+    "distractors": [
+     [
+      "🚌",
+      "bus"
+     ],
+     [
+      "🪨",
+      "rock"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s6a",
+  "unit": 6,
+  "title": "The Fox and the Box",
+  "topic": "animals",
+  "focus": [
+   "j",
+   "v",
+   "w",
+   "x",
+   "y",
+   "z",
+   "qu"
+  ],
+  "pages": [
+   {
+    "text": "A fox sat in a box.",
+    "pic": "🦊📦"
+   },
+   {
+    "text": "Jack got to the box.",
+    "pic": "🧑📦"
+   },
+   {
+    "text": "The fox ran. Jack ran.",
+    "pic": "🦊🧑"
+   },
+   {
+    "text": "Jack, you can not get the fox!",
+    "pic": "🦊"
+   }
+  ],
+  "questions": [
+   {
+    "q": "Where did the fox sit?",
+    "type": "literal",
+    "answer": [
+     "📦",
+     "box"
+    ],
+    "distractors": [
+     [
+      "👜",
+      "bag"
+     ],
+     [
+      "🛏️",
+      "bed"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s6b",
+  "unit": 6,
+  "title": "Zip the Bug",
+  "topic": "animals",
+  "focus": [
+   "j",
+   "v",
+   "w",
+   "x",
+   "y",
+   "z",
+   "zz",
+   "qu"
+  ],
+  "pages": [
+   {
+    "text": "Zip is a bug.",
+    "pic": "🐛"
+   },
+   {
+    "text": "Zip can zap!",
+    "pic": "⚡"
+   },
+   {
+    "text": "Zip can buzz.",
+    "pic": "🐝"
+   },
+   {
+    "text": "Zip can win!",
+    "pic": "🏆"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What is Zip?",
+    "type": "literal",
+    "answer": [
+     "🐛",
+     "bug"
+    ],
+    "distractors": [
+     [
+      "🐱",
+      "cat"
+     ],
+     [
+      "🦊",
+      "fox"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s6c",
+  "unit": 6,
+  "title": "We Can Win",
+  "topic": "sports",
+  "focus": [
+   "j",
+   "v",
+   "w",
+   "x",
+   "y",
+   "z",
+   "qu"
+  ],
+  "pages": [
+   {
+    "text": "Max sat in a van.",
+    "pic": "🚐"
+   },
+   {
+    "text": "Jim sat in a van.",
+    "pic": "🚐"
+   },
+   {
+    "text": "We can win!",
+    "pic": "🏆"
+   },
+   {
+    "text": "Yes, yes, yes!",
+    "pic": "🎉"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What did they sit in?",
+    "type": "literal",
+    "answer": [
+     "🚐",
+     "van"
+    ],
+    "distractors": [
+     [
+      "🚌",
+      "bus"
+     ],
+     [
+      "📦",
+      "box"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s7a",
+  "unit": 7,
+  "title": "Pets",
+  "topic": "animals",
+  "focus": [
+   "sz"
+  ],
+  "pages": [
+   {
+    "text": "Meg has hens.",
+    "pic": "👧🐔🐔"
+   },
+   {
+    "text": "Ken has pigs.",
+    "pic": "🧒🐷🐷"
+   },
+   {
+    "text": "Bob has dogs.",
+    "pic": "🧑🐶🐶"
+   },
+   {
+    "text": "I like pets.",
+    "pic": "🐕"
+   }
+  ],
+  "questions": [
+   {
+    "q": "Who has pigs?",
+    "type": "literal",
+    "answer": [
+     "🧒",
+     "Ken"
+    ],
+    "distractors": [
+     [
+      "👧",
+      "Meg"
+     ],
+     [
+      "🧑",
+      "Bob"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s7b",
+  "unit": 7,
+  "title": "Bugs in the Mud",
+  "topic": "animals",
+  "focus": [
+   "sz"
+  ],
+  "pages": [
+   {
+    "text": "Bugs sit in the mud.",
+    "pic": "🐛🟤"
+   },
+   {
+    "text": "Bugs hop in the mud.",
+    "pic": "🐛🟤"
+   },
+   {
+    "text": "Bugs dig in the mud.",
+    "pic": "🐛🟤"
+   },
+   {
+    "text": "Do you like bugs?",
+    "pic": "🐛"
+   }
+  ],
+  "questions": [
+   {
+    "q": "Where are the bugs?",
+    "type": "literal",
+    "answer": [
+     "🟤",
+     "mud"
+    ],
+    "distractors": [
+     [
+      "🛏️",
+      "bed"
+     ],
+     [
+      "👜",
+      "bag"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s7c",
+  "unit": 7,
+  "title": "Jam",
+  "topic": "food",
+  "focus": [],
+  "pages": [
+   {
+    "text": "Tim said, \"Do you like jam?\"",
+    "pic": "🧒🍓"
+   },
+   {
+    "text": "Pam said, \"Yes, I do!\"",
+    "pic": "👩✅"
+   },
+   {
+    "text": "Pam has jam.",
+    "pic": "👩🍓"
+   },
+   {
+    "text": "Tim hugs Pam.",
+    "pic": "🧒🤗👩"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What does Pam like?",
+    "type": "literal",
+    "answer": [
+     "🍓",
+     "jam"
+    ],
+    "distractors": [
+     [
+      "🥜",
+      "nut"
+     ],
+     [
+      "🥤",
+      "cup"
+     ]
+    ]
+   }
+  ]
+ }
+]
