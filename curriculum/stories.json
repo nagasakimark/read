@@ -4222,5 +4222,1144 @@
     ]
    }
   ]
+ },
+ {
+  "id": "s32a",
+  "unit": 32,
+  "title": "The Picnic",
+  "topic": "food",
+  "pats": [
+   "sy:closed",
+   "sy:compound"
+  ],
+  "pages": [
+   {
+    "text": "We go on a picnic.",
+    "pic": "🧺"
+   },
+   {
+    "text": "Meg has a basket.",
+    "pic": "👧🧺"
+   },
+   {
+    "text": "The basket has a napkin and a cupcake.",
+    "pic": "🧻🧁"
+   },
+   {
+    "text": "A rabbit sat on the napkin.",
+    "pic": "🐰🧻"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What is in the basket?",
+    "type": "literal",
+    "answer": [
+     "🧁",
+     "cupcake"
+    ],
+    "distractors": [
+     [
+      "🧢",
+      "cap"
+     ],
+     [
+      "🥤",
+      "cup"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s32b",
+  "unit": 32,
+  "title": "The Robot",
+  "topic": "toys",
+  "pats": [
+   "sy:open",
+   "sy:closed"
+  ],
+  "pages": [
+   {
+    "text": "A robot is in the garden.",
+    "pic": "🤖🌳"
+   },
+   {
+    "text": "The robot can open the mailbox.",
+    "pic": "🤖📮"
+   },
+   {
+    "text": "It has a jacket and a pocket.",
+    "pic": "🧥"
+   },
+   {
+    "text": "The farmer sat in the sunshine.",
+    "pic": "🧑‍🌾☀️"
+   }
+  ],
+  "questions": [
+   {
+    "q": "Who is in the garden?",
+    "type": "literal",
+    "answer": [
+     "🤖",
+     "robot"
+    ],
+    "distractors": [
+     [
+      "🐷",
+      "pig"
+     ],
+     [
+      "🐱",
+      "cat"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s32c",
+  "unit": 32,
+  "title": "The Snowman",
+  "topic": "weather",
+  "pats": [
+   "sy:compound",
+   "sy:closed"
+  ],
+  "pages": [
+   {
+    "text": "Dan has a raincoat.",
+    "pic": "🧒🧥"
+   },
+   {
+    "text": "He sat by a snowman in the morning.",
+    "pic": "⛄🌅"
+   },
+   {
+    "text": "The snowman has a bucket and a mitten.",
+    "pic": "⛄🪣🧤"
+   },
+   {
+    "text": "A goldfish sat on the bucket.",
+    "pic": "🐠🪣"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What does the snowman have?",
+    "type": "literal",
+    "answer": [
+     "🪣",
+     "bucket"
+    ],
+    "distractors": [
+     [
+      "🧢",
+      "cap"
+     ],
+     [
+      "🥤",
+      "cup"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s33a",
+  "unit": 33,
+  "title": "The Purple Turtle",
+  "topic": "animals",
+  "focus": [
+   "le"
+  ],
+  "pages": [
+   {
+    "text": "A turtle sat at the table.",
+    "pic": "🐢🍽️"
+   },
+   {
+    "text": "The turtle is purple.",
+    "pic": "🐢🟣"
+   },
+   {
+    "text": "It has a red apple.",
+    "pic": "🍎"
+   },
+   {
+    "text": "The little turtle is not alone.",
+    "pic": "🐢"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What is purple?",
+    "type": "literal",
+    "answer": [
+     "🐢",
+     "turtle"
+    ],
+    "distractors": [
+     [
+      "🐷",
+      "pig"
+     ],
+     [
+      "🐱",
+      "cat"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s33b",
+  "unit": 33,
+  "title": "Bubble Fun",
+  "topic": "fun",
+  "focus": [
+   "le",
+   "a_open"
+  ],
+  "pages": [
+   {
+    "text": "The baby can see a bubble.",
+    "pic": "👶🫧"
+   },
+   {
+    "text": "The bubble is big.",
+    "pic": "🫧"
+   },
+   {
+    "text": "It can go up and up.",
+    "pic": "⬆️🫧"
+   },
+   {
+    "text": "The baby is asleep.",
+    "pic": "😴"
+   }
+  ],
+  "questions": [
+   {
+    "q": "Who can see a bubble?",
+    "type": "literal",
+    "answer": [
+     "👶",
+     "baby"
+    ],
+    "distractors": [
+     [
+      "🐷",
+      "pig"
+     ],
+     [
+      "🐱",
+      "cat"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s33c",
+  "unit": 33,
+  "title": "The Zebra and the Panda",
+  "topic": "animals",
+  "focus": [
+   "schwa",
+   "a_open"
+  ],
+  "pages": [
+   {
+    "text": "The zebra sat on a sofa.",
+    "pic": "🦓🛋️"
+   },
+   {
+    "text": "The panda has a banana.",
+    "pic": "🐼🍌"
+   },
+   {
+    "text": "The lady has a pizza.",
+    "pic": "👩🍕"
+   },
+   {
+    "text": "They are about to eat.",
+    "pic": "🍽️"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What does the panda have?",
+    "type": "literal",
+    "answer": [
+     "🍌",
+     "banana"
+    ],
+    "distractors": [
+     [
+      "🍕",
+      "pizza"
+     ],
+     [
+      "🥤",
+      "cup"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s34a",
+  "unit": 34,
+  "title": "The Fast Rabbit",
+  "topic": "animals",
+  "pats": [
+   "af:er",
+   "af:ly"
+  ],
+  "pages": [
+   {
+    "text": "The rabbit is faster.",
+    "pic": "🐰"
+   },
+   {
+    "text": "The turtle is slower.",
+    "pic": "🐢"
+   },
+   {
+    "text": "The rabbit ran quickly.",
+    "pic": "🐰💨"
+   },
+   {
+    "text": "The turtle can go slowly.",
+    "pic": "🐢"
+   }
+  ],
+  "questions": [
+   {
+    "q": "Who is faster?",
+    "type": "literal",
+    "answer": [
+     "🐰",
+     "rabbit"
+    ],
+    "distractors": [
+     [
+      "🐢",
+      "turtle"
+     ],
+     [
+      "🐷",
+      "pig"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s34b",
+  "unit": 34,
+  "title": "Helpful Dan",
+  "topic": "people",
+  "pats": [
+   "af:ful",
+   "af:es",
+   "af:est"
+  ],
+  "pages": [
+   {
+    "text": "Dan is helpful.",
+    "pic": "🧒"
+   },
+   {
+    "text": "He can fill the boxes.",
+    "pic": "📦"
+   },
+   {
+    "text": "Meg has the dishes.",
+    "pic": "🍽️"
+   },
+   {
+    "text": "Dan is the kindest.",
+    "pic": "💗"
+   }
+  ],
+  "questions": [
+   {
+    "q": "Who is helpful?",
+    "type": "literal",
+    "answer": [
+     "🧒",
+     "Dan"
+    ],
+    "distractors": [
+     [
+      "👧",
+      "Meg"
+     ],
+     [
+      "🐶",
+      "dog"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s34c",
+  "unit": 34,
+  "title": "The Tallest Tree",
+  "topic": "nature",
+  "pats": [
+   "af:er",
+   "af:est",
+   "af:less"
+  ],
+  "pages": [
+   {
+    "text": "The tree is big.",
+    "pic": "🌳"
+   },
+   {
+    "text": "This tree is taller.",
+    "pic": "🌲"
+   },
+   {
+    "text": "This tree is the tallest.",
+    "pic": "🌲"
+   },
+   {
+    "text": "It is not hopeless to climb it.",
+    "pic": "🧗"
+   }
+  ],
+  "questions": [
+   {
+    "q": "Which tree is the tallest?",
+    "type": "literal",
+    "answer": [
+     "🌲",
+     "this tree"
+    ],
+    "distractors": [
+     [
+      "🌳",
+      "the tree"
+     ],
+     [
+      "🌴",
+      "a palm"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s35a",
+  "unit": 35,
+  "title": "Unlock the Box",
+  "topic": "home",
+  "pats": [
+   "af:un"
+  ],
+  "pages": [
+   {
+    "text": "Meg can unlock the box.",
+    "pic": "👧🔓"
+   },
+   {
+    "text": "Dan can unpack the box.",
+    "pic": "🧒📦"
+   },
+   {
+    "text": "A cat is in the box.",
+    "pic": "🐱📦"
+   },
+   {
+    "text": "The cat is unhappy.",
+    "pic": "🐱😢"
+   }
+  ],
+  "questions": [
+   {
+    "q": "Who is unhappy?",
+    "type": "literal",
+    "answer": [
+     "🐱",
+     "cat"
+    ],
+    "distractors": [
+     [
+      "🐷",
+      "pig"
+     ],
+     [
+      "🐶",
+      "dog"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s35b",
+  "unit": 35,
+  "title": "Replay the Game",
+  "topic": "games",
+  "pats": [
+   "af:re"
+  ],
+  "pages": [
+   {
+    "text": "Tom can replay the game.",
+    "pic": "🎮"
+   },
+   {
+    "text": "He can rewrite the note.",
+    "pic": "📝"
+   },
+   {
+    "text": "He can restart the game.",
+    "pic": "🔄"
+   },
+   {
+    "text": "Tom can reread it.",
+    "pic": "📖"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What can Tom replay?",
+    "type": "literal",
+    "answer": [
+     "🎮",
+     "game"
+    ],
+    "distractors": [
+     [
+      "🧢",
+      "cap"
+     ],
+     [
+      "🥤",
+      "cup"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s35c",
+  "unit": 35,
+  "title": "The Cupcake",
+  "topic": "food",
+  "pats": [
+   "af:dis",
+   "af:un"
+  ],
+  "pages": [
+   {
+    "text": "I dislike the rain.",
+    "pic": "🌧️"
+   },
+   {
+    "text": "Dan can unwrap the cupcake.",
+    "pic": "🧁"
+   },
+   {
+    "text": "I like the cupcake.",
+    "pic": "😋"
+   },
+   {
+    "text": "I can not distrust the cupcake.",
+    "pic": "🧁"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What can Dan unwrap?",
+    "type": "literal",
+    "answer": [
+     "🧁",
+     "cupcake"
+    ],
+    "distractors": [
+     [
+      "🧢",
+      "cap"
+     ],
+     [
+      "🥤",
+      "cup"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s36a",
+  "unit": 36,
+  "title": "Run, Hop, Dig",
+  "topic": "fun",
+  "pats": [
+   "af:double"
+  ],
+  "pages": [
+   {
+    "text": "Dan is running.",
+    "pic": "🏃"
+   },
+   {
+    "text": "Meg is hopping.",
+    "pic": "🐇"
+   },
+   {
+    "text": "The dog is digging.",
+    "pic": "🐶"
+   },
+   {
+    "text": "The kids are clapping.",
+    "pic": "👏"
+   }
+  ],
+  "questions": [
+   {
+    "q": "Who is digging?",
+    "type": "literal",
+    "answer": [
+     "🐶",
+     "dog"
+    ],
+    "distractors": [
+     [
+      "🐱",
+      "cat"
+     ],
+     [
+      "🐷",
+      "pig"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s36b",
+  "unit": 36,
+  "title": "Baking a Cake",
+  "topic": "food",
+  "pats": [
+   "af:drop-e"
+  ],
+  "pages": [
+   {
+    "text": "Meg is baking a cake.",
+    "pic": "👧🍰"
+   },
+   {
+    "text": "Dan is taking the cake.",
+    "pic": "🧒🍰"
+   },
+   {
+    "text": "They are smiling and waving.",
+    "pic": "😊👋"
+   },
+   {
+    "text": "They are riding to the lake.",
+    "pic": "🚴🏞️"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What is Meg baking?",
+    "type": "literal",
+    "answer": [
+     "🍰",
+     "cake"
+    ],
+    "distractors": [
+     [
+      "🧢",
+      "cap"
+     ],
+     [
+      "🥤",
+      "cup"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s36c",
+  "unit": 36,
+  "title": "Happier",
+  "topic": "people",
+  "pats": [
+   "af:y-i"
+  ],
+  "pages": [
+   {
+    "text": "Dan is happy.",
+    "pic": "🧒"
+   },
+   {
+    "text": "Meg is happier.",
+    "pic": "👧"
+   },
+   {
+    "text": "Tom is the happiest.",
+    "pic": "🧒😄"
+   },
+   {
+    "text": "The puppies are funnier.",
+    "pic": "🐶"
+   }
+  ],
+  "questions": [
+   {
+    "q": "Who is the happiest?",
+    "type": "literal",
+    "answer": [
+     "🧒",
+     "Tom"
+    ],
+    "distractors": [
+     [
+      "👧",
+      "Meg"
+     ],
+     [
+      "🐶",
+      "dog"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s37a",
+  "unit": 37,
+  "title": "At the Station",
+  "topic": "places",
+  "focus": [
+   "tion",
+   "ture"
+  ],
+  "pages": [
+   {
+    "text": "We are at the station.",
+    "pic": "🚉"
+   },
+   {
+    "text": "It is a big station.",
+    "pic": "🚉"
+   },
+   {
+    "text": "We can see a picture.",
+    "pic": "🖼️"
+   },
+   {
+    "text": "It is a picture of a train.",
+    "pic": "🚂"
+   }
+  ],
+  "questions": [
+   {
+    "q": "Where are we?",
+    "type": "literal",
+    "answer": [
+     "🚉",
+     "station"
+    ],
+    "distractors": [
+     [
+      "🏖️",
+      "sand"
+     ],
+     [
+      "🛏️",
+      "cot"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s37b",
+  "unit": 37,
+  "title": "Nature",
+  "topic": "nature",
+  "focus": [
+   "ture"
+  ],
+  "pages": [
+   {
+    "text": "Look at nature.",
+    "pic": "🌿"
+   },
+   {
+    "text": "A creature is in the park.",
+    "pic": "🦎"
+   },
+   {
+    "text": "The creature is red.",
+    "pic": "🦎"
+   },
+   {
+    "text": "We take a picture.",
+    "pic": "📷"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What is in the park?",
+    "type": "literal",
+    "answer": [
+     "🦎",
+     "creature"
+    ],
+    "distractors": [
+     [
+      "🐷",
+      "pig"
+     ],
+     [
+      "🐱",
+      "cat"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s37c",
+  "unit": 37,
+  "title": "Vacation",
+  "topic": "travel",
+  "focus": [
+   "tion",
+   "sion"
+  ],
+  "pages": [
+   {
+    "text": "We go on vacation.",
+    "pic": "🏖️"
+   },
+   {
+    "text": "We see a nation.",
+    "pic": "🏳️"
+   },
+   {
+    "text": "We can see television.",
+    "pic": "📺"
+   },
+   {
+    "text": "We take a picture of the vision.",
+    "pic": "📷"
+   }
+  ],
+  "questions": [
+   {
+    "q": "Where do we go?",
+    "type": "literal",
+    "answer": [
+     "🏖️",
+     "vacation"
+    ],
+    "distractors": [
+     [
+      "🏫",
+      "school"
+     ],
+     [
+      "🛏️",
+      "cot"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s38a",
+  "unit": 38,
+  "title": "The Jungle",
+  "topic": "nature",
+  "pages": [
+   {
+    "text": "A tiger is in the jungle.",
+    "pic": "🐯🌴"
+   },
+   {
+    "text": "The jungle has a big tree and a purple flower.",
+    "pic": "🌳🌸"
+   },
+   {
+    "text": "A turtle sat by the lake in the sunshine.",
+    "pic": "🐢🏞️"
+   },
+   {
+    "text": "The little bird is asleep in the tree.",
+    "pic": "🐦😴"
+   },
+   {
+    "text": "It is a nice day in the jungle.",
+    "pic": "☀️"
+   },
+   {
+    "text": "We can see nature at the lake.",
+    "pic": "🌿"
+   }
+  ],
+  "questions": [
+   {
+    "q": "Who is in the jungle?",
+    "type": "literal",
+    "answer": [
+     "🐯",
+     "tiger"
+    ],
+    "distractors": [
+     [
+      "🐷",
+      "pig"
+     ],
+     [
+      "🐱",
+      "cat"
+     ]
+    ]
+   },
+   {
+    "q": "Who is asleep?",
+    "type": "literal",
+    "answer": [
+     "🐦",
+     "bird"
+    ],
+    "distractors": [
+     [
+      "🐢",
+      "turtle"
+     ],
+     [
+      "🐯",
+      "tiger"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s38b",
+  "unit": 38,
+  "title": "A Day at School",
+  "topic": "school",
+  "pages": [
+   {
+    "text": "Meg is happy to go to school in the morning.",
+    "pic": "👧🏫"
+   },
+   {
+    "text": "She has a new pencil and a little book.",
+    "pic": "✏️📓"
+   },
+   {
+    "text": "The teacher is helpful and kind.",
+    "pic": "👩‍🏫"
+   },
+   {
+    "text": "We read a book about a robot.",
+    "pic": "📖🤖"
+   },
+   {
+    "text": "Then we play in the garden.",
+    "pic": "🎮🌳"
+   },
+   {
+    "text": "It is the best day.",
+    "pic": "😄"
+   }
+  ],
+  "questions": [
+   {
+    "q": "Who is happy?",
+    "type": "literal",
+    "answer": [
+     "👧",
+     "Meg"
+    ],
+    "distractors": [
+     [
+      "🧒",
+      "Tom"
+     ],
+     [
+      "🐶",
+      "dog"
+     ]
+    ]
+   },
+   {
+    "q": "What did we read about?",
+    "type": "literal",
+    "answer": [
+     "🤖",
+     "robot"
+    ],
+    "distractors": [
+     [
+      "🐷",
+      "pig"
+     ],
+     [
+      "🐱",
+      "cat"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s38c",
+  "unit": 38,
+  "title": "The Weather",
+  "topic": "weather",
+  "pages": [
+   {
+    "text": "The weather is cold.",
+    "pic": "🌦️🥶"
+   },
+   {
+    "text": "A cloud is in the sky.",
+    "pic": "☁️"
+   },
+   {
+    "text": "Snow can sit on the ground.",
+    "pic": "⛄"
+   },
+   {
+    "text": "Dan has a raincoat and a jacket.",
+    "pic": "🧒🧥"
+   },
+   {
+    "text": "He is running in the snow.",
+    "pic": "🏃⛄"
+   },
+   {
+    "text": "Then the sun is out and it is hot.",
+    "pic": "☀️"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What is cold?",
+    "type": "literal",
+    "answer": [
+     "🌦️",
+     "weather"
+    ],
+    "distractors": [
+     [
+      "🍰",
+      "cake"
+     ],
+     [
+      "🐷",
+      "pig"
+     ]
+    ]
+   },
+   {
+    "q": "What can sit on the ground?",
+    "type": "literal",
+    "answer": [
+     "⛄",
+     "snow"
+    ],
+    "distractors": [
+     [
+      "☀️",
+      "sun"
+     ],
+     [
+      "🍰",
+      "cake"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s38d",
+  "unit": 38,
+  "title": "The Space Trip",
+  "topic": "space",
+  "pages": [
+   {
+    "text": "A rocket is on the ground.",
+    "pic": "🚀"
+   },
+   {
+    "text": "The robot and the girl get in.",
+    "pic": "🤖👧"
+   },
+   {
+    "text": "The rocket can fly fast.",
+    "pic": "🚀💨"
+   },
+   {
+    "text": "They see the star and the moon.",
+    "pic": "⭐🌙"
+   },
+   {
+    "text": "They take a picture of the world.",
+    "pic": "📷🌍"
+   },
+   {
+    "text": "They are happy to be home.",
+    "pic": "🏠😊"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What is on the ground?",
+    "type": "literal",
+    "answer": [
+     "🚀",
+     "rocket"
+    ],
+    "distractors": [
+     [
+      "🚌",
+      "bus"
+     ],
+     [
+      "🛏️",
+      "cot"
+     ]
+    ]
+   },
+   {
+    "q": "What do they take?",
+    "type": "literal",
+    "answer": [
+     "📷",
+     "picture"
+    ],
+    "distractors": [
+     [
+      "🍰",
+      "cake"
+     ],
+     [
+      "🥤",
+      "cup"
+     ]
+    ]
+   }
+  ]
  }
 ]

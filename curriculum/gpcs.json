@@ -2254,6 +2254,162 @@
   ]
  },
  {
+  "id": "le",
+  "g": "le",
+  "ph": [
+   "schwa",
+   "l"
+  ],
+  "unit": 33,
+  "type": "ending",
+  "fbank": [
+   [
+    "apple",
+    "🍎"
+   ],
+   [
+    "candle",
+    "🕯️"
+   ],
+   [
+    "bubble",
+    "🫧"
+   ],
+   [
+    "turtle",
+    "🐢"
+   ]
+  ]
+ },
+ {
+  "id": "schwa",
+  "g": "a",
+  "ph": [
+   "schwa"
+  ],
+  "unit": 33,
+  "type": "schwa",
+  "vbank": [
+   [
+    "banana",
+    "🍌"
+   ],
+   [
+    "sofa",
+    "🛋️"
+   ],
+   [
+    "zebra",
+    "🦓"
+   ],
+   [
+    "pizza",
+    "🍕"
+   ]
+  ]
+ },
+ {
+  "id": "a_open",
+  "g": "a",
+  "ph": [
+   "ai"
+  ],
+  "unit": 33,
+  "type": "vowel-open",
+  "vbank": [
+   [
+    "table",
+    "🍽️"
+   ],
+   [
+    "baby",
+    "👶"
+   ],
+   [
+    "paper",
+    "📄"
+   ],
+   [
+    "lady",
+    "👩"
+   ]
+  ]
+ },
+ {
+  "id": "tion",
+  "g": "tion",
+  "ph": [
+   "sh",
+   "schwa",
+   "n"
+  ],
+  "unit": 37,
+  "type": "ending",
+  "fbank": [
+   [
+    "station",
+    "🚉"
+   ],
+   [
+    "nation",
+    "🏳️"
+   ],
+   [
+    "lotion",
+    "🧴"
+   ]
+  ]
+ },
+ {
+  "id": "sion",
+  "g": "sion",
+  "ph": [
+   "zh",
+   "schwa",
+   "n"
+  ],
+  "unit": 37,
+  "type": "ending",
+  "fbank": [
+   [
+    "vision",
+    "👓"
+   ],
+   [
+    "television",
+    "📺"
+   ],
+   [
+    "division",
+    "➗"
+   ]
+  ]
+ },
+ {
+  "id": "ture",
+  "g": "ture",
+  "ph": [
+   "ch",
+   "ur"
+  ],
+  "unit": 37,
+  "type": "ending",
+  "fbank": [
+   [
+    "picture",
+    "🖼️"
+   ],
+   [
+    "nature",
+    "🌿"
+   ],
+   [
+    "creature",
+    "🦎"
+   ]
+  ]
+ },
+ {
   "id": "ed_t",
   "g": "ed",
   "ph": [

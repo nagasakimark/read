@@ -98,3 +98,14 @@ Headless playthrough: `node tools/play.mjs <lessons> <accuracy> <skipToUnit>` (n
 - `tools/author_s5.py` is the authoring aid (plain spellings → GPC rows, with a_e / open / explicit token syntax).
 - Verification: validate 0 errors; all guess-bot checks pass; perfect learner finishes Units 0-31 in 215 lessons, 85% learner in 309, 60% learner held back. Caps in guessbot raised to 450 / 650 lessons.
 - Next: Stage 6 (syllables, -le/schwa, suffixes, prefixes, spelling-change, -tion/-sion/-ture) and Stage 7 fluency bridge. Needs syllable-chop / word-sum / affix activities.
+
+## Stage 6 and 7: syllables, morphology, fluency bridge (this session)
+
+- **Units 32-37** authored plus **Unit 38** (fluency bridge: four longer unpractised passages, no new teaching). Course now fully authored: 39 units, 100 GPCs, 1,906 words, 109 stories, 108 sentences.
+- **Syllables (U32):** word rows carry syllable marks inside the GPC string (`|` closed VC/CV, `/` open V/CV, `+` compound). The build derives `syl` (GPCs per syllable) and the patterns `sy:closed`, `sy:open`, `sy:compound`, `sy:r` (r-controlled). New activity **syllable-chop**: the child picks where the word divides.
+- **Weak vowels (U33):** GPC types `ending` (le, tion, sion, ture: word-final spelling, never a lure position) and `schwa`; `a_open` is the long "a" in an open syllable (table, baby).
+- **Morphology (U34-U36):** word rows can declare `morph` (base + affix). Patterns `af:es af:s af:er af:est af:ly af:ful af:less`, `af:un af:re af:pre af:dis`, and spelling-change rules `af:double af:drop-e af:y-i` (recognised automatically from base + suffix = word). New activities **word-sum** (play + ing = ?) and **affix-build** (tiles for prefix / base / suffix). Pattern mastery uses the same rule as clusters (7 of the last 8 across 2 activity types).
+- **U37:** tion, sion, ture as GPCs of type `ending` (/ʃən/ /ʒən/ /tʃɚ/). Phonemes added: schwa, zh.
+- Engine: `blendChoose` borrows look-alike words as distractors when a word has no one-sound neighbours (apple, uncle); long prompt text shrinks to fit.
+- `tools/author_s6.py` is the authoring aid (chunked spellings with `.` `/` `+` `_`, uppercase A E I O = open-syllable vowels, `@` = schwa).
+- Open: real audio and pictures; teaching screens for syllable / morpheme units; practice games; pilot with learners. Stage-checkpoint tests (cp1-cp4) are in the course plan but not yet built as scenes.

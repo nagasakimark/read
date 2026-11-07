@@ -17,13 +17,35 @@ const out = (name, data) => fs.writeFileSync(path.join(root, 'curriculum', name)
 const gpcById = Object.fromEntries(GPCS.map(g => [g.id, g]));
 
 // consonant-cluster patterns, e.g. 'n d$' (final) or '^s t' (initial); id = spec without spaces
-const patSpecs = UNITS.flatMap(u => (u.patterns || []).flat()).map(sp => ({ id: sp.replace(/ /g, ''), seq: sp.replace(/[\^$]/g, '').trim().split(' '), initial: sp.startsWith('^') }));
-const words = WORDS.map(([t, g, pic, ja, tier, uo]) => {
-  const ids = g.split(' ');
+const allPats = UNITS.flatMap(u => (u.patterns || []).flat());
+// consonant-cluster patterns, e.g. 'n d$' (final) or '^s t' (initial); id = spec without spaces
+const patSpecs = allPats.filter(sp => !/^(sy|af):/.test(sp)).map(sp => ({ id: sp.replace(/ /g, ''), seq: sp.replace(/[\^$]/g, '').trim().split(' '), initial: sp.startsWith('^') }));
+// Stage 6 patterns: 'sy:closed|open|compound|r' (syllable types, derived from the word's syllable marks) and 'af:<morpheme>' (declared per word)
+const afSet = new Set(allPats.filter(sp => sp.startsWith('af:')).map(sp => sp.slice(3)));
+const R_CTRL = new Set(['ar', 'or', 'er', 'ir', 'ur', 'air', 'ear']);
+const SYL_T = { '|': 'closed', '/': 'open', '+': 'compound' };
+const words = WORDS.map(([t, g, pic, ja, tier, uo, morph]) => {
+  // syllable marks inside the GPC string: | closed (VC/CV)   / open (V/CV)   + compound boundary
+  const ids = [], syl = [], sylT = []; let cur = 0;
+  for (const b of g.split(/([|\/+])/)) {
+    if (SYL_T[b]) { syl.push(cur); cur = 0; sylT.push(SYL_T[b]); }
+    else { const toks = b.split(' ').filter(Boolean); ids.push(...toks); cur += toks.length; }
+  }
+  if (syl.length) syl.push(cur);
   const unit = Math.max(...ids.map(i => gpcById[i]?.unit ?? 99));
   const ph = ids.flatMap(i => gpcById[i]?.ph ?? []);
   const pat = patSpecs.filter(p => p.initial ? p.seq.every((x, i) => ids[i] === x) : p.seq.every((x, i) => ids[ids.length - p.seq.length + i] === x)).map(p => p.id);
-  return { id: t.toLowerCase(), t, g: ids, u: uo ?? unit, ph, pic, ja, tier, ...(pat.length ? { pat } : {}) };
+  for (const ty of new Set(sylT)) pat.push('sy:' + ty);
+  if (syl.length && ids.some(i => R_CTRL.has(i))) pat.push('sy:r');
+  const mo = morph ? morph.split('+') : null;
+  for (const m of mo || []) if (afSet.has(m)) pat.push('af:' + m);
+  if (mo && mo.length >= 2) {   // spelling-change rules, recognised from base + suffix = word
+    const base = mo.slice(0, -1).join(''), suf = mo.at(-1), wt = t.toLowerCase();
+    if (wt === base + base.slice(-1) + suf && afSet.has('double')) pat.push('af:double');
+    else if (/e$/.test(base) && wt === base.slice(0, -1) + suf && afSet.has('drop-e')) pat.push('af:drop-e');
+    else if (/y$/.test(base) && wt === base.slice(0, -1) + 'i' + suf && afSet.has('y-i')) pat.push('af:y-i');
+  }
+  return { id: t.toLowerCase(), t, g: ids, u: uo ?? unit, ph, pic, ja, tier, ...(pat.length ? { pat } : {}), ...(syl.length ? { syl } : {}), ...(mo ? { morph: mo } : {}) };
 });
 
 const tricky = TRICKY.map(([t, parts, release, decodableFrom, noteEn, noteJa]) =>
@@ -50,7 +72,7 @@ const units = UNITS.map(u => {
   } else {
     mk(1, 'consolidate', []);
   }
-  return { id: u.id, stage: u.stage, name: u.name, ja: u.ja, newGpcs: (u.groups || []).flat(), suffixGpcs: u.suffixGpcs || [], newPatterns: (u.patterns || []).flat().map(x => x.replace(/ /g, '')), newTricky: u.tricky.flat(),
+  return { id: u.id, stage: u.stage, name: u.name, ja: u.ja, newGpcs: (u.groups || []).flat(), suffixGpcs: u.suffixGpcs || [], newPatterns: (u.patterns || []).flat().map(x => x.replace(/ /g, '')), ...(u.syl ? { syl: true } : {}), ...(u.morph ? { morph: true } : {}), newTricky: u.tricky.flat(),
     prereqs: u.id > 1 ? [u.id - 1] : [0], packs: PACKS.filter(p => p.unit === u.id).map(p => p.id), lessons,
     stories: st, mastery: { rungRequired: 4, storyAccuracy: 0.9, questionsCorrect: st.length ? 2 : 0 } };
 });

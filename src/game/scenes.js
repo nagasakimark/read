@@ -110,7 +110,7 @@ export class HomeScene {
       c.fillStyle = 'rgba(30,50,70,.3)'; c.beginPath(); c.arc(n.x, n.y + 6, r, 0, 7); c.fill();
       c.fillStyle = planned ? '#d5dde4' : passed ? '#ffd23f' : isCur ? '#fff' : open ? '#e8f6ff' : '#b5c3cf'; c.beginPath(); c.arc(n.x, n.y, r, 0, 7); c.fill();
       c.lineWidth = 6; c.strokeStyle = isCur ? '#58c46a' : '#fff'; c.stroke();
-      const lab = n.id === 0 ? '👂' : n.au ? (n.au.newGpcs.length ? n.au.newGpcs.map(g => gLabel(app.C.gpcs[g])).slice(0, 4).join(' ') : n.au.newPatterns.map(x => x.replace(/[\^$]/g, '')).slice(0, 3).join(' ')) : (n.cu.gpcs.map(g => g[1]).slice(0, 4).join(' ') || (n.cu.concepts[0] || '…').replace(/[:(].*/, '').trim().split(' ').slice(0, 3).join(' '));
+      const lab = n.id === 0 ? '👂' : n.au ? (n.au.newGpcs.length ? n.au.newGpcs.map(g => gLabel(app.C.gpcs[g])).slice(0, 4).join(' ') : n.au.newPatterns.map(x => x.replace(/[\^$]/g, '').replace(/^(sy|af):/, '')).slice(0, 3).join(' ')) : (n.cu.gpcs.map(g => g[1]).slice(0, 4).join(' ') || (n.cu.concepts[0] || '…').replace(/[:(].*/, '').trim().split(' ').slice(0, 3).join(' '));
       if (planned) { text(c, lab, n.x, n.y - 6, { size: lab.length > 6 ? 20 : 28, color: '#8a9aa7' }); text(c, 'soon', n.x, n.y + 24, { size: 18, color: '#8a9aa7' }); }
       else if (!open && !passed) text(c, '🔒', n.x, n.y, { size: 38 });
       else text(c, lab, n.x, n.y + 2, { size: n.id === 0 ? 46 : lab.length > 8 ? 22 : 28, color: passed ? '#7a5a00' : '#23394b' });

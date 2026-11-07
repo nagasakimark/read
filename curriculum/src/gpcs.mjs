@@ -20,6 +20,8 @@ export const PHONEMES = [
   ['ar','ɑr','A@','open',true], ['or','ɔr','O@','round',true], ['ur','ɜr','3:','mid',true], ['air','ɛr','e@','open',true], ['ear','ɪr','i@','smile',true],
   // Stage 5
   ['aw','ɔ','O:','round',true],
+  // Stage 6
+  ['schwa','ə','@','mid',true], ['zh','ʒ','Z','round',true],
 ].map(([id,ipa,esp,mouth,cont]) => ({ id, ipa, esp, mouth, cont }));
 
 // id, grapheme, phonemes, unit, type, mnemonic bank [word, emoji] (first = mnemonic), note
@@ -131,6 +133,14 @@ export const GPCS = [
   ['wr','wr',['r'],31,'initial',[['write','✍️'],['wrap','🎁'],['wrist','⌚']]],
   ['mb','mb',['m'],31,'digraph-final',null,[['lamb','🐑'],['comb','🪮'],['thumb','👍'],['climb','🧗']]],
   ['ve','ve',['v'],31,'digraph-final',null,[['give','🎁'],['olive','🫒'],['live','❤️']]],
+
+  // ---- Stage 6: syllable endings and weak vowels. 'ending' = word-final syllable spelling (never a lure position); 'schwa' = the weak vowel.
+  ['le','le',['schwa','l'],33,'ending',null,[['apple','🍎'],['candle','🕯️'],['bubble','🫧'],['turtle','🐢']]],
+  ['schwa','a',['schwa'],33,'schwa',null,null,[['banana','🍌'],['sofa','🛋️'],['zebra','🦓'],['pizza','🍕']]],
+  ['a_open','a',['ai'],33,'vowel-open',null,null,[['table','🍽️'],['baby','👶'],['paper','📄'],['lady','👩']]],
+  ['tion','tion',['sh','schwa','n'],37,'ending',null,[['station','🚉'],['nation','🏳️'],['lotion','🧴']]],
+  ['sion','sion',['zh','schwa','n'],37,'ending',null,[['vision','👓'],['television','📺'],['division','➗']]],
+  ['ture','ture',['ch','ur'],37,'ending',null,[['picture','🖼️'],['nature','🌿'],['creature','🦎']]],
   // suffix -ed: one spelling, three sounds. Taught as word endings (unit 16 patterns), never as stand-alone sound cards.
   ['ed_t','ed',['t'],16,'suffix',null,null],
   ['ed_d','ed',['d'],16,'suffix',null,null],

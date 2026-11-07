@@ -3842,5 +3842,851 @@
    "storyAccuracy": 0.9,
    "questionsCorrect": 2
   }
+ },
+ {
+  "id": 32,
+  "stage": 6,
+  "name": "syllable types",
+  "ja": "おとの かたまり",
+  "newGpcs": [],
+  "suffixGpcs": [],
+  "newPatterns": [
+   "sy:closed",
+   "sy:open",
+   "sy:compound",
+   "sy:r"
+  ],
+  "syl": true,
+  "newTricky": [],
+  "prereqs": [
+   31
+  ],
+  "packs": [],
+  "lessons": [
+   {
+    "id": "L32_1",
+    "unit": 32,
+    "kind": "teach",
+    "newGpcs": [],
+    "newPats": [
+     "sy:closed"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L32_2",
+    "unit": 32,
+    "kind": "teach",
+    "newGpcs": [],
+    "newPats": [
+     "sy:open"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L32_3",
+    "unit": 32,
+    "kind": "teach",
+    "newGpcs": [],
+    "newPats": [
+     "sy:compound",
+     "sy:r"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L32_4",
+    "unit": 32,
+    "kind": "consolidate",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s32a",
+      "read": 1
+     }
+    ]
+   },
+   {
+    "id": "L32_5",
+    "unit": 32,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s32a",
+      "read": 2
+     },
+     {
+      "id": "s32a",
+      "read": 3
+     },
+     {
+      "id": "s32b",
+      "read": 1
+     },
+     {
+      "id": "s32b",
+      "read": 2
+     }
+    ]
+   },
+   {
+    "id": "L32_6",
+    "unit": 32,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s32b",
+      "read": 3
+     },
+     {
+      "id": "s32c",
+      "read": 1
+     },
+     {
+      "id": "s32c",
+      "read": 2
+     },
+     {
+      "id": "s32c",
+      "read": 3
+     }
+    ]
+   }
+  ],
+  "stories": [
+   "s32a",
+   "s32b",
+   "s32c"
+  ],
+  "mastery": {
+   "rungRequired": 4,
+   "storyAccuracy": 0.9,
+   "questionsCorrect": 2
+  }
+ },
+ {
+  "id": 33,
+  "stage": 6,
+  "name": "-le and weak vowels",
+  "ja": "-le と あいまいな おと",
+  "newGpcs": [
+   "le",
+   "schwa",
+   "a_open"
+  ],
+  "suffixGpcs": [],
+  "newPatterns": [],
+  "newTricky": [],
+  "prereqs": [
+   32
+  ],
+  "packs": [],
+  "lessons": [
+   {
+    "id": "L33_1",
+    "unit": 33,
+    "kind": "teach",
+    "newGpcs": [
+     "le"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L33_2",
+    "unit": 33,
+    "kind": "teach",
+    "newGpcs": [
+     "schwa",
+     "a_open"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L33_3",
+    "unit": 33,
+    "kind": "consolidate",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s33a",
+      "read": 1
+     }
+    ]
+   },
+   {
+    "id": "L33_4",
+    "unit": 33,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s33a",
+      "read": 2
+     },
+     {
+      "id": "s33a",
+      "read": 3
+     },
+     {
+      "id": "s33b",
+      "read": 1
+     },
+     {
+      "id": "s33b",
+      "read": 2
+     }
+    ]
+   },
+   {
+    "id": "L33_5",
+    "unit": 33,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s33b",
+      "read": 3
+     },
+     {
+      "id": "s33c",
+      "read": 1
+     },
+     {
+      "id": "s33c",
+      "read": 2
+     },
+     {
+      "id": "s33c",
+      "read": 3
+     }
+    ]
+   }
+  ],
+  "stories": [
+   "s33a",
+   "s33b",
+   "s33c"
+  ],
+  "mastery": {
+   "rungRequired": 4,
+   "storyAccuracy": 0.9,
+   "questionsCorrect": 2
+  }
+ },
+ {
+  "id": 34,
+  "stage": 6,
+  "name": "suffixes",
+  "ja": "おわりに つく ことば",
+  "newGpcs": [],
+  "suffixGpcs": [],
+  "newPatterns": [
+   "af:es",
+   "af:s",
+   "af:er",
+   "af:est",
+   "af:ly",
+   "af:ful",
+   "af:less"
+  ],
+  "morph": true,
+  "newTricky": [],
+  "prereqs": [
+   33
+  ],
+  "packs": [],
+  "lessons": [
+   {
+    "id": "L34_1",
+    "unit": 34,
+    "kind": "teach",
+    "newGpcs": [],
+    "newPats": [
+     "af:es",
+     "af:s"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L34_2",
+    "unit": 34,
+    "kind": "teach",
+    "newGpcs": [],
+    "newPats": [
+     "af:er",
+     "af:est"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L34_3",
+    "unit": 34,
+    "kind": "teach",
+    "newGpcs": [],
+    "newPats": [
+     "af:ly",
+     "af:ful",
+     "af:less"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L34_4",
+    "unit": 34,
+    "kind": "consolidate",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s34a",
+      "read": 1
+     }
+    ]
+   },
+   {
+    "id": "L34_5",
+    "unit": 34,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s34a",
+      "read": 2
+     },
+     {
+      "id": "s34a",
+      "read": 3
+     },
+     {
+      "id": "s34b",
+      "read": 1
+     },
+     {
+      "id": "s34b",
+      "read": 2
+     }
+    ]
+   },
+   {
+    "id": "L34_6",
+    "unit": 34,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s34b",
+      "read": 3
+     },
+     {
+      "id": "s34c",
+      "read": 1
+     },
+     {
+      "id": "s34c",
+      "read": 2
+     },
+     {
+      "id": "s34c",
+      "read": 3
+     }
+    ]
+   }
+  ],
+  "stories": [
+   "s34a",
+   "s34b",
+   "s34c"
+  ],
+  "mastery": {
+   "rungRequired": 4,
+   "storyAccuracy": 0.9,
+   "questionsCorrect": 2
+  }
+ },
+ {
+  "id": 35,
+  "stage": 6,
+  "name": "prefixes",
+  "ja": "はじめに つく ことば",
+  "newGpcs": [],
+  "suffixGpcs": [],
+  "newPatterns": [
+   "af:un",
+   "af:re",
+   "af:pre",
+   "af:dis"
+  ],
+  "morph": true,
+  "newTricky": [],
+  "prereqs": [
+   34
+  ],
+  "packs": [],
+  "lessons": [
+   {
+    "id": "L35_1",
+    "unit": 35,
+    "kind": "teach",
+    "newGpcs": [],
+    "newPats": [
+     "af:un"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L35_2",
+    "unit": 35,
+    "kind": "teach",
+    "newGpcs": [],
+    "newPats": [
+     "af:re",
+     "af:pre"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L35_3",
+    "unit": 35,
+    "kind": "teach",
+    "newGpcs": [],
+    "newPats": [
+     "af:dis"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L35_4",
+    "unit": 35,
+    "kind": "consolidate",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s35a",
+      "read": 1
+     }
+    ]
+   },
+   {
+    "id": "L35_5",
+    "unit": 35,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s35a",
+      "read": 2
+     },
+     {
+      "id": "s35a",
+      "read": 3
+     },
+     {
+      "id": "s35b",
+      "read": 1
+     },
+     {
+      "id": "s35b",
+      "read": 2
+     }
+    ]
+   },
+   {
+    "id": "L35_6",
+    "unit": 35,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s35b",
+      "read": 3
+     },
+     {
+      "id": "s35c",
+      "read": 1
+     },
+     {
+      "id": "s35c",
+      "read": 2
+     },
+     {
+      "id": "s35c",
+      "read": 3
+     }
+    ]
+   }
+  ],
+  "stories": [
+   "s35a",
+   "s35b",
+   "s35c"
+  ],
+  "mastery": {
+   "rungRequired": 4,
+   "storyAccuracy": 0.9,
+   "questionsCorrect": 2
+  }
+ },
+ {
+  "id": 36,
+  "stage": 6,
+  "name": "spelling-change rules",
+  "ja": "つづりの ルール",
+  "newGpcs": [],
+  "suffixGpcs": [],
+  "newPatterns": [
+   "af:double",
+   "af:drop-e",
+   "af:y-i"
+  ],
+  "morph": true,
+  "newTricky": [],
+  "prereqs": [
+   35
+  ],
+  "packs": [],
+  "lessons": [
+   {
+    "id": "L36_1",
+    "unit": 36,
+    "kind": "teach",
+    "newGpcs": [],
+    "newPats": [
+     "af:double"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L36_2",
+    "unit": 36,
+    "kind": "teach",
+    "newGpcs": [],
+    "newPats": [
+     "af:drop-e"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L36_3",
+    "unit": 36,
+    "kind": "teach",
+    "newGpcs": [],
+    "newPats": [
+     "af:y-i"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L36_4",
+    "unit": 36,
+    "kind": "consolidate",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s36a",
+      "read": 1
+     }
+    ]
+   },
+   {
+    "id": "L36_5",
+    "unit": 36,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s36a",
+      "read": 2
+     },
+     {
+      "id": "s36a",
+      "read": 3
+     },
+     {
+      "id": "s36b",
+      "read": 1
+     },
+     {
+      "id": "s36b",
+      "read": 2
+     }
+    ]
+   },
+   {
+    "id": "L36_6",
+    "unit": 36,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s36b",
+      "read": 3
+     },
+     {
+      "id": "s36c",
+      "read": 1
+     },
+     {
+      "id": "s36c",
+      "read": 2
+     },
+     {
+      "id": "s36c",
+      "read": 3
+     }
+    ]
+   }
+  ],
+  "stories": [
+   "s36a",
+   "s36b",
+   "s36c"
+  ],
+  "mastery": {
+   "rungRequired": 4,
+   "storyAccuracy": 0.9,
+   "questionsCorrect": 2
+  }
+ },
+ {
+  "id": 37,
+  "stage": 6,
+  "name": "-tion -sion -ture",
+  "ja": "-tion -sion -ture",
+  "newGpcs": [
+   "tion",
+   "sion",
+   "ture"
+  ],
+  "suffixGpcs": [],
+  "newPatterns": [],
+  "newTricky": [],
+  "prereqs": [
+   36
+  ],
+  "packs": [],
+  "lessons": [
+   {
+    "id": "L37_1",
+    "unit": 37,
+    "kind": "teach",
+    "newGpcs": [
+     "tion"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L37_2",
+    "unit": 37,
+    "kind": "teach",
+    "newGpcs": [
+     "sion",
+     "ture"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L37_3",
+    "unit": 37,
+    "kind": "consolidate",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s37a",
+      "read": 1
+     }
+    ]
+   },
+   {
+    "id": "L37_4",
+    "unit": 37,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s37a",
+      "read": 2
+     },
+     {
+      "id": "s37a",
+      "read": 3
+     },
+     {
+      "id": "s37b",
+      "read": 1
+     },
+     {
+      "id": "s37b",
+      "read": 2
+     }
+    ]
+   },
+   {
+    "id": "L37_5",
+    "unit": 37,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s37b",
+      "read": 3
+     },
+     {
+      "id": "s37c",
+      "read": 1
+     },
+     {
+      "id": "s37c",
+      "read": 2
+     },
+     {
+      "id": "s37c",
+      "read": 3
+     }
+    ]
+   }
+  ],
+  "stories": [
+   "s37a",
+   "s37b",
+   "s37c"
+  ],
+  "mastery": {
+   "rungRequired": 4,
+   "storyAccuracy": 0.9,
+   "questionsCorrect": 2
+  }
+ },
+ {
+  "id": 38,
+  "stage": 7,
+  "name": "fluency bridge",
+  "ja": "すらすら よもう",
+  "newGpcs": [],
+  "suffixGpcs": [],
+  "newPatterns": [],
+  "newTricky": [],
+  "prereqs": [
+   37
+  ],
+  "packs": [],
+  "lessons": [
+   {
+    "id": "L38_1",
+    "unit": 38,
+    "kind": "teach",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L38_2",
+    "unit": 38,
+    "kind": "consolidate",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s38a",
+      "read": 1
+     }
+    ]
+   },
+   {
+    "id": "L38_3",
+    "unit": 38,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s38a",
+      "read": 2
+     },
+     {
+      "id": "s38a",
+      "read": 3
+     },
+     {
+      "id": "s38b",
+      "read": 1
+     },
+     {
+      "id": "s38b",
+      "read": 2
+     }
+    ]
+   },
+   {
+    "id": "L38_4",
+    "unit": 38,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s38b",
+      "read": 3
+     },
+     {
+      "id": "s38c",
+      "read": 1
+     },
+     {
+      "id": "s38c",
+      "read": 2
+     },
+     {
+      "id": "s38c",
+      "read": 3
+     }
+    ]
+   }
+  ],
+  "stories": [
+   "s38a",
+   "s38b",
+   "s38c",
+   "s38d"
+  ],
+  "mastery": {
+   "rungRequired": 4,
+   "storyAccuracy": 0.9,
+   "questionsCorrect": 2
+  }
  }
 ]

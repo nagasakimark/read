@@ -433,5 +433,110 @@
   "unit": 31,
   "text": "I can climb and write.",
   "pic": "🧗"
+ },
+ {
+  "unit": 32,
+  "text": "Meg has a basket.",
+  "pic": "🧺"
+ },
+ {
+  "unit": 32,
+  "text": "A robot is in the garden.",
+  "pic": "🤖"
+ },
+ {
+  "unit": 32,
+  "text": "The rabbit sat in the sunshine.",
+  "pic": "🐰"
+ },
+ {
+  "unit": 33,
+  "text": "The turtle is purple.",
+  "pic": "🐢"
+ },
+ {
+  "unit": 33,
+  "text": "The baby has a bubble.",
+  "pic": "🫧"
+ },
+ {
+  "text": "The panda has a banana.",
+  "unit": 33,
+  "pic": "🐼"
+ },
+ {
+  "unit": 34,
+  "text": "The rabbit is faster.",
+  "pic": "🐰"
+ },
+ {
+  "unit": 34,
+  "text": "Dan is helpful.",
+  "pic": "🧒"
+ },
+ {
+  "unit": 34,
+  "text": "This tree is the tallest.",
+  "pic": "🌲"
+ },
+ {
+  "unit": 35,
+  "text": "Meg can unlock the box.",
+  "pic": "🔓"
+ },
+ {
+  "unit": 35,
+  "text": "Tom can replay the game.",
+  "pic": "🎮"
+ },
+ {
+  "unit": 35,
+  "text": "I dislike the rain.",
+  "pic": "🌧️"
+ },
+ {
+  "unit": 36,
+  "text": "Dan is running.",
+  "pic": "🏃"
+ },
+ {
+  "unit": 36,
+  "text": "Meg is baking a cake.",
+  "pic": "🍰"
+ },
+ {
+  "unit": 36,
+  "text": "Tom is the happiest.",
+  "pic": "😄"
+ },
+ {
+  "unit": 37,
+  "text": "We are at the station.",
+  "pic": "🚉"
+ },
+ {
+  "unit": 37,
+  "text": "We take a picture.",
+  "pic": "📷"
+ },
+ {
+  "unit": 37,
+  "text": "The creature is in the park.",
+  "pic": "🦎"
+ },
+ {
+  "unit": 38,
+  "text": "The tiger is in the jungle.",
+  "pic": "🐯"
+ },
+ {
+  "unit": 38,
+  "text": "The teacher is helpful and kind.",
+  "pic": "👩‍🏫"
+ },
+ {
+  "unit": 38,
+  "text": "We take a picture of the world.",
+  "pic": "📷"
  }
 ]

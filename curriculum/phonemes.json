@@ -292,5 +292,19 @@
   "esp": "O:",
   "mouth": "round",
   "cont": true
+ },
+ {
+  "id": "schwa",
+  "ipa": "ə",
+  "esp": "@",
+  "mouth": "mid",
+  "cont": true
+ },
+ {
+  "id": "zh",
+  "ipa": "ʒ",
+  "esp": "Z",
+  "mouth": "round",
+  "cont": true
  }
 ]

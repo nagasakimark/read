@@ -36,4 +36,11 @@ export const UNITS = [
   { id:29, stage:5, name:'ou oy aw au', ja:'ou oy aw au', groups:[['ou','oy'],['aw','au']], tricky:[[],[]] },
   { id:30, stage:5, name:'try the other sound', ja:'ちがう よみかた', groups:[['ea_e','ie_i'],['c_soft','g_soft'],['ch_k']], tricky:[[],[],[]] },
   { id:31, stage:5, name:'ph wh tch dge kn wr mb ve', ja:'ph wh tch dge kn wr mb ve', groups:[['ph','wh'],['tch','dge'],['kn','wr'],['mb','ve']], tricky:[[],[],[],[]] },
+  { id:32, stage:6, name:'syllable types', ja:'おとの かたまり', patterns:[['sy:closed'],['sy:open'],['sy:compound','sy:r']], syl:true, tricky:[[],[],[]] },
+  { id:33, stage:6, name:'-le and weak vowels', ja:'-le と あいまいな おと', groups:[['le'],['schwa','a_open']], tricky:[[],[]] },
+  { id:34, stage:6, name:'suffixes', ja:'おわりに つく ことば', patterns:[['af:es','af:s'],['af:er','af:est'],['af:ly','af:ful','af:less']], morph:true, tricky:[[],[],[]] },
+  { id:35, stage:6, name:'prefixes', ja:'はじめに つく ことば', patterns:[['af:un'],['af:re','af:pre'],['af:dis']], morph:true, tricky:[[],[],[]] },
+  { id:36, stage:6, name:'spelling-change rules', ja:'つづりの ルール', patterns:[['af:double'],['af:drop-e'],['af:y-i']], morph:true, tricky:[[],[],[]] },
+  { id:37, stage:6, name:'-tion -sion -ture', ja:'-tion -sion -ture', groups:[['tion'],['sion','ture']], tricky:[[],[]] },
+  { id:38, stage:7, name:'fluency bridge', ja:'すらすら よもう', groups:[[]], tricky:[[]] },
 ];

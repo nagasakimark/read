@@ -31,6 +31,8 @@ export function planLesson(C, state, lessonSpec, rng, now = Date.now()) {
     steps.push({ type: 'blend', n: 5, focus: [], pats });
     steps.push({ type: 'spell', n: 4, focus: [], pats });
     steps.push({ type: 'readmatch', n: 2, focus: [], pats });
+    if (u.syl) steps.push({ type: 'syllchop', n: 4, pats });
+    if (u.morph) steps.push({ type: 'wordsum', n: 3, pats }, { type: 'affix', n: 2, pats });
     if (C.sillyAt(unit).length >= 3) steps.push({ type: 'pseudo', n: 3, focus: [], pats });
     const tr = lessonSpec.newTricky || [];
     if (tr.length) steps.push({ type: 'heart', words: tr, intro: true });
@@ -66,6 +68,8 @@ export function planLesson(C, state, lessonSpec, rng, now = Date.now()) {
     steps.push({ type: 'readmatch', n: 3, focus: u.newGpcs, pats: u.newPatterns });
     if (u.newGpcs.length) steps.push({ type: 'chain', n: 3, focus: u.newGpcs });
     steps.push({ type: 'spell', n: 3, focus: u.newGpcs, pats: u.newPatterns, weak: true });
+    if (u.syl) steps.push({ type: 'syllchop', n: 4, pats: u.newPatterns });
+    if (u.morph) steps.push({ type: 'wordsum', n: 3, pats: u.newPatterns }, { type: 'affix', n: 2, pats: u.newPatterns });
     if (C.sillyAt(unit).length >= 3) steps.push({ type: 'pseudo', n: 5, focus: u.newGpcs, pats: u.newPatterns });
     for (const s of lessonSpec.stories || []) steps.push({ type: 'story', story: s.id, read: s.read });
     if (kind === 'practice') {   // gate needs stories read well and questions answered: offer them again if still unmet
@@ -99,11 +103,13 @@ export function planLesson(C, state, lessonSpec, rng, now = Date.now()) {
 export const NEEDS = ['recog', 'recall', 'apply', 'transfer', 'recall', 'apply', 'apply'];
 const needScore = (state, g, req) => { const r = M.rungOf(state, M.keys.gpc(g)); return r === req ? 1 : r < req ? 0.5 : 0.1; };
 
-function pickWords(C, state, unit, focus, n, rng, ctx, { req = 2, pictured = false, silly = false, pats = null } = {}) {
+function pickWords(C, state, unit, focus, n, rng, ctx, { req = 2, pictured = false, silly = false, pats = null, syl = false, morph = false } = {}) {
   let pool = silly ? C.sillyAt(unit) : C.wordsAt(unit, { names: false, functionWords: false });
   // Unit 1 has only a handful of words (s a m t): widen to names and small function words rather than starve practice.
   if (!silly && pool.filter(w => !pictured || w.pic).length < 6) pool = C.wordsAt(unit, { names: !pictured, functionWords: !pictured });
   if (pictured) pool = pool.filter(w => w.pic);
+  if (syl) pool = pool.filter(w => w.syl);
+  if (morph) pool = pool.filter(w => w.morph);
   const fresh = pool.filter(w => !ctx.used.has(w.id));
   const base = fresh.length >= Math.min(n, pool.length) ? fresh : pool;
   const scored = base.map(w => ({ w, s: w.g.reduce((a, g) => a + needScore(state, g, req) * (focus?.includes(g) ? 1.5 : 1), 0) / Math.sqrt(w.g.length) + rng.next() * 0.6 + (pats?.length && w.pat?.some(p => pats.includes(p)) ? 4 : 0) }))
@@ -172,6 +178,9 @@ export function stepQuestions(C, state, step, rng, ctx) {
     case 'blend': for (const w of pickWords(C, state, unit, step.focus, step.n, rng, ctx, { req: 2, pats: step.pats })) push(Q.blendChoose(C, w.id, unit, rng)); break;
     case 'spell': for (const w of pickWords(C, state, unit, step.focus, step.n, rng, ctx, { req: 2, pats: step.pats })) push(Q.spellTiles(C, w.id, unit, rng)); break;
     case 'readmatch': for (const w of pickWords(C, state, unit, step.focus, step.n + 2, rng, ctx, { pictured: true, req: 2, pats: step.pats })) { if (out.length < step.n) push(Q.readMatchPicture(C, w.id, unit, rng)); } break;
+    case 'syllchop': for (const w of pickWords(C, state, unit, [], step.n * 2, rng, ctx, { req: 2, pats: step.pats, syl: true })) { if (out.length < step.n) push(Q.syllableChop(C, w.id, unit, rng)); } break;
+    case 'wordsum': for (const w of pickWords(C, state, unit, [], step.n * 2, rng, ctx, { req: 2, pats: step.pats, morph: true })) { if (out.length < step.n) push(Q.wordSum(C, w.id, unit, rng)); } break;
+    case 'affix': for (const w of pickWords(C, state, unit, [], step.n * 3, rng, ctx, { req: 2, pats: step.pats, morph: true })) { if (out.length < step.n) push(Q.affixBuild(C, w.id, unit, rng)); } break;
     case 'chain': { const qs = Q.wordChains(C, unit, rng, step.n + 1, step.focus); qs.forEach(push); break; }
     case 'pseudo': for (const w of pickWords(C, state, unit, step.focus, step.n, rng, ctx, { silly: true, req: 3, pats: step.pats })) push(Q.pseudoWord(C, w.id, unit, rng)); break;
     case 'heart': for (const id of step.words) { push(Q.trickyChoose(C, id, unit, rng)); push(Q.heartBuild(C, id, unit, rng)); } break;

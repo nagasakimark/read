@@ -25239,73 +25239,6 @@
   "tier": "common"
  },
  {
-  "id": "tiger",
-  "t": "tiger",
-  "g": [
-   "t",
-   "i_open",
-   "g",
-   "er"
-  ],
-  "u": 27,
-  "ph": [
-   "t",
-   "igh",
-   "g",
-   "ur"
-  ],
-  "pic": "🐯",
-  "ja": "とら",
-  "tier": "common"
- },
- {
-  "id": "spider",
-  "t": "spider",
-  "g": [
-   "s",
-   "p",
-   "i_open",
-   "d",
-   "er"
-  ],
-  "u": 27,
-  "ph": [
-   "s",
-   "p",
-   "igh",
-   "d",
-   "ur"
-  ],
-  "pic": "🕷️",
-  "ja": "くも",
-  "tier": "common",
-  "pat": [
-   "^sp"
-  ]
- },
- {
-  "id": "pilot",
-  "t": "pilot",
-  "g": [
-   "p",
-   "i_open",
-   "l",
-   "o",
-   "t"
-  ],
-  "u": 27,
-  "ph": [
-   "p",
-   "igh",
-   "l",
-   "o",
-   "t"
-  ],
-  "pic": "🧑‍✈️",
-  "ja": "パイロット",
-  "tier": "common"
- },
- {
   "id": "old",
   "t": "old",
   "g": [
@@ -26731,28 +26664,6 @@
   "tier": "common"
  },
  {
-  "id": "birthday",
-  "t": "birthday",
-  "g": [
-   "b",
-   "ir",
-   "th",
-   "d",
-   "ay"
-  ],
-  "u": 28,
-  "ph": [
-   "b",
-   "ur",
-   "th",
-   "d",
-   "ai"
-  ],
-  "pic": "🎂",
-  "ja": "たんじょうび",
-  "tier": "common"
- },
- {
   "id": "thirsty",
   "t": "thirsty",
   "g": [
@@ -27788,26 +27699,6 @@
   "pic": "",
   "ja": "(なまえ)",
   "tier": "name"
- },
- {
-  "id": "cowboy",
-  "t": "cowboy",
-  "g": [
-   "c",
-   "ow_au",
-   "b",
-   "oy"
-  ],
-  "u": 29,
-  "ph": [
-   "k",
-   "ow",
-   "b",
-   "oi"
-  ],
-  "pic": "🤠",
-  "ja": "カウボーイ",
-  "tier": "common"
  },
  {
   "id": "enjoy",
@@ -31766,6 +31657,9461 @@
    "n",
    "i",
    "m"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly"
+ },
+ {
+  "id": "rabbit",
+  "t": "rabbit",
+  "g": [
+   "r",
+   "a",
+   "b",
+   "b",
+   "i",
+   "t"
+  ],
+  "u": 32,
+  "ph": [
+   "r",
+   "a",
+   "b",
+   "b",
+   "i",
+   "t"
+  ],
+  "pic": "🐰",
+  "ja": "うさぎ",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   3
+  ]
+ },
+ {
+  "id": "napkin",
+  "t": "napkin",
+  "g": [
+   "n",
+   "a",
+   "p",
+   "k",
+   "i",
+   "n"
+  ],
+  "u": 32,
+  "ph": [
+   "n",
+   "a",
+   "p",
+   "k",
+   "i",
+   "n"
+  ],
+  "pic": "🧻",
+  "ja": "ナプキン",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   3
+  ]
+ },
+ {
+  "id": "basket",
+  "t": "basket",
+  "g": [
+   "b",
+   "a",
+   "s",
+   "k",
+   "e",
+   "t"
+  ],
+  "u": 32,
+  "ph": [
+   "b",
+   "a",
+   "s",
+   "k",
+   "e",
+   "t"
+  ],
+  "pic": "🧺",
+  "ja": "かご",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   3
+  ]
+ },
+ {
+  "id": "picnic",
+  "t": "picnic",
+  "g": [
+   "p",
+   "i",
+   "c",
+   "n",
+   "i",
+   "c"
+  ],
+  "u": 32,
+  "ph": [
+   "p",
+   "i",
+   "k",
+   "n",
+   "i",
+   "k"
+  ],
+  "pic": "🧺",
+  "ja": "ピクニック",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   3
+  ]
+ },
+ {
+  "id": "insect",
+  "t": "insect",
+  "g": [
+   "i",
+   "n",
+   "s",
+   "e",
+   "c",
+   "t"
+  ],
+  "u": 32,
+  "ph": [
+   "i",
+   "n",
+   "s",
+   "e",
+   "k",
+   "t"
+  ],
+  "pic": "🐛",
+  "ja": "こんちゅう",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   2,
+   4
+  ]
+ },
+ {
+  "id": "kitten",
+  "t": "kitten",
+  "g": [
+   "k",
+   "i",
+   "t",
+   "t",
+   "e",
+   "n"
+  ],
+  "u": 32,
+  "ph": [
+   "k",
+   "i",
+   "t",
+   "t",
+   "e",
+   "n"
+  ],
+  "pic": "🐱",
+  "ja": "こねこ",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   3
+  ]
+ },
+ {
+  "id": "mitten",
+  "t": "mitten",
+  "g": [
+   "m",
+   "i",
+   "t",
+   "t",
+   "e",
+   "n"
+  ],
+  "u": 32,
+  "ph": [
+   "m",
+   "i",
+   "t",
+   "t",
+   "e",
+   "n"
+  ],
+  "pic": "🧤",
+  "ja": "ミトン",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   3
+  ]
+ },
+ {
+  "id": "magnet",
+  "t": "magnet",
+  "g": [
+   "m",
+   "a",
+   "g",
+   "n",
+   "e",
+   "t"
+  ],
+  "u": 32,
+  "ph": [
+   "m",
+   "a",
+   "g",
+   "n",
+   "e",
+   "t"
+  ],
+  "pic": "🧲",
+  "ja": "じしゃく",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   3
+  ]
+ },
+ {
+  "id": "rocket",
+  "t": "rocket",
+  "g": [
+   "r",
+   "o",
+   "ck",
+   "e",
+   "t"
+  ],
+  "u": 32,
+  "ph": [
+   "r",
+   "o",
+   "k",
+   "e",
+   "t"
+  ],
+  "pic": "🚀",
+  "ja": "ロケット",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "pocket",
+  "t": "pocket",
+  "g": [
+   "p",
+   "o",
+   "ck",
+   "e",
+   "t"
+  ],
+  "u": 32,
+  "ph": [
+   "p",
+   "o",
+   "k",
+   "e",
+   "t"
+  ],
+  "pic": "",
+  "ja": "ポケット",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "jacket",
+  "t": "jacket",
+  "g": [
+   "j",
+   "a",
+   "ck",
+   "e",
+   "t"
+  ],
+  "u": 32,
+  "ph": [
+   "dj",
+   "a",
+   "k",
+   "e",
+   "t"
+  ],
+  "pic": "🧥",
+  "ja": "ジャケット",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "bucket",
+  "t": "bucket",
+  "g": [
+   "b",
+   "u",
+   "ck",
+   "e",
+   "t"
+  ],
+  "u": 32,
+  "ph": [
+   "b",
+   "u",
+   "k",
+   "e",
+   "t"
+  ],
+  "pic": "🪣",
+  "ja": "バケツ",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "dentist",
+  "t": "dentist",
+  "g": [
+   "d",
+   "e",
+   "n",
+   "t",
+   "i",
+   "s",
+   "t"
+  ],
+  "u": 32,
+  "ph": [
+   "d",
+   "e",
+   "n",
+   "t",
+   "i",
+   "s",
+   "t"
+  ],
+  "pic": "🦷",
+  "ja": "はいしゃ",
+  "tier": "common",
+  "pat": [
+   "st$",
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   4
+  ]
+ },
+ {
+  "id": "cactus",
+  "t": "cactus",
+  "g": [
+   "c",
+   "a",
+   "c",
+   "t",
+   "u",
+   "s"
+  ],
+  "u": 32,
+  "ph": [
+   "k",
+   "a",
+   "k",
+   "t",
+   "u",
+   "s"
+  ],
+  "pic": "🌵",
+  "ja": "サボテン",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   3
+  ]
+ },
+ {
+  "id": "tunnel",
+  "t": "tunnel",
+  "g": [
+   "t",
+   "u",
+   "n",
+   "n",
+   "e",
+   "l"
+  ],
+  "u": 32,
+  "ph": [
+   "t",
+   "u",
+   "n",
+   "n",
+   "e",
+   "l"
+  ],
+  "pic": "",
+  "ja": "トンネル",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   3
+  ]
+ },
+ {
+  "id": "finger",
+  "t": "finger",
+  "g": [
+   "f",
+   "i",
+   "n",
+   "g",
+   "er"
+  ],
+  "u": 32,
+  "ph": [
+   "f",
+   "i",
+   "n",
+   "g",
+   "ur"
+  ],
+  "pic": "☝️",
+  "ja": "ゆび",
+  "tier": "common",
+  "pat": [
+   "sy:closed",
+   "sy:r"
+  ],
+  "syl": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "puppet",
+  "t": "puppet",
+  "g": [
+   "p",
+   "u",
+   "p",
+   "p",
+   "e",
+   "t"
+  ],
+  "u": 32,
+  "ph": [
+   "p",
+   "u",
+   "p",
+   "p",
+   "e",
+   "t"
+  ],
+  "pic": "",
+  "ja": "にんぎょう",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   3
+  ]
+ },
+ {
+  "id": "happen",
+  "t": "happen",
+  "g": [
+   "h",
+   "a",
+   "p",
+   "p",
+   "e",
+   "n"
+  ],
+  "u": 32,
+  "ph": [
+   "h",
+   "a",
+   "p",
+   "p",
+   "e",
+   "n"
+  ],
+  "pic": "",
+  "ja": "おこる",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   3
+  ]
+ },
+ {
+  "id": "sudden",
+  "t": "sudden",
+  "g": [
+   "s",
+   "u",
+   "d",
+   "d",
+   "e",
+   "n"
+  ],
+  "u": 32,
+  "ph": [
+   "s",
+   "u",
+   "d",
+   "d",
+   "e",
+   "n"
+  ],
+  "pic": "",
+  "ja": "とつぜん",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   3
+  ]
+ },
+ {
+  "id": "robot",
+  "t": "robot",
+  "g": [
+   "r",
+   "o_open",
+   "b",
+   "o",
+   "t"
+  ],
+  "u": 32,
+  "ph": [
+   "r",
+   "oa",
+   "b",
+   "o",
+   "t"
+  ],
+  "pic": "🤖",
+  "ja": "ロボット",
+  "tier": "common",
+  "pat": [
+   "sy:open"
+  ],
+  "syl": [
+   2,
+   3
+  ]
+ },
+ {
+  "id": "hotel",
+  "t": "hotel",
+  "g": [
+   "h",
+   "o_open",
+   "t",
+   "e",
+   "l"
+  ],
+  "u": 32,
+  "ph": [
+   "h",
+   "oa",
+   "t",
+   "e",
+   "l"
+  ],
+  "pic": "🏨",
+  "ja": "ホテル",
+  "tier": "common",
+  "pat": [
+   "sy:open"
+  ],
+  "syl": [
+   2,
+   3
+  ]
+ },
+ {
+  "id": "open",
+  "t": "open",
+  "g": [
+   "o_open",
+   "p",
+   "e",
+   "n"
+  ],
+  "u": 32,
+  "ph": [
+   "oa",
+   "p",
+   "e",
+   "n"
+  ],
+  "pic": "🔓",
+  "ja": "あける",
+  "tier": "common",
+  "pat": [
+   "sy:open"
+  ],
+  "syl": [
+   1,
+   3
+  ]
+ },
+ {
+  "id": "tiger",
+  "t": "tiger",
+  "g": [
+   "t",
+   "i_open",
+   "g",
+   "er"
+  ],
+  "u": 32,
+  "ph": [
+   "t",
+   "igh",
+   "g",
+   "ur"
+  ],
+  "pic": "🐯",
+  "ja": "とら",
+  "tier": "common",
+  "pat": [
+   "sy:open",
+   "sy:r"
+  ],
+  "syl": [
+   2,
+   2
+  ]
+ },
+ {
+  "id": "spider",
+  "t": "spider",
+  "g": [
+   "s",
+   "p",
+   "i_open",
+   "d",
+   "er"
+  ],
+  "u": 32,
+  "ph": [
+   "s",
+   "p",
+   "igh",
+   "d",
+   "ur"
+  ],
+  "pic": "🕷️",
+  "ja": "くも",
+  "tier": "common",
+  "pat": [
+   "^sp",
+   "sy:open",
+   "sy:r"
+  ],
+  "syl": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "pilot",
+  "t": "pilot",
+  "g": [
+   "p",
+   "i_open",
+   "l",
+   "o",
+   "t"
+  ],
+  "u": 32,
+  "ph": [
+   "p",
+   "igh",
+   "l",
+   "o",
+   "t"
+  ],
+  "pic": "🧑‍✈️",
+  "ja": "パイロット",
+  "tier": "common",
+  "pat": [
+   "sy:open"
+  ],
+  "syl": [
+   2,
+   3
+  ]
+ },
+ {
+  "id": "silent",
+  "t": "silent",
+  "g": [
+   "s",
+   "i_open",
+   "l",
+   "e",
+   "n",
+   "t"
+  ],
+  "u": 32,
+  "ph": [
+   "s",
+   "igh",
+   "l",
+   "e",
+   "n",
+   "t"
+  ],
+  "pic": "🤫",
+  "ja": "しずか",
+  "tier": "common",
+  "pat": [
+   "nt$",
+   "sy:open"
+  ],
+  "syl": [
+   2,
+   4
+  ]
+ },
+ {
+  "id": "frozen",
+  "t": "frozen",
+  "g": [
+   "f",
+   "r",
+   "o_open",
+   "z",
+   "e",
+   "n"
+  ],
+  "u": 32,
+  "ph": [
+   "f",
+   "r",
+   "oa",
+   "z",
+   "e",
+   "n"
+  ],
+  "pic": "🧊",
+  "ja": "こおった",
+  "tier": "common",
+  "pat": [
+   "^fr",
+   "sy:open"
+  ],
+  "syl": [
+   3,
+   3
+  ]
+ },
+ {
+  "id": "moment",
+  "t": "moment",
+  "g": [
+   "m",
+   "o_open",
+   "m",
+   "e",
+   "n",
+   "t"
+  ],
+  "u": 32,
+  "ph": [
+   "m",
+   "oa",
+   "m",
+   "e",
+   "n",
+   "t"
+  ],
+  "pic": "",
+  "ja": "しゅんかん",
+  "tier": "common",
+  "pat": [
+   "nt$",
+   "sy:open"
+  ],
+  "syl": [
+   2,
+   4
+  ]
+ },
+ {
+  "id": "solo",
+  "t": "solo",
+  "g": [
+   "s",
+   "o_open",
+   "l",
+   "o"
+  ],
+  "u": 32,
+  "ph": [
+   "s",
+   "oa",
+   "l",
+   "o"
+  ],
+  "pic": "",
+  "ja": "ソロ",
+  "tier": "common",
+  "pat": [
+   "sy:open"
+  ],
+  "syl": [
+   2,
+   2
+  ]
+ },
+ {
+  "id": "polo",
+  "t": "polo",
+  "g": [
+   "p",
+   "o_open",
+   "l",
+   "o"
+  ],
+  "u": 32,
+  "ph": [
+   "p",
+   "oa",
+   "l",
+   "o"
+  ],
+  "pic": "👕",
+  "ja": "ポロ",
+  "tier": "common",
+  "pat": [
+   "sy:open"
+  ],
+  "syl": [
+   2,
+   2
+  ]
+ },
+ {
+  "id": "bonus",
+  "t": "bonus",
+  "g": [
+   "b",
+   "o_open",
+   "n",
+   "u",
+   "s"
+  ],
+  "u": 32,
+  "ph": [
+   "b",
+   "oa",
+   "n",
+   "u",
+   "s"
+  ],
+  "pic": "",
+  "ja": "ボーナス",
+  "tier": "common",
+  "pat": [
+   "sy:open"
+  ],
+  "syl": [
+   2,
+   3
+  ]
+ },
+ {
+  "id": "tiny",
+  "t": "tiny",
+  "g": [
+   "t",
+   "i_open",
+   "n",
+   "y_i"
+  ],
+  "u": 32,
+  "ph": [
+   "t",
+   "igh",
+   "n",
+   "ee"
+  ],
+  "pic": "",
+  "ja": "ちいさい",
+  "tier": "common",
+  "pat": [
+   "sy:open"
+  ],
+  "syl": [
+   2,
+   2
+  ]
+ },
+ {
+  "id": "cupcake",
+  "t": "cupcake",
+  "g": [
+   "c",
+   "u",
+   "p",
+   "c",
+   "a_e",
+   "k",
+   "e_s"
+  ],
+  "u": 32,
+  "ph": [
+   "k",
+   "u",
+   "p",
+   "k",
+   "ai",
+   "k"
+  ],
+  "pic": "🧁",
+  "ja": "カップケーキ",
+  "tier": "common",
+  "pat": [
+   "sy:compound"
+  ],
+  "syl": [
+   3,
+   4
+  ]
+ },
+ {
+  "id": "pancake",
+  "t": "pancake",
+  "g": [
+   "p",
+   "a",
+   "n",
+   "c",
+   "a_e",
+   "k",
+   "e_s"
+  ],
+  "u": 32,
+  "ph": [
+   "p",
+   "a",
+   "n",
+   "k",
+   "ai",
+   "k"
+  ],
+  "pic": "🥞",
+  "ja": "パンケーキ",
+  "tier": "common",
+  "pat": [
+   "sy:compound"
+  ],
+  "syl": [
+   3,
+   4
+  ]
+ },
+ {
+  "id": "sunshine",
+  "t": "sunshine",
+  "g": [
+   "s",
+   "u",
+   "n",
+   "sh",
+   "i_e",
+   "n",
+   "e_s"
+  ],
+  "u": 32,
+  "ph": [
+   "s",
+   "u",
+   "n",
+   "sh",
+   "igh",
+   "n"
+  ],
+  "pic": "☀️",
+  "ja": "ひざし",
+  "tier": "common",
+  "pat": [
+   "sy:compound"
+  ],
+  "syl": [
+   3,
+   4
+  ]
+ },
+ {
+  "id": "bedroom",
+  "t": "bedroom",
+  "g": [
+   "b",
+   "e",
+   "d",
+   "r",
+   "oo",
+   "m"
+  ],
+  "u": 32,
+  "ph": [
+   "b",
+   "e",
+   "d",
+   "r",
+   "oo",
+   "m"
+  ],
+  "pic": "🛏️",
+  "ja": "しんしつ",
+  "tier": "common",
+  "pat": [
+   "sy:compound"
+  ],
+  "syl": [
+   3,
+   3
+  ]
+ },
+ {
+  "id": "popcorn",
+  "t": "popcorn",
+  "g": [
+   "p",
+   "o",
+   "p",
+   "c",
+   "or",
+   "n"
+  ],
+  "u": 32,
+  "ph": [
+   "p",
+   "o",
+   "p",
+   "k",
+   "or",
+   "n"
+  ],
+  "pic": "🍿",
+  "ja": "ポップコーン",
+  "tier": "common",
+  "pat": [
+   "sy:compound",
+   "sy:r"
+  ],
+  "syl": [
+   3,
+   3
+  ]
+ },
+ {
+  "id": "snowman",
+  "t": "snowman",
+  "g": [
+   "s",
+   "n",
+   "ow_ou",
+   "m",
+   "a",
+   "n"
+  ],
+  "u": 32,
+  "ph": [
+   "s",
+   "n",
+   "oa",
+   "m",
+   "a",
+   "n"
+  ],
+  "pic": "⛄",
+  "ja": "ゆきだるま",
+  "tier": "common",
+  "pat": [
+   "^sn",
+   "sy:compound"
+  ],
+  "syl": [
+   3,
+   3
+  ]
+ },
+ {
+  "id": "raincoat",
+  "t": "raincoat",
+  "g": [
+   "r",
+   "ai",
+   "n",
+   "c",
+   "oa",
+   "t"
+  ],
+  "u": 32,
+  "ph": [
+   "r",
+   "ai",
+   "n",
+   "k",
+   "oa",
+   "t"
+  ],
+  "pic": "🧥",
+  "ja": "レインコート",
+  "tier": "common",
+  "pat": [
+   "sy:compound"
+  ],
+  "syl": [
+   3,
+   3
+  ]
+ },
+ {
+  "id": "lighthouse",
+  "t": "lighthouse",
+  "g": [
+   "l",
+   "igh",
+   "t",
+   "h",
+   "ou",
+   "s",
+   "e_s"
+  ],
+  "u": 32,
+  "ph": [
+   "l",
+   "igh",
+   "t",
+   "h",
+   "ow",
+   "s"
+  ],
+  "pic": "🗼",
+  "ja": "とうだい",
+  "tier": "common",
+  "pat": [
+   "sy:compound"
+  ],
+  "syl": [
+   3,
+   4
+  ]
+ },
+ {
+  "id": "bedtime",
+  "t": "bedtime",
+  "g": [
+   "b",
+   "e",
+   "d",
+   "t",
+   "i_e",
+   "m",
+   "e_s"
+  ],
+  "u": 32,
+  "ph": [
+   "b",
+   "e",
+   "d",
+   "t",
+   "igh",
+   "m"
+  ],
+  "pic": "",
+  "ja": "ねるじかん",
+  "tier": "common",
+  "pat": [
+   "sy:compound"
+  ],
+  "syl": [
+   3,
+   4
+  ]
+ },
+ {
+  "id": "goldfish",
+  "t": "goldfish",
+  "g": [
+   "g",
+   "o",
+   "l",
+   "d",
+   "f",
+   "i",
+   "sh"
+  ],
+  "u": 32,
+  "ph": [
+   "g",
+   "o",
+   "l",
+   "d",
+   "f",
+   "i",
+   "sh"
+  ],
+  "pic": "🐠",
+  "ja": "きんぎょ",
+  "tier": "common",
+  "pat": [
+   "sy:compound"
+  ],
+  "syl": [
+   4,
+   3
+  ]
+ },
+ {
+  "id": "mailbox",
+  "t": "mailbox",
+  "g": [
+   "m",
+   "ai",
+   "l",
+   "b",
+   "o",
+   "x"
+  ],
+  "u": 32,
+  "ph": [
+   "m",
+   "ai",
+   "l",
+   "b",
+   "o",
+   "k",
+   "s"
+  ],
+  "pic": "📮",
+  "ja": "ポスト",
+  "tier": "common",
+  "pat": [
+   "sy:compound"
+  ],
+  "syl": [
+   3,
+   3
+  ]
+ },
+ {
+  "id": "handbag",
+  "t": "handbag",
+  "g": [
+   "h",
+   "a",
+   "n",
+   "d",
+   "b",
+   "a",
+   "g"
+  ],
+  "u": 32,
+  "ph": [
+   "h",
+   "a",
+   "n",
+   "d",
+   "b",
+   "a",
+   "g"
+  ],
+  "pic": "👜",
+  "ja": "ハンドバッグ",
+  "tier": "common",
+  "pat": [
+   "sy:compound"
+  ],
+  "syl": [
+   4,
+   3
+  ]
+ },
+ {
+  "id": "sandbox",
+  "t": "sandbox",
+  "g": [
+   "s",
+   "a",
+   "n",
+   "d",
+   "b",
+   "o",
+   "x"
+  ],
+  "u": 32,
+  "ph": [
+   "s",
+   "a",
+   "n",
+   "d",
+   "b",
+   "o",
+   "k",
+   "s"
+  ],
+  "pic": "",
+  "ja": "すなば",
+  "tier": "common",
+  "pat": [
+   "sy:compound"
+  ],
+  "syl": [
+   4,
+   3
+  ]
+ },
+ {
+  "id": "airplane",
+  "t": "airplane",
+  "g": [
+   "air",
+   "p",
+   "l",
+   "a_e",
+   "n",
+   "e_s"
+  ],
+  "u": 32,
+  "ph": [
+   "air",
+   "p",
+   "l",
+   "ai",
+   "n"
+  ],
+  "pic": "✈️",
+  "ja": "ひこうき",
+  "tier": "common",
+  "pat": [
+   "sy:compound",
+   "sy:r"
+  ],
+  "syl": [
+   1,
+   5
+  ]
+ },
+ {
+  "id": "seashell",
+  "t": "seashell",
+  "g": [
+   "s",
+   "ea_i",
+   "sh",
+   "e",
+   "ll"
+  ],
+  "u": 32,
+  "ph": [
+   "s",
+   "ee",
+   "sh",
+   "e",
+   "l"
+  ],
+  "pic": "🐚",
+  "ja": "かいがら",
+  "tier": "common",
+  "pat": [
+   "sy:compound"
+  ],
+  "syl": [
+   2,
+   3
+  ]
+ },
+ {
+  "id": "starfish",
+  "t": "starfish",
+  "g": [
+   "s",
+   "t",
+   "ar",
+   "f",
+   "i",
+   "sh"
+  ],
+  "u": 32,
+  "ph": [
+   "s",
+   "t",
+   "ar",
+   "f",
+   "i",
+   "sh"
+  ],
+  "pic": "⭐",
+  "ja": "ヒトデ",
+  "tier": "common",
+  "pat": [
+   "^st",
+   "sy:compound",
+   "sy:r"
+  ],
+  "syl": [
+   3,
+   3
+  ]
+ },
+ {
+  "id": "lipstick",
+  "t": "lipstick",
+  "g": [
+   "l",
+   "i",
+   "p",
+   "s",
+   "t",
+   "i",
+   "ck"
+  ],
+  "u": 32,
+  "ph": [
+   "l",
+   "i",
+   "p",
+   "s",
+   "t",
+   "i",
+   "k"
+  ],
+  "pic": "💄",
+  "ja": "くちべに",
+  "tier": "common",
+  "pat": [
+   "sy:compound"
+  ],
+  "syl": [
+   3,
+   4
+  ]
+ },
+ {
+  "id": "hairbrush",
+  "t": "hairbrush",
+  "g": [
+   "h",
+   "air",
+   "b",
+   "r",
+   "u",
+   "sh"
+  ],
+  "u": 32,
+  "ph": [
+   "h",
+   "air",
+   "b",
+   "r",
+   "u",
+   "sh"
+  ],
+  "pic": "💇",
+  "ja": "ヘアブラシ",
+  "tier": "common",
+  "pat": [
+   "sy:compound",
+   "sy:r"
+  ],
+  "syl": [
+   2,
+   4
+  ]
+ },
+ {
+  "id": "toothbrush",
+  "t": "toothbrush",
+  "g": [
+   "t",
+   "oo",
+   "th",
+   "b",
+   "r",
+   "u",
+   "sh"
+  ],
+  "u": 32,
+  "ph": [
+   "t",
+   "oo",
+   "th",
+   "b",
+   "r",
+   "u",
+   "sh"
+  ],
+  "pic": "🪥",
+  "ja": "はブラシ",
+  "tier": "common",
+  "pat": [
+   "sy:compound"
+  ],
+  "syl": [
+   3,
+   4
+  ]
+ },
+ {
+  "id": "cowboy",
+  "t": "cowboy",
+  "g": [
+   "c",
+   "ow_au",
+   "b",
+   "oy"
+  ],
+  "u": 32,
+  "ph": [
+   "k",
+   "ow",
+   "b",
+   "oi"
+  ],
+  "pic": "🤠",
+  "ja": "カウボーイ",
+  "tier": "common",
+  "pat": [
+   "sy:compound"
+  ],
+  "syl": [
+   2,
+   2
+  ]
+ },
+ {
+  "id": "garden",
+  "t": "garden",
+  "g": [
+   "g",
+   "ar",
+   "d",
+   "e",
+   "n"
+  ],
+  "u": 32,
+  "ph": [
+   "g",
+   "ar",
+   "d",
+   "e",
+   "n"
+  ],
+  "pic": "🌳",
+  "ja": "にわ",
+  "tier": "common",
+  "pat": [
+   "sy:closed",
+   "sy:r"
+  ],
+  "syl": [
+   2,
+   3
+  ]
+ },
+ {
+  "id": "farmer",
+  "t": "farmer",
+  "g": [
+   "f",
+   "ar",
+   "m",
+   "er"
+  ],
+  "u": 32,
+  "ph": [
+   "f",
+   "ar",
+   "m",
+   "ur"
+  ],
+  "pic": "🧑‍🌾",
+  "ja": "のうふ",
+  "tier": "common",
+  "pat": [
+   "sy:closed",
+   "sy:r"
+  ],
+  "syl": [
+   2,
+   2
+  ]
+ },
+ {
+  "id": "carpet",
+  "t": "carpet",
+  "g": [
+   "c",
+   "ar",
+   "p",
+   "e",
+   "t"
+  ],
+  "u": 32,
+  "ph": [
+   "k",
+   "ar",
+   "p",
+   "e",
+   "t"
+  ],
+  "pic": "",
+  "ja": "カーペット",
+  "tier": "common",
+  "pat": [
+   "sy:closed",
+   "sy:r"
+  ],
+  "syl": [
+   2,
+   3
+  ]
+ },
+ {
+  "id": "market",
+  "t": "market",
+  "g": [
+   "m",
+   "ar",
+   "k",
+   "e",
+   "t"
+  ],
+  "u": 32,
+  "ph": [
+   "m",
+   "ar",
+   "k",
+   "e",
+   "t"
+  ],
+  "pic": "🏪",
+  "ja": "いちば",
+  "tier": "common",
+  "pat": [
+   "sy:closed",
+   "sy:r"
+  ],
+  "syl": [
+   2,
+   3
+  ]
+ },
+ {
+  "id": "corner",
+  "t": "corner",
+  "g": [
+   "c",
+   "or",
+   "n",
+   "er"
+  ],
+  "u": 32,
+  "ph": [
+   "k",
+   "or",
+   "n",
+   "ur"
+  ],
+  "pic": "",
+  "ja": "かど",
+  "tier": "common",
+  "pat": [
+   "sy:closed",
+   "sy:r"
+  ],
+  "syl": [
+   2,
+   2
+  ]
+ },
+ {
+  "id": "morning",
+  "t": "morning",
+  "g": [
+   "m",
+   "or",
+   "n",
+   "i",
+   "ng"
+  ],
+  "u": 32,
+  "ph": [
+   "m",
+   "or",
+   "n",
+   "i",
+   "ng"
+  ],
+  "pic": "🌅",
+  "ja": "あさ",
+  "tier": "common",
+  "pat": [
+   "ing$",
+   "sy:closed",
+   "sy:r"
+  ],
+  "syl": [
+   2,
+   3
+  ]
+ },
+ {
+  "id": "forget",
+  "t": "forget",
+  "g": [
+   "f",
+   "or",
+   "g",
+   "e",
+   "t"
+  ],
+  "u": 32,
+  "ph": [
+   "f",
+   "or",
+   "g",
+   "e",
+   "t"
+  ],
+  "pic": "",
+  "ja": "わすれる",
+  "tier": "common",
+  "pat": [
+   "sy:closed",
+   "sy:r"
+  ],
+  "syl": [
+   2,
+   3
+  ]
+ },
+ {
+  "id": "monster",
+  "t": "monster",
+  "g": [
+   "m",
+   "o",
+   "n",
+   "s",
+   "t",
+   "er"
+  ],
+  "u": 32,
+  "ph": [
+   "m",
+   "o",
+   "n",
+   "s",
+   "t",
+   "ur"
+  ],
+  "pic": "👹",
+  "ja": "モンスター",
+  "tier": "common",
+  "pat": [
+   "sy:closed",
+   "sy:r"
+  ],
+  "syl": [
+   3,
+   3
+  ]
+ },
+ {
+  "id": "pepper",
+  "t": "pepper",
+  "g": [
+   "p",
+   "e",
+   "p",
+   "p",
+   "er"
+  ],
+  "u": 32,
+  "ph": [
+   "p",
+   "e",
+   "p",
+   "p",
+   "ur"
+  ],
+  "pic": "",
+  "ja": "こしょう",
+  "tier": "common",
+  "pat": [
+   "sy:closed",
+   "sy:r"
+  ],
+  "syl": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "flower",
+  "t": "flower",
+  "g": [
+   "f",
+   "l",
+   "ow_au",
+   "er"
+  ],
+  "u": 32,
+  "ph": [
+   "f",
+   "l",
+   "ow",
+   "ur"
+  ],
+  "pic": "🌸",
+  "ja": "はな",
+  "tier": "common",
+  "pat": [
+   "^fl",
+   "sy:closed",
+   "sy:r"
+  ],
+  "syl": [
+   3,
+   1
+  ]
+ },
+ {
+  "id": "apple",
+  "t": "apple",
+  "g": [
+   "a",
+   "p",
+   "p",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "a",
+   "p",
+   "p",
+   "schwa",
+   "l"
+  ],
+  "pic": "🍎",
+  "ja": "りんご",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   2,
+   2
+  ]
+ },
+ {
+  "id": "table",
+  "t": "table",
+  "g": [
+   "t",
+   "a_open",
+   "b",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "t",
+   "ai",
+   "b",
+   "schwa",
+   "l"
+  ],
+  "pic": "🍽️",
+  "ja": "テーブル",
+  "tier": "common",
+  "pat": [
+   "sy:open"
+  ],
+  "syl": [
+   2,
+   2
+  ]
+ },
+ {
+  "id": "candle",
+  "t": "candle",
+  "g": [
+   "c",
+   "a",
+   "n",
+   "d",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "k",
+   "a",
+   "n",
+   "d",
+   "schwa",
+   "l"
+  ],
+  "pic": "🕯️",
+  "ja": "ろうそく",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "puzzle",
+  "t": "puzzle",
+  "g": [
+   "p",
+   "u",
+   "z",
+   "z",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "p",
+   "u",
+   "z",
+   "z",
+   "schwa",
+   "l"
+  ],
+  "pic": "🧩",
+  "ja": "パズル",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "bubble",
+  "t": "bubble",
+  "g": [
+   "b",
+   "u",
+   "b",
+   "b",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "b",
+   "u",
+   "b",
+   "b",
+   "schwa",
+   "l"
+  ],
+  "pic": "🫧",
+  "ja": "あわ",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "little",
+  "t": "little",
+  "g": [
+   "l",
+   "i",
+   "t",
+   "t",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "l",
+   "i",
+   "t",
+   "t",
+   "schwa",
+   "l"
+  ],
+  "pic": "",
+  "ja": "ちいさい",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "middle",
+  "t": "middle",
+  "g": [
+   "m",
+   "i",
+   "d",
+   "d",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "m",
+   "i",
+   "d",
+   "d",
+   "schwa",
+   "l"
+  ],
+  "pic": "",
+  "ja": "まんなか",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "bottle",
+  "t": "bottle",
+  "g": [
+   "b",
+   "o",
+   "t",
+   "t",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "b",
+   "o",
+   "t",
+   "t",
+   "schwa",
+   "l"
+  ],
+  "pic": "🍼",
+  "ja": "びん",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "kettle",
+  "t": "kettle",
+  "g": [
+   "k",
+   "e",
+   "t",
+   "t",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "k",
+   "e",
+   "t",
+   "t",
+   "schwa",
+   "l"
+  ],
+  "pic": "",
+  "ja": "やかん",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "puddle",
+  "t": "puddle",
+  "g": [
+   "p",
+   "u",
+   "d",
+   "d",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "p",
+   "u",
+   "d",
+   "d",
+   "schwa",
+   "l"
+  ],
+  "pic": "",
+  "ja": "みずたまり",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "giggle",
+  "t": "giggle",
+  "g": [
+   "g",
+   "i",
+   "g",
+   "g",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "g",
+   "i",
+   "g",
+   "g",
+   "schwa",
+   "l"
+  ],
+  "pic": "",
+  "ja": "くすくす",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "wiggle",
+  "t": "wiggle",
+  "g": [
+   "w",
+   "i",
+   "g",
+   "g",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "w",
+   "i",
+   "g",
+   "g",
+   "schwa",
+   "l"
+  ],
+  "pic": "",
+  "ja": "ゆれる",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "jungle",
+  "t": "jungle",
+  "g": [
+   "j",
+   "u",
+   "n",
+   "g",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "dj",
+   "u",
+   "n",
+   "g",
+   "schwa",
+   "l"
+  ],
+  "pic": "🌴",
+  "ja": "ジャングル",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "uncle",
+  "t": "uncle",
+  "g": [
+   "u",
+   "n",
+   "c",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "u",
+   "n",
+   "k",
+   "schwa",
+   "l"
+  ],
+  "pic": "👨",
+  "ja": "おじさん",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   2,
+   2
+  ]
+ },
+ {
+  "id": "purple",
+  "t": "purple",
+  "g": [
+   "p",
+   "ur",
+   "p",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "p",
+   "ur",
+   "p",
+   "schwa",
+   "l"
+  ],
+  "pic": "🟣",
+  "ja": "むらさき",
+  "tier": "common",
+  "pat": [
+   "sy:closed",
+   "sy:r"
+  ],
+  "syl": [
+   2,
+   2
+  ]
+ },
+ {
+  "id": "turtle",
+  "t": "turtle",
+  "g": [
+   "t",
+   "ur",
+   "t",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "t",
+   "ur",
+   "t",
+   "schwa",
+   "l"
+  ],
+  "pic": "🐢",
+  "ja": "かめ",
+  "tier": "common",
+  "pat": [
+   "sy:closed",
+   "sy:r"
+  ],
+  "syl": [
+   2,
+   2
+  ]
+ },
+ {
+  "id": "circle",
+  "t": "circle",
+  "g": [
+   "c_soft",
+   "ir",
+   "c",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "s",
+   "ur",
+   "k",
+   "schwa",
+   "l"
+  ],
+  "pic": "⭕",
+  "ja": "まる",
+  "tier": "common",
+  "pat": [
+   "sy:closed",
+   "sy:r"
+  ],
+  "syl": [
+   2,
+   2
+  ]
+ },
+ {
+  "id": "simple",
+  "t": "simple",
+  "g": [
+   "s",
+   "i",
+   "m",
+   "p",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "s",
+   "i",
+   "m",
+   "p",
+   "schwa",
+   "l"
+  ],
+  "pic": "",
+  "ja": "かんたん",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "handle",
+  "t": "handle",
+  "g": [
+   "h",
+   "a",
+   "n",
+   "d",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "h",
+   "a",
+   "n",
+   "d",
+   "schwa",
+   "l"
+  ],
+  "pic": "",
+  "ja": "とって",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "ankle",
+  "t": "ankle",
+  "g": [
+   "a",
+   "n",
+   "k",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "a",
+   "n",
+   "k",
+   "schwa",
+   "l"
+  ],
+  "pic": "",
+  "ja": "あしくび",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   2,
+   2
+  ]
+ },
+ {
+  "id": "bundle",
+  "t": "bundle",
+  "g": [
+   "b",
+   "u",
+   "n",
+   "d",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "b",
+   "u",
+   "n",
+   "d",
+   "schwa",
+   "l"
+  ],
+  "pic": "",
+  "ja": "たば",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "needle",
+  "t": "needle",
+  "g": [
+   "n",
+   "ee",
+   "d",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "n",
+   "ee",
+   "d",
+   "schwa",
+   "l"
+  ],
+  "pic": "",
+  "ja": "はり",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   2,
+   2
+  ]
+ },
+ {
+  "id": "eagle",
+  "t": "eagle",
+  "g": [
+   "ea_i",
+   "g",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "ee",
+   "g",
+   "schwa",
+   "l"
+  ],
+  "pic": "🦅",
+  "ja": "わし",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   1,
+   2
+  ]
+ },
+ {
+  "id": "tickle",
+  "t": "tickle",
+  "g": [
+   "t",
+   "i",
+   "ck",
+   "l",
+   "e_s"
+  ],
+  "u": 23,
+  "ph": [
+   "t",
+   "i",
+   "k",
+   "l"
+  ],
+  "pic": "",
+  "ja": "くすぐる",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "beetle",
+  "t": "beetle",
+  "g": [
+   "b",
+   "ee",
+   "t",
+   "l",
+   "e_s"
+  ],
+  "u": 23,
+  "ph": [
+   "b",
+   "ee",
+   "t",
+   "l"
+  ],
+  "pic": "🪲",
+  "ja": "かぶとむし",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "title",
+  "t": "title",
+  "g": [
+   "t",
+   "i_open",
+   "t",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "t",
+   "igh",
+   "t",
+   "schwa",
+   "l"
+  ],
+  "pic": "",
+  "ja": "だいめい",
+  "tier": "common",
+  "pat": [
+   "sy:open"
+  ],
+  "syl": [
+   2,
+   2
+  ]
+ },
+ {
+  "id": "cradle",
+  "t": "cradle",
+  "g": [
+   "c",
+   "r",
+   "a_open",
+   "d",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "k",
+   "r",
+   "ai",
+   "d",
+   "schwa",
+   "l"
+  ],
+  "pic": "",
+  "ja": "ゆりかご",
+  "tier": "common",
+  "pat": [
+   "^cr",
+   "sy:open"
+  ],
+  "syl": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "maple",
+  "t": "maple",
+  "g": [
+   "m",
+   "a_open",
+   "p",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "m",
+   "ai",
+   "p",
+   "schwa",
+   "l"
+  ],
+  "pic": "🍁",
+  "ja": "かえで",
+  "tier": "common",
+  "pat": [
+   "sy:open"
+  ],
+  "syl": [
+   2,
+   2
+  ]
+ },
+ {
+  "id": "sparkle",
+  "t": "sparkle",
+  "g": [
+   "s",
+   "p",
+   "ar",
+   "k",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "s",
+   "p",
+   "ar",
+   "k",
+   "schwa",
+   "l"
+  ],
+  "pic": "✨",
+  "ja": "きらきら",
+  "tier": "common",
+  "pat": [
+   "^sp",
+   "sy:closed",
+   "sy:r"
+  ],
+  "syl": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "twinkle",
+  "t": "twinkle",
+  "g": [
+   "t",
+   "w",
+   "i",
+   "n",
+   "k",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "t",
+   "w",
+   "i",
+   "n",
+   "k",
+   "schwa",
+   "l"
+  ],
+  "pic": "⭐",
+  "ja": "きらめく",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   4,
+   2
+  ]
+ },
+ {
+  "id": "wrinkle",
+  "t": "wrinkle",
+  "g": [
+   "wr",
+   "i",
+   "n",
+   "k",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "r",
+   "i",
+   "n",
+   "k",
+   "schwa",
+   "l"
+  ],
+  "pic": "",
+  "ja": "しわ",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "stumble",
+  "t": "stumble",
+  "g": [
+   "s",
+   "t",
+   "u",
+   "m",
+   "b",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "s",
+   "t",
+   "u",
+   "m",
+   "b",
+   "schwa",
+   "l"
+  ],
+  "pic": "",
+  "ja": "つまずく",
+  "tier": "common",
+  "pat": [
+   "^st",
+   "sy:closed"
+  ],
+  "syl": [
+   4,
+   2
+  ]
+ },
+ {
+  "id": "tumble",
+  "t": "tumble",
+  "g": [
+   "t",
+   "u",
+   "m",
+   "b",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "t",
+   "u",
+   "m",
+   "b",
+   "schwa",
+   "l"
+  ],
+  "pic": "",
+  "ja": "ころぶ",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "struggle",
+  "t": "struggle",
+  "g": [
+   "s",
+   "t",
+   "r",
+   "u",
+   "g",
+   "g",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "s",
+   "t",
+   "r",
+   "u",
+   "g",
+   "g",
+   "schwa",
+   "l"
+  ],
+  "pic": "",
+  "ja": "もがく",
+  "tier": "common",
+  "pat": [
+   "^st",
+   "^str",
+   "sy:closed"
+  ],
+  "syl": [
+   5,
+   2
+  ]
+ },
+ {
+  "id": "about",
+  "t": "about",
+  "g": [
+   "schwa",
+   "b",
+   "ou",
+   "t"
+  ],
+  "u": 33,
+  "ph": [
+   "schwa",
+   "b",
+   "ow",
+   "t"
+  ],
+  "pic": "",
+  "ja": "～について",
+  "tier": "common",
+  "pat": [
+   "sy:open"
+  ],
+  "syl": [
+   1,
+   3
+  ]
+ },
+ {
+  "id": "sofa",
+  "t": "sofa",
+  "g": [
+   "s",
+   "o_open",
+   "f",
+   "schwa"
+  ],
+  "u": 33,
+  "ph": [
+   "s",
+   "oa",
+   "f",
+   "schwa"
+  ],
+  "pic": "🛋️",
+  "ja": "ソファ",
+  "tier": "common",
+  "pat": [
+   "sy:open"
+  ],
+  "syl": [
+   2,
+   2
+  ]
+ },
+ {
+  "id": "banana",
+  "t": "banana",
+  "g": [
+   "b",
+   "schwa",
+   "n",
+   "a",
+   "n",
+   "schwa"
+  ],
+  "u": 33,
+  "ph": [
+   "b",
+   "schwa",
+   "n",
+   "a",
+   "n",
+   "schwa"
+  ],
+  "pic": "🍌",
+  "ja": "バナナ",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   2,
+   2,
+   2
+  ]
+ },
+ {
+  "id": "zebra",
+  "t": "zebra",
+  "g": [
+   "z",
+   "e",
+   "b",
+   "r",
+   "schwa"
+  ],
+  "u": 33,
+  "ph": [
+   "z",
+   "e",
+   "b",
+   "r",
+   "schwa"
+  ],
+  "pic": "🦓",
+  "ja": "しまうま",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "pizza",
+  "t": "pizza",
+  "g": [
+   "p",
+   "i",
+   "z",
+   "z",
+   "schwa"
+  ],
+  "u": 33,
+  "ph": [
+   "p",
+   "i",
+   "z",
+   "z",
+   "schwa"
+  ],
+  "pic": "🍕",
+  "ja": "ピザ",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "panda",
+  "t": "panda",
+  "g": [
+   "p",
+   "a",
+   "n",
+   "d",
+   "schwa"
+  ],
+  "u": 33,
+  "ph": [
+   "p",
+   "a",
+   "n",
+   "d",
+   "schwa"
+  ],
+  "pic": "🐼",
+  "ja": "パンダ",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "along",
+  "t": "along",
+  "g": [
+   "schwa",
+   "l",
+   "o",
+   "ng"
+  ],
+  "u": 33,
+  "ph": [
+   "schwa",
+   "l",
+   "o",
+   "ng"
+  ],
+  "pic": "",
+  "ja": "～にそって",
+  "tier": "common",
+  "pat": [
+   "sy:open"
+  ],
+  "syl": [
+   1,
+   3
+  ]
+ },
+ {
+  "id": "ago",
+  "t": "ago",
+  "g": [
+   "schwa",
+   "g",
+   "o_open"
+  ],
+  "u": 33,
+  "ph": [
+   "schwa",
+   "g",
+   "oa"
+  ],
+  "pic": "",
+  "ja": "まえ",
+  "tier": "common",
+  "pat": [
+   "sy:open"
+  ],
+  "syl": [
+   1,
+   2
+  ]
+ },
+ {
+  "id": "away",
+  "t": "away",
+  "g": [
+   "schwa",
+   "w",
+   "ay"
+  ],
+  "u": 33,
+  "ph": [
+   "schwa",
+   "w",
+   "ai"
+  ],
+  "pic": "",
+  "ja": "はなれて",
+  "tier": "common",
+  "pat": [
+   "sy:open"
+  ],
+  "syl": [
+   1,
+   2
+  ]
+ },
+ {
+  "id": "alive",
+  "t": "alive",
+  "g": [
+   "schwa",
+   "l",
+   "i_e",
+   "v",
+   "e_s"
+  ],
+  "u": 33,
+  "ph": [
+   "schwa",
+   "l",
+   "igh",
+   "v"
+  ],
+  "pic": "",
+  "ja": "いきている",
+  "tier": "common",
+  "pat": [
+   "sy:open"
+  ],
+  "syl": [
+   1,
+   4
+  ]
+ },
+ {
+  "id": "asleep",
+  "t": "asleep",
+  "g": [
+   "schwa",
+   "s",
+   "l",
+   "ee",
+   "p"
+  ],
+  "u": 33,
+  "ph": [
+   "schwa",
+   "s",
+   "l",
+   "ee",
+   "p"
+  ],
+  "pic": "",
+  "ja": "ねむって",
+  "tier": "common",
+  "pat": [
+   "sy:open"
+  ],
+  "syl": [
+   1,
+   4
+  ]
+ },
+ {
+  "id": "around",
+  "t": "around",
+  "g": [
+   "schwa",
+   "r",
+   "ou",
+   "n",
+   "d"
+  ],
+  "u": 33,
+  "ph": [
+   "schwa",
+   "r",
+   "ow",
+   "n",
+   "d"
+  ],
+  "pic": "",
+  "ja": "まわりに",
+  "tier": "common",
+  "pat": [
+   "nd$",
+   "sy:open"
+  ],
+  "syl": [
+   1,
+   4
+  ]
+ },
+ {
+  "id": "across",
+  "t": "across",
+  "g": [
+   "schwa",
+   "c",
+   "r",
+   "o",
+   "ss"
+  ],
+  "u": 33,
+  "ph": [
+   "schwa",
+   "k",
+   "r",
+   "o",
+   "s"
+  ],
+  "pic": "",
+  "ja": "よこぎって",
+  "tier": "common",
+  "pat": [
+   "sy:open"
+  ],
+  "syl": [
+   1,
+   4
+  ]
+ },
+ {
+  "id": "afraid",
+  "t": "afraid",
+  "g": [
+   "schwa",
+   "f",
+   "r",
+   "ai",
+   "d"
+  ],
+  "u": 33,
+  "ph": [
+   "schwa",
+   "f",
+   "r",
+   "ai",
+   "d"
+  ],
+  "pic": "",
+  "ja": "こわがって",
+  "tier": "common",
+  "pat": [
+   "sy:open"
+  ],
+  "syl": [
+   1,
+   4
+  ]
+ },
+ {
+  "id": "alone",
+  "t": "alone",
+  "g": [
+   "schwa",
+   "l",
+   "o_e",
+   "n",
+   "e_s"
+  ],
+  "u": 33,
+  "ph": [
+   "schwa",
+   "l",
+   "oa",
+   "n"
+  ],
+  "pic": "",
+  "ja": "ひとりで",
+  "tier": "common",
+  "pat": [
+   "sy:open"
+  ],
+  "syl": [
+   1,
+   4
+  ]
+ },
+ {
+  "id": "awake",
+  "t": "awake",
+  "g": [
+   "schwa",
+   "w",
+   "a_e",
+   "k",
+   "e_s"
+  ],
+  "u": 33,
+  "ph": [
+   "schwa",
+   "w",
+   "ai",
+   "k"
+  ],
+  "pic": "",
+  "ja": "おきて",
+  "tier": "common",
+  "pat": [
+   "sy:open"
+  ],
+  "syl": [
+   1,
+   4
+  ]
+ },
+ {
+  "id": "paper",
+  "t": "paper",
+  "g": [
+   "p",
+   "a_open",
+   "p",
+   "er"
+  ],
+  "u": 33,
+  "ph": [
+   "p",
+   "ai",
+   "p",
+   "ur"
+  ],
+  "pic": "📄",
+  "ja": "かみ",
+  "tier": "common",
+  "pat": [
+   "sy:open",
+   "sy:r"
+  ],
+  "syl": [
+   2,
+   2
+  ]
+ },
+ {
+  "id": "baby",
+  "t": "baby",
+  "g": [
+   "b",
+   "a_open",
+   "b",
+   "y_i"
+  ],
+  "u": 33,
+  "ph": [
+   "b",
+   "ai",
+   "b",
+   "ee"
+  ],
+  "pic": "👶",
+  "ja": "あかちゃん",
+  "tier": "common",
+  "pat": [
+   "sy:open"
+  ],
+  "syl": [
+   2,
+   2
+  ]
+ },
+ {
+  "id": "lady",
+  "t": "lady",
+  "g": [
+   "l",
+   "a_open",
+   "d",
+   "y_i"
+  ],
+  "u": 33,
+  "ph": [
+   "l",
+   "ai",
+   "d",
+   "ee"
+  ],
+  "pic": "👩",
+  "ja": "レディ",
+  "tier": "common",
+  "pat": [
+   "sy:open"
+  ],
+  "syl": [
+   2,
+   2
+  ]
+ },
+ {
+  "id": "crazy",
+  "t": "crazy",
+  "g": [
+   "c",
+   "r",
+   "a_open",
+   "z",
+   "y_i"
+  ],
+  "u": 33,
+  "ph": [
+   "k",
+   "r",
+   "ai",
+   "z",
+   "ee"
+  ],
+  "pic": "🤪",
+  "ja": "くるった",
+  "tier": "common",
+  "pat": [
+   "^cr",
+   "sy:open"
+  ],
+  "syl": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "lazy",
+  "t": "lazy",
+  "g": [
+   "l",
+   "a_open",
+   "z",
+   "y_i"
+  ],
+  "u": 33,
+  "ph": [
+   "l",
+   "ai",
+   "z",
+   "ee"
+  ],
+  "pic": "",
+  "ja": "なまけもの",
+  "tier": "common",
+  "pat": [
+   "sy:open"
+  ],
+  "syl": [
+   2,
+   2
+  ]
+ },
+ {
+  "id": "cable",
+  "t": "cable",
+  "g": [
+   "c",
+   "a_open",
+   "b",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "k",
+   "ai",
+   "b",
+   "schwa",
+   "l"
+  ],
+  "pic": "",
+  "ja": "ケーブル",
+  "tier": "common",
+  "pat": [
+   "sy:open"
+  ],
+  "syl": [
+   2,
+   2
+  ]
+ },
+ {
+  "id": "staple",
+  "t": "staple",
+  "g": [
+   "s",
+   "t",
+   "a_open",
+   "p",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "s",
+   "t",
+   "ai",
+   "p",
+   "schwa",
+   "l"
+  ],
+  "pic": "",
+  "ja": "ホチキスのはり",
+  "tier": "common",
+  "pat": [
+   "^st",
+   "sy:open"
+  ],
+  "syl": [
+   3,
+   2
+  ]
+ },
+ {
+  "id": "zuggle",
+  "t": "zuggle",
+  "g": [
+   "z",
+   "u",
+   "g",
+   "g",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "z",
+   "u",
+   "g",
+   "g",
+   "schwa",
+   "l"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly"
+ },
+ {
+  "id": "nibble",
+  "t": "nibble",
+  "g": [
+   "n",
+   "i",
+   "b",
+   "b",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "n",
+   "i",
+   "b",
+   "b",
+   "schwa",
+   "l"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly"
+ },
+ {
+  "id": "dopple",
+  "t": "dopple",
+  "g": [
+   "d",
+   "o",
+   "p",
+   "p",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "d",
+   "o",
+   "p",
+   "p",
+   "schwa",
+   "l"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly"
+ },
+ {
+  "id": "tazzle",
+  "t": "tazzle",
+  "g": [
+   "t",
+   "a",
+   "zz",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "t",
+   "a",
+   "z",
+   "schwa",
+   "l"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly"
+ },
+ {
+  "id": "mimple",
+  "t": "mimple",
+  "g": [
+   "m",
+   "i",
+   "m",
+   "p",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "m",
+   "i",
+   "m",
+   "p",
+   "schwa",
+   "l"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly"
+ },
+ {
+  "id": "bazzle",
+  "t": "bazzle",
+  "g": [
+   "b",
+   "a",
+   "zz",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "b",
+   "a",
+   "z",
+   "schwa",
+   "l"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly"
+ },
+ {
+  "id": "zeba",
+  "t": "zeba",
+  "g": [
+   "z",
+   "e",
+   "b",
+   "schwa"
+  ],
+  "u": 33,
+  "ph": [
+   "z",
+   "e",
+   "b",
+   "schwa"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly"
+ },
+ {
+  "id": "blima",
+  "t": "blima",
+  "g": [
+   "b",
+   "l",
+   "i",
+   "m",
+   "schwa"
+  ],
+  "u": 33,
+  "ph": [
+   "b",
+   "l",
+   "i",
+   "m",
+   "schwa"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly",
+  "pat": [
+   "^bl"
+  ]
+ },
+ {
+  "id": "zata",
+  "t": "zata",
+  "g": [
+   "z",
+   "a",
+   "t",
+   "schwa"
+  ],
+  "u": 33,
+  "ph": [
+   "z",
+   "a",
+   "t",
+   "schwa"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly"
+ },
+ {
+  "id": "duba",
+  "t": "duba",
+  "g": [
+   "d",
+   "u",
+   "b",
+   "schwa"
+  ],
+  "u": 33,
+  "ph": [
+   "d",
+   "u",
+   "b",
+   "schwa"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly"
+ },
+ {
+  "id": "zaby",
+  "t": "zaby",
+  "g": [
+   "z",
+   "a_open",
+   "b",
+   "y_i"
+  ],
+  "u": 33,
+  "ph": [
+   "z",
+   "ai",
+   "b",
+   "ee"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly"
+ },
+ {
+  "id": "pazy",
+  "t": "pazy",
+  "g": [
+   "p",
+   "a_open",
+   "z",
+   "y_i"
+  ],
+  "u": 33,
+  "ph": [
+   "p",
+   "ai",
+   "z",
+   "ee"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly"
+ },
+ {
+  "id": "matle",
+  "t": "matle",
+  "g": [
+   "m",
+   "a_open",
+   "t",
+   "le"
+  ],
+  "u": 33,
+  "ph": [
+   "m",
+   "ai",
+   "t",
+   "schwa",
+   "l"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly"
+ },
+ {
+  "id": "tady",
+  "t": "tady",
+  "g": [
+   "t",
+   "a_open",
+   "d",
+   "y_i"
+  ],
+  "u": 33,
+  "ph": [
+   "t",
+   "ai",
+   "d",
+   "ee"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly"
+ },
+ {
+  "id": "labo",
+  "t": "labo",
+  "g": [
+   "l",
+   "a_open",
+   "b",
+   "o"
+  ],
+  "u": 33,
+  "ph": [
+   "l",
+   "ai",
+   "b",
+   "o"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly"
+ },
+ {
+  "id": "boxes",
+  "t": "boxes",
+  "g": [
+   "b",
+   "o",
+   "x",
+   "e",
+   "sz"
+  ],
+  "u": 34,
+  "ph": [
+   "b",
+   "o",
+   "k",
+   "s",
+   "e",
+   "z"
+  ],
+  "pic": "📦",
+  "ja": "はこ",
+  "tier": "common",
+  "pat": [
+   "af:es"
+  ],
+  "morph": [
+   "box",
+   "es"
+  ]
+ },
+ {
+  "id": "dishes",
+  "t": "dishes",
+  "g": [
+   "d",
+   "i",
+   "sh",
+   "e",
+   "sz"
+  ],
+  "u": 34,
+  "ph": [
+   "d",
+   "i",
+   "sh",
+   "e",
+   "z"
+  ],
+  "pic": "🍽️",
+  "ja": "さら",
+  "tier": "common",
+  "pat": [
+   "af:es"
+  ],
+  "morph": [
+   "dish",
+   "es"
+  ]
+ },
+ {
+  "id": "wishes",
+  "t": "wishes",
+  "g": [
+   "w",
+   "i",
+   "sh",
+   "e",
+   "sz"
+  ],
+  "u": 34,
+  "ph": [
+   "w",
+   "i",
+   "sh",
+   "e",
+   "z"
+  ],
+  "pic": "",
+  "ja": "ねがい",
+  "tier": "common",
+  "pat": [
+   "af:es"
+  ],
+  "morph": [
+   "wish",
+   "es"
+  ]
+ },
+ {
+  "id": "buses",
+  "t": "buses",
+  "g": [
+   "b",
+   "u",
+   "s",
+   "e",
+   "sz"
+  ],
+  "u": 34,
+  "ph": [
+   "b",
+   "u",
+   "s",
+   "e",
+   "z"
+  ],
+  "pic": "🚌",
+  "ja": "バス",
+  "tier": "common",
+  "pat": [
+   "af:es"
+  ],
+  "morph": [
+   "bus",
+   "es"
+  ]
+ },
+ {
+  "id": "kisses",
+  "t": "kisses",
+  "g": [
+   "k",
+   "i",
+   "ss",
+   "e",
+   "sz"
+  ],
+  "u": 34,
+  "ph": [
+   "k",
+   "i",
+   "s",
+   "e",
+   "z"
+  ],
+  "pic": "💋",
+  "ja": "キス",
+  "tier": "common",
+  "pat": [
+   "af:es"
+  ],
+  "morph": [
+   "kiss",
+   "es"
+  ]
+ },
+ {
+  "id": "foxes",
+  "t": "foxes",
+  "g": [
+   "f",
+   "o",
+   "x",
+   "e",
+   "sz"
+  ],
+  "u": 34,
+  "ph": [
+   "f",
+   "o",
+   "k",
+   "s",
+   "e",
+   "z"
+  ],
+  "pic": "🦊",
+  "ja": "きつね",
+  "tier": "common",
+  "pat": [
+   "af:es"
+  ],
+  "morph": [
+   "fox",
+   "es"
+  ]
+ },
+ {
+  "id": "brushes",
+  "t": "brushes",
+  "g": [
+   "b",
+   "r",
+   "u",
+   "sh",
+   "e",
+   "sz"
+  ],
+  "u": 34,
+  "ph": [
+   "b",
+   "r",
+   "u",
+   "sh",
+   "e",
+   "z"
+  ],
+  "pic": "🖌️",
+  "ja": "ブラシ",
+  "tier": "common",
+  "pat": [
+   "^br",
+   "af:es"
+  ],
+  "morph": [
+   "brush",
+   "es"
+  ]
+ },
+ {
+  "id": "churches",
+  "t": "churches",
+  "g": [
+   "ch",
+   "ur",
+   "ch",
+   "e",
+   "sz"
+  ],
+  "u": 34,
+  "ph": [
+   "ch",
+   "ur",
+   "ch",
+   "e",
+   "z"
+  ],
+  "pic": "⛪",
+  "ja": "きょうかい",
+  "tier": "common",
+  "pat": [
+   "af:es"
+  ],
+  "morph": [
+   "church",
+   "es"
+  ]
+ },
+ {
+  "id": "matches",
+  "t": "matches",
+  "g": [
+   "m",
+   "a",
+   "tch",
+   "e",
+   "sz"
+  ],
+  "u": 34,
+  "ph": [
+   "m",
+   "a",
+   "ch",
+   "e",
+   "z"
+  ],
+  "pic": "🔥",
+  "ja": "マッチ",
+  "tier": "common",
+  "pat": [
+   "af:es"
+  ],
+  "morph": [
+   "match",
+   "es"
+  ]
+ },
+ {
+  "id": "benches",
+  "t": "benches",
+  "g": [
+   "b",
+   "e",
+   "n",
+   "ch",
+   "e",
+   "sz"
+  ],
+  "u": 34,
+  "ph": [
+   "b",
+   "e",
+   "n",
+   "ch",
+   "e",
+   "z"
+  ],
+  "pic": "",
+  "ja": "ベンチ",
+  "tier": "common",
+  "pat": [
+   "af:es"
+  ],
+  "morph": [
+   "bench",
+   "es"
+  ]
+ },
+ {
+  "id": "tents",
+  "t": "tents",
+  "g": [
+   "t",
+   "e",
+   "n",
+   "t",
+   "s"
+  ],
+  "u": 34,
+  "ph": [
+   "t",
+   "e",
+   "n",
+   "t",
+   "s"
+  ],
+  "pic": "⛺",
+  "ja": "テント",
+  "tier": "common",
+  "pat": [
+   "af:s"
+  ],
+  "morph": [
+   "tent",
+   "s"
+  ]
+ },
+ {
+  "id": "lamps",
+  "t": "lamps",
+  "g": [
+   "l",
+   "a",
+   "m",
+   "p",
+   "s"
+  ],
+  "u": 34,
+  "ph": [
+   "l",
+   "a",
+   "m",
+   "p",
+   "s"
+  ],
+  "pic": "💡",
+  "ja": "ランプ",
+  "tier": "common",
+  "pat": [
+   "af:s"
+  ],
+  "morph": [
+   "lamp",
+   "s"
+  ]
+ },
+ {
+  "id": "nests",
+  "t": "nests",
+  "g": [
+   "n",
+   "e",
+   "s",
+   "t",
+   "s"
+  ],
+  "u": 34,
+  "ph": [
+   "n",
+   "e",
+   "s",
+   "t",
+   "s"
+  ],
+  "pic": "🪺",
+  "ja": "す",
+  "tier": "common",
+  "pat": [
+   "af:s"
+  ],
+  "morph": [
+   "nest",
+   "s"
+  ]
+ },
+ {
+  "id": "desks",
+  "t": "desks",
+  "g": [
+   "d",
+   "e",
+   "s",
+   "k",
+   "s"
+  ],
+  "u": 34,
+  "ph": [
+   "d",
+   "e",
+   "s",
+   "k",
+   "s"
+  ],
+  "pic": "",
+  "ja": "つくえ",
+  "tier": "common",
+  "pat": [
+   "af:s"
+  ],
+  "morph": [
+   "desk",
+   "s"
+  ]
+ },
+ {
+  "id": "hands",
+  "t": "hands",
+  "g": [
+   "h",
+   "a",
+   "n",
+   "d",
+   "sz"
+  ],
+  "u": 34,
+  "ph": [
+   "h",
+   "a",
+   "n",
+   "d",
+   "z"
+  ],
+  "pic": "✋",
+  "ja": "て",
+  "tier": "common",
+  "pat": [
+   "af:s"
+  ],
+  "morph": [
+   "hand",
+   "s"
+  ]
+ },
+ {
+  "id": "ants",
+  "t": "ants",
+  "g": [
+   "a",
+   "n",
+   "t",
+   "s"
+  ],
+  "u": 34,
+  "ph": [
+   "a",
+   "n",
+   "t",
+   "s"
+  ],
+  "pic": "🐜",
+  "ja": "あり",
+  "tier": "common",
+  "pat": [
+   "af:s"
+  ],
+  "morph": [
+   "ant",
+   "s"
+  ]
+ },
+ {
+  "id": "slower",
+  "t": "slower",
+  "g": [
+   "s",
+   "l",
+   "ow_ou",
+   "er"
+  ],
+  "u": 34,
+  "ph": [
+   "s",
+   "l",
+   "oa",
+   "ur"
+  ],
+  "pic": "",
+  "ja": "おそい",
+  "tier": "common",
+  "pat": [
+   "^sl",
+   "af:er"
+  ],
+  "morph": [
+   "slow",
+   "er"
+  ]
+ },
+ {
+  "id": "taller",
+  "t": "taller",
+  "g": [
+   "t",
+   "a",
+   "ll",
+   "er"
+  ],
+  "u": 34,
+  "ph": [
+   "t",
+   "a",
+   "l",
+   "ur"
+  ],
+  "pic": "",
+  "ja": "たかい",
+  "tier": "common",
+  "pat": [
+   "af:er"
+  ],
+  "morph": [
+   "tall",
+   "er"
+  ]
+ },
+ {
+  "id": "smaller",
+  "t": "smaller",
+  "g": [
+   "s",
+   "m",
+   "a",
+   "ll",
+   "er"
+  ],
+  "u": 34,
+  "ph": [
+   "s",
+   "m",
+   "a",
+   "l",
+   "ur"
+  ],
+  "pic": "",
+  "ja": "ちいさい",
+  "tier": "common",
+  "pat": [
+   "^sm",
+   "af:er"
+  ],
+  "morph": [
+   "small",
+   "er"
+  ]
+ },
+ {
+  "id": "longer",
+  "t": "longer",
+  "g": [
+   "l",
+   "o",
+   "ng",
+   "er"
+  ],
+  "u": 34,
+  "ph": [
+   "l",
+   "o",
+   "ng",
+   "ur"
+  ],
+  "pic": "",
+  "ja": "ながい",
+  "tier": "common",
+  "pat": [
+   "af:er"
+  ],
+  "morph": [
+   "long",
+   "er"
+  ]
+ },
+ {
+  "id": "stronger",
+  "t": "stronger",
+  "g": [
+   "s",
+   "t",
+   "r",
+   "o",
+   "ng",
+   "er"
+  ],
+  "u": 34,
+  "ph": [
+   "s",
+   "t",
+   "r",
+   "o",
+   "ng",
+   "ur"
+  ],
+  "pic": "",
+  "ja": "つよい",
+  "tier": "common",
+  "pat": [
+   "^st",
+   "^str",
+   "af:er"
+  ],
+  "morph": [
+   "strong",
+   "er"
+  ]
+ },
+ {
+  "id": "colder",
+  "t": "colder",
+  "g": [
+   "c",
+   "o_open",
+   "l",
+   "d",
+   "er"
+  ],
+  "u": 34,
+  "ph": [
+   "k",
+   "oa",
+   "l",
+   "d",
+   "ur"
+  ],
+  "pic": "",
+  "ja": "さむい",
+  "tier": "common",
+  "pat": [
+   "af:er"
+  ],
+  "morph": [
+   "cold",
+   "er"
+  ]
+ },
+ {
+  "id": "older",
+  "t": "older",
+  "g": [
+   "o_open",
+   "l",
+   "d",
+   "er"
+  ],
+  "u": 34,
+  "ph": [
+   "oa",
+   "l",
+   "d",
+   "ur"
+  ],
+  "pic": "",
+  "ja": "としうえ",
+  "tier": "common",
+  "pat": [
+   "af:er"
+  ],
+  "morph": [
+   "old",
+   "er"
+  ]
+ },
+ {
+  "id": "darker",
+  "t": "darker",
+  "g": [
+   "d",
+   "ar",
+   "k",
+   "er"
+  ],
+  "u": 34,
+  "ph": [
+   "d",
+   "ar",
+   "k",
+   "ur"
+  ],
+  "pic": "",
+  "ja": "くらい",
+  "tier": "common",
+  "pat": [
+   "af:er"
+  ],
+  "morph": [
+   "dark",
+   "er"
+  ]
+ },
+ {
+  "id": "harder",
+  "t": "harder",
+  "g": [
+   "h",
+   "ar",
+   "d",
+   "er"
+  ],
+  "u": 34,
+  "ph": [
+   "h",
+   "ar",
+   "d",
+   "ur"
+  ],
+  "pic": "",
+  "ja": "かたい",
+  "tier": "common",
+  "pat": [
+   "af:er"
+  ],
+  "morph": [
+   "hard",
+   "er"
+  ]
+ },
+ {
+  "id": "louder",
+  "t": "louder",
+  "g": [
+   "l",
+   "ou",
+   "d",
+   "er"
+  ],
+  "u": 34,
+  "ph": [
+   "l",
+   "ow",
+   "d",
+   "ur"
+  ],
+  "pic": "",
+  "ja": "うるさい",
+  "tier": "common",
+  "pat": [
+   "af:er"
+  ],
+  "morph": [
+   "loud",
+   "er"
+  ]
+ },
+ {
+  "id": "kinder",
+  "t": "kinder",
+  "g": [
+   "k",
+   "i_open",
+   "n",
+   "d",
+   "er"
+  ],
+  "u": 34,
+  "ph": [
+   "k",
+   "igh",
+   "n",
+   "d",
+   "ur"
+  ],
+  "pic": "",
+  "ja": "やさしい",
+  "tier": "common",
+  "pat": [
+   "af:er"
+  ],
+  "morph": [
+   "kind",
+   "er"
+  ]
+ },
+ {
+  "id": "singer",
+  "t": "singer",
+  "g": [
+   "s",
+   "i",
+   "ng",
+   "er"
+  ],
+  "u": 34,
+  "ph": [
+   "s",
+   "i",
+   "ng",
+   "ur"
+  ],
+  "pic": "🎤",
+  "ja": "かしゅ",
+  "tier": "common",
+  "pat": [
+   "af:er"
+  ],
+  "morph": [
+   "sing",
+   "er"
+  ]
+ },
+ {
+  "id": "teacher",
+  "t": "teacher",
+  "g": [
+   "t",
+   "ea_i",
+   "ch",
+   "er"
+  ],
+  "u": 34,
+  "ph": [
+   "t",
+   "ee",
+   "ch",
+   "ur"
+  ],
+  "pic": "👩‍🏫",
+  "ja": "せんせい",
+  "tier": "common",
+  "pat": [
+   "af:er"
+  ],
+  "morph": [
+   "teach",
+   "er"
+  ]
+ },
+ {
+  "id": "painter",
+  "t": "painter",
+  "g": [
+   "p",
+   "ai",
+   "n",
+   "t",
+   "er"
+  ],
+  "u": 34,
+  "ph": [
+   "p",
+   "ai",
+   "n",
+   "t",
+   "ur"
+  ],
+  "pic": "🎨",
+  "ja": "がか",
+  "tier": "common",
+  "pat": [
+   "af:er"
+  ],
+  "morph": [
+   "paint",
+   "er"
+  ]
+ },
+ {
+  "id": "fastest",
+  "t": "fastest",
+  "g": [
+   "f",
+   "a",
+   "s",
+   "t",
+   "e",
+   "s",
+   "t"
+  ],
+  "u": 34,
+  "ph": [
+   "f",
+   "a",
+   "s",
+   "t",
+   "e",
+   "s",
+   "t"
+  ],
+  "pic": "",
+  "ja": "いちばんはやい",
+  "tier": "common",
+  "pat": [
+   "st$",
+   "af:est"
+  ],
+  "morph": [
+   "fast",
+   "est"
+  ]
+ },
+ {
+  "id": "slowest",
+  "t": "slowest",
+  "g": [
+   "s",
+   "l",
+   "ow_ou",
+   "e",
+   "s",
+   "t"
+  ],
+  "u": 34,
+  "ph": [
+   "s",
+   "l",
+   "oa",
+   "e",
+   "s",
+   "t"
+  ],
+  "pic": "",
+  "ja": "いちばんおそい",
+  "tier": "common",
+  "pat": [
+   "st$",
+   "^sl",
+   "af:est"
+  ],
+  "morph": [
+   "slow",
+   "est"
+  ]
+ },
+ {
+  "id": "tallest",
+  "t": "tallest",
+  "g": [
+   "t",
+   "a",
+   "ll",
+   "e",
+   "s",
+   "t"
+  ],
+  "u": 34,
+  "ph": [
+   "t",
+   "a",
+   "l",
+   "e",
+   "s",
+   "t"
+  ],
+  "pic": "",
+  "ja": "いちばんたかい",
+  "tier": "common",
+  "pat": [
+   "st$",
+   "af:est"
+  ],
+  "morph": [
+   "tall",
+   "est"
+  ]
+ },
+ {
+  "id": "smallest",
+  "t": "smallest",
+  "g": [
+   "s",
+   "m",
+   "a",
+   "ll",
+   "e",
+   "s",
+   "t"
+  ],
+  "u": 34,
+  "ph": [
+   "s",
+   "m",
+   "a",
+   "l",
+   "e",
+   "s",
+   "t"
+  ],
+  "pic": "",
+  "ja": "いちばんちいさい",
+  "tier": "common",
+  "pat": [
+   "st$",
+   "^sm",
+   "af:est"
+  ],
+  "morph": [
+   "small",
+   "est"
+  ]
+ },
+ {
+  "id": "longest",
+  "t": "longest",
+  "g": [
+   "l",
+   "o",
+   "ng",
+   "e",
+   "s",
+   "t"
+  ],
+  "u": 34,
+  "ph": [
+   "l",
+   "o",
+   "ng",
+   "e",
+   "s",
+   "t"
+  ],
+  "pic": "",
+  "ja": "いちばんながい",
+  "tier": "common",
+  "pat": [
+   "st$",
+   "af:est"
+  ],
+  "morph": [
+   "long",
+   "est"
+  ]
+ },
+ {
+  "id": "strongest",
+  "t": "strongest",
+  "g": [
+   "s",
+   "t",
+   "r",
+   "o",
+   "ng",
+   "e",
+   "s",
+   "t"
+  ],
+  "u": 34,
+  "ph": [
+   "s",
+   "t",
+   "r",
+   "o",
+   "ng",
+   "e",
+   "s",
+   "t"
+  ],
+  "pic": "",
+  "ja": "いちばんつよい",
+  "tier": "common",
+  "pat": [
+   "st$",
+   "^st",
+   "^str",
+   "af:est"
+  ],
+  "morph": [
+   "strong",
+   "est"
+  ]
+ },
+ {
+  "id": "coldest",
+  "t": "coldest",
+  "g": [
+   "c",
+   "o_open",
+   "l",
+   "d",
+   "e",
+   "s",
+   "t"
+  ],
+  "u": 34,
+  "ph": [
+   "k",
+   "oa",
+   "l",
+   "d",
+   "e",
+   "s",
+   "t"
+  ],
+  "pic": "",
+  "ja": "いちばんさむい",
+  "tier": "common",
+  "pat": [
+   "st$",
+   "af:est"
+  ],
+  "morph": [
+   "cold",
+   "est"
+  ]
+ },
+ {
+  "id": "oldest",
+  "t": "oldest",
+  "g": [
+   "o_open",
+   "l",
+   "d",
+   "e",
+   "s",
+   "t"
+  ],
+  "u": 34,
+  "ph": [
+   "oa",
+   "l",
+   "d",
+   "e",
+   "s",
+   "t"
+  ],
+  "pic": "",
+  "ja": "いちばんふるい",
+  "tier": "common",
+  "pat": [
+   "st$",
+   "af:est"
+  ],
+  "morph": [
+   "old",
+   "est"
+  ]
+ },
+ {
+  "id": "darkest",
+  "t": "darkest",
+  "g": [
+   "d",
+   "ar",
+   "k",
+   "e",
+   "s",
+   "t"
+  ],
+  "u": 34,
+  "ph": [
+   "d",
+   "ar",
+   "k",
+   "e",
+   "s",
+   "t"
+  ],
+  "pic": "",
+  "ja": "いちばんくらい",
+  "tier": "common",
+  "pat": [
+   "st$",
+   "af:est"
+  ],
+  "morph": [
+   "dark",
+   "est"
+  ]
+ },
+ {
+  "id": "hardest",
+  "t": "hardest",
+  "g": [
+   "h",
+   "ar",
+   "d",
+   "e",
+   "s",
+   "t"
+  ],
+  "u": 34,
+  "ph": [
+   "h",
+   "ar",
+   "d",
+   "e",
+   "s",
+   "t"
+  ],
+  "pic": "",
+  "ja": "いちばんかたい",
+  "tier": "common",
+  "pat": [
+   "st$",
+   "af:est"
+  ],
+  "morph": [
+   "hard",
+   "est"
+  ]
+ },
+ {
+  "id": "loudest",
+  "t": "loudest",
+  "g": [
+   "l",
+   "ou",
+   "d",
+   "e",
+   "s",
+   "t"
+  ],
+  "u": 34,
+  "ph": [
+   "l",
+   "ow",
+   "d",
+   "e",
+   "s",
+   "t"
+  ],
+  "pic": "",
+  "ja": "いちばんうるさい",
+  "tier": "common",
+  "pat": [
+   "st$",
+   "af:est"
+  ],
+  "morph": [
+   "loud",
+   "est"
+  ]
+ },
+ {
+  "id": "kindest",
+  "t": "kindest",
+  "g": [
+   "k",
+   "i_open",
+   "n",
+   "d",
+   "e",
+   "s",
+   "t"
+  ],
+  "u": 34,
+  "ph": [
+   "k",
+   "igh",
+   "n",
+   "d",
+   "e",
+   "s",
+   "t"
+  ],
+  "pic": "",
+  "ja": "いちばんやさしい",
+  "tier": "common",
+  "pat": [
+   "st$",
+   "af:est"
+  ],
+  "morph": [
+   "kind",
+   "est"
+  ]
+ },
+ {
+  "id": "slowly",
+  "t": "slowly",
+  "g": [
+   "s",
+   "l",
+   "ow_ou",
+   "l",
+   "y_i"
+  ],
+  "u": 34,
+  "ph": [
+   "s",
+   "l",
+   "oa",
+   "l",
+   "ee"
+  ],
+  "pic": "",
+  "ja": "ゆっくり",
+  "tier": "common",
+  "pat": [
+   "^sl",
+   "af:ly"
+  ],
+  "morph": [
+   "slow",
+   "ly"
+  ]
+ },
+ {
+  "id": "quickly",
+  "t": "quickly",
+  "g": [
+   "qu",
+   "i",
+   "ck",
+   "l",
+   "y_i"
+  ],
+  "u": 34,
+  "ph": [
+   "k",
+   "w",
+   "i",
+   "k",
+   "l",
+   "ee"
+  ],
+  "pic": "",
+  "ja": "はやく",
+  "tier": "common",
+  "pat": [
+   "af:ly"
+  ],
+  "morph": [
+   "quick",
+   "ly"
+  ]
+ },
+ {
+  "id": "softly",
+  "t": "softly",
+  "g": [
+   "s",
+   "o",
+   "f",
+   "t",
+   "l",
+   "y_i"
+  ],
+  "u": 34,
+  "ph": [
+   "s",
+   "o",
+   "f",
+   "t",
+   "l",
+   "ee"
+  ],
+  "pic": "",
+  "ja": "やわらかく",
+  "tier": "common",
+  "pat": [
+   "af:ly"
+  ],
+  "morph": [
+   "soft",
+   "ly"
+  ]
+ },
+ {
+  "id": "badly",
+  "t": "badly",
+  "g": [
+   "b",
+   "a",
+   "d",
+   "l",
+   "y_i"
+  ],
+  "u": 34,
+  "ph": [
+   "b",
+   "a",
+   "d",
+   "l",
+   "ee"
+  ],
+  "pic": "",
+  "ja": "わるく",
+  "tier": "common",
+  "pat": [
+   "af:ly"
+  ],
+  "morph": [
+   "bad",
+   "ly"
+  ]
+ },
+ {
+  "id": "sadly",
+  "t": "sadly",
+  "g": [
+   "s",
+   "a",
+   "d",
+   "l",
+   "y_i"
+  ],
+  "u": 34,
+  "ph": [
+   "s",
+   "a",
+   "d",
+   "l",
+   "ee"
+  ],
+  "pic": "",
+  "ja": "かなしく",
+  "tier": "common",
+  "pat": [
+   "af:ly"
+  ],
+  "morph": [
+   "sad",
+   "ly"
+  ]
+ },
+ {
+  "id": "gladly",
+  "t": "gladly",
+  "g": [
+   "g",
+   "l",
+   "a",
+   "d",
+   "l",
+   "y_i"
+  ],
+  "u": 34,
+  "ph": [
+   "g",
+   "l",
+   "a",
+   "d",
+   "l",
+   "ee"
+  ],
+  "pic": "",
+  "ja": "よろこんで",
+  "tier": "common",
+  "pat": [
+   "^gl",
+   "af:ly"
+  ],
+  "morph": [
+   "glad",
+   "ly"
+  ]
+ },
+ {
+  "id": "kindly",
+  "t": "kindly",
+  "g": [
+   "k",
+   "i_open",
+   "n",
+   "d",
+   "l",
+   "y_i"
+  ],
+  "u": 34,
+  "ph": [
+   "k",
+   "igh",
+   "n",
+   "d",
+   "l",
+   "ee"
+  ],
+  "pic": "",
+  "ja": "しんせつに",
+  "tier": "common",
+  "pat": [
+   "af:ly"
+  ],
+  "morph": [
+   "kind",
+   "ly"
+  ]
+ },
+ {
+  "id": "loudly",
+  "t": "loudly",
+  "g": [
+   "l",
+   "ou",
+   "d",
+   "l",
+   "y_i"
+  ],
+  "u": 34,
+  "ph": [
+   "l",
+   "ow",
+   "d",
+   "l",
+   "ee"
+  ],
+  "pic": "",
+  "ja": "おおきなこえで",
+  "tier": "common",
+  "pat": [
+   "af:ly"
+  ],
+  "morph": [
+   "loud",
+   "ly"
+  ]
+ },
+ {
+  "id": "nicely",
+  "t": "nicely",
+  "g": [
+   "n",
+   "i_e",
+   "c_soft",
+   "e_s",
+   "l",
+   "y_i"
+  ],
+  "u": 34,
+  "ph": [
+   "n",
+   "igh",
+   "s",
+   "l",
+   "ee"
+  ],
+  "pic": "",
+  "ja": "すてきに",
+  "tier": "common",
+  "pat": [
+   "af:ly"
+  ],
+  "morph": [
+   "nice",
+   "ly"
+  ]
+ },
+ {
+  "id": "safely",
+  "t": "safely",
+  "g": [
+   "s",
+   "a_e",
+   "f",
+   "e_s",
+   "l",
+   "y_i"
+  ],
+  "u": 34,
+  "ph": [
+   "s",
+   "ai",
+   "f",
+   "l",
+   "ee"
+  ],
+  "pic": "",
+  "ja": "あんぜんに",
+  "tier": "common",
+  "pat": [
+   "af:ly"
+  ],
+  "morph": [
+   "safe",
+   "ly"
+  ]
+ },
+ {
+  "id": "lastly",
+  "t": "lastly",
+  "g": [
+   "l",
+   "a",
+   "s",
+   "t",
+   "l",
+   "y_i"
+  ],
+  "u": 34,
+  "ph": [
+   "l",
+   "a",
+   "s",
+   "t",
+   "l",
+   "ee"
+  ],
+  "pic": "",
+  "ja": "さいごに",
+  "tier": "common",
+  "pat": [
+   "af:ly"
+  ],
+  "morph": [
+   "last",
+   "ly"
+  ]
+ },
+ {
+  "id": "helpful",
+  "t": "helpful",
+  "g": [
+   "h",
+   "e",
+   "l",
+   "p",
+   "f",
+   "u",
+   "l"
+  ],
+  "u": 34,
+  "ph": [
+   "h",
+   "e",
+   "l",
+   "p",
+   "f",
+   "u",
+   "l"
+  ],
+  "pic": "",
+  "ja": "やくにたつ",
+  "tier": "common",
+  "pat": [
+   "af:ful"
+  ],
+  "morph": [
+   "help",
+   "ful"
+  ]
+ },
+ {
+  "id": "playful",
+  "t": "playful",
+  "g": [
+   "p",
+   "l",
+   "ay",
+   "f",
+   "u",
+   "l"
+  ],
+  "u": 34,
+  "ph": [
+   "p",
+   "l",
+   "ai",
+   "f",
+   "u",
+   "l"
+  ],
+  "pic": "",
+  "ja": "あそびごのき",
+  "tier": "common",
+  "pat": [
+   "^pl",
+   "af:ful"
+  ],
+  "morph": [
+   "play",
+   "ful"
+  ]
+ },
+ {
+  "id": "hopeful",
+  "t": "hopeful",
+  "g": [
+   "h",
+   "o_e",
+   "p",
+   "e_s",
+   "f",
+   "u",
+   "l"
+  ],
+  "u": 34,
+  "ph": [
+   "h",
+   "oa",
+   "p",
+   "f",
+   "u",
+   "l"
+  ],
+  "pic": "",
+  "ja": "きぼうのある",
+  "tier": "common",
+  "pat": [
+   "af:ful"
+  ],
+  "morph": [
+   "hope",
+   "ful"
+  ]
+ },
+ {
+  "id": "joyful",
+  "t": "joyful",
+  "g": [
+   "j",
+   "oy",
+   "f",
+   "u",
+   "l"
+  ],
+  "u": 34,
+  "ph": [
+   "dj",
+   "oi",
+   "f",
+   "u",
+   "l"
+  ],
+  "pic": "",
+  "ja": "うれしい",
+  "tier": "common",
+  "pat": [
+   "af:ful"
+  ],
+  "morph": [
+   "joy",
+   "ful"
+  ]
+ },
+ {
+  "id": "painful",
+  "t": "painful",
+  "g": [
+   "p",
+   "ai",
+   "n",
+   "f",
+   "u",
+   "l"
+  ],
+  "u": 34,
+  "ph": [
+   "p",
+   "ai",
+   "n",
+   "f",
+   "u",
+   "l"
+  ],
+  "pic": "",
+  "ja": "いたい",
+  "tier": "common",
+  "pat": [
+   "af:ful"
+  ],
+  "morph": [
+   "pain",
+   "ful"
+  ]
+ },
+ {
+  "id": "thankful",
+  "t": "thankful",
+  "g": [
+   "th",
+   "a",
+   "nk",
+   "f",
+   "u",
+   "l"
+  ],
+  "u": 34,
+  "ph": [
+   "th",
+   "a",
+   "ng",
+   "k",
+   "f",
+   "u",
+   "l"
+  ],
+  "pic": "",
+  "ja": "かんしゃして",
+  "tier": "common",
+  "pat": [
+   "af:ful"
+  ],
+  "morph": [
+   "thank",
+   "ful"
+  ]
+ },
+ {
+  "id": "handful",
+  "t": "handful",
+  "g": [
+   "h",
+   "a",
+   "n",
+   "d",
+   "f",
+   "u",
+   "l"
+  ],
+  "u": 34,
+  "ph": [
+   "h",
+   "a",
+   "n",
+   "d",
+   "f",
+   "u",
+   "l"
+  ],
+  "pic": "",
+  "ja": "ひとにぎり",
+  "tier": "common",
+  "pat": [
+   "af:ful"
+  ],
+  "morph": [
+   "hand",
+   "ful"
+  ]
+ },
+ {
+  "id": "restful",
+  "t": "restful",
+  "g": [
+   "r",
+   "e",
+   "s",
+   "t",
+   "f",
+   "u",
+   "l"
+  ],
+  "u": 34,
+  "ph": [
+   "r",
+   "e",
+   "s",
+   "t",
+   "f",
+   "u",
+   "l"
+  ],
+  "pic": "",
+  "ja": "くつろげる",
+  "tier": "common",
+  "pat": [
+   "af:ful"
+  ],
+  "morph": [
+   "rest",
+   "ful"
+  ]
+ },
+ {
+  "id": "hopeless",
+  "t": "hopeless",
+  "g": [
+   "h",
+   "o_e",
+   "p",
+   "e_s",
+   "l",
+   "e",
+   "ss"
+  ],
+  "u": 34,
+  "ph": [
+   "h",
+   "oa",
+   "p",
+   "l",
+   "e",
+   "s"
+  ],
+  "pic": "",
+  "ja": "のぞみがない",
+  "tier": "common",
+  "pat": [
+   "af:less"
+  ],
+  "morph": [
+   "hope",
+   "less"
+  ]
+ },
+ {
+  "id": "helpless",
+  "t": "helpless",
+  "g": [
+   "h",
+   "e",
+   "l",
+   "p",
+   "l",
+   "e",
+   "ss"
+  ],
+  "u": 34,
+  "ph": [
+   "h",
+   "e",
+   "l",
+   "p",
+   "l",
+   "e",
+   "s"
+  ],
+  "pic": "",
+  "ja": "むりょくな",
+  "tier": "common",
+  "pat": [
+   "af:less"
+  ],
+  "morph": [
+   "help",
+   "less"
+  ]
+ },
+ {
+  "id": "homeless",
+  "t": "homeless",
+  "g": [
+   "h",
+   "o_e",
+   "m",
+   "e_s",
+   "l",
+   "e",
+   "ss"
+  ],
+  "u": 34,
+  "ph": [
+   "h",
+   "oa",
+   "m",
+   "l",
+   "e",
+   "s"
+  ],
+  "pic": "",
+  "ja": "いえのない",
+  "tier": "common",
+  "pat": [
+   "af:less"
+  ],
+  "morph": [
+   "home",
+   "less"
+  ]
+ },
+ {
+  "id": "endless",
+  "t": "endless",
+  "g": [
+   "e",
+   "n",
+   "d",
+   "l",
+   "e",
+   "ss"
+  ],
+  "u": 34,
+  "ph": [
+   "e",
+   "n",
+   "d",
+   "l",
+   "e",
+   "s"
+  ],
+  "pic": "",
+  "ja": "おわりのない",
+  "tier": "common",
+  "pat": [
+   "af:less"
+  ],
+  "morph": [
+   "end",
+   "less"
+  ]
+ },
+ {
+  "id": "harmless",
+  "t": "harmless",
+  "g": [
+   "h",
+   "ar",
+   "m",
+   "l",
+   "e",
+   "ss"
+  ],
+  "u": 34,
+  "ph": [
+   "h",
+   "ar",
+   "m",
+   "l",
+   "e",
+   "s"
+  ],
+  "pic": "",
+  "ja": "むがいな",
+  "tier": "common",
+  "pat": [
+   "af:less"
+  ],
+  "morph": [
+   "harm",
+   "less"
+  ]
+ },
+ {
+  "id": "painless",
+  "t": "painless",
+  "g": [
+   "p",
+   "ai",
+   "n",
+   "l",
+   "e",
+   "ss"
+  ],
+  "u": 34,
+  "ph": [
+   "p",
+   "ai",
+   "n",
+   "l",
+   "e",
+   "s"
+  ],
+  "pic": "",
+  "ja": "いたくない",
+  "tier": "common",
+  "pat": [
+   "af:less"
+  ],
+  "morph": [
+   "pain",
+   "less"
+  ]
+ },
+ {
+  "id": "pointless",
+  "t": "pointless",
+  "g": [
+   "p",
+   "oi",
+   "n",
+   "t",
+   "l",
+   "e",
+   "ss"
+  ],
+  "u": 34,
+  "ph": [
+   "p",
+   "oi",
+   "n",
+   "t",
+   "l",
+   "e",
+   "s"
+  ],
+  "pic": "",
+  "ja": "むいみな",
+  "tier": "common",
+  "pat": [
+   "af:less"
+  ],
+  "morph": [
+   "point",
+   "less"
+  ]
+ },
+ {
+  "id": "restless",
+  "t": "restless",
+  "g": [
+   "r",
+   "e",
+   "s",
+   "t",
+   "l",
+   "e",
+   "ss"
+  ],
+  "u": 34,
+  "ph": [
+   "r",
+   "e",
+   "s",
+   "t",
+   "l",
+   "e",
+   "s"
+  ],
+  "pic": "",
+  "ja": "おちつかない",
+  "tier": "common",
+  "pat": [
+   "af:less"
+  ],
+  "morph": [
+   "rest",
+   "less"
+  ]
+ },
+ {
+  "id": "sleepless",
+  "t": "sleepless",
+  "g": [
+   "s",
+   "l",
+   "ee",
+   "p",
+   "l",
+   "e",
+   "ss"
+  ],
+  "u": 34,
+  "ph": [
+   "s",
+   "l",
+   "ee",
+   "p",
+   "l",
+   "e",
+   "s"
+  ],
+  "pic": "",
+  "ja": "ねむれない",
+  "tier": "common",
+  "pat": [
+   "^sl",
+   "af:less"
+  ],
+  "morph": [
+   "sleep",
+   "less"
+  ]
+ },
+ {
+  "id": "unlock",
+  "t": "unlock",
+  "g": [
+   "u",
+   "n",
+   "l",
+   "o",
+   "ck"
+  ],
+  "u": 35,
+  "ph": [
+   "u",
+   "n",
+   "l",
+   "o",
+   "k"
+  ],
+  "pic": "🔓",
+  "ja": "あける",
+  "tier": "common",
+  "pat": [
+   "af:un"
+  ],
+  "morph": [
+   "un",
+   "lock"
+  ]
+ },
+ {
+  "id": "unfair",
+  "t": "unfair",
+  "g": [
+   "u",
+   "n",
+   "f",
+   "air"
+  ],
+  "u": 35,
+  "ph": [
+   "u",
+   "n",
+   "f",
+   "air"
+  ],
+  "pic": "",
+  "ja": "ふこうへい",
+  "tier": "common",
+  "pat": [
+   "af:un"
+  ],
+  "morph": [
+   "un",
+   "fair"
+  ]
+ },
+ {
+  "id": "unfit",
+  "t": "unfit",
+  "g": [
+   "u",
+   "n",
+   "f",
+   "i",
+   "t"
+  ],
+  "u": 35,
+  "ph": [
+   "u",
+   "n",
+   "f",
+   "i",
+   "t"
+  ],
+  "pic": "",
+  "ja": "ふてき",
+  "tier": "common",
+  "pat": [
+   "af:un"
+  ],
+  "morph": [
+   "un",
+   "fit"
+  ]
+ },
+ {
+  "id": "unhappy",
+  "t": "unhappy",
+  "g": [
+   "u",
+   "n",
+   "h",
+   "a",
+   "p",
+   "p",
+   "y_i"
+  ],
+  "u": 35,
+  "ph": [
+   "u",
+   "n",
+   "h",
+   "a",
+   "p",
+   "p",
+   "ee"
+  ],
+  "pic": "😢",
+  "ja": "ふしあわせ",
+  "tier": "common",
+  "pat": [
+   "af:un"
+  ],
+  "morph": [
+   "un",
+   "happy"
+  ]
+ },
+ {
+  "id": "unkind",
+  "t": "unkind",
+  "g": [
+   "u",
+   "n",
+   "k",
+   "i_open",
+   "n",
+   "d"
+  ],
+  "u": 35,
+  "ph": [
+   "u",
+   "n",
+   "k",
+   "igh",
+   "n",
+   "d"
+  ],
+  "pic": "",
+  "ja": "ふしんせつ",
+  "tier": "common",
+  "pat": [
+   "nd$",
+   "af:un"
+  ],
+  "morph": [
+   "un",
+   "kind"
+  ]
+ },
+ {
+  "id": "unsafe",
+  "t": "unsafe",
+  "g": [
+   "u",
+   "n",
+   "s",
+   "a_e",
+   "f",
+   "e_s"
+  ],
+  "u": 35,
+  "ph": [
+   "u",
+   "n",
+   "s",
+   "ai",
+   "f"
+  ],
+  "pic": "",
+  "ja": "あぶない",
+  "tier": "common",
+  "pat": [
+   "af:un"
+  ],
+  "morph": [
+   "un",
+   "safe"
+  ]
+ },
+ {
+  "id": "unclear",
+  "t": "unclear",
+  "g": [
+   "u",
+   "n",
+   "c",
+   "l",
+   "ear"
+  ],
+  "u": 35,
+  "ph": [
+   "u",
+   "n",
+   "k",
+   "l",
+   "ear"
+  ],
+  "pic": "",
+  "ja": "はっきりしない",
+  "tier": "common",
+  "pat": [
+   "af:un"
+  ],
+  "morph": [
+   "un",
+   "clear"
+  ]
+ },
+ {
+  "id": "unpack",
+  "t": "unpack",
+  "g": [
+   "u",
+   "n",
+   "p",
+   "a",
+   "ck"
+  ],
+  "u": 35,
+  "ph": [
+   "u",
+   "n",
+   "p",
+   "a",
+   "k"
+  ],
+  "pic": "🧳",
+  "ja": "にもつをだす",
+  "tier": "common",
+  "pat": [
+   "af:un"
+  ],
+  "morph": [
+   "un",
+   "pack"
+  ]
+ },
+ {
+  "id": "untie",
+  "t": "untie",
+  "g": [
+   "u",
+   "n",
+   "t",
+   "ie"
+  ],
+  "u": 35,
+  "ph": [
+   "u",
+   "n",
+   "t",
+   "igh"
+  ],
+  "pic": "",
+  "ja": "ほどく",
+  "tier": "common",
+  "pat": [
+   "af:un"
+  ],
+  "morph": [
+   "un",
+   "tie"
+  ]
+ },
+ {
+  "id": "unwrap",
+  "t": "unwrap",
+  "g": [
+   "u",
+   "n",
+   "wr",
+   "a",
+   "p"
+  ],
+  "u": 35,
+  "ph": [
+   "u",
+   "n",
+   "r",
+   "a",
+   "p"
+  ],
+  "pic": "🎁",
+  "ja": "つつみをあける",
+  "tier": "common",
+  "pat": [
+   "af:un"
+  ],
+  "morph": [
+   "un",
+   "wrap"
+  ]
+ },
+ {
+  "id": "unzip",
+  "t": "unzip",
+  "g": [
+   "u",
+   "n",
+   "z",
+   "i",
+   "p"
+  ],
+  "u": 35,
+  "ph": [
+   "u",
+   "n",
+   "z",
+   "i",
+   "p"
+  ],
+  "pic": "",
+  "ja": "ファスナーをあける",
+  "tier": "common",
+  "pat": [
+   "af:un"
+  ],
+  "morph": [
+   "un",
+   "zip"
+  ]
+ },
+ {
+  "id": "unplug",
+  "t": "unplug",
+  "g": [
+   "u",
+   "n",
+   "p",
+   "l",
+   "u",
+   "g"
+  ],
+  "u": 35,
+  "ph": [
+   "u",
+   "n",
+   "p",
+   "l",
+   "u",
+   "g"
+  ],
+  "pic": "🔌",
+  "ja": "プラグをぬく",
+  "tier": "common",
+  "pat": [
+   "af:un"
+  ],
+  "morph": [
+   "un",
+   "plug"
+  ]
+ },
+ {
+  "id": "unfold",
+  "t": "unfold",
+  "g": [
+   "u",
+   "n",
+   "f",
+   "o_open",
+   "l",
+   "d"
+  ],
+  "u": 35,
+  "ph": [
+   "u",
+   "n",
+   "f",
+   "oa",
+   "l",
+   "d"
+  ],
+  "pic": "",
+  "ja": "ひろげる",
+  "tier": "common",
+  "pat": [
+   "af:un"
+  ],
+  "morph": [
+   "un",
+   "fold"
+  ]
+ },
+ {
+  "id": "untrue",
+  "t": "untrue",
+  "g": [
+   "u",
+   "n",
+   "t",
+   "r",
+   "ue"
+  ],
+  "u": 35,
+  "ph": [
+   "u",
+   "n",
+   "t",
+   "r",
+   "oo"
+  ],
+  "pic": "",
+  "ja": "ほんとうでない",
+  "tier": "common",
+  "pat": [
+   "af:un"
+  ],
+  "morph": [
+   "un",
+   "true"
+  ]
+ },
+ {
+  "id": "unwell",
+  "t": "unwell",
+  "g": [
+   "u",
+   "n",
+   "w",
+   "e",
+   "ll"
+  ],
+  "u": 35,
+  "ph": [
+   "u",
+   "n",
+   "w",
+   "e",
+   "l"
+  ],
+  "pic": "",
+  "ja": "ぐあいがわるい",
+  "tier": "common",
+  "pat": [
+   "af:un"
+  ],
+  "morph": [
+   "un",
+   "well"
+  ]
+ },
+ {
+  "id": "replay",
+  "t": "replay",
+  "g": [
+   "r",
+   "e_open",
+   "p",
+   "l",
+   "ay"
+  ],
+  "u": 35,
+  "ph": [
+   "r",
+   "ee",
+   "p",
+   "l",
+   "ai"
+  ],
+  "pic": "🔁",
+  "ja": "もういちどあそぶ",
+  "tier": "common",
+  "pat": [
+   "af:re"
+  ],
+  "morph": [
+   "re",
+   "play"
+  ]
+ },
+ {
+  "id": "reread",
+  "t": "reread",
+  "g": [
+   "r",
+   "e_open",
+   "r",
+   "ea_i",
+   "d"
+  ],
+  "u": 35,
+  "ph": [
+   "r",
+   "ee",
+   "r",
+   "ee",
+   "d"
+  ],
+  "pic": "",
+  "ja": "よみなおす",
+  "tier": "common",
+  "pat": [
+   "af:re"
+  ],
+  "morph": [
+   "re",
+   "read"
+  ]
+ },
+ {
+  "id": "rewrite",
+  "t": "rewrite",
+  "g": [
+   "r",
+   "e_open",
+   "wr",
+   "i_e",
+   "t",
+   "e_s"
+  ],
+  "u": 35,
+  "ph": [
+   "r",
+   "ee",
+   "r",
+   "igh",
+   "t"
+  ],
+  "pic": "",
+  "ja": "かきなおす",
+  "tier": "common",
+  "pat": [
+   "af:re"
+  ],
+  "morph": [
+   "re",
+   "write"
+  ]
+ },
+ {
+  "id": "refill",
+  "t": "refill",
+  "g": [
+   "r",
+   "e_open",
+   "f",
+   "i",
+   "ll"
+  ],
+  "u": 35,
+  "ph": [
+   "r",
+   "ee",
+   "f",
+   "i",
+   "l"
+  ],
+  "pic": "",
+  "ja": "つめかえる",
+  "tier": "common",
+  "pat": [
+   "af:re"
+  ],
+  "morph": [
+   "re",
+   "fill"
+  ]
+ },
+ {
+  "id": "repack",
+  "t": "repack",
+  "g": [
+   "r",
+   "e_open",
+   "p",
+   "a",
+   "ck"
+  ],
+  "u": 35,
+  "ph": [
+   "r",
+   "ee",
+   "p",
+   "a",
+   "k"
+  ],
+  "pic": "",
+  "ja": "つめなおす",
+  "tier": "common",
+  "pat": [
+   "af:re"
+  ],
+  "morph": [
+   "re",
+   "pack"
+  ]
+ },
+ {
+  "id": "replace",
+  "t": "replace",
+  "g": [
+   "r",
+   "e_open",
+   "p",
+   "l",
+   "a_e",
+   "c_soft",
+   "e_s"
+  ],
+  "u": 35,
+  "ph": [
+   "r",
+   "ee",
+   "p",
+   "l",
+   "ai",
+   "s"
+  ],
+  "pic": "",
+  "ja": "とりかえる",
+  "tier": "common",
+  "pat": [
+   "af:re"
+  ],
+  "morph": [
+   "re",
+   "place"
+  ]
+ },
+ {
+  "id": "rerun",
+  "t": "rerun",
+  "g": [
+   "r",
+   "e_open",
+   "r",
+   "u",
+   "n"
+  ],
+  "u": 35,
+  "ph": [
+   "r",
+   "ee",
+   "r",
+   "u",
+   "n"
+  ],
+  "pic": "",
+  "ja": "さいじっこう",
+  "tier": "common",
+  "pat": [
+   "af:re"
+  ],
+  "morph": [
+   "re",
+   "run"
+  ]
+ },
+ {
+  "id": "reheat",
+  "t": "reheat",
+  "g": [
+   "r",
+   "e_open",
+   "h",
+   "ea_i",
+   "t"
+  ],
+  "u": 35,
+  "ph": [
+   "r",
+   "ee",
+   "h",
+   "ee",
+   "t"
+  ],
+  "pic": "",
+  "ja": "あたためなおす",
+  "tier": "common",
+  "pat": [
+   "af:re"
+  ],
+  "morph": [
+   "re",
+   "heat"
+  ]
+ },
+ {
+  "id": "reset",
+  "t": "reset",
+  "g": [
+   "r",
+   "e_open",
+   "s",
+   "e",
+   "t"
+  ],
+  "u": 35,
+  "ph": [
+   "r",
+   "ee",
+   "s",
+   "e",
+   "t"
+  ],
+  "pic": "",
+  "ja": "リセット",
+  "tier": "common",
+  "pat": [
+   "af:re"
+  ],
+  "morph": [
+   "re",
+   "set"
+  ]
+ },
+ {
+  "id": "restart",
+  "t": "restart",
+  "g": [
+   "r",
+   "e_open",
+   "s",
+   "t",
+   "ar",
+   "t"
+  ],
+  "u": 35,
+  "ph": [
+   "r",
+   "ee",
+   "s",
+   "t",
+   "ar",
+   "t"
+  ],
+  "pic": "🔄",
+  "ja": "さいかいする",
+  "tier": "common",
+  "pat": [
+   "af:re"
+  ],
+  "morph": [
+   "re",
+   "start"
+  ]
+ },
+ {
+  "id": "reload",
+  "t": "reload",
+  "g": [
+   "r",
+   "e_open",
+   "l",
+   "oa",
+   "d"
+  ],
+  "u": 35,
+  "ph": [
+   "r",
+   "ee",
+   "l",
+   "oa",
+   "d"
+  ],
+  "pic": "",
+  "ja": "ふたたびのせる",
+  "tier": "common",
+  "pat": [
+   "af:re"
+  ],
+  "morph": [
+   "re",
+   "load"
+  ]
+ },
+ {
+  "id": "repaint",
+  "t": "repaint",
+  "g": [
+   "r",
+   "e_open",
+   "p",
+   "ai",
+   "n",
+   "t"
+  ],
+  "u": 35,
+  "ph": [
+   "r",
+   "ee",
+   "p",
+   "ai",
+   "n",
+   "t"
+  ],
+  "pic": "",
+  "ja": "ぬりなおす",
+  "tier": "common",
+  "pat": [
+   "nt$",
+   "af:re"
+  ],
+  "morph": [
+   "re",
+   "paint"
+  ]
+ },
+ {
+  "id": "retell",
+  "t": "retell",
+  "g": [
+   "r",
+   "e_open",
+   "t",
+   "e",
+   "ll"
+  ],
+  "u": 35,
+  "ph": [
+   "r",
+   "ee",
+   "t",
+   "e",
+   "l"
+  ],
+  "pic": "",
+  "ja": "いいなおす",
+  "tier": "common",
+  "pat": [
+   "af:re"
+  ],
+  "morph": [
+   "re",
+   "tell"
+  ]
+ },
+ {
+  "id": "preheat",
+  "t": "preheat",
+  "g": [
+   "p",
+   "r",
+   "e_open",
+   "h",
+   "ea_i",
+   "t"
+  ],
+  "u": 35,
+  "ph": [
+   "p",
+   "r",
+   "ee",
+   "h",
+   "ee",
+   "t"
+  ],
+  "pic": "",
+  "ja": "あらかじめあたためる",
+  "tier": "common",
+  "pat": [
+   "^pr",
+   "af:pre"
+  ],
+  "morph": [
+   "pre",
+   "heat"
+  ]
+ },
+ {
+  "id": "prepay",
+  "t": "prepay",
+  "g": [
+   "p",
+   "r",
+   "e_open",
+   "p",
+   "ay"
+  ],
+  "u": 35,
+  "ph": [
+   "p",
+   "r",
+   "ee",
+   "p",
+   "ai"
+  ],
+  "pic": "",
+  "ja": "まえばらい",
+  "tier": "common",
+  "pat": [
+   "^pr",
+   "af:pre"
+  ],
+  "morph": [
+   "pre",
+   "pay"
+  ]
+ },
+ {
+  "id": "prefix",
+  "t": "prefix",
+  "g": [
+   "p",
+   "r",
+   "e_open",
+   "f",
+   "i",
+   "x"
+  ],
+  "u": 35,
+  "ph": [
+   "p",
+   "r",
+   "ee",
+   "f",
+   "i",
+   "k",
+   "s"
+  ],
+  "pic": "",
+  "ja": "せっとうじ",
+  "tier": "common",
+  "pat": [
+   "^pr",
+   "af:pre"
+  ],
+  "morph": [
+   "pre",
+   "fix"
+  ]
+ },
+ {
+  "id": "preset",
+  "t": "preset",
+  "g": [
+   "p",
+   "r",
+   "e_open",
+   "s",
+   "e",
+   "t"
+  ],
+  "u": 35,
+  "ph": [
+   "p",
+   "r",
+   "ee",
+   "s",
+   "e",
+   "t"
+  ],
+  "pic": "",
+  "ja": "あらかじめセット",
+  "tier": "common",
+  "pat": [
+   "^pr",
+   "af:pre"
+  ],
+  "morph": [
+   "pre",
+   "set"
+  ]
+ },
+ {
+  "id": "pretest",
+  "t": "pretest",
+  "g": [
+   "p",
+   "r",
+   "e_open",
+   "t",
+   "e",
+   "s",
+   "t"
+  ],
+  "u": 35,
+  "ph": [
+   "p",
+   "r",
+   "ee",
+   "t",
+   "e",
+   "s",
+   "t"
+  ],
+  "pic": "",
+  "ja": "じぜんテスト",
+  "tier": "common",
+  "pat": [
+   "st$",
+   "^pr",
+   "af:pre"
+  ],
+  "morph": [
+   "pre",
+   "test"
+  ]
+ },
+ {
+  "id": "pregame",
+  "t": "pregame",
+  "g": [
+   "p",
+   "r",
+   "e_open",
+   "g",
+   "a_e",
+   "m",
+   "e_s"
+  ],
+  "u": 35,
+  "ph": [
+   "p",
+   "r",
+   "ee",
+   "g",
+   "ai",
+   "m"
+  ],
+  "pic": "",
+  "ja": "しあいまえ",
+  "tier": "common",
+  "pat": [
+   "^pr",
+   "af:pre"
+  ],
+  "morph": [
+   "pre",
+   "game"
+  ]
+ },
+ {
+  "id": "dislike",
+  "t": "dislike",
+  "g": [
+   "d",
+   "i",
+   "s",
+   "l",
+   "i_e",
+   "k",
+   "e_s"
+  ],
+  "u": 35,
+  "ph": [
+   "d",
+   "i",
+   "s",
+   "l",
+   "igh",
+   "k"
+  ],
+  "pic": "",
+  "ja": "きらい",
+  "tier": "common",
+  "pat": [
+   "af:dis"
+  ],
+  "morph": [
+   "dis",
+   "like"
+  ]
+ },
+ {
+  "id": "discount",
+  "t": "discount",
+  "g": [
+   "d",
+   "i",
+   "s",
+   "c",
+   "ou",
+   "n",
+   "t"
+  ],
+  "u": 35,
+  "ph": [
+   "d",
+   "i",
+   "s",
+   "k",
+   "ow",
+   "n",
+   "t"
+  ],
+  "pic": "",
+  "ja": "ねびき",
+  "tier": "common",
+  "pat": [
+   "nt$",
+   "af:dis"
+  ],
+  "morph": [
+   "dis",
+   "count"
+  ]
+ },
+ {
+  "id": "distrust",
+  "t": "distrust",
+  "g": [
+   "d",
+   "i",
+   "s",
+   "t",
+   "r",
+   "u",
+   "s",
+   "t"
+  ],
+  "u": 35,
+  "ph": [
+   "d",
+   "i",
+   "s",
+   "t",
+   "r",
+   "u",
+   "s",
+   "t"
+  ],
+  "pic": "",
+  "ja": "しんじない",
+  "tier": "common",
+  "pat": [
+   "st$",
+   "af:dis"
+  ],
+  "morph": [
+   "dis",
+   "trust"
+  ]
+ },
+ {
+  "id": "disarm",
+  "t": "disarm",
+  "g": [
+   "d",
+   "i",
+   "s",
+   "ar",
+   "m"
+  ],
+  "u": 35,
+  "ph": [
+   "d",
+   "i",
+   "s",
+   "ar",
+   "m"
+  ],
+  "pic": "",
+  "ja": "ぶそうかいじょ",
+  "tier": "common",
+  "pat": [
+   "af:dis"
+  ],
+  "morph": [
+   "dis",
+   "arm"
+  ]
+ },
+ {
+  "id": "disband",
+  "t": "disband",
+  "g": [
+   "d",
+   "i",
+   "s",
+   "b",
+   "a",
+   "n",
+   "d"
+  ],
+  "u": 35,
+  "ph": [
+   "d",
+   "i",
+   "s",
+   "b",
+   "a",
+   "n",
+   "d"
+  ],
+  "pic": "",
+  "ja": "かいさんする",
+  "tier": "common",
+  "pat": [
+   "nd$",
+   "af:dis"
+  ],
+  "morph": [
+   "dis",
+   "band"
+  ]
+ },
+ {
+  "id": "dislodge",
+  "t": "dislodge",
+  "g": [
+   "d",
+   "i",
+   "s",
+   "l",
+   "o",
+   "dge"
+  ],
+  "u": 35,
+  "ph": [
+   "d",
+   "i",
+   "s",
+   "l",
+   "o",
+   "dj"
+  ],
+  "pic": "",
+  "ja": "はずす",
+  "tier": "common",
+  "pat": [
+   "af:dis"
+  ],
+  "morph": [
+   "dis",
+   "lodge"
+  ]
+ },
+ {
+  "id": "running",
+  "t": "running",
+  "g": [
+   "r",
+   "u",
+   "n",
+   "n",
+   "i",
+   "ng"
+  ],
+  "u": 36,
+  "ph": [
+   "r",
+   "u",
+   "n",
+   "n",
+   "i",
+   "ng"
+  ],
+  "pic": "🏃",
+  "ja": "はしる",
+  "tier": "common",
+  "pat": [
+   "ing$",
+   "af:double"
+  ],
+  "morph": [
+   "run",
+   "ing"
+  ]
+ },
+ {
+  "id": "sitting",
+  "t": "sitting",
+  "g": [
+   "s",
+   "i",
+   "t",
+   "t",
+   "i",
+   "ng"
+  ],
+  "u": 36,
+  "ph": [
+   "s",
+   "i",
+   "t",
+   "t",
+   "i",
+   "ng"
+  ],
+  "pic": "",
+  "ja": "すわる",
+  "tier": "common",
+  "pat": [
+   "ing$",
+   "af:double"
+  ],
+  "morph": [
+   "sit",
+   "ing"
+  ]
+ },
+ {
+  "id": "hopping",
+  "t": "hopping",
+  "g": [
+   "h",
+   "o",
+   "p",
+   "p",
+   "i",
+   "ng"
+  ],
+  "u": 36,
+  "ph": [
+   "h",
+   "o",
+   "p",
+   "p",
+   "i",
+   "ng"
+  ],
+  "pic": "🐇",
+  "ja": "はねる",
+  "tier": "common",
+  "pat": [
+   "ing$",
+   "af:double"
+  ],
+  "morph": [
+   "hop",
+   "ing"
+  ]
+ },
+ {
+  "id": "stopping",
+  "t": "stopping",
+  "g": [
+   "s",
+   "t",
+   "o",
+   "p",
+   "p",
+   "i",
+   "ng"
+  ],
+  "u": 36,
+  "ph": [
+   "s",
+   "t",
+   "o",
+   "p",
+   "p",
+   "i",
+   "ng"
+  ],
+  "pic": "🛑",
+  "ja": "とまる",
+  "tier": "common",
+  "pat": [
+   "^st",
+   "ing$",
+   "af:double"
+  ],
+  "morph": [
+   "stop",
+   "ing"
+  ]
+ },
+ {
+  "id": "swimming",
+  "t": "swimming",
+  "g": [
+   "s",
+   "w",
+   "i",
+   "m",
+   "m",
+   "i",
+   "ng"
+  ],
+  "u": 36,
+  "ph": [
+   "s",
+   "w",
+   "i",
+   "m",
+   "m",
+   "i",
+   "ng"
+  ],
+  "pic": "🏊",
+  "ja": "およぐ",
+  "tier": "common",
+  "pat": [
+   "^sw",
+   "ing$",
+   "af:double"
+  ],
+  "morph": [
+   "swim",
+   "ing"
+  ]
+ },
+ {
+  "id": "getting",
+  "t": "getting",
+  "g": [
+   "g",
+   "e",
+   "t",
+   "t",
+   "i",
+   "ng"
+  ],
+  "u": 36,
+  "ph": [
+   "g",
+   "e",
+   "t",
+   "t",
+   "i",
+   "ng"
+  ],
+  "pic": "",
+  "ja": "える",
+  "tier": "common",
+  "pat": [
+   "ing$",
+   "af:double"
+  ],
+  "morph": [
+   "get",
+   "ing"
+  ]
+ },
+ {
+  "id": "digging",
+  "t": "digging",
+  "g": [
+   "d",
+   "i",
+   "g",
+   "g",
+   "i",
+   "ng"
+  ],
+  "u": 36,
+  "ph": [
+   "d",
+   "i",
+   "g",
+   "g",
+   "i",
+   "ng"
+  ],
+  "pic": "",
+  "ja": "ほる",
+  "tier": "common",
+  "pat": [
+   "ing$",
+   "af:double"
+  ],
+  "morph": [
+   "dig",
+   "ing"
+  ]
+ },
+ {
+  "id": "jogging",
+  "t": "jogging",
+  "g": [
+   "j",
+   "o",
+   "g",
+   "g",
+   "i",
+   "ng"
+  ],
+  "u": 36,
+  "ph": [
+   "dj",
+   "o",
+   "g",
+   "g",
+   "i",
+   "ng"
+  ],
+  "pic": "🏃",
+  "ja": "ジョギング",
+  "tier": "common",
+  "pat": [
+   "ing$",
+   "af:double"
+  ],
+  "morph": [
+   "jog",
+   "ing"
+  ]
+ },
+ {
+  "id": "hugging",
+  "t": "hugging",
+  "g": [
+   "h",
+   "u",
+   "g",
+   "g",
+   "i",
+   "ng"
+  ],
+  "u": 36,
+  "ph": [
+   "h",
+   "u",
+   "g",
+   "g",
+   "i",
+   "ng"
+  ],
+  "pic": "🤗",
+  "ja": "だきしめる",
+  "tier": "common",
+  "pat": [
+   "ing$",
+   "af:double"
+  ],
+  "morph": [
+   "hug",
+   "ing"
+  ]
+ },
+ {
+  "id": "clapping",
+  "t": "clapping",
+  "g": [
+   "c",
+   "l",
+   "a",
+   "p",
+   "p",
+   "i",
+   "ng"
+  ],
+  "u": 36,
+  "ph": [
+   "k",
+   "l",
+   "a",
+   "p",
+   "p",
+   "i",
+   "ng"
+  ],
+  "pic": "👏",
+  "ja": "はくしゅ",
+  "tier": "common",
+  "pat": [
+   "^cl",
+   "ing$",
+   "af:double"
+  ],
+  "morph": [
+   "clap",
+   "ing"
+  ]
+ },
+ {
+  "id": "planning",
+  "t": "planning",
+  "g": [
+   "p",
+   "l",
+   "a",
+   "n",
+   "n",
+   "i",
+   "ng"
+  ],
+  "u": 36,
+  "ph": [
+   "p",
+   "l",
+   "a",
+   "n",
+   "n",
+   "i",
+   "ng"
+  ],
+  "pic": "",
+  "ja": "けいかく",
+  "tier": "common",
+  "pat": [
+   "^pl",
+   "ing$",
+   "af:double"
+  ],
+  "morph": [
+   "plan",
+   "ing"
+  ]
+ },
+ {
+  "id": "bigger",
+  "t": "bigger",
+  "g": [
+   "b",
+   "i",
+   "g",
+   "g",
+   "er"
+  ],
+  "u": 36,
+  "ph": [
+   "b",
+   "i",
+   "g",
+   "g",
+   "ur"
+  ],
+  "pic": "",
+  "ja": "おおきい",
+  "tier": "common",
+  "pat": [
+   "af:er",
+   "af:double"
+  ],
+  "morph": [
+   "big",
+   "er"
+  ]
+ },
+ {
+  "id": "sadder",
+  "t": "sadder",
+  "g": [
+   "s",
+   "a",
+   "d",
+   "d",
+   "er"
+  ],
+  "u": 36,
+  "ph": [
+   "s",
+   "a",
+   "d",
+   "d",
+   "ur"
+  ],
+  "pic": "",
+  "ja": "かなしい",
+  "tier": "common",
+  "pat": [
+   "af:er",
+   "af:double"
+  ],
+  "morph": [
+   "sad",
+   "er"
+  ]
+ },
+ {
+  "id": "hotter",
+  "t": "hotter",
+  "g": [
+   "h",
+   "o",
+   "t",
+   "t",
+   "er"
+  ],
+  "u": 36,
+  "ph": [
+   "h",
+   "o",
+   "t",
+   "t",
+   "ur"
+  ],
+  "pic": "",
+  "ja": "あつい",
+  "tier": "common",
+  "pat": [
+   "af:er",
+   "af:double"
+  ],
+  "morph": [
+   "hot",
+   "er"
+  ]
+ },
+ {
+  "id": "runner",
+  "t": "runner",
+  "g": [
+   "r",
+   "u",
+   "n",
+   "n",
+   "er"
+  ],
+  "u": 36,
+  "ph": [
+   "r",
+   "u",
+   "n",
+   "n",
+   "ur"
+  ],
+  "pic": "",
+  "ja": "はしるひと",
+  "tier": "common",
+  "pat": [
+   "af:er",
+   "af:double"
+  ],
+  "morph": [
+   "run",
+   "er"
+  ]
+ },
+ {
+  "id": "making",
+  "t": "making",
+  "g": [
+   "m",
+   "a_open",
+   "k",
+   "i",
+   "ng"
+  ],
+  "u": 36,
+  "ph": [
+   "m",
+   "ai",
+   "k",
+   "i",
+   "ng"
+  ],
+  "pic": "",
+  "ja": "つくる",
+  "tier": "common",
+  "pat": [
+   "ing$",
+   "af:drop-e"
+  ],
+  "morph": [
+   "make",
+   "ing"
+  ]
+ },
+ {
+  "id": "hoping",
+  "t": "hoping",
+  "g": [
+   "h",
+   "o_open",
+   "p",
+   "i",
+   "ng"
+  ],
+  "u": 36,
+  "ph": [
+   "h",
+   "oa",
+   "p",
+   "i",
+   "ng"
+  ],
+  "pic": "",
+  "ja": "のぞむ",
+  "tier": "common",
+  "pat": [
+   "ing$",
+   "af:drop-e"
+  ],
+  "morph": [
+   "hope",
+   "ing"
+  ]
+ },
+ {
+  "id": "riding",
+  "t": "riding",
+  "g": [
+   "r",
+   "i_open",
+   "d",
+   "i",
+   "ng"
+  ],
+  "u": 36,
+  "ph": [
+   "r",
+   "igh",
+   "d",
+   "i",
+   "ng"
+  ],
+  "pic": "🚴",
+  "ja": "のる",
+  "tier": "common",
+  "pat": [
+   "ing$",
+   "af:drop-e"
+  ],
+  "morph": [
+   "ride",
+   "ing"
+  ]
+ },
+ {
+  "id": "baking",
+  "t": "baking",
+  "g": [
+   "b",
+   "a_open",
+   "k",
+   "i",
+   "ng"
+  ],
+  "u": 36,
+  "ph": [
+   "b",
+   "ai",
+   "k",
+   "i",
+   "ng"
+  ],
+  "pic": "🧁",
+  "ja": "やく",
+  "tier": "common",
+  "pat": [
+   "ing$",
+   "af:drop-e"
+  ],
+  "morph": [
+   "bake",
+   "ing"
+  ]
+ },
+ {
+  "id": "taking",
+  "t": "taking",
+  "g": [
+   "t",
+   "a_open",
+   "k",
+   "i",
+   "ng"
+  ],
+  "u": 36,
+  "ph": [
+   "t",
+   "ai",
+   "k",
+   "i",
+   "ng"
+  ],
+  "pic": "",
+  "ja": "とる",
+  "tier": "common",
+  "pat": [
+   "ing$",
+   "af:drop-e"
+  ],
+  "morph": [
+   "take",
+   "ing"
+  ]
+ },
+ {
+  "id": "biking",
+  "t": "biking",
+  "g": [
+   "b",
+   "i_open",
+   "k",
+   "i",
+   "ng"
+  ],
+  "u": 36,
+  "ph": [
+   "b",
+   "igh",
+   "k",
+   "i",
+   "ng"
+  ],
+  "pic": "🚲",
+  "ja": "じてんしゃ",
+  "tier": "common",
+  "pat": [
+   "ing$",
+   "af:drop-e"
+  ],
+  "morph": [
+   "bike",
+   "ing"
+  ]
+ },
+ {
+  "id": "smiling",
+  "t": "smiling",
+  "g": [
+   "s",
+   "m",
+   "i_open",
+   "l",
+   "i",
+   "ng"
+  ],
+  "u": 36,
+  "ph": [
+   "s",
+   "m",
+   "igh",
+   "l",
+   "i",
+   "ng"
+  ],
+  "pic": "😊",
+  "ja": "えがお",
+  "tier": "common",
+  "pat": [
+   "^sm",
+   "ing$",
+   "af:drop-e"
+  ],
+  "morph": [
+   "smile",
+   "ing"
+  ]
+ },
+ {
+  "id": "hiding",
+  "t": "hiding",
+  "g": [
+   "h",
+   "i_open",
+   "d",
+   "i",
+   "ng"
+  ],
+  "u": 36,
+  "ph": [
+   "h",
+   "igh",
+   "d",
+   "i",
+   "ng"
+  ],
+  "pic": "",
+  "ja": "かくれる",
+  "tier": "common",
+  "pat": [
+   "ing$",
+   "af:drop-e"
+  ],
+  "morph": [
+   "hide",
+   "ing"
+  ]
+ },
+ {
+  "id": "sliding",
+  "t": "sliding",
+  "g": [
+   "s",
+   "l",
+   "i_open",
+   "d",
+   "i",
+   "ng"
+  ],
+  "u": 36,
+  "ph": [
+   "s",
+   "l",
+   "igh",
+   "d",
+   "i",
+   "ng"
+  ],
+  "pic": "🛝",
+  "ja": "すべる",
+  "tier": "common",
+  "pat": [
+   "^sl",
+   "ing$",
+   "af:drop-e"
+  ],
+  "morph": [
+   "slide",
+   "ing"
+  ]
+ },
+ {
+  "id": "waving",
+  "t": "waving",
+  "g": [
+   "w",
+   "a_open",
+   "v",
+   "i",
+   "ng"
+  ],
+  "u": 36,
+  "ph": [
+   "w",
+   "ai",
+   "v",
+   "i",
+   "ng"
+  ],
+  "pic": "👋",
+  "ja": "てをふる",
+  "tier": "common",
+  "pat": [
+   "ing$",
+   "af:drop-e"
+  ],
+  "morph": [
+   "wave",
+   "ing"
+  ]
+ },
+ {
+  "id": "racing",
+  "t": "racing",
+  "g": [
+   "r",
+   "a_open",
+   "c_soft",
+   "i",
+   "ng"
+  ],
+  "u": 36,
+  "ph": [
+   "r",
+   "ai",
+   "s",
+   "i",
+   "ng"
+  ],
+  "pic": "🏁",
+  "ja": "きょうそう",
+  "tier": "common",
+  "pat": [
+   "ing$",
+   "af:drop-e"
+  ],
+  "morph": [
+   "race",
+   "ing"
+  ]
+ },
+ {
+  "id": "chasing",
+  "t": "chasing",
+  "g": [
+   "ch",
+   "a_open",
+   "s",
+   "i",
+   "ng"
+  ],
+  "u": 36,
+  "ph": [
+   "ch",
+   "ai",
+   "s",
+   "i",
+   "ng"
+  ],
+  "pic": "",
+  "ja": "おいかける",
+  "tier": "common",
+  "pat": [
+   "ing$",
+   "af:drop-e"
+  ],
+  "morph": [
+   "chase",
+   "ing"
+  ]
+ },
+ {
+  "id": "skating",
+  "t": "skating",
+  "g": [
+   "s",
+   "k",
+   "a_open",
+   "t",
+   "i",
+   "ng"
+  ],
+  "u": 36,
+  "ph": [
+   "s",
+   "k",
+   "ai",
+   "t",
+   "i",
+   "ng"
+  ],
+  "pic": "⛸️",
+  "ja": "スケート",
+  "tier": "common",
+  "pat": [
+   "^sk",
+   "ing$",
+   "af:drop-e"
+  ],
+  "morph": [
+   "skate",
+   "ing"
+  ]
+ },
+ {
+  "id": "shaking",
+  "t": "shaking",
+  "g": [
+   "sh",
+   "a_open",
+   "k",
+   "i",
+   "ng"
+  ],
+  "u": 36,
+  "ph": [
+   "sh",
+   "ai",
+   "k",
+   "i",
+   "ng"
+  ],
+  "pic": "",
+  "ja": "ふる",
+  "tier": "common",
+  "pat": [
+   "ing$",
+   "af:drop-e"
+  ],
+  "morph": [
+   "shake",
+   "ing"
+  ]
+ },
+ {
+  "id": "diving",
+  "t": "diving",
+  "g": [
+   "d",
+   "i_open",
+   "v",
+   "i",
+   "ng"
+  ],
+  "u": 36,
+  "ph": [
+   "d",
+   "igh",
+   "v",
+   "i",
+   "ng"
+  ],
+  "pic": "",
+  "ja": "もぐる",
+  "tier": "common",
+  "pat": [
+   "ing$",
+   "af:drop-e"
+  ],
+  "morph": [
+   "dive",
+   "ing"
+  ]
+ },
+ {
+  "id": "happier",
+  "t": "happier",
+  "g": [
+   "h",
+   "a",
+   "p",
+   "p",
+   "i",
+   "er"
+  ],
+  "u": 36,
+  "ph": [
+   "h",
+   "a",
+   "p",
+   "p",
+   "i",
+   "ur"
+  ],
+  "pic": "",
+  "ja": "もっとうれしい",
+  "tier": "common",
+  "pat": [
+   "af:er",
+   "af:y-i"
+  ],
+  "morph": [
+   "happy",
+   "er"
+  ]
+ },
+ {
+  "id": "happiest",
+  "t": "happiest",
+  "g": [
+   "h",
+   "a",
+   "p",
+   "p",
+   "i",
+   "e",
+   "s",
+   "t"
+  ],
+  "u": 36,
+  "ph": [
+   "h",
+   "a",
+   "p",
+   "p",
+   "i",
+   "e",
+   "s",
+   "t"
+  ],
+  "pic": "",
+  "ja": "いちばんうれしい",
+  "tier": "common",
+  "pat": [
+   "st$",
+   "af:est",
+   "af:y-i"
+  ],
+  "morph": [
+   "happy",
+   "est"
+  ]
+ },
+ {
+  "id": "funnier",
+  "t": "funnier",
+  "g": [
+   "f",
+   "u",
+   "n",
+   "n",
+   "i",
+   "er"
+  ],
+  "u": 36,
+  "ph": [
+   "f",
+   "u",
+   "n",
+   "n",
+   "i",
+   "ur"
+  ],
+  "pic": "",
+  "ja": "もっとおもしろい",
+  "tier": "common",
+  "pat": [
+   "af:er",
+   "af:y-i"
+  ],
+  "morph": [
+   "funny",
+   "er"
+  ]
+ },
+ {
+  "id": "funniest",
+  "t": "funniest",
+  "g": [
+   "f",
+   "u",
+   "n",
+   "n",
+   "i",
+   "e",
+   "s",
+   "t"
+  ],
+  "u": 36,
+  "ph": [
+   "f",
+   "u",
+   "n",
+   "n",
+   "i",
+   "e",
+   "s",
+   "t"
+  ],
+  "pic": "",
+  "ja": "いちばんおもしろい",
+  "tier": "common",
+  "pat": [
+   "st$",
+   "af:est",
+   "af:y-i"
+  ],
+  "morph": [
+   "funny",
+   "est"
+  ]
+ },
+ {
+  "id": "dried",
+  "t": "dried",
+  "g": [
+   "d",
+   "r",
+   "ie",
+   "d"
+  ],
+  "u": 36,
+  "ph": [
+   "d",
+   "r",
+   "igh",
+   "d"
+  ],
+  "pic": "",
+  "ja": "かわかした",
+  "tier": "common",
+  "pat": [
+   "^dr",
+   "af:y-i"
+  ],
+  "morph": [
+   "dry",
+   "ed"
+  ]
+ },
+ {
+  "id": "hurried",
+  "t": "hurried",
+  "g": [
+   "h",
+   "ur",
+   "r",
+   "i",
+   "e",
+   "d"
+  ],
+  "u": 36,
+  "ph": [
+   "h",
+   "ur",
+   "r",
+   "i",
+   "e",
+   "d"
+  ],
+  "pic": "",
+  "ja": "いそいだ",
+  "tier": "common",
+  "pat": [
+   "af:y-i"
+  ],
+  "morph": [
+   "hurry",
+   "ed"
+  ]
+ },
+ {
+  "id": "bunnies",
+  "t": "bunnies",
+  "g": [
+   "b",
+   "u",
+   "n",
+   "n",
+   "i",
+   "e",
+   "sz"
+  ],
+  "u": 36,
+  "ph": [
+   "b",
+   "u",
+   "n",
+   "n",
+   "i",
+   "e",
+   "z"
+  ],
+  "pic": "🐰",
+  "ja": "うさぎたち",
+  "tier": "common",
+  "pat": [
+   "af:es",
+   "af:y-i"
+  ],
+  "morph": [
+   "bunny",
+   "es"
+  ]
+ },
+ {
+  "id": "puppies",
+  "t": "puppies",
+  "g": [
+   "p",
+   "u",
+   "p",
+   "p",
+   "i",
+   "e",
+   "sz"
+  ],
+  "u": 36,
+  "ph": [
+   "p",
+   "u",
+   "p",
+   "p",
+   "i",
+   "e",
+   "z"
+  ],
+  "pic": "🐶",
+  "ja": "こいぬたち",
+  "tier": "common",
+  "pat": [
+   "af:es",
+   "af:y-i"
+  ],
+  "morph": [
+   "puppy",
+   "es"
+  ]
+ },
+ {
+  "id": "babies",
+  "t": "babies",
+  "g": [
+   "b",
+   "a_open",
+   "b",
+   "i",
+   "e",
+   "sz"
+  ],
+  "u": 36,
+  "ph": [
+   "b",
+   "ai",
+   "b",
+   "i",
+   "e",
+   "z"
+  ],
+  "pic": "👶",
+  "ja": "あかちゃんたち",
+  "tier": "common",
+  "pat": [
+   "af:es",
+   "af:y-i"
+  ],
+  "morph": [
+   "baby",
+   "es"
+  ]
+ },
+ {
+  "id": "ladies",
+  "t": "ladies",
+  "g": [
+   "l",
+   "a_open",
+   "d",
+   "i",
+   "e",
+   "sz"
+  ],
+  "u": 36,
+  "ph": [
+   "l",
+   "ai",
+   "d",
+   "i",
+   "e",
+   "z"
+  ],
+  "pic": "👩",
+  "ja": "じょせいたち",
+  "tier": "common",
+  "pat": [
+   "af:es",
+   "af:y-i"
+  ],
+  "morph": [
+   "lady",
+   "es"
+  ]
+ },
+ {
+  "id": "station",
+  "t": "station",
+  "g": [
+   "s",
+   "t",
+   "a_open",
+   "tion"
+  ],
+  "u": 37,
+  "ph": [
+   "s",
+   "t",
+   "ai",
+   "sh",
+   "schwa",
+   "n"
+  ],
+  "pic": "🚉",
+  "ja": "えき",
+  "tier": "common",
+  "pat": [
+   "^st",
+   "sy:open"
+  ],
+  "syl": [
+   3,
+   1
+  ]
+ },
+ {
+  "id": "nation",
+  "t": "nation",
+  "g": [
+   "n",
+   "a_open",
+   "tion"
+  ],
+  "u": 37,
+  "ph": [
+   "n",
+   "ai",
+   "sh",
+   "schwa",
+   "n"
+  ],
+  "pic": "🏳️",
+  "ja": "くに",
+  "tier": "common",
+  "pat": [
+   "sy:open"
+  ],
+  "syl": [
+   2,
+   1
+  ]
+ },
+ {
+  "id": "lotion",
+  "t": "lotion",
+  "g": [
+   "l",
+   "o_open",
+   "tion"
+  ],
+  "u": 37,
+  "ph": [
+   "l",
+   "oa",
+   "sh",
+   "schwa",
+   "n"
+  ],
+  "pic": "🧴",
+  "ja": "ローション",
+  "tier": "common",
+  "pat": [
+   "sy:open"
+  ],
+  "syl": [
+   2,
+   1
+  ]
+ },
+ {
+  "id": "motion",
+  "t": "motion",
+  "g": [
+   "m",
+   "o_open",
+   "tion"
+  ],
+  "u": 37,
+  "ph": [
+   "m",
+   "oa",
+   "sh",
+   "schwa",
+   "n"
+  ],
+  "pic": "",
+  "ja": "うごき",
+  "tier": "common",
+  "pat": [
+   "sy:open"
+  ],
+  "syl": [
+   2,
+   1
+  ]
+ },
+ {
+  "id": "action",
+  "t": "action",
+  "g": [
+   "a",
+   "c",
+   "tion"
+  ],
+  "u": 37,
+  "ph": [
+   "a",
+   "k",
+   "sh",
+   "schwa",
+   "n"
+  ],
+  "pic": "",
+  "ja": "こうどう",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   2,
+   1
+  ]
+ },
+ {
+  "id": "mention",
+  "t": "mention",
+  "g": [
+   "m",
+   "e",
+   "n",
+   "tion"
+  ],
+  "u": 37,
+  "ph": [
+   "m",
+   "e",
+   "n",
+   "sh",
+   "schwa",
+   "n"
+  ],
+  "pic": "",
+  "ja": "ふれる",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   1
+  ]
+ },
+ {
+  "id": "fraction",
+  "t": "fraction",
+  "g": [
+   "f",
+   "r",
+   "a",
+   "c",
+   "tion"
+  ],
+  "u": 37,
+  "ph": [
+   "f",
+   "r",
+   "a",
+   "k",
+   "sh",
+   "schwa",
+   "n"
+  ],
+  "pic": "",
+  "ja": "ぶんすう",
+  "tier": "common",
+  "pat": [
+   "^fr",
+   "sy:closed"
+  ],
+  "syl": [
+   4,
+   1
+  ]
+ },
+ {
+  "id": "vacation",
+  "t": "vacation",
+  "g": [
+   "v",
+   "a_open",
+   "c",
+   "a_open",
+   "tion"
+  ],
+  "u": 37,
+  "ph": [
+   "v",
+   "ai",
+   "k",
+   "ai",
+   "sh",
+   "schwa",
+   "n"
+  ],
+  "pic": "🏖️",
+  "ja": "やすみ",
+  "tier": "common",
+  "pat": [
+   "sy:open"
+  ],
+  "syl": [
+   2,
+   2,
+   1
+  ]
+ },
+ {
+  "id": "fiction",
+  "t": "fiction",
+  "g": [
+   "f",
+   "i",
+   "c",
+   "tion"
+  ],
+  "u": 37,
+  "ph": [
+   "f",
+   "i",
+   "k",
+   "sh",
+   "schwa",
+   "n"
+  ],
+  "pic": "",
+  "ja": "フィクション",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   1
+  ]
+ },
+ {
+  "id": "section",
+  "t": "section",
+  "g": [
+   "s",
+   "e",
+   "c",
+   "tion"
+  ],
+  "u": 37,
+  "ph": [
+   "s",
+   "e",
+   "k",
+   "sh",
+   "schwa",
+   "n"
+  ],
+  "pic": "",
+  "ja": "くかく",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   1
+  ]
+ },
+ {
+  "id": "vision",
+  "t": "vision",
+  "g": [
+   "v",
+   "i",
+   "sion"
+  ],
+  "u": 37,
+  "ph": [
+   "v",
+   "i",
+   "zh",
+   "schwa",
+   "n"
+  ],
+  "pic": "👓",
+  "ja": "しりょく",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   2,
+   1
+  ]
+ },
+ {
+  "id": "television",
+  "t": "television",
+  "g": [
+   "t",
+   "e",
+   "l",
+   "e",
+   "v",
+   "i",
+   "sion"
+  ],
+  "u": 37,
+  "ph": [
+   "t",
+   "e",
+   "l",
+   "e",
+   "v",
+   "i",
+   "zh",
+   "schwa",
+   "n"
+  ],
+  "pic": "📺",
+  "ja": "テレビ",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   1,
+   2,
+   1
+  ]
+ },
+ {
+  "id": "division",
+  "t": "division",
+  "g": [
+   "d",
+   "i",
+   "v",
+   "i",
+   "sion"
+  ],
+  "u": 37,
+  "ph": [
+   "d",
+   "i",
+   "v",
+   "i",
+   "zh",
+   "schwa",
+   "n"
+  ],
+  "pic": "➗",
+  "ja": "わりざん",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   2,
+   2,
+   1
+  ]
+ },
+ {
+  "id": "picture",
+  "t": "picture",
+  "g": [
+   "p",
+   "i",
+   "c",
+   "ture"
+  ],
+  "u": 37,
+  "ph": [
+   "p",
+   "i",
+   "k",
+   "ch",
+   "ur"
+  ],
+  "pic": "🖼️",
+  "ja": "え",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   1
+  ]
+ },
+ {
+  "id": "nature",
+  "t": "nature",
+  "g": [
+   "n",
+   "a_open",
+   "ture"
+  ],
+  "u": 37,
+  "ph": [
+   "n",
+   "ai",
+   "ch",
+   "ur"
+  ],
+  "pic": "🌿",
+  "ja": "しぜん",
+  "tier": "common",
+  "pat": [
+   "sy:open"
+  ],
+  "syl": [
+   2,
+   1
+  ]
+ },
+ {
+  "id": "creature",
+  "t": "creature",
+  "g": [
+   "c",
+   "r",
+   "ea_i",
+   "ture"
+  ],
+  "u": 37,
+  "ph": [
+   "k",
+   "r",
+   "ee",
+   "ch",
+   "ur"
+  ],
+  "pic": "🦎",
+  "ja": "いきもの",
+  "tier": "common",
+  "pat": [
+   "^cr",
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   1
+  ]
+ },
+ {
+  "id": "capture",
+  "t": "capture",
+  "g": [
+   "c",
+   "a",
+   "p",
+   "ture"
+  ],
+  "u": 37,
+  "ph": [
+   "k",
+   "a",
+   "p",
+   "ch",
+   "ur"
+  ],
+  "pic": "",
+  "ja": "とらえる",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   1
+  ]
+ },
+ {
+  "id": "mixture",
+  "t": "mixture",
+  "g": [
+   "m",
+   "i",
+   "x",
+   "ture"
+  ],
+  "u": 37,
+  "ph": [
+   "m",
+   "i",
+   "k",
+   "s",
+   "ch",
+   "ur"
+  ],
+  "pic": "",
+  "ja": "まぜたもの",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   1
+  ]
+ },
+ {
+  "id": "texture",
+  "t": "texture",
+  "g": [
+   "t",
+   "e",
+   "x",
+   "ture"
+  ],
+  "u": 37,
+  "ph": [
+   "t",
+   "e",
+   "k",
+   "s",
+   "ch",
+   "ur"
+  ],
+  "pic": "",
+  "ja": "さわりごこち",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   1
+  ]
+ },
+ {
+  "id": "moisture",
+  "t": "moisture",
+  "g": [
+   "m",
+   "oi",
+   "s",
+   "ture"
+  ],
+  "u": 37,
+  "ph": [
+   "m",
+   "oi",
+   "s",
+   "ch",
+   "ur"
+  ],
+  "pic": "",
+  "ja": "しめりけ",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   1
+  ]
+ },
+ {
+  "id": "culture",
+  "t": "culture",
+  "g": [
+   "c",
+   "u",
+   "l",
+   "ture"
+  ],
+  "u": 37,
+  "ph": [
+   "k",
+   "u",
+   "l",
+   "ch",
+   "ur"
+  ],
+  "pic": "",
+  "ja": "ぶんか",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   1
+  ]
+ },
+ {
+  "id": "pasture",
+  "t": "pasture",
+  "g": [
+   "p",
+   "a",
+   "s",
+   "ture"
+  ],
+  "u": 37,
+  "ph": [
+   "p",
+   "a",
+   "s",
+   "ch",
+   "ur"
+  ],
+  "pic": "",
+  "ja": "ぼくじょう",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   1
+  ]
+ },
+ {
+  "id": "gesture",
+  "t": "gesture",
+  "g": [
+   "g",
+   "e",
+   "s",
+   "ture"
+  ],
+  "u": 37,
+  "ph": [
+   "g",
+   "e",
+   "s",
+   "ch",
+   "ur"
+  ],
+  "pic": "",
+  "ja": "みぶり",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   1
+  ]
+ },
+ {
+  "id": "lecture",
+  "t": "lecture",
+  "g": [
+   "l",
+   "e",
+   "c",
+   "ture"
+  ],
+  "u": 37,
+  "ph": [
+   "l",
+   "e",
+   "k",
+   "ch",
+   "ur"
+  ],
+  "pic": "",
+  "ja": "こうぎ",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   3,
+   1
+  ]
+ },
+ {
+  "id": "feature",
+  "t": "feature",
+  "g": [
+   "f",
+   "ea_i",
+   "ture"
+  ],
+  "u": 37,
+  "ph": [
+   "f",
+   "ee",
+   "ch",
+   "ur"
+  ],
+  "pic": "",
+  "ja": "とくちょう",
+  "tier": "common",
+  "pat": [
+   "sy:closed"
+  ],
+  "syl": [
+   2,
+   1
+  ]
+ },
+ {
+  "id": "plation",
+  "t": "plation",
+  "g": [
+   "p",
+   "l",
+   "a",
+   "tion"
+  ],
+  "u": 37,
+  "ph": [
+   "p",
+   "l",
+   "a",
+   "sh",
+   "schwa",
+   "n"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly",
+  "pat": [
+   "^pl"
+  ]
+ },
+ {
+  "id": "dation",
+  "t": "dation",
+  "g": [
+   "d",
+   "a",
+   "tion"
+  ],
+  "u": 37,
+  "ph": [
+   "d",
+   "a",
+   "sh",
+   "schwa",
+   "n"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly"
+ },
+ {
+  "id": "zation",
+  "t": "zation",
+  "g": [
+   "z",
+   "a",
+   "tion"
+  ],
+  "u": 37,
+  "ph": [
+   "z",
+   "a",
+   "sh",
+   "schwa",
+   "n"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly"
+ },
+ {
+  "id": "vation",
+  "t": "vation",
+  "g": [
+   "v",
+   "a",
+   "tion"
+  ],
+  "u": 37,
+  "ph": [
+   "v",
+   "a",
+   "sh",
+   "schwa",
+   "n"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly"
+ },
+ {
+  "id": "bision",
+  "t": "bision",
+  "g": [
+   "b",
+   "i",
+   "sion"
+  ],
+  "u": 37,
+  "ph": [
+   "b",
+   "i",
+   "zh",
+   "schwa",
+   "n"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly"
+ },
+ {
+  "id": "zision",
+  "t": "zision",
+  "g": [
+   "z",
+   "i",
+   "sion"
+  ],
+  "u": 37,
+  "ph": [
+   "z",
+   "i",
+   "zh",
+   "schwa",
+   "n"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly"
+ },
+ {
+  "id": "pision",
+  "t": "pision",
+  "g": [
+   "p",
+   "i",
+   "sion"
+  ],
+  "u": 37,
+  "ph": [
+   "p",
+   "i",
+   "zh",
+   "schwa",
+   "n"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly"
+ },
+ {
+  "id": "zapture",
+  "t": "zapture",
+  "g": [
+   "z",
+   "a",
+   "p",
+   "ture"
+  ],
+  "u": 37,
+  "ph": [
+   "z",
+   "a",
+   "p",
+   "ch",
+   "ur"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly"
+ },
+ {
+  "id": "bicture",
+  "t": "bicture",
+  "g": [
+   "b",
+   "i",
+   "c",
+   "ture"
+  ],
+  "u": 37,
+  "ph": [
+   "b",
+   "i",
+   "k",
+   "ch",
+   "ur"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly"
+ },
+ {
+  "id": "cuzture",
+  "t": "cuzture",
+  "g": [
+   "c",
+   "u",
+   "z",
+   "ture"
+  ],
+  "u": 37,
+  "ph": [
+   "k",
+   "u",
+   "z",
+   "ch",
+   "ur"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly"
+ },
+ {
+  "id": "nasture",
+  "t": "nasture",
+  "g": [
+   "n",
+   "a",
+   "s",
+   "ture"
+  ],
+  "u": 37,
+  "ph": [
+   "n",
+   "a",
+   "s",
+   "ch",
+   "ur"
   ],
   "pic": "",
   "ja": "",

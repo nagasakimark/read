@@ -1,5 +1,5 @@
 // Offline-first service worker: precaches the game, curriculum and audio so it works on school Wi-Fi that drops out.
-const VERSION = 'lre-v1';
+const VERSION = 'lre-v2';
 const CORE = ['./', 'index.html', 'manifest.webmanifest', 'icons/icon.svg', 'fonts/andika-latin-400-normal.woff2', 'fonts/andika-latin-700-normal.woff2',
   'src/game/main.js', 'src/game/engine.js', 'src/game/audio.js', 'src/game/store.js', 'src/game/monster.js', 'src/game/ui.js', 'src/game/scenes.js', 'src/game/lesson.js',
   'src/learn/curriculum.js', 'src/learn/lessonplan.js', 'src/learn/loader.browser.js', 'src/learn/mastery.js', 'src/learn/questions.js', 'src/learn/rng.js',

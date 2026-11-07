@@ -179,7 +179,8 @@ export class LessonScene {
           text(c, mid ? 'なかの おと' : fin ? 'おわりの おと' : 'はじめの おと', 1030, 220, { size: 26, color: '#2d4a5e', font: JP });
         } else if (p.text) {
           rr(c, 600, 70, 380, 200, 36); c.fillStyle = '#fff'; c.fill(); c.lineWidth = 5; c.strokeStyle = '#bcd3e3'; c.stroke();
-          text(c, p.text, 790, 172, { size: p.text.length > 4 ? 96 : 120, color: '#23394b' });
+          { let sz = p.text.length > 4 ? 96 : 120; c.font = `bold ${sz}px ${FONT}`; const mw = c.measureText(p.text).width; if (mw > 350) sz = Math.floor(sz * 350 / mw);
+            text(c, p.text, 790, 172, { size: sz, color: '#23394b' }); }
         } else if (p.talk) {
           const n = p.talk.length;
           for (let i = 0; i < n; i++) { const on = this.talkIdx === i || state.revealed; rr(c, 790 - (n * 100) / 2 + i * 100, 130, 84, 84, 42); c.fillStyle = on ? '#ffd23f' : 'rgba(255,255,255,.7)'; c.fill(); c.lineWidth = 4; c.strokeStyle = '#fff'; c.stroke(); }

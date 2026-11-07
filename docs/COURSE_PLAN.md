@@ -3,7 +3,7 @@
 > GENERATED from `curriculum/src/course.mjs` by `tools/build_course_doc.mjs`. Edit the data, not this file.
 > Teaching order and pedagogy follow `docs/BLUEPRINT.md`. Every threshold marked **DR** is a design recommendation to validate with real children.
 
-Status: **32 of 39 units authored** (Units 0-31); the other 7 are specified here and unlock as they are written. Audio and pictures are placeholders (eSpeak voice, emoji) until recordings and artwork replace them; practice games are planned (section 9).
+Status: **39 of 39 units authored** (Units 0-38); the other 0 are specified here and unlock as they are written. Audio and pictures are placeholders (eSpeak voice, emoji) until recordings and artwork replace them; practice games are planned (section 9).
 
 ## 1. Pedagogy: the principles that decide the order
 
@@ -149,12 +149,12 @@ Example words: U23: cake, name, game, five, nine, bike, like | U24: home, nose, 
 
 | Unit | Teaches | Kind | New GPCs (IPA) | Concepts | Contrast pack | Tricky words | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 32 | Syllable types and division (おとの かたまり) | Syllables | — | closed, open, VCe (split digraph), vowel team, r-controlled; divide VC/CV, then V/CV and VC/V | Stress placement introduced in listening | — | planned |
-| 33 | -le and the schwa (-le と あいまいな おと) | Syllables | le /əl/ apple; a /ə/ about | "say it, then fix it" for weak vowels | Weak vowels | — | planned |
-| 34 | Suffixes: -s/-es, -er/-est, -ly, -ful, -less (-s -es -er -est -ly -ful -less) | Morphology | — | plural and past morphology (absent in Japanese) | — | — | planned |
-| 35 | Prefixes: un-, re-, pre-, dis- (un- re- pre- dis-) | Morphology | — | prefixes change meaning | — | — | planned |
-| 36 | Spelling-change rules (つづりの ルール) | Morphology | — | doubling (run → running); drop the e (make → making); y → i (happy → happier) | — | — | planned |
-| 37 | -tion, -sion, -ture and further affixes (-tion -sion -ture) | Morphology | tion /ʃən/ station; sion /ʒən/ vision; ture /tʃɚ/ picture | — | — | — | planned |
+| 32 | Syllable types and division (おとの かたまり) | Syllables | — | closed, open, VCe (split digraph), vowel team, r-controlled; divide VC/CV, then V/CV and VC/V | Stress placement introduced in listening | — | authored |
+| 33 | -le and the schwa (-le と あいまいな おと) | Syllables | le /əl/ apple; a /ə/ about; a /eɪ/ table | "say it, then fix it" for weak vowels | Weak vowels | — | authored |
+| 34 | Suffixes: -s/-es, -er/-est, -ly, -ful, -less (-s -es -er -est -ly -ful -less) | Morphology | — | plural and past morphology (absent in Japanese) | — | — | authored |
+| 35 | Prefixes: un-, re-, pre-, dis- (un- re- pre- dis-) | Morphology | — | prefixes change meaning | — | — | authored |
+| 36 | Spelling-change rules (つづりの ルール) | Morphology | — | doubling (run → running); drop the e (make → making); y → i (happy → happier) | — | — | authored |
+| 37 | -tion, -sion, -ture and further affixes (-tion -sion -ture) | Morphology | tion /ʃən/ station; sion /ʒən/ vision; ture /tʃɚ/ picture | — | — | — | authored |
 
 Example words: U32: rabbit, napkin, robot, tiger, cupcake | U33: apple, table, little, about, sofa | U34: boxes, faster, slowly, helpful, careless | U35: undo, replay, unlock, dislike | U36: running, making, happier | U37: station, vision, picture
 
@@ -166,7 +166,7 @@ Example words: U32: rabbit, napkin, robot, tiger, cupcake | U33: apple, table, l
 
 | Unit | Teaches | Kind | New GPCs (IPA) | Concepts | Contrast pack | Tricky words | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 38 | Fluency and reading-for-meaning bridge (すらすら よもう) | Bridge to independent reading | — | no new GPCs; repeated reading, unpractised passages, personal fluency curve; knowledge-themed text sets and listening library; filter switches from % decodable to % known words | Connected speech and weak forms in listening only | — | planned |
+| 38 | Fluency and reading-for-meaning bridge (すらすら よもう) | Bridge to independent reading | — | no new GPCs; repeated reading, unpractised passages, personal fluency curve; knowledge-themed text sets and listening library; filter switches from % decodable to % known words | Connected speech and weak forms in listening only | — | authored |
 
 Example words: U38: —
 

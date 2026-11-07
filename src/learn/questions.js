@@ -93,6 +93,11 @@ export function blendChoose(C, wordId, unit, rng) {
   const lures = [];
   const takePos = (list) => { for (const m of list) if (lures.length < 2 && !lures.some(l => l.text === m.text) && !lures.some(l => l.pos === m.pos && list.some(z => z.pos !== m.pos && !lures.some(q => q.text === z.text)))) lures.push(m); };
   takePos(real); takePos(fake); for (const m of muts) if (lures.length < 2 && !lures.some(l => l.text === m.text)) lures.push(m);
+  if (lures.length < 2) {   // a word with no one-sound neighbours (apple, uncle...): borrow similar-looking known words as distractors
+    const near = C.wordsAt(unit, { names: false, functionWords: false }).filter(x => x.id !== wordId && Math.abs(x.t.length - w.t.length) <= 1 && x.t[0] === w.t[0] && !lures.some(l => l.text === x.t.toLowerCase()));
+    for (const x of rng.shuffle(near)) if (lures.length < 2) lures.push({ text: x.t.toLowerCase() });
+    if (lures.length < 2) for (const x of rng.shuffle(C.wordsAt(unit, { names: false, functionWords: false }).filter(x => x.id !== wordId && Math.abs(x.t.length - w.t.length) <= 1))) if (lures.length < 2 && !lures.some(l => l.text === x.t.toLowerCase())) lures.push({ text: x.t.toLowerCase() });
+  }
   const { options, answer } = place(rng, { label: w.t, word: wordId }, lures.map(m => ({ label: m.text })));
   return { type: 'choice', act: 'blend-choose', ev: 'apply', skill: 'decode', item: 'word:' + wordId, word: wordId,
     prompt: { talk: w.g.map(g => 'gpc:' + g), audio: [], after: ['w:' + wordId], pic: w.pic, hidePicUntilAnswer: true }, options, answer, opts: options.length,
@@ -118,6 +123,11 @@ export function pseudoWord(C, wordId, unit, rng) {
   const lures = [];
   for (const m of [...fake, ...real]) if (lures.length < 2 && !lures.some(l => l.text === m.text) && !lures.some(l => l.pos === m.pos)) lures.push(m);
   for (const m of [...fake, ...real]) if (lures.length < 2 && !lures.some(l => l.text === m.text)) lures.push(m);
+  if (lures.length < 2) {   // a word with no one-sound neighbours (apple, uncle...): borrow similar-looking known words as distractors
+    const near = C.wordsAt(unit, { names: false, functionWords: false }).filter(x => x.id !== wordId && Math.abs(x.t.length - w.t.length) <= 1 && x.t[0] === w.t[0] && !lures.some(l => l.text === x.t.toLowerCase()));
+    for (const x of rng.shuffle(near)) if (lures.length < 2) lures.push({ text: x.t.toLowerCase() });
+    if (lures.length < 2) for (const x of rng.shuffle(C.wordsAt(unit, { names: false, functionWords: false }).filter(x => x.id !== wordId && Math.abs(x.t.length - w.t.length) <= 1))) if (lures.length < 2 && !lures.some(l => l.text === x.t.toLowerCase())) lures.push({ text: x.t.toLowerCase() });
+  }
   const { options, answer } = place(rng, { label: w.t, word: wordId }, lures.map(m => ({ label: m.text })));
   return { type: 'choice', act: 'pseudo', ev: 'transfer', skill: 'decode', item: 'word:' + wordId, word: wordId,
     prompt: { audio: ['w:' + wordId], replay: true, monster: true }, options, answer, opts: options.length, credits: wcredits(w) };
@@ -202,6 +212,52 @@ export function dictation(C, text, unit, rng, pic = '') {
   return { type: 'sentence', act: 'dictation', ev: 'apply', skill: 'encode', item: 'sent:' + text, text, tokens: toks.map(t => t.key),
     prompt: { audio: ['sent:' + text], pic, replay: true }, slots: bank.map(b => b.label), tray, opts: tray.length,
     sim: { steps: bank.map((_, i) => tray.length - i) }, credits: [] };
+}
+
+// ------------------------------------------------------------------ Stage 6: syllables and morphemes
+/** Where does the word break into syllables? Options differ only in where the cut falls. */
+export function syllableChop(C, wordId, unit, rng) {
+  const w = C.words[wordId];
+  const letters = w.g.map(g => C.gpcs[g].g);
+  const cuts = []; let k = 0; for (const n of w.syl.slice(0, -1)) { k += n; cuts.push(k); }
+  const show = cs => letters.map((l, i) => (cs.includes(i) ? '·' : '') + l).join('');
+  const right = show(cuts);
+  const alts = [];
+  cuts.forEach((c, ci) => { for (const d of [-1, 1]) {
+    const n = c + d, lo = ci ? cuts[ci - 1] : 0, hi = ci < cuts.length - 1 ? cuts[ci + 1] : letters.length;
+    if (n > lo && n < hi) alts.push(show(cuts.map((x, j) => (j === ci ? n : x))));
+  } });
+  const lures = dedupe(rng.shuffle(alts)).filter(x => x !== right).slice(0, 2);
+  if (lures.length < 1) return null;
+  const { options, answer } = place(rng, { label: right }, lures.map(label => ({ label })));
+  return { type: 'choice', act: 'syllable-chop', ev: 'apply', skill: 'decode', item: 'word:' + wordId, word: wordId,
+    prompt: { text: w.t, audio: [], after: ['w:' + wordId] }, options, answer, opts: options.length, credits: wcredits(w) };
+}
+
+/** Word sum: base + affix = ? Options are the correct spelling and the spellings a learner would write without the rule. */
+export function wordSum(C, wordId, unit, rng) {
+  const w = C.words[wordId];
+  if (!w.morph || w.morph.length < 2) return null;
+  const [base, affix] = [w.morph.slice(0, -1).join(''), w.morph.at(-1)];
+  const t = w.t.toLowerCase();
+  const cand = [base + affix, base + base.slice(-1) + affix, base.slice(0, -1) + affix, base.replace(/y$/, 'i') + affix, base.replace(/e$/, '') + affix + 'e', base + 'e' + affix];
+  const lures = dedupe(rng.shuffle(cand.filter(x => x !== t && /^[a-z]+$/.test(x) && x.length > 2))).slice(0, 2);
+  if (lures.length < 2) return null;
+  const { options, answer } = place(rng, { label: t }, lures.map(label => ({ label })));
+  return { type: 'choice', act: 'word-sum', ev: 'apply', skill: 'encode', item: 'word:' + wordId, word: wordId,
+    prompt: { text: w.morph.join(' + '), audio: [], after: ['w:' + wordId] }, options, answer, opts: options.length, credits: wcredits(w) };
+}
+
+/** Build a word from its meaningful parts (prefix / base / suffix tiles). */
+export function affixBuild(C, wordId, unit, rng) {
+  const w = C.words[wordId];
+  if (!w.morph || w.morph.join('') !== w.t.toLowerCase()) return null;
+  const known = C.wordList.filter(x => x.morph && x.u <= unit).flatMap(x => x.morph).filter(m => !w.morph.includes(m));
+  const lures = dedupe(rng.shuffle(known)).slice(0, Math.min(2, Math.max(0, 6 - w.morph.length)));
+  const tray = rng.shuffle([...w.morph.map(label => ({ label })), ...lures.map(label => ({ label }))]);
+  return { type: 'build', act: 'affix-build', ev: 'apply', skill: 'encode', item: 'word:' + wordId, word: wordId,
+    prompt: { audio: ['w:' + wordId], pic: w.pic, replay: true }, slots: w.morph.slice(), tray, opts: tray.length,
+    sim: { steps: w.morph.map((_, i) => tray.length - i) }, credits: wcredits(w) };
 }
 
 // ------------------------------------------------------------------ Stage 0 (oral, no print required)

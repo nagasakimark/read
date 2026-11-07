@@ -281,6 +281,76 @@ export const STORIES = [
   { id:'s31c', unit:31, title:'Write and Climb', topic:'school', focus:['kn','wr','mb'], pages:[
       { text:'I can write with my thumb.', pic:'✍️👍' }, { text:'The lamb has a hurt knee.', pic:'🐑🦵' }, { text:'We climb and we knock.', pic:'🧗🚪' }, { text:'I can give a wrap.', pic:'🎁' } ],
     questions:[ Q('What has a sore knee?', ['🐑','lamb'], ['🐷','pig'], ['🐱','cat']) ] },
+
+  // ---------------- Stage 6
+  { id:'s32a', unit:32, title:'The Picnic', topic:'food', pats:['sy:closed','sy:compound'], pages:[
+      { text:'We go on a picnic.', pic:'🧺' }, { text:'Meg has a basket.', pic:'👧🧺' }, { text:'The basket has a napkin and a cupcake.', pic:'🧻🧁' }, { text:'A rabbit sat on the napkin.', pic:'🐰🧻' } ],
+    questions:[ Q('What is in the basket?', ['🧁','cupcake'], ['🧢','cap'], ['🥤','cup']) ] },
+  { id:'s32b', unit:32, title:'The Robot', topic:'toys', pats:['sy:open','sy:closed'], pages:[
+      { text:'A robot is in the garden.', pic:'🤖🌳' }, { text:'The robot can open the mailbox.', pic:'🤖📮' }, { text:'It has a jacket and a pocket.', pic:'🧥' }, { text:'The farmer sat in the sunshine.', pic:'🧑‍🌾☀️' } ],
+    questions:[ Q('Who is in the garden?', ['🤖','robot'], ['🐷','pig'], ['🐱','cat']) ] },
+  { id:'s32c', unit:32, title:'The Snowman', topic:'weather', pats:['sy:compound','sy:closed'], pages:[
+      { text:'Dan has a raincoat.', pic:'🧒🧥' }, { text:'He sat by a snowman in the morning.', pic:'⛄🌅' }, { text:'The snowman has a bucket and a mitten.', pic:'⛄🪣🧤' }, { text:'A goldfish sat on the bucket.', pic:'🐠🪣' } ],
+    questions:[ Q('What does the snowman have?', ['🪣','bucket'], ['🧢','cap'], ['🥤','cup']) ] },
+  { id:'s33a', unit:33, title:'The Purple Turtle', topic:'animals', focus:['le'], pages:[
+      { text:'A turtle sat at the table.', pic:'🐢🍽️' }, { text:'The turtle is purple.', pic:'🐢🟣' }, { text:'It has a red apple.', pic:'🍎' }, { text:'The little turtle is not alone.', pic:'🐢' } ],
+    questions:[ Q('What is purple?', ['🐢','turtle'], ['🐷','pig'], ['🐱','cat']) ] },
+  { id:'s33b', unit:33, title:'Bubble Fun', topic:'fun', focus:['le','a_open'], pages:[
+      { text:'The baby can see a bubble.', pic:'👶🫧' }, { text:'The bubble is big.', pic:'🫧' }, { text:'It can go up and up.', pic:'⬆️🫧' }, { text:'The baby is asleep.', pic:'😴' } ],
+    questions:[ Q('Who can see a bubble?', ['👶','baby'], ['🐷','pig'], ['🐱','cat']) ] },
+  { id:'s33c', unit:33, title:'The Zebra and the Panda', topic:'animals', focus:['schwa','a_open'], pages:[
+      { text:'The zebra sat on a sofa.', pic:'🦓🛋️' }, { text:'The panda has a banana.', pic:'🐼🍌' }, { text:'The lady has a pizza.', pic:'👩🍕' }, { text:'They are about to eat.', pic:'🍽️' } ],
+    questions:[ Q('What does the panda have?', ['🍌','banana'], ['🍕','pizza'], ['🥤','cup']) ] },
+  { id:'s34a', unit:34, title:'The Fast Rabbit', topic:'animals', pats:['af:er','af:ly'], pages:[
+      { text:'The rabbit is faster.', pic:'🐰' }, { text:'The turtle is slower.', pic:'🐢' }, { text:'The rabbit ran quickly.', pic:'🐰💨' }, { text:'The turtle can go slowly.', pic:'🐢' } ],
+    questions:[ Q('Who is faster?', ['🐰','rabbit'], ['🐢','turtle'], ['🐷','pig']) ] },
+  { id:'s34b', unit:34, title:'Helpful Dan', topic:'people', pats:['af:ful','af:es','af:est'], pages:[
+      { text:'Dan is helpful.', pic:'🧒' }, { text:'He can fill the boxes.', pic:'📦' }, { text:'Meg has the dishes.', pic:'🍽️' }, { text:'Dan is the kindest.', pic:'💗' } ],
+    questions:[ Q('Who is helpful?', ['🧒','Dan'], ['👧','Meg'], ['🐶','dog']) ] },
+  { id:'s34c', unit:34, title:'The Tallest Tree', topic:'nature', pats:['af:er','af:est','af:less'], pages:[
+      { text:'The tree is big.', pic:'🌳' }, { text:'This tree is taller.', pic:'🌲' }, { text:'This tree is the tallest.', pic:'🌲' }, { text:'It is not hopeless to climb it.', pic:'🧗' } ],
+    questions:[ Q('Which tree is the tallest?', ['🌲','this tree'], ['🌳','the tree'], ['🌴','a palm']) ] },
+  { id:'s35a', unit:35, title:'Unlock the Box', topic:'home', pats:['af:un'], pages:[
+      { text:'Meg can unlock the box.', pic:'👧🔓' }, { text:'Dan can unpack the box.', pic:'🧒📦' }, { text:'A cat is in the box.', pic:'🐱📦' }, { text:'The cat is unhappy.', pic:'🐱😢' } ],
+    questions:[ Q('Who is unhappy?', ['🐱','cat'], ['🐷','pig'], ['🐶','dog']) ] },
+  { id:'s35b', unit:35, title:'Replay the Game', topic:'games', pats:['af:re'], pages:[
+      { text:'Tom can replay the game.', pic:'🎮' }, { text:'He can rewrite the note.', pic:'📝' }, { text:'He can restart the game.', pic:'🔄' }, { text:'Tom can reread it.', pic:'📖' } ],
+    questions:[ Q('What can Tom replay?', ['🎮','game'], ['🧢','cap'], ['🥤','cup']) ] },
+  { id:'s35c', unit:35, title:'The Cupcake', topic:'food', pats:['af:dis','af:un'], pages:[
+      { text:'I dislike the rain.', pic:'🌧️' }, { text:'Dan can unwrap the cupcake.', pic:'🧁' }, { text:'I like the cupcake.', pic:'😋' }, { text:'I can not distrust the cupcake.', pic:'🧁' } ],
+    questions:[ Q('What can Dan unwrap?', ['🧁','cupcake'], ['🧢','cap'], ['🥤','cup']) ] },
+  { id:'s36a', unit:36, title:'Run, Hop, Dig', topic:'fun', pats:['af:double'], pages:[
+      { text:'Dan is running.', pic:'🏃' }, { text:'Meg is hopping.', pic:'🐇' }, { text:'The dog is digging.', pic:'🐶' }, { text:'The kids are clapping.', pic:'👏' } ],
+    questions:[ Q('Who is digging?', ['🐶','dog'], ['🐱','cat'], ['🐷','pig']) ] },
+  { id:'s36b', unit:36, title:'Baking a Cake', topic:'food', pats:['af:drop-e'], pages:[
+      { text:'Meg is baking a cake.', pic:'👧🍰' }, { text:'Dan is taking the cake.', pic:'🧒🍰' }, { text:'They are smiling and waving.', pic:'😊👋' }, { text:'They are riding to the lake.', pic:'🚴🏞️' } ],
+    questions:[ Q('What is Meg baking?', ['🍰','cake'], ['🧢','cap'], ['🥤','cup']) ] },
+  { id:'s36c', unit:36, title:'Happier', topic:'people', pats:['af:y-i'], pages:[
+      { text:'Dan is happy.', pic:'🧒' }, { text:'Meg is happier.', pic:'👧' }, { text:'Tom is the happiest.', pic:'🧒😄' }, { text:'The puppies are funnier.', pic:'🐶' } ],
+    questions:[ Q('Who is the happiest?', ['🧒','Tom'], ['👧','Meg'], ['🐶','dog']) ] },
+  { id:'s37a', unit:37, title:'At the Station', topic:'places', focus:['tion','ture'], pages:[
+      { text:'We are at the station.', pic:'🚉' }, { text:'It is a big station.', pic:'🚉' }, { text:'We can see a picture.', pic:'🖼️' }, { text:'It is a picture of a train.', pic:'🚂' } ],
+    questions:[ Q('Where are we?', ['🚉','station'], ['🏖️','sand'], ['🛏️','cot']) ] },
+  { id:'s37b', unit:37, title:'Nature', topic:'nature', focus:['ture'], pages:[
+      { text:'Look at nature.', pic:'🌿' }, { text:'A creature is in the park.', pic:'🦎' }, { text:'The creature is red.', pic:'🦎' }, { text:'We take a picture.', pic:'📷' } ],
+    questions:[ Q('What is in the park?', ['🦎','creature'], ['🐷','pig'], ['🐱','cat']) ] },
+  { id:'s37c', unit:37, title:'Vacation', topic:'travel', focus:['tion','sion'], pages:[
+      { text:'We go on vacation.', pic:'🏖️' }, { text:'We see a nation.', pic:'🏳️' }, { text:'We can see television.', pic:'📺' }, { text:'We take a picture of the vision.', pic:'📷' } ],
+    questions:[ Q('Where do we go?', ['🏖️','vacation'], ['🏫','school'], ['🛏️','cot']) ] },
+
+  // ---------------- Stage 7: fluency bridge (longer, unpractised passages)
+  { id:'s38a', unit:38, title:'The Jungle', topic:'nature', pages:[
+      { text:'A tiger is in the jungle.', pic:'🐯🌴' }, { text:'The jungle has a big tree and a purple flower.', pic:'🌳🌸' }, { text:'A turtle sat by the lake in the sunshine.', pic:'🐢🏞️' }, { text:'The little bird is asleep in the tree.', pic:'🐦😴' }, { text:'It is a nice day in the jungle.', pic:'☀️' }, { text:'We can see nature at the lake.', pic:'🌿' } ],
+    questions:[ Q('Who is in the jungle?', ['🐯','tiger'], ['🐷','pig'], ['🐱','cat']), Q('Who is asleep?', ['🐦','bird'], ['🐢','turtle'], ['🐯','tiger']) ] },
+  { id:'s38b', unit:38, title:'A Day at School', topic:'school', pages:[
+      { text:'Meg is happy to go to school in the morning.', pic:'👧🏫' }, { text:'She has a new pencil and a little book.', pic:'✏️📓' }, { text:'The teacher is helpful and kind.', pic:'👩‍🏫' }, { text:'We read a book about a robot.', pic:'📖🤖' }, { text:'Then we play in the garden.', pic:'🎮🌳' }, { text:'It is the best day.', pic:'😄' } ],
+    questions:[ Q('Who is happy?', ['👧','Meg'], ['🧒','Tom'], ['🐶','dog']), Q('What did we read about?', ['🤖','robot'], ['🐷','pig'], ['🐱','cat']) ] },
+  { id:'s38c', unit:38, title:'The Weather', topic:'weather', pages:[
+      { text:'The weather is cold.', pic:'🌦️🥶' }, { text:'A cloud is in the sky.', pic:'☁️' }, { text:'Snow can sit on the ground.', pic:'⛄' }, { text:'Dan has a raincoat and a jacket.', pic:'🧒🧥' }, { text:'He is running in the snow.', pic:'🏃⛄' }, { text:'Then the sun is out and it is hot.', pic:'☀️' } ],
+    questions:[ Q('What is cold?', ['🌦️','weather'], ['🍰','cake'], ['🐷','pig']), Q('What can sit on the ground?', ['⛄','snow'], ['☀️','sun'], ['🍰','cake']) ] },
+  { id:'s38d', unit:38, title:'The Space Trip', topic:'space', pages:[
+      { text:'A rocket is on the ground.', pic:'🚀' }, { text:'The robot and the girl get in.', pic:'🤖👧' }, { text:'The rocket can fly fast.', pic:'🚀💨' }, { text:'They see the star and the moon.', pic:'⭐🌙' }, { text:'They take a picture of the world.', pic:'📷🌍' }, { text:'They are happy to be home.', pic:'🏠😊' } ],
+    questions:[ Q('What is on the ground?', ['🚀','rocket'], ['🚌','bus'], ['🛏️','cot']), Q('What do they take?', ['📷','picture'], ['🍰','cake'], ['🥤','cup']) ] },
 ];
 
 // Short decodable sentences used for dictation (word-bank tiles). Same validator rules as stories.
@@ -317,4 +387,13 @@ export const SENTENCES = [
   { unit:29, text:'The mouse is in the house.', pic:'🐭' }, { unit:29, text:'The boy has a toy.', pic:'🧸' }, { unit:29, text:'Paul saw a hawk.', pic:'🦅' },
   { unit:30, text:'The city is nice.', pic:'🏙️' }, { unit:30, text:'We have bread.', pic:'🍞' }, { unit:30, text:'The giraffe is at school.', pic:'🦒' },
   { unit:31, text:'Phil has a phone.', pic:'📱' }, { unit:31, text:'The witch is on the bridge.', pic:'🧙' }, { unit:31, text:'I can climb and write.', pic:'🧗' },
+
+  { unit:32, text:'Meg has a basket.', pic:'🧺' }, { unit:32, text:'A robot is in the garden.', pic:'🤖' }, { unit:32, text:'The rabbit sat in the sunshine.', pic:'🐰' },
+  { unit:33, text:'The turtle is purple.', pic:'🐢' }, { unit:33, text:'The baby has a bubble.', pic:'🫧' }, { text:'The panda has a banana.', unit:33, pic:'🐼' },
+  { unit:34, text:'The rabbit is faster.', pic:'🐰' }, { unit:34, text:'Dan is helpful.', pic:'🧒' }, { unit:34, text:'This tree is the tallest.', pic:'🌲' },
+  { unit:35, text:'Meg can unlock the box.', pic:'🔓' }, { unit:35, text:'Tom can replay the game.', pic:'🎮' }, { unit:35, text:'I dislike the rain.', pic:'🌧️' },
+  { unit:36, text:'Dan is running.', pic:'🏃' }, { unit:36, text:'Meg is baking a cake.', pic:'🍰' }, { unit:36, text:'Tom is the happiest.', pic:'😄' },
+  { unit:37, text:'We are at the station.', pic:'🚉' }, { unit:37, text:'We take a picture.', pic:'📷' }, { unit:37, text:'The creature is in the park.', pic:'🦎' },
+
+  { unit:38, text:'The tiger is in the jungle.', pic:'🐯' }, { unit:38, text:'The teacher is helpful and kind.', pic:'👩‍🏫' }, { unit:38, text:'We take a picture of the world.', pic:'📷' },
 ];
