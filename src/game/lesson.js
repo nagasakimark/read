@@ -269,7 +269,8 @@ export class LessonScene {
   // ------------------------------------------------------------------ constructed responses
   askBuild(q) {
     const { app } = this; const sentence = q.type === 'sentence';
-    const size = sentence ? 44 : 78, slotH = sentence ? 80 : 120;
+    let size = sentence ? 44 : 78; const slotH = sentence ? 80 : 120;
+    if (sentence) { const mw = sz => Math.max(...q.tray.map(t => tileW(t.label, sz))); while (size > 28 && q.slots.length * mw(size) + (q.slots.length - 1) * 14 > 960) size -= 2; }
     const labels = q.slots;
     const trayItems = q.tray.map((t, i) => ({ label: t.label, w: tileW(t.label, size), i, placed: -1, cx: 0, cy: 0, x: 0, y: 0, shake: 0, st: 'idle' }));
     const uniW = sentence ? Math.max(...trayItems.map(t => t.w)) : 0;

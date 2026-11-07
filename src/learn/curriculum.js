@@ -71,10 +71,10 @@ export class Curriculum {
   // ---------- lure generation (one-GPC substitutions), used by activities
   _allowedAt(g, pos, len, prev) {
     const isV = VOWELS.has(g.id);
-    if (g.type === 'doubled' || g.id === 'ck' || g.id === 'sz') return pos === len - 1 && VOWELS.has(prev);
+    if (g.type === 'doubled' || g.type === 'digraph-final' || g.id === 'sz') return pos === len - 1 && VOWELS.has(prev);
     if (isV) return pos > 0 && pos < len - 1;
     if (pos === len - 1) return !['c', 'k', 'h', 'j', 'v', 'w', 'y', 'qu', 'r'].includes(g.id);
-    if (pos === 0) return g.id !== 'x' && g.type !== 'doubled' && g.id !== 'ck' && g.id !== 'sz';
+    if (pos === 0) return g.id !== 'x' && g.type !== 'doubled' && g.type !== 'digraph-final' && g.id !== 'sz';
     return false;
   }
 

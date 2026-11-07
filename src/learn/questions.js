@@ -10,7 +10,7 @@ export const GPC_LURES = {
   o:['a','u','e'], d:['b','t','g'], g:['d','c','j'], c:['k','o','e'], k:['c','t','h'], e:['i','a','o'], u:['o','a','n'],
   r:['l','h','n'], h:['n','f','b'], b:['d','p','v'], f:['v','h','t'], l:['r','i','t'], j:['g','y','z'], v:['f','b','w'],
   w:['v','m','y'], x:['s','z','k'], y:['i','j','w'], z:['s','x','j'], qu:['g','p','d'],
-  ff:['ll','ss','ck'], ll:['ff','ss','ck'], ss:['ff','ll','ck'], ck:['ll','ss','ff'], zz:['ss','ll','ff'], sz:['s','z','x'], sh:['s','ch','th'], ch:['sh','k','th'], th:['s','f','sh'],
+  ff:['ll','ss','ck'], ll:['ff','ss','ck'], ss:['ff','ll','ck'], ck:['ll','ss','ff'], zz:['ss','ll','ff'], sz:['s','z','x'], sh:['s','ch','th'], ng:['n','g','m'], nk:['ng','n','k'], ch:['sh','k','th'], th:['s','f','sh'],
 };
 const SYLL_WORDS = [ // [word, emoji, syllables] -- Stage 0 syllable awareness (pictures only; not decoded)
   ['cat','🐱',1],['dog','🐶',1],['sun','☀️',1],['fish','🐟',1],['bus','🚌',1],['pig','🐷',1],['egg','🥚',1],['hat','🎩',1],
@@ -31,7 +31,7 @@ export function gpcLureIds(C, id, unit, rng, n, force = null) {
   const out = [];
   if (force && ok(force)) out.push(force);
   for (const x of pool) if (out.length < n && !out.includes(x)) out.push(x);
-  const rest = rng.shuffle(C.gpcsUpTo(unit).map(g => g.id).filter(x => ok(x) && !out.includes(x) && (tgt.type === 'doubled' || tgt.id === 'ck' ? C.gpcs[x].type !== 'single' || out.length >= 1 : true)));
+  const rest = rng.shuffle(C.gpcsUpTo(unit).map(g => g.id).filter(x => ok(x) && !out.includes(x) && (tgt.type === 'doubled' || tgt.type === 'digraph-final' ? C.gpcs[x].type !== 'single' || out.length >= 1 : true)));
   for (const x of rest) if (out.length < n) out.push(x);
   // two different GPCs with the same grapheme (s / sz) must not both appear
   return dedupe(out, x => C.gpcs[x].g).filter(x => C.gpcs[x].g !== tgt.g).slice(0, n);
@@ -53,7 +53,7 @@ export function recallFlash(C, id, unit, rng, n = 4) {
   if (pos === 'initial') {
     pool = C.gpcList.filter(x => x.bank && x.ph.join() !== g.ph.join() && x.unit <= Math.max(unit, 3)).flatMap(x => rng.sample(x.bank, 1).map(b => ({ b, gpc: x.id })));
   } else {
-    pool = C.gpcList.filter(x => x.fbank && x.ph.join() !== g.ph.join()).flatMap(x => rng.sample(x.fbank, 1).map(b => ({ b, gpc: x.id })));
+    pool = C.gpcList.filter(x => x.fbank && x.unit <= unit && x.ph.join() !== g.ph.join()).flatMap(x => rng.sample(x.fbank, 1).map(b => ({ b, gpc: x.id })));
     if (id === 'sz') pool = pool.concat(C.meta.sFinalBank.map(b => ({ b, gpc: 's' })));
     if (id === 'sz') pool = pool.filter(p => p.gpc === 's');
   }

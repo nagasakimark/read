@@ -933,5 +933,117 @@
    "storyAccuracy": 0.9,
    "questionsCorrect": 2
   }
+ },
+ {
+  "id": 9,
+  "stage": 2,
+  "name": "ng nk",
+  "ja": "ng nk",
+  "newGpcs": [
+   "ng",
+   "nk"
+  ],
+  "newTricky": [],
+  "prereqs": [
+   8
+  ],
+  "packs": [
+   "cp_n_ng"
+  ],
+  "lessons": [
+   {
+    "id": "L9_1",
+    "unit": 9,
+    "kind": "teach",
+    "newGpcs": [
+     "ng"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L9_2",
+    "unit": 9,
+    "kind": "teach",
+    "newGpcs": [
+     "nk"
+    ],
+    "newTricky": [],
+    "stories": []
+   },
+   {
+    "id": "L9_3",
+    "unit": 9,
+    "kind": "consolidate",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s9a",
+      "read": 1
+     }
+    ]
+   },
+   {
+    "id": "L9_4",
+    "unit": 9,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s9a",
+      "read": 2
+     },
+     {
+      "id": "s9a",
+      "read": 3
+     },
+     {
+      "id": "s9b",
+      "read": 1
+     },
+     {
+      "id": "s9b",
+      "read": 2
+     }
+    ]
+   },
+   {
+    "id": "L9_5",
+    "unit": 9,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s9b",
+      "read": 3
+     },
+     {
+      "id": "s9c",
+      "read": 1
+     },
+     {
+      "id": "s9c",
+      "read": 2
+     },
+     {
+      "id": "s9c",
+      "read": 3
+     }
+    ]
+   }
+  ],
+  "stories": [
+   "s9a",
+   "s9b",
+   "s9c"
+  ],
+  "mastery": {
+   "rungRequired": 4,
+   "storyAccuracy": 0.9,
+   "questionsCorrect": 2
+  }
  }
 ]

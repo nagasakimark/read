@@ -5245,5 +5245,597 @@
   "pic": "",
   "ja": "",
   "tier": "silly"
+ },
+ {
+  "id": "ring",
+  "t": "ring",
+  "g": [
+   "r",
+   "i",
+   "ng"
+  ],
+  "u": 9,
+  "ph": [
+   "r",
+   "i",
+   "ng"
+  ],
+  "pic": "💍",
+  "ja": "ゆびわ",
+  "tier": "common"
+ },
+ {
+  "id": "sing",
+  "t": "sing",
+  "g": [
+   "s",
+   "i",
+   "ng"
+  ],
+  "u": 9,
+  "ph": [
+   "s",
+   "i",
+   "ng"
+  ],
+  "pic": "🎤",
+  "ja": "うたう",
+  "tier": "common"
+ },
+ {
+  "id": "king",
+  "t": "king",
+  "g": [
+   "k",
+   "i",
+   "ng"
+  ],
+  "u": 9,
+  "ph": [
+   "k",
+   "i",
+   "ng"
+  ],
+  "pic": "🤴",
+  "ja": "おうさま",
+  "tier": "common"
+ },
+ {
+  "id": "wing",
+  "t": "wing",
+  "g": [
+   "w",
+   "i",
+   "ng"
+  ],
+  "u": 9,
+  "ph": [
+   "w",
+   "i",
+   "ng"
+  ],
+  "pic": "",
+  "ja": "つばさ",
+  "tier": "common"
+ },
+ {
+  "id": "hang",
+  "t": "hang",
+  "g": [
+   "h",
+   "a",
+   "ng"
+  ],
+  "u": 9,
+  "ph": [
+   "h",
+   "a",
+   "ng"
+  ],
+  "pic": "",
+  "ja": "かける",
+  "tier": "common"
+ },
+ {
+  "id": "bang",
+  "t": "bang",
+  "g": [
+   "b",
+   "a",
+   "ng"
+  ],
+  "u": 9,
+  "ph": [
+   "b",
+   "a",
+   "ng"
+  ],
+  "pic": "💥",
+  "ja": "バン",
+  "tier": "loanword"
+ },
+ {
+  "id": "rang",
+  "t": "rang",
+  "g": [
+   "r",
+   "a",
+   "ng"
+  ],
+  "u": 9,
+  "ph": [
+   "r",
+   "a",
+   "ng"
+  ],
+  "pic": "",
+  "ja": "ならした",
+  "tier": "common"
+ },
+ {
+  "id": "sang",
+  "t": "sang",
+  "g": [
+   "s",
+   "a",
+   "ng"
+  ],
+  "u": 9,
+  "ph": [
+   "s",
+   "a",
+   "ng"
+  ],
+  "pic": "",
+  "ja": "うたった",
+  "tier": "common"
+ },
+ {
+  "id": "gang",
+  "t": "gang",
+  "g": [
+   "g",
+   "a",
+   "ng"
+  ],
+  "u": 9,
+  "ph": [
+   "g",
+   "a",
+   "ng"
+  ],
+  "pic": "",
+  "ja": "なかま",
+  "tier": "loanword"
+ },
+ {
+  "id": "hung",
+  "t": "hung",
+  "g": [
+   "h",
+   "u",
+   "ng"
+  ],
+  "u": 9,
+  "ph": [
+   "h",
+   "u",
+   "ng"
+  ],
+  "pic": "",
+  "ja": "かけた",
+  "tier": "common"
+ },
+ {
+  "id": "rung",
+  "t": "rung",
+  "g": [
+   "r",
+   "u",
+   "ng"
+  ],
+  "u": 9,
+  "ph": [
+   "r",
+   "u",
+   "ng"
+  ],
+  "pic": "",
+  "ja": "はしごのだん",
+  "tier": "common"
+ },
+ {
+  "id": "sung",
+  "t": "sung",
+  "g": [
+   "s",
+   "u",
+   "ng"
+  ],
+  "u": 9,
+  "ph": [
+   "s",
+   "u",
+   "ng"
+  ],
+  "pic": "",
+  "ja": "うたわれた",
+  "tier": "common"
+ },
+ {
+  "id": "lung",
+  "t": "lung",
+  "g": [
+   "l",
+   "u",
+   "ng"
+  ],
+  "u": 9,
+  "ph": [
+   "l",
+   "u",
+   "ng"
+  ],
+  "pic": "🫁",
+  "ja": "はい",
+  "tier": "common"
+ },
+ {
+  "id": "bank",
+  "t": "bank",
+  "g": [
+   "b",
+   "a",
+   "nk"
+  ],
+  "u": 9,
+  "ph": [
+   "b",
+   "a",
+   "ng",
+   "k"
+  ],
+  "pic": "🏦",
+  "ja": "ぎんこう",
+  "tier": "common"
+ },
+ {
+  "id": "sink",
+  "t": "sink",
+  "g": [
+   "s",
+   "i",
+   "nk"
+  ],
+  "u": 9,
+  "ph": [
+   "s",
+   "i",
+   "ng",
+   "k"
+  ],
+  "pic": "🚰",
+  "ja": "シンク",
+  "tier": "loanword"
+ },
+ {
+  "id": "junk",
+  "t": "junk",
+  "g": [
+   "j",
+   "u",
+   "nk"
+  ],
+  "u": 9,
+  "ph": [
+   "dj",
+   "u",
+   "ng",
+   "k"
+  ],
+  "pic": "🗑️",
+  "ja": "がらくた",
+  "tier": "common"
+ },
+ {
+  "id": "honk",
+  "t": "honk",
+  "g": [
+   "h",
+   "o",
+   "nk"
+  ],
+  "u": 9,
+  "ph": [
+   "h",
+   "o",
+   "ng",
+   "k"
+  ],
+  "pic": "🚗",
+  "ja": "ブーブー",
+  "tier": "common"
+ },
+ {
+  "id": "ink",
+  "t": "ink",
+  "g": [
+   "i",
+   "nk"
+  ],
+  "u": 9,
+  "ph": [
+   "i",
+   "ng",
+   "k"
+  ],
+  "pic": "🖋️",
+  "ja": "インク",
+  "tier": "loanword"
+ },
+ {
+  "id": "sunk",
+  "t": "sunk",
+  "g": [
+   "s",
+   "u",
+   "nk"
+  ],
+  "u": 9,
+  "ph": [
+   "s",
+   "u",
+   "ng",
+   "k"
+  ],
+  "pic": "",
+  "ja": "しずんだ",
+  "tier": "common"
+ },
+ {
+  "id": "rank",
+  "t": "rank",
+  "g": [
+   "r",
+   "a",
+   "nk"
+  ],
+  "u": 9,
+  "ph": [
+   "r",
+   "a",
+   "ng",
+   "k"
+  ],
+  "pic": "",
+  "ja": "じゅんい",
+  "tier": "loanword"
+ },
+ {
+  "id": "think",
+  "t": "think",
+  "g": [
+   "th",
+   "i",
+   "nk"
+  ],
+  "u": 9,
+  "ph": [
+   "th",
+   "i",
+   "ng",
+   "k"
+  ],
+  "pic": "🤔",
+  "ja": "おもう",
+  "tier": "common"
+ },
+ {
+  "id": "thank",
+  "t": "thank",
+  "g": [
+   "th",
+   "a",
+   "nk"
+  ],
+  "u": 9,
+  "ph": [
+   "th",
+   "a",
+   "ng",
+   "k"
+  ],
+  "pic": "🙏",
+  "ja": "ありがとう",
+  "tier": "common"
+ },
+ {
+  "id": "pink",
+  "t": "pink",
+  "g": [
+   "p",
+   "i",
+   "nk"
+  ],
+  "u": 9,
+  "ph": [
+   "p",
+   "i",
+   "ng",
+   "k"
+  ],
+  "pic": "🎀",
+  "ja": "ピンク",
+  "tier": "loanword"
+ },
+ {
+  "id": "tank",
+  "t": "tank",
+  "g": [
+   "t",
+   "a",
+   "nk"
+  ],
+  "u": 9,
+  "ph": [
+   "t",
+   "a",
+   "ng",
+   "k"
+  ],
+  "pic": "",
+  "ja": "タンク",
+  "tier": "loanword"
+ },
+ {
+  "id": "rings",
+  "t": "rings",
+  "g": [
+   "r",
+   "i",
+   "ng",
+   "sz"
+  ],
+  "u": 9,
+  "ph": [
+   "r",
+   "i",
+   "ng",
+   "z"
+  ],
+  "pic": "💍💍",
+  "ja": "ゆびわ(たち)",
+  "tier": "common"
+ },
+ {
+  "id": "kings",
+  "t": "kings",
+  "g": [
+   "k",
+   "i",
+   "ng",
+   "sz"
+  ],
+  "u": 9,
+  "ph": [
+   "k",
+   "i",
+   "ng",
+   "z"
+  ],
+  "pic": "🤴🤴",
+  "ja": "おうさま(たち)",
+  "tier": "common"
+ },
+ {
+  "id": "pung",
+  "t": "pung",
+  "g": [
+   "p",
+   "u",
+   "ng"
+  ],
+  "u": 9,
+  "ph": [
+   "p",
+   "u",
+   "ng"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly"
+ },
+ {
+  "id": "teng",
+  "t": "teng",
+  "g": [
+   "t",
+   "e",
+   "ng"
+  ],
+  "u": 9,
+  "ph": [
+   "t",
+   "e",
+   "ng"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly"
+ },
+ {
+  "id": "jing",
+  "t": "jing",
+  "g": [
+   "j",
+   "i",
+   "ng"
+  ],
+  "u": 9,
+  "ph": [
+   "dj",
+   "i",
+   "ng"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly"
+ },
+ {
+  "id": "tunk",
+  "t": "tunk",
+  "g": [
+   "t",
+   "u",
+   "nk"
+  ],
+  "u": 9,
+  "ph": [
+   "t",
+   "u",
+   "ng",
+   "k"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly"
+ },
+ {
+  "id": "lonk",
+  "t": "lonk",
+  "g": [
+   "l",
+   "o",
+   "nk"
+  ],
+  "u": 9,
+  "ph": [
+   "l",
+   "o",
+   "ng",
+   "k"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly"
+ },
+ {
+  "id": "pank",
+  "t": "pank",
+  "g": [
+   "p",
+   "a",
+   "nk"
+  ],
+  "u": 9,
+  "ph": [
+   "p",
+   "a",
+   "ng",
+   "k"
+  ],
+  "pic": "",
+  "ja": "",
+  "tier": "silly"
  }
 ]

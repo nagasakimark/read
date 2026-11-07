@@ -180,5 +180,12 @@
   "esp": "T",
   "mouth": "tongueOut",
   "cont": true
+ },
+ {
+  "id": "ng",
+  "ipa": "ŋ",
+  "esp": "N",
+  "mouth": "throat",
+  "cont": true
  }
 ]

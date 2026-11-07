@@ -137,7 +137,7 @@ export function stepQuestions(C, state, step, rng, ctx) {
         const id = it.id.replace(/^\w+:/, '');
         if (it.kind === 'gpc') {
           const force = conf.find(c => c.pair[0] === id)?.pair[1];
-          if (force && it.rung < 2) push(Q.listenPick(C, id, unit, rng, 3, force));
+          if (force && it.rung < 2 && rng.chance(0.35)) push(Q.listenPick(C, id, unit, rng, 3, force));
           else { push(questionForGpc(C, state, id, unit, rng, ctx)); if (it.rung < 2 && out.length < step.n) push(questionForGpc(C, state, id, unit, rng, ctx)); }
         } else if (ti < 2) push((ti++ % 2) ? Q.heartBuild(C, id, unit, rng) : Q.trickyChoose(C, id, unit, rng));
       }

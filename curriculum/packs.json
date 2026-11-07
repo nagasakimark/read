@@ -169,5 +169,25 @@
     "mat"
    ]
   ]
+ },
+ {
+  "id": "cp_n_ng",
+  "unit": 9,
+  "name": "n / ng",
+  "ja": "ng は のどの おくで「ン」",
+  "sets": [
+   [
+    "ran",
+    "rang"
+   ],
+   [
+    "sun",
+    "sung"
+   ],
+   [
+    "ban",
+    "bang"
+   ]
+  ]
  }
 ]

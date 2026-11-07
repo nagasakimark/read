@@ -805,5 +805,52 @@
     "⛈️"
    ]
   ]
+ },
+ {
+  "id": "ng",
+  "g": "ng",
+  "ph": [
+   "ng"
+  ],
+  "unit": 9,
+  "type": "digraph-final",
+  "fbank": [
+   [
+    "ring",
+    "💍"
+   ],
+   [
+    "king",
+    "🤴"
+   ],
+   [
+    "sing",
+    "🎤"
+   ]
+  ]
+ },
+ {
+  "id": "nk",
+  "g": "nk",
+  "ph": [
+   "ng",
+   "k"
+  ],
+  "unit": 9,
+  "type": "digraph-final",
+  "fbank": [
+   [
+    "bank",
+    "🏦"
+   ],
+   [
+    "sink",
+    "🚰"
+   ],
+   [
+    "junk",
+    "🗑️"
+   ]
+  ]
  }
 ]

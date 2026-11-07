@@ -23,6 +23,16 @@ export const STORIES = [
   { id:'s8c', unit:8, title:'At the Shop', topic:'places', focus:['sh','ch','th'], pages:[
       { text:'Beth was at the shop.', pic:'👧🏪' }, { text:'She got a shell.', pic:'👧🐚' }, { text:'She got a thick rug.', pic:'👧🧶' } ],
     questions:[ Q('Where was Beth?', ['🏪','shop'], ['🛏️','bed'], ['🛁','bath']) ] },
+  // ---------------- Unit 9
+  { id:'s9a', unit:9, title:'The King', topic:'people', focus:['ng','nk'], pages:[
+      { text:'The king has a ring.', pic:'🤴💍' }, { text:'The king can sing.', pic:'🤴🎤' }, { text:'The king sang.', pic:'🤴🎶' } ],
+    questions:[ Q('What has the king?', ['💍','ring'], ['🧢','cap'], ['🥤','cup']) ] },
+  { id:'s9b', unit:9, title:'At the Bank', topic:'places', focus:['ng','nk'], pages:[
+      { text:'Beth is at the bank.', pic:'👧🏦' }, { text:'She got cash.', pic:'👧💵' }, { text:'She can thank Josh.', pic:'👧🙏' } ],
+    questions:[ Q('Where is Beth?', ['🏦','bank'], ['🏪','shop'], ['🛁','bath']) ] },
+  { id:'s9c', unit:9, title:'Chuck in the Sink', topic:'animals', focus:['ng','nk'], pages:[
+      { text:'Chuck sat in a sink.', pic:'🐥🚰' }, { text:'Chuck can sing.', pic:'🐥🎤' }, { text:'Chuck is a pink chick.', pic:'🐥🎀' } ],
+    questions:[ Q('What did Chuck sit in?', ['🚰','sink'], ['🛏️','bed'], ['🍽️','dish']) ] },
   // ---------------- Unit 4
   { id:'s4a', unit:4, title:'The Red Hat', topic:'animals', focus:['k','e','u','r','h'], pages:[
       { text:'A hen got a red hat.', pic:'🐔🎩' }, { text:'The hen ran.', pic:'🐔' }, { text:'The hen ran to Ken.', pic:'🐔🧒' }, { text:'Ken got the hen.', pic:'🧒🐔' } ],
@@ -75,4 +85,5 @@ export const SENTENCES = [
   { unit:6, text:'Jack got a van.', pic:'🧑🚐' }, { unit:6, text:'We can win.', pic:'🏆' },
   { unit:7, text:'Meg has hens.', pic:'👧🐔' }, { unit:7, text:'Do you like jam?', pic:'🍓' },
   { unit:8, text:'Chuck is a chick.', pic:'🐥' }, { unit:8, text:'She got a fish.', pic:'👧🐟' }, { unit:8, text:'Beth has a ship.', pic:'👧🚢' },
+  { unit:9, text:'The king sang.', pic:'🤴🎶' }, { unit:9, text:'I think she has a ring.', pic:'💍' }, { unit:9, text:'Thank you!', pic:'🙏' },
 ];

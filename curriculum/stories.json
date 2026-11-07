@@ -281,6 +281,138 @@
   ]
  },
  {
+  "id": "s9a",
+  "unit": 9,
+  "title": "The King",
+  "topic": "people",
+  "focus": [
+   "ng",
+   "nk"
+  ],
+  "pages": [
+   {
+    "text": "The king has a ring.",
+    "pic": "🤴💍"
+   },
+   {
+    "text": "The king can sing.",
+    "pic": "🤴🎤"
+   },
+   {
+    "text": "The king sang.",
+    "pic": "🤴🎶"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What has the king?",
+    "type": "literal",
+    "answer": [
+     "💍",
+     "ring"
+    ],
+    "distractors": [
+     [
+      "🧢",
+      "cap"
+     ],
+     [
+      "🥤",
+      "cup"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s9b",
+  "unit": 9,
+  "title": "At the Bank",
+  "topic": "places",
+  "focus": [
+   "ng",
+   "nk"
+  ],
+  "pages": [
+   {
+    "text": "Beth is at the bank.",
+    "pic": "👧🏦"
+   },
+   {
+    "text": "She got cash.",
+    "pic": "👧💵"
+   },
+   {
+    "text": "She can thank Josh.",
+    "pic": "👧🙏"
+   }
+  ],
+  "questions": [
+   {
+    "q": "Where is Beth?",
+    "type": "literal",
+    "answer": [
+     "🏦",
+     "bank"
+    ],
+    "distractors": [
+     [
+      "🏪",
+      "shop"
+     ],
+     [
+      "🛁",
+      "bath"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s9c",
+  "unit": 9,
+  "title": "Chuck in the Sink",
+  "topic": "animals",
+  "focus": [
+   "ng",
+   "nk"
+  ],
+  "pages": [
+   {
+    "text": "Chuck sat in a sink.",
+    "pic": "🐥🚰"
+   },
+   {
+    "text": "Chuck can sing.",
+    "pic": "🐥🎤"
+   },
+   {
+    "text": "Chuck is a pink chick.",
+    "pic": "🐥🎀"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What did Chuck sit in?",
+    "type": "literal",
+    "answer": [
+     "🚰",
+     "sink"
+    ],
+    "distractors": [
+     [
+      "🛏️",
+      "bed"
+     ],
+     [
+      "🍽️",
+      "dish"
+     ]
+    ]
+   }
+  ]
+ },
+ {
   "id": "s4a",
   "unit": 4,
   "title": "The Red Hat",

@@ -101,4 +101,12 @@ export const WORDS = [
   ['chips','ch i p s','🍟','ポテト(たち)',L], ['ships','sh i p s','🚢🚢','ふね(たち)',C],
   ['shep','sh e p','','',S], ['shub','sh u b','','',S], ['fesh','f e sh','','',S], ['chub','ch u b','','',S], ['chep','ch e p','','',S], ['ruch','r u ch','','',S],
   ['thog','th o g','','',S], ['thip','th i p','','',S], ['zeth','z e th','','',S], ['dush','d u sh','','',S],
+  // ---- Unit 9: ng nk (word-final)
+  ['ring','r i ng','💍','ゆびわ',C], ['sing','s i ng','🎤','うたう',C], ['king','k i ng','🤴','おうさま',C], ['wing','w i ng','','つばさ',C], ['hang','h a ng','','かける',C],
+  ['bang','b a ng','💥','バン',L], ['rang','r a ng','','ならした',C], ['sang','s a ng','','うたった',C], ['gang','g a ng','','なかま',L], ['hung','h u ng','','かけた',C],
+  ['rung','r u ng','','はしごのだん',C], ['sung','s u ng','','うたわれた',C], ['lung','l u ng','🫁','はい',C],
+  ['bank','b a nk','🏦','ぎんこう',C], ['sink','s i nk','🚰','シンク',L], ['junk','j u nk','🗑️','がらくた',C], ['honk','h o nk','🚗','ブーブー',C], ['ink','i nk','🖋️','インク',L],
+  ['sunk','s u nk','','しずんだ',C], ['rank','r a nk','','じゅんい',L], ['think','th i nk','🤔','おもう',C], ['thank','th a nk','🙏','ありがとう',C], ['pink','p i nk','🎀','ピンク',L],
+  ['tank','t a nk','','タンク',L], ['rings','r i ng sz','💍💍','ゆびわ(たち)',C], ['kings','k i ng sz','🤴🤴','おうさま(たち)',C],
+  ['pung','p u ng','','',S], ['teng','t e ng','','',S], ['jing','j i ng','','',S], ['tunk','t u nk','','',S], ['lonk','l o nk','','',S], ['pank','p a nk','','',S],
 ];

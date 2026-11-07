@@ -19,4 +19,6 @@ export const PACKS = [
     sets:[['chip','ship'],['chop','shop'],['chin','shin']] },
   { id:'cp_th_s', unit:8, name:'th / s / t', ja:'th は したを はさんで「ス」',
     sets:[['thick','sick'],['thin','tin'],['math','mat']] },
+  { id:'cp_n_ng', unit:9, name:'n / ng', ja:'ng は のどの おくで「ン」',
+    sets:[['ran','rang'],['sun','sung'],['ban','bang']] },
 ];

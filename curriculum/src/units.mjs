@@ -13,4 +13,5 @@ export const UNITS = [
   { id:6, stage:1, name:'j v w x y z qu', ja:'j v w x y z qu', groups:[['j','v'],['w','x'],['y','z'],['zz','qu']], tricky:[['he','we'],['me','be'],['you'],[]] },
   { id:7, stage:1, name:'s says /z/', ja:'s が「ズ」', groups:[['sz']], tricky:[['like','do','said']] },
   { id:8, stage:2, name:'sh ch th', ja:'sh ch th', groups:[['sh','ch'],['th']], tricky:[['she'],['was']] },
+  { id:9, stage:2, name:'ng nk', ja:'ng nk', groups:[['ng'],['nk']], tricky:[[],[]] },
 ];

@@ -78,5 +78,20 @@
   "unit": 8,
   "text": "Beth has a ship.",
   "pic": "👧🚢"
+ },
+ {
+  "unit": 9,
+  "text": "The king sang.",
+  "pic": "🤴🎶"
+ },
+ {
+  "unit": 9,
+  "text": "I think she has a ring.",
+  "pic": "💍"
+ },
+ {
+  "unit": 9,
+  "text": "Thank you!",
+  "pic": "🙏"
  }
 ]

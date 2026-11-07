@@ -13,6 +13,7 @@ export const PHONEMES = [
   ['dj','dʒ','dZ','teeth',false],['v','v','v','teethLip',true],['w','w','w','round',true],
   ['y','j','j','smile',true],   ['z','z','z','teeth',true],
   ['sh','ʃ','S','round',true],  ['ch','tʃ','tS','teeth',false],['th','θ','T','tongueOut',true],
+  ['ng','ŋ','N','throat',true],
 ].map(([id,ipa,esp,mouth,cont]) => ({ id, ipa, esp, mouth, cont }));
 
 // id, grapheme, phonemes, unit, type, mnemonic bank [word, emoji] (first = mnemonic), note
@@ -61,6 +62,9 @@ export const GPCS = [
   ['sh','sh',['sh'],8,'digraph',[['ship','🚢'],['shoe','👟'],['sheep','🐑']]],
   ['ch','ch',['ch'],8,'digraph',[['chair','🪑'],['cheese','🧀'],['chicken','🐔']]],
   ['th','th',['th'],8,'digraph',[['thumb','👍'],['three','3️⃣'],['thunder','⛈️']]],
+  // Unit 9: ng / nk (final only)
+  ['ng','ng',['ng'],9,'digraph-final',null,[['ring','💍'],['king','🤴'],['sing','🎤']]],
+  ['nk','nk',['ng','k'],9,'digraph-final',null,[['bank','🏦'],['sink','🚰'],['junk','🗑️']]],
 ].map(([id,g,ph,unit,type,bank,fbank]) => ({ id, g, ph, unit, type, ...(bank ? { bank } : {}), ...(fbank ? { fbank } : {}) }));
 
 // Plural-/s/ contrast words used as lures when teaching final /z/ (sz). Not GPC data; build copies it to meta.
