@@ -59,6 +59,9 @@ function drawMouth(c, x, y, m, color, t) {
     case 'tongue': // t d n l: tongue up behind teeth
       c.fillStyle = dark; rr(c, -32, -8, 64, 32, 12); c.fill(); c.fillStyle = teeth; rr(c, -26, -8, 52, 9, 3); c.fill();
       c.fillStyle = tongue; c.beginPath(); c.ellipse(0, -1, 20, 12, 0, 0, 7); c.fill(); break;
+    case 'tongueOut': // th: tongue between the teeth
+      c.fillStyle = dark; rr(c, -30, -8, 60, 24, 10); c.fill(); c.fillStyle = teeth; rr(c, -26, -8, 52, 9, 3); c.fill(); rr(c, -26, 8, 52, 8, 3); c.fill();
+      c.fillStyle = tongue; c.beginPath(); c.ellipse(0, 6, 17, 9, 0, 0, 7); c.fill(); break;
     case 'round': // w oo: small round
       c.fillStyle = dark; c.beginPath(); c.ellipse(0, 4, 15, 18, 0, 0, 7); c.fill(); c.strokeStyle = lipLine; c.stroke(); break;
     case 'open': // a: wide open

@@ -10,7 +10,7 @@ export const GPC_LURES = {
   o:['a','u','e'], d:['b','t','g'], g:['d','c','j'], c:['k','o','e'], k:['c','t','h'], e:['i','a','o'], u:['o','a','n'],
   r:['l','h','n'], h:['n','f','b'], b:['d','p','v'], f:['v','h','t'], l:['r','i','t'], j:['g','y','z'], v:['f','b','w'],
   w:['v','m','y'], x:['s','z','k'], y:['i','j','w'], z:['s','x','j'], qu:['g','p','d'],
-  ff:['ll','ss','ck'], ll:['ff','ss','ck'], ss:['ff','ll','ck'], ck:['ll','ss','ff'], zz:['ss','ll','ff'], sz:['s','z','x'],
+  ff:['ll','ss','ck'], ll:['ff','ss','ck'], ss:['ff','ll','ck'], ck:['ll','ss','ff'], zz:['ss','ll','ff'], sz:['s','z','x'], sh:['s','ch','th'], ch:['sh','k','th'], th:['s','f','sh'],
 };
 const SYLL_WORDS = [ // [word, emoji, syllables] -- Stage 0 syllable awareness (pictures only; not decoded)
   ['cat','🐱',1],['dog','🐶',1],['sun','☀️',1],['fish','🐟',1],['bus','🚌',1],['pig','🐷',1],['egg','🥚',1],['hat','🎩',1],

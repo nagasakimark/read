@@ -190,5 +190,30 @@
   "decodableFrom": null,
   "noteEn": "ai says /ɛ/ (eh).",
   "noteJa": "ai は「エ」"
+ },
+ {
+  "id": "she",
+  "t": "she",
+  "parts": [
+   "sh",
+   "*e"
+  ],
+  "release": 8,
+  "decodableFrom": 26,
+  "noteEn": "e says /iː/ (ee).",
+  "noteJa": "e は「イー」"
+ },
+ {
+  "id": "was",
+  "t": "was",
+  "parts": [
+   "w",
+   "*a",
+   "s"
+  ],
+  "release": 8,
+  "decodableFrom": null,
+  "noteEn": "a says /ʌ/ here and s says /z/.",
+  "noteJa": "was は「ウォズ」"
  }
 ]

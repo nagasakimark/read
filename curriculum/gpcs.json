@@ -736,5 +736,74 @@
     "🐔"
    ]
   ]
+ },
+ {
+  "id": "sh",
+  "g": "sh",
+  "ph": [
+   "sh"
+  ],
+  "unit": 8,
+  "type": "digraph",
+  "bank": [
+   [
+    "ship",
+    "🚢"
+   ],
+   [
+    "shoe",
+    "👟"
+   ],
+   [
+    "sheep",
+    "🐑"
+   ]
+  ]
+ },
+ {
+  "id": "ch",
+  "g": "ch",
+  "ph": [
+   "ch"
+  ],
+  "unit": 8,
+  "type": "digraph",
+  "bank": [
+   [
+    "chair",
+    "🪑"
+   ],
+   [
+    "cheese",
+    "🧀"
+   ],
+   [
+    "chicken",
+    "🐔"
+   ]
+  ]
+ },
+ {
+  "id": "th",
+  "g": "th",
+  "ph": [
+   "th"
+  ],
+  "unit": 8,
+  "type": "digraph",
+  "bank": [
+   [
+    "thumb",
+    "👍"
+   ],
+   [
+    "three",
+    "3️⃣"
+   ],
+   [
+    "thunder",
+    "⛈️"
+   ]
+  ]
  }
 ]

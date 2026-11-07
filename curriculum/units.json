@@ -810,5 +810,128 @@
    "storyAccuracy": 0.9,
    "questionsCorrect": 2
   }
+ },
+ {
+  "id": 8,
+  "stage": 2,
+  "name": "sh ch th",
+  "ja": "sh ch th",
+  "newGpcs": [
+   "sh",
+   "ch",
+   "th"
+  ],
+  "newTricky": [
+   "she",
+   "was"
+  ],
+  "prereqs": [
+   7
+  ],
+  "packs": [
+   "cp_s_sh",
+   "cp_ch_sh",
+   "cp_th_s"
+  ],
+  "lessons": [
+   {
+    "id": "L8_1",
+    "unit": 8,
+    "kind": "teach",
+    "newGpcs": [
+     "sh",
+     "ch"
+    ],
+    "newTricky": [
+     "she"
+    ],
+    "stories": []
+   },
+   {
+    "id": "L8_2",
+    "unit": 8,
+    "kind": "teach",
+    "newGpcs": [
+     "th"
+    ],
+    "newTricky": [
+     "was"
+    ],
+    "stories": []
+   },
+   {
+    "id": "L8_3",
+    "unit": 8,
+    "kind": "consolidate",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s8a",
+      "read": 1
+     }
+    ]
+   },
+   {
+    "id": "L8_4",
+    "unit": 8,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s8a",
+      "read": 2
+     },
+     {
+      "id": "s8a",
+      "read": 3
+     },
+     {
+      "id": "s8b",
+      "read": 1
+     },
+     {
+      "id": "s8b",
+      "read": 2
+     }
+    ]
+   },
+   {
+    "id": "L8_5",
+    "unit": 8,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s8b",
+      "read": 3
+     },
+     {
+      "id": "s8c",
+      "read": 1
+     },
+     {
+      "id": "s8c",
+      "read": 2
+     },
+     {
+      "id": "s8c",
+      "read": 3
+     }
+    ]
+   }
+  ],
+  "stories": [
+   "s8a",
+   "s8b",
+   "s8c"
+  ],
+  "mastery": {
+   "rungRequired": 4,
+   "storyAccuracy": 0.9,
+   "questionsCorrect": 2
+  }
  }
 ]

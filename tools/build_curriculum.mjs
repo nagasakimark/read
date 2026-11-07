@@ -51,7 +51,7 @@ const units = UNITS.map(u => {
 });
 
 out('meta.json', { contentVersion: '0.1.0', accent: 'en-US', sFinalBank: S_FINAL_BANK, builtFrom: 'curriculum/src', blueprint: 'docs/BLUEPRINT.md',
-  stages: [ { id: 0, name: 'Listening' }, { id: 1, name: 'First sounds' } ] });
+  stages: [ { id: 0, name: 'Listening' }, { id: 1, name: 'First sounds' }, { id: 2, name: 'Digraphs' } ] });
 out('phonemes.json', PHONEMES);
 out('gpcs.json', GPCS);
 out('words.json', words);

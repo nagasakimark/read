@@ -159,5 +159,26 @@
   "esp": "z",
   "mouth": "teeth",
   "cont": true
+ },
+ {
+  "id": "sh",
+  "ipa": "ʃ",
+  "esp": "S",
+  "mouth": "round",
+  "cont": true
+ },
+ {
+  "id": "ch",
+  "ipa": "tʃ",
+  "esp": "tS",
+  "mouth": "teeth",
+  "cont": false
+ },
+ {
+  "id": "th",
+  "ipa": "θ",
+  "esp": "T",
+  "mouth": "tongueOut",
+  "cont": true
  }
 ]

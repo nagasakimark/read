@@ -13,4 +13,10 @@ export const PACKS = [
     sets:[['rock','lock'],['red','led'],['rip','lip'],['rap','lap']] },
   { id:'cp_b_v', unit:6, name:'b / v', ja:'v は はを したの くちびるに あてるよ',
     sets:[['bet','vet'],['ban','van'],['bat','vat']] },
+  { id:'cp_s_sh', unit:8, name:'s / sh', ja:'sh は くちびるを まるくして「シー」',
+    sets:[['sip','ship'],['sell','shell'],['sock','shock']] },
+  { id:'cp_ch_sh', unit:8, name:'ch / sh', ja:'ch は「チ」，sh は「シ」',
+    sets:[['chip','ship'],['chop','shop'],['chin','shin']] },
+  { id:'cp_th_s', unit:8, name:'th / s / t', ja:'th は したを はさんで「ス」',
+    sets:[['thick','sick'],['thin','tin'],['math','mat']] },
 ];

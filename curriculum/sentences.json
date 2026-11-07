@@ -63,5 +63,20 @@
   "unit": 7,
   "text": "Do you like jam?",
   "pic": "🍓"
+ },
+ {
+  "unit": 8,
+  "text": "Chuck is a chick.",
+  "pic": "🐥"
+ },
+ {
+  "unit": 8,
+  "text": "She got a fish.",
+  "pic": "👧🐟"
+ },
+ {
+  "unit": 8,
+  "text": "Beth has a ship.",
+  "pic": "👧🚢"
  }
 ]

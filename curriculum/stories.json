@@ -142,6 +142,145 @@
   ]
  },
  {
+  "id": "s8a",
+  "unit": 8,
+  "title": "Beth and the Fish",
+  "topic": "animals",
+  "focus": [
+   "sh",
+   "ch",
+   "th"
+  ],
+  "pages": [
+   {
+    "text": "Beth has a fish.",
+    "pic": "👧🐟"
+   },
+   {
+    "text": "The fish is in a dish.",
+    "pic": "🐟🍽️"
+   },
+   {
+    "text": "Beth got a wish.",
+    "pic": "👧🌠"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What is in the dish?",
+    "type": "literal",
+    "answer": [
+     "🐟",
+     "fish"
+    ],
+    "distractors": [
+     [
+      "🐱",
+      "cat"
+     ],
+     [
+      "🐷",
+      "pig"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s8b",
+  "unit": 8,
+  "title": "Chuck the Chick",
+  "topic": "animals",
+  "focus": [
+   "sh",
+   "ch",
+   "th"
+  ],
+  "pages": [
+   {
+    "text": "Chuck is a chick.",
+    "pic": "🐥"
+   },
+   {
+    "text": "Chuck can hop.",
+    "pic": "🐥"
+   },
+   {
+    "text": "Chuck can chat.",
+    "pic": "🐥💬"
+   },
+   {
+    "text": "Chuck sat on a ship.",
+    "pic": "🐥🚢"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What did Chuck sit on?",
+    "type": "literal",
+    "answer": [
+     "🚢",
+     "ship"
+    ],
+    "distractors": [
+     [
+      "🛏️",
+      "cot"
+     ],
+     [
+      "🧢",
+      "cap"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s8c",
+  "unit": 8,
+  "title": "At the Shop",
+  "topic": "places",
+  "focus": [
+   "sh",
+   "ch",
+   "th"
+  ],
+  "pages": [
+   {
+    "text": "Beth was at the shop.",
+    "pic": "👧🏪"
+   },
+   {
+    "text": "She got a shell.",
+    "pic": "👧🐚"
+   },
+   {
+    "text": "She got a thick rug.",
+    "pic": "👧🧶"
+   }
+  ],
+  "questions": [
+   {
+    "q": "Where was Beth?",
+    "type": "literal",
+    "answer": [
+     "🏪",
+     "shop"
+    ],
+    "distractors": [
+     [
+      "🛏️",
+      "bed"
+     ],
+     [
+      "🛁",
+      "bath"
+     ]
+    ]
+   }
+  ]
+ },
+ {
   "id": "s4a",
   "unit": 4,
   "title": "The Red Hat",

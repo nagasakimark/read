@@ -13,6 +13,16 @@ export const STORIES = [
   { id:'s3c', unit:3, title:'Sam Can Pat', topic:'animals', focus:['o','c','d','g'], pages:[
       { text:'Sam can pat a cat.', pic:'👦🐱' }, { text:'Sam can pat a dog.', pic:'👦🐶' }, { text:'Sam did not pat a pig.', pic:'👦🐷' } ],
     questions:[ Q('What did Sam not pat?', ['🐷','pig'], ['🐱','cat'], ['🐶','dog']) ] },
+  // ---------------- Unit 8
+  { id:'s8a', unit:8, title:'Beth and the Fish', topic:'animals', focus:['sh','ch','th'], pages:[
+      { text:'Beth has a fish.', pic:'👧🐟' }, { text:'The fish is in a dish.', pic:'🐟🍽️' }, { text:'Beth got a wish.', pic:'👧🌠' } ],
+    questions:[ Q('What is in the dish?', ['🐟','fish'], ['🐱','cat'], ['🐷','pig']) ] },
+  { id:'s8b', unit:8, title:'Chuck the Chick', topic:'animals', focus:['sh','ch','th'], pages:[
+      { text:'Chuck is a chick.', pic:'🐥' }, { text:'Chuck can hop.', pic:'🐥' }, { text:'Chuck can chat.', pic:'🐥💬' }, { text:'Chuck sat on a ship.', pic:'🐥🚢' } ],
+    questions:[ Q('What did Chuck sit on?', ['🚢','ship'], ['🛏️','cot'], ['🧢','cap']) ] },
+  { id:'s8c', unit:8, title:'At the Shop', topic:'places', focus:['sh','ch','th'], pages:[
+      { text:'Beth was at the shop.', pic:'👧🏪' }, { text:'She got a shell.', pic:'👧🐚' }, { text:'She got a thick rug.', pic:'👧🧶' } ],
+    questions:[ Q('Where was Beth?', ['🏪','shop'], ['🛏️','bed'], ['🛁','bath']) ] },
   // ---------------- Unit 4
   { id:'s4a', unit:4, title:'The Red Hat', topic:'animals', focus:['k','e','u','r','h'], pages:[
       { text:'A hen got a red hat.', pic:'🐔🎩' }, { text:'The hen ran.', pic:'🐔' }, { text:'The hen ran to Ken.', pic:'🐔🧒' }, { text:'Ken got the hen.', pic:'🧒🐔' } ],
@@ -64,4 +74,5 @@ export const SENTENCES = [
   { unit:5, text:'Bob got a big bag.', pic:'🧑👜' }, { unit:5, text:'Bill is sick.', pic:'🤒' },
   { unit:6, text:'Jack got a van.', pic:'🧑🚐' }, { unit:6, text:'We can win.', pic:'🏆' },
   { unit:7, text:'Meg has hens.', pic:'👧🐔' }, { unit:7, text:'Do you like jam?', pic:'🍓' },
+  { unit:8, text:'Chuck is a chick.', pic:'🐥' }, { unit:8, text:'She got a fish.', pic:'👧🐟' }, { unit:8, text:'Beth has a ship.', pic:'👧🚢' },
 ];

@@ -90,4 +90,15 @@ export const WORDS = [
   ['hops','h o p s','🐇','ぴょんぴょん',C], ['sits','s i t s','','すわる',C], ['bells','b e ll sz','🔔🔔','ベル(たち)',L],
   ['pets','p e t s','🐕🐈','ペット(たち)',L], ['mabs','m a b sz','','',S], ['tegs','t e g sz','','',S], ['fids','f i d sz','','',S],
   ['is','i sz','','です',F], ['his','h i sz','','かれの',F], ['has','h a sz','','もっている',F], ['as','a sz','','',F],
+  // ---- Unit 8: sh ch th
+  ['ship','sh i p','🚢','ふね',C], ['shop','sh o p','🏪','みせ',C], ['shot','sh o t','','シュート',L], ['shed','sh e d','','ものおき',C], ['shin','sh i n','','すね',C], ['sell','s e ll','','うる',C],
+  ['shell','sh e ll','🐚','かいがら',C], ['shock','sh o ck','😱','ショック',L], ['shut','sh u t','','しめる',C],
+  ['fish','f i sh','🐟','さかな',C], ['dish','d i sh','🍽️','おさら',C], ['wish','w i sh','🌠','ねがい',C], ['rush','r u sh','','いそぐ',C], ['cash','c a sh','💵','げんきん',L], ['mash','m a sh','','つぶす',C], ['dash','d a sh','','ダッシュ',L],
+  ['chip','ch i p','🍟','ポテト',L], ['chop','ch o p','🪓','きる',C], ['chin','ch i n','','あご',C], ['chat','ch a t','💬','おしゃべり',L], ['chick','ch i ck','🐥','ひよこ',C],
+  ['check','ch e ck','✅','チェック',L], ['chess','ch e ss','♟️','チェス',L], ['much','m u ch','','たくさん',C], ['such','s u ch','','そんな',C], ['rich','r i ch','🤑','おかねもち',C],
+  ['thin','th i n','','うすい',C], ['thick','th i ck','','あつい',C], ['thud','th u d','','ドスン',C], ['bath','b a th','🛁','おふろ',C], ['path','p a th','🛤️','みち',C], ['math','m a th','➕','さんすう',C],
+  ['moth','m o th','','ガ',C], ['Beth','b e th','👧','(なまえ)',N], ['Chuck','ch u ck','🐥','(なまえ)',N], ['Josh','j o sh','👦','(なまえ)',N],
+  ['chips','ch i p s','🍟','ポテト(たち)',L], ['ships','sh i p s','🚢🚢','ふね(たち)',C],
+  ['shep','sh e p','','',S], ['shub','sh u b','','',S], ['fesh','f e sh','','',S], ['chub','ch u b','','',S], ['chep','ch e p','','',S], ['ruch','r u ch','','',S],
+  ['thog','th o g','','',S], ['thip','th i p','','',S], ['zeth','z e th','','',S], ['dush','d u sh','','',S],
 ];

@@ -18,4 +18,6 @@ export const TRICKY = [
   ['like',['l','*i','k','*e'],7,23,'i...e says /aɪ/ (eye).','i と e で「アイ」'],
   ['do',['d','*o'],7,null,'o says /uː/ (oo).','o は「ウー」'],
   ['said',['s','*ai','d'],7,null,'ai says /ɛ/ (eh).','ai は「エ」'],
+  ['she',['sh','*e'],8,26,'e says /iː/ (ee).','e は「イー」'],
+  ['was',['w','*a','s'],8,null,'a says /ʌ/ here and s says /z/.','was は「ウォズ」'],
 ];

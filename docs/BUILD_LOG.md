@@ -11,12 +11,12 @@ Headless playthrough: `node tools/play.mjs <lessons> <accuracy> <skipToUnit>` (n
 |---|---|---|
 | Game feel, canvas only | **Done** | One `<canvas>`, 1366×598 letterboxed stage, hi-DPI, no DOM UI. Procedural monster mascot with mouth cues, particles, tweens, SFX. |
 | Single-click interaction | **Done** | Pointer Events, taps only. Tiles are tap-to-place (no drag). |
-| Curriculum as data | **Done** | `curriculum/src/*.mjs` → `curriculum/*.json`; Units 0–7 (Stage 0 + 32 GPCs, 16 tricky words, 241 words, 15 stories, 13 dictation sentences). Stages 2+ (vowel teams, etc.) not written yet. |
+| Curriculum as data | **Done** | `curriculum/src/*.mjs` → `curriculum/*.json`; Units 0–8 (Stage 0 + 35 GPCs incl. the digraphs sh/ch/th, 18 tricky words, 289 words, 18 stories, 16 dictation sentences). Remaining Stage 2+ (blends, long vowels, vowel teams) not written yet. |
 | Build-time decodability validator | **Done** | `tools/validate.mjs` (stories/sentences 100% decodable, contrast packs differ by one GPC, coverage, silly-word rule) + `tools/test_validator.mjs` negative tests. |
 | Mastery ladder + spaced review | **Done (engine)** | `src/learn/mastery.js`: six rungs, half-life model, reteach queue, gate. Thresholds are DR. |
 | Lesson template | **Done** | `src/learn/lessonplan.js`; meet → retrieval → blend/spell/read-match → chains → silly words → heart words → dictation → close. |
 | Activities | **Done** | listen-pick, recall-flash, minimal pair, blend-choose (monster sounds out, child picks the written word), read-match, silly words, spell tiles (Elkonin), word chains, heart words, dictation, story reader (3 reads), Stage 0 (first sounds, same/different, syllables). |
-| Guess-bot exit criterion | **Done** | `tools/guessbot.mjs`: random / always-first / always-last never reach rung 4 or pass a unit; 85% learner finishes Units 0–7 in ≈67 lessons, 60% learner is held back. |
+| Guess-bot exit criterion | **Done** | `tools/guessbot.mjs`: random / always-first / always-last never reach rung 4 or pass a unit; 85% learner finishes Units 0–8 in ≈84 lessons, 60% learner is held back. |
 | Fatigue + session stop rules | **Done** | ≥4 wrong in last 6 → gentle stop; session length setting 8–20 min (teacher view). Evidence is kept either way. |
 | Japanese EFL adaptations | **Partial** | No katakana, contrast packs, JA hints on tricky words, hiragana-only UI. Not yet: `r/l` listening discrimination drills beyond the packs, consonant-cluster/epenthesis practice (Stage 2+). |
 | Rewards | **Done** | Sound-gem collection (mastered GPCs), monster hat per unit, star rating. No streaks, no loot boxes, no timers on rewards. |
@@ -24,7 +24,7 @@ Headless playthrough: `node tools/play.mjs <lessons> <accuracy> <skipToUnit>` (n
 | Offline / PWA | **Done** | `sw.js` precaches game + curriculum + audio; verified loading with the server down. Manifest present. Needs real PNG icons for installability on some browsers. |
 | Teacher/parent view | **Done (v1)** | Rung bars per sound, current gate reasons, mix-ups, export/import, skip unit, reset, sound, session length. |
 | Class / projector mode | **Done (v1)** | Big letters with mouth cue, tap-through sound-by-sound word blending. No progress recorded. |
-| Audio | **Placeholder** | 757 keys, eSpeak voices — **replace with a human voice**: `tools/recorder.html` + `tools/apply_recordings.mjs`. Stops are clipped, continuants ≤0.9 s. |
+| Audio | **Placeholder** | 889 keys, eSpeak voices — **replace with a human voice**: `tools/recorder.html` + `tools/apply_recordings.mjs`. Stops are clipped, continuants ≤0.9 s. |
 | Pictures | **Placeholder** | Emoji (+ a hand-drawn mat). Replace with custom art; keep the `pic` field contract. |
 | Speech recognition gating | **Deliberately absent** | Per blueprint. |
 
@@ -39,7 +39,7 @@ Headless playthrough: `node tools/play.mjs <lessons> <accuracy> <skipToUnit>` (n
 
 ## Known gaps / next steps
 - Human audio + custom pictures (biggest quality lever).
-- Stage 2 content: digraphs sh/ch/th/wh, CVCC/CCVC, long vowels, vowel teams, stories to match.
+- More Stage 2 content: wh/ng/nk, CVCC/CCVC blends, long vowels (magic e), vowel teams, stories to match. (Unit 8 sh/ch/th shows the pattern: add GPCs/words/pack/stories to `curriculum/src/`, run `npm run build:curriculum && npm test && python3 tools/make_audio.py`.)
 - Validate DR thresholds with a pilot class; log per-item accuracy/latency for review.
 - PNG icons; Chromebook fullscreen button; keyboard accessibility for the teacher view.
 - Pitch: real-children timing (the sim assumes one lesson per day).
