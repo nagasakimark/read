@@ -6,7 +6,7 @@
   "scripts": {
     "build:curriculum": "node tools/build_curriculum.mjs && node tools/validate.mjs",
     "validate": "node tools/validate.mjs",
-    "test": "node tools/validate.mjs && node tools/guessbot.mjs",
+    "test": "node tools/validate.mjs && node tools/test_validator.mjs && node tools/guessbot.mjs",
     "audio": "python3 tools/make_audio.py",
     "serve": "npx serve ."
   }

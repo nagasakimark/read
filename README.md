@@ -11,3 +11,12 @@ blueprint is tracked in [`docs/BUILD_LOG.md`](docs/BUILD_LOG.md).
 Run locally: `npx serve .` (or any static server), open `index.html`.
 No build step is needed to run; `npm run build:curriculum` regenerates
 `curriculum/*.json` from `curriculum/src/`.
+
+## Run it
+
+```
+npx serve .        # then open http://localhost:3000
+npm test           # validator + guess-bot simulations
+```
+
+See `docs/BUILD_LOG.md` for status against the blueprint and `tools/recorder.html` to record real voices.

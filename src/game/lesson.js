@@ -121,7 +121,6 @@ export class LessonScene {
     this.ui = [big, spk, ...cards, next];
     this.promptDraw = c => {
       if (step.reteach) text(c, '🔁', 1030, 130, { size: 60 });
-      if (g.id === 'sz') text(c, 'dogs · pigs · bees', 750, 40 + 330 - 40, { size: 0, color: '#fff' });
       next.enabled = heard; next.pop = heard ? 1 + Math.sin(this.t * 6) * 0.04 : 1;
       if (!heard) text(c, '👆', 700, 300 + Math.sin(this.t * 5) * 6, { size: 44 });
     };
@@ -273,7 +272,8 @@ export class LessonScene {
     const size = sentence ? 44 : 78, slotH = sentence ? 80 : 120;
     const labels = q.slots;
     const trayItems = q.tray.map((t, i) => ({ label: t.label, w: tileW(t.label, size), i, placed: -1, cx: 0, cy: 0, x: 0, y: 0, shake: 0, st: 'idle' }));
-    const slotItems = labels.map((l, i) => ({ label: l, w: sentence ? tileW(l, size) : tileW(l, size), i, filled: -1, st: 'idle' }));
+    const uniW = sentence ? Math.max(...trayItems.map(t => t.w)) : 0;
+    const slotItems = labels.map((l, i) => ({ label: l, w: sentence ? uniW : tileW(l, size), i, filled: -1, st: 'idle' }));
     const cx = 790;
     let top = 250;
     const layoutSlots = () => { const hh = flow(slotItems, cx, q.prompt.pic ? 245 : 200, 960, 14, slotH + 14); return hh; };
@@ -398,7 +398,8 @@ export class LessonScene {
     const q = st.questions[0]; if (!q) return true;
     const { app } = this; const opts = this.app.rng.shuffle([{ pic: q.answer[0], word: q.answer[1], ok: true }, ...q.distractors.map(d => ({ pic: d[0], word: d[1] }))]);
     let first = null, done = false;
-    const btns = opts.map((o, i) => new Btn({ x: 520 + i * 270, y: 320, w: 240, h: 230, shadow: false, st: 'idle',
+    this.cur = { type: 'choice', act: 'story-q', answer: opts.findIndex(o => o.ok) };
+    const btns = opts.map((o, i) => new Btn({ x: 520 + i * 270, y: 320, w: 240, h: 230, shadow: false, st: 'idle', idx: i,
       customDraw: (c, u) => { rr(c, 0, 8, u.w, u.h, 28); c.fillStyle = 'rgba(30,50,70,.3)'; c.fill(); rr(c, 0, 0, u.w, u.h, 28); c.fillStyle = u.st === 'right' ? '#8ee59a' : u.st === 'wrong' ? '#ffb3a8' : '#fff'; c.fill(); picText(c, o.pic, u.w / 2, u.h / 2, 120); },
       onTap: async u => { if (done || u.st === 'wrong') return; if (first === null) first = !!o.ok;
         if (o.ok) { done = true; u.st = 'right'; this.sfx('good'); this.mood = 'happy'; this.parts.burst(u.x + 120, u.y + 100, 20); await app.eng.wait(700); } else { u.st = 'wrong'; this.sfx('bad'); } } }));
@@ -406,7 +407,7 @@ export class LessonScene {
     this.promptDraw = c => { rr(c, 380, 70, 940, 200, 36); c.fillStyle = '#fff'; c.fill(); drawSegments(c, [{ s: q.q, hot: false }], 850, 140, q.q.length > 22 ? 48 : 60); text(c, '👂', 430, 110, { size: 44 }); };
     this.speak(['sent:' + q.q]);
     await new Promise(r => { const iv = setInterval(() => { if (done || this.dead) { clearInterval(iv); r(); } }, 60); });
-    this.alive(); this.ui = []; this.promptDraw = null; this.mood = 'idle';
+    this.alive(); this.ui = []; this.promptDraw = null; this.mood = 'idle'; this.cur = null;
     return first === true;
   }
 

@@ -6,6 +6,7 @@ import { LessonScene } from './lesson.js';
 import * as M from '../learn/mastery.js';
 import { practiceSpec } from '../learn/lessonplan.js';
 
+export const gLabel = g => (g.id === 'sz' ? 's/z' : g.g);
 const passedCount = st => Object.values(st.units).filter(u => u.passed && !u.skipped).length;
 
 // ------------------------------------------------------------------ tap to start (also unlocks audio)
@@ -118,7 +119,7 @@ export class MasteryScene {
         const it = st.items['gpc:' + g.id], r = it?.rung || 0, got = r >= M.K.mastered, seen = !!it?.a.length;
         rr(c, 0, 4, u.w, u.h, 22); c.fillStyle = 'rgba(30,50,70,.25)'; c.fill();
         rr(c, 0, 0, u.w, u.h, 22); c.fillStyle = got ? '#7be0ad' : seen ? '#e7f3fb' : '#c3ced7'; c.fill(); c.lineWidth = got ? 6 : 3; c.strokeStyle = got ? '#fff' : '#a8b9c6'; c.stroke();
-        text(c, seen || got ? g.g : '?', u.w / 2, 38, { size: g.g.length > 1 ? 48 : 58, color: got ? '#175d3b' : '#5b7385' });
+        text(c, seen || got ? gLabel(g) : '?', u.w / 2, 38, { size: gLabel(g).length > 1 ? 48 : 58, color: got ? '#175d3b' : '#5b7385' });
         for (let k = 0; k < 6; k++) { c.fillStyle = k < r ? '#ffb400' : 'rgba(0,0,0,.15)'; c.beginPath(); c.arc(u.w / 2 - 50 + k * 20, 74, 6, 0, 7); c.fill(); }
       }, onTap: () => { if (st.items['gpc:' + g.id]) app.audio.play(['gpc:' + g.id]); } }));
     });
@@ -146,8 +147,9 @@ export class TeacherScene {
       mk(1000, 190, 170, st.settings.sound === false ? 'Sound: OFF' : 'Sound: ON', '#58c46a', u => { st.settings.sound = st.settings.sound === false; app.audio.muted = st.settings.sound === false; u.label = st.settings.sound === false ? 'Sound: OFF' : 'Sound: ON'; app.save(); }),
       mk(1180, 190, 170, 'Session: ' + (st.settings.sessionMin || 12) + ' min', '#58c46a', u => { const v = [8, 12, 16, 20]; st.settings.sessionMin = v[(v.indexOf(st.settings.sessionMin || 12) + 1) % v.length]; u.label = 'Session: ' + st.settings.sessionMin + ' min'; app.save(); }),
       mk(1000, 250, 170, 'Skip unit ▶', '#f2b63c', () => { const n = M.nextLesson(C, st); if (n) { M.skipUnit(st, n.unit); app.save(true); this.msg = 'Unit ' + n.unit + ' marked as skipped.'; this.enter(); } }),
-      mk(1180, 250, 170, 'Reset this player', '#ec5d57', async () => { if (confirm('Erase all progress for this player?')) { app.replaceState(M.newState({ color: app.rec.id })); this.msg = 'Progress reset.'; } }),
-      mk(1000, 310, 350, 'Record real voices (recorder page)', '#a478e8', () => open('tools/recorder.html', '_blank')),
+      mk(1180, 250, 170, 'Reset player', '#ec5d57', async () => { if (confirm('Erase all progress for this player?')) { app.replaceState(M.newState({ color: app.rec.id })); this.msg = 'Progress reset.'; } }),
+      mk(1000, 310, 170, 'Class mode', '#a478e8', () => app.eng.go(new ClassScene(app))),
+      mk(1180, 310, 170, 'Record voices', '#a478e8', () => open('tools/recorder.html', '_blank')),
     ];
   }
   update(dt) { this.t += dt; }
@@ -164,8 +166,8 @@ export class TeacherScene {
       const col = i % 4, row = Math.floor(i / 4), x = 40 + col * 235, y = 140 + row * 52;
       const it = st.items['gpc:' + g.id], r = it?.rung || 0;
       rr(c, x, y, 220, 44, 10); c.fillStyle = r >= M.K.mastered ? '#d8f5e3' : it ? '#fff' : '#e8eef2'; c.fill(); c.lineWidth = 2; c.strokeStyle = '#cfdbe4'; c.stroke();
-      text(c, g.g, x + 30, y + 24, { size: 28, color: '#23394b' });
-      for (let k = 0; k < 6; k++) { c.fillStyle = k < r ? '#ffb400' : '#d5dee5'; c.fillRect(x + 66 + k * 24, y + 14, 20, 16); }
+      text(c, gLabel(g), x + 30, y + 24, { size: gLabel(g).length > 2 ? 22 : 28, color: '#23394b' });
+      for (let k = 0; k < 6; k++) { c.fillStyle = k < r ? '#ffb400' : '#d5dee5'; c.fillRect(x + 66 + k * 20, y + 14, 16, 16); }
       const acc = it && it.a.length ? Math.round((it.a.reduce((s, a) => s + a.ok, 0) / it.a.length) * 100) : null;
       text(c, acc == null ? '–' : acc + '%', x + 214, y + 24, { size: 16, color: '#4a6275', align: 'right', weight: 'normal' });
     });
@@ -178,3 +180,50 @@ export class TeacherScene {
     drawUI(c, this.ui);
   }
 }
+
+// ------------------------------------------------------------------ class mode (projector, teacher-led; no progress is recorded)
+export class ClassScene {
+  constructor(app) { this.app = app; this.t = 0; this.ui = []; this.unit = 1; this.tab = 'sounds'; this.i = 0; this.hl = -1; this.mouth = null; }
+  enter() { this.rebuild(); }
+  items() {
+    const C = this.app.C, u = C.unitById[this.unit];
+    if (this.tab === 'sounds') return u.newGpcs.length ? u.newGpcs.map(g => ({ id: g })) : C.gpcsUpTo(0).map(g => ({ id: g.id }));
+    return C.wordsAt(this.unit, { names: false, functionWords: false }).filter(w => w.u === this.unit || w.g.some(g => u.newGpcs.includes(g))).map(w => ({ w }));
+  }
+  rebuild() {
+    const { app } = this, n = this.items().length; this.i = Math.min(this.i, Math.max(0, n - 1));
+    const b = (x, y, w, h, label, fn, color = '#2e9cca') => new Btn({ x, y, w, h, label, size: 34, color, onTap: fn });
+    this.ui = [
+      new Btn({ x: 12, y: 10, w: 76, h: 56, icon: '🏠', size: 30, color: '#e8a23a', onTap: () => app.goHome() }),
+      b(110, 12, 90, 54, '◀', () => { this.unit = Math.max(1, this.unit - 1); this.i = 0; this.rebuild(); }),
+      b(310, 12, 90, 54, '▶', () => { this.unit = Math.min(app.C.units.length - 1, this.unit + 1); this.i = 0; this.rebuild(); }),
+      b(450, 12, 190, 54, this.tab === 'sounds' ? '🔤 Sounds' : '📖 Words', () => { this.tab = this.tab === 'sounds' ? 'words' : 'sounds'; this.i = 0; this.rebuild(); }, '#a478e8'),
+      b(60, 270, 110, 110, '◀', () => { this.i = (this.i + n - 1) % n; }, '#58c46a'),
+      b(1196, 270, 110, 110, '▶', () => { this.i = (this.i + 1) % n; }, '#58c46a'),
+      new Btn({ x: 200, y: 110, w: 966, h: 440, shadow: false, customDraw: () => {}, onTap: () => this.say() }),
+    ];
+  }
+  async say() {
+    const { app } = this, it = this.items()[this.i]; if (!it) return; const C = app.C;
+    if (it.id) { this.mouth = C.phonemes[C.gpcs[it.id].ph[0]].mouth; await app.audio.play(['gpc:' + it.id]); this.mouth = null; return; }
+    const my = this.run = (this.run || 0) + 1;
+    for (let k = 0; k < it.w.g.length; k++) { if (this.run !== my) return; this.hl = k; this.mouth = C.phonemes[C.gpcs[it.w.g[k]].ph[0]].mouth; await app.audio.play(['gpc:' + it.w.g[k]], { gap: 0.1 }); }
+    this.hl = -1; this.mouth = null; await app.audio.play(['w:' + it.w.id]);
+  }
+  update(dt) { this.t += dt; }
+  draw(c) {
+    const { app } = this; background(c, this.t, 'night');
+    const u = app.C.unitById[this.unit]; text(c, 'Unit ' + this.unit, 255, 40, { size: 30, color: '#fff' }); text(c, 'Class mode · tap the big card', 900, 40, { size: 24, color: '#cfe3f2', weight: 'normal' });
+    const it = this.items()[this.i]; rr(c, 200, 110, 966, 440, 50); c.fillStyle = 'rgba(255,255,255,.96)'; c.fill();
+    if (!it) return drawUI(c, this.ui);
+    if (it.id) { const g = app.C.gpcs[it.id]; text(c, gLabel(g), 580, 330, { size: gLabel(g).length > 1 ? 300 : 380, color: '#ff5a3c' }); drawMonster(c, 940, 400, 220, { color: app.colorHex, mouth: this.mouth, t: this.t, mood: this.mouth ? 'idle' : 'happy' });
+      const b = (g.bank || g.fbank || [])[0]; if (b) text(c, b[1], 940, 200, { size: 90 }); }
+    else { const w = it.w; c.font = `bold 190px ${FONT}`; const labels = w.g.map(g => app.C.gpcs[g].g); const ws = labels.map(l => c.measureText(l).width); const tw = ws.reduce((a, b) => a + b, 0); let x = 520 - tw / 2;
+      labels.forEach((l, i) => { text(c, l, x + ws[i] / 2, 320, { size: 190, color: this.hl === i ? '#ff5a3c' : '#23394b' }); x += ws[i]; });
+      if (w.pic) picText2(c, w.pic, 960, 200); drawMonster(c, 960, 430, 170, { color: app.colorHex, mouth: this.mouth, t: this.t }); }
+    text(c, `${this.i + 1} / ${this.items().length}`, 683, 525, { size: 24, color: '#7d95a8' });
+    drawUI(c, this.ui);
+  }
+}
+import { picText } from './ui.js';
+const picText2 = (c, p, x, y) => picText(c, p, x, y, 110);

@@ -15,6 +15,8 @@ fs.mkdirSync('/tmp/shots', { recursive: true });
 await page.goto(`http://localhost:${port}/`); await page.waitForTimeout(600);
 await page.mouse.click(683, 300); await page.waitForTimeout(900);
 await page.mouse.click(255, 225); await page.waitForTimeout(500);
+const SKIP = +(process.argv[4] || 0);
+if (SKIP) { await page.evaluate(async n => { const M = await import('/src/learn/mastery.js'); for (let u = 0; u < n; u++) M.skipUnit(window.__app.state, u); window.__app.goHome(); }, SKIP); await page.waitForTimeout(300); }
 const seenKinds = new Set(); let shots = 0, lessonsDone = 0, lastState = '', stuck = 0;
 const t0 = Date.now();
 while (lessonsDone < LESSONS && Date.now() - t0 < 600000) {
@@ -42,7 +44,7 @@ while (lessonsDone < LESSONS && Date.now() - t0 < 600000) {
     const next = s.ui.find(u => u.icon === '▶' && u.visible !== false);
     const big = s.ui.find(u => u.w === 330 && u.h === 230);
     if (s.finished) return { act: 'wait' };
-    if (next) return next.enabled === false && big ? { act: 'click', x: big.x + 160, y: big.y + 100, kind: 'meet-hear' } : { act: 'click', x: next.x + next.w / 2, y: next.y + next.h / 2, kind: next.w === 200 ? 'finish' : 'next' };
+    if (next) return next.enabled === false && big ? { act: 'click', x: big.x + 160, y: big.y + 100, kind: 'meet-hear' } : { act: 'click', x: next.x + next.w / 2, y: next.y + next.h / 2, kind: next.w === 200 ? 'finish' : 'next' + s.stepNo + (s.spec.id || '') };
     return { act: 'wait' };
   }, ACC);
   const key = JSON.stringify(info);

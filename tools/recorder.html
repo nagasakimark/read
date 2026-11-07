@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Voice recorder · Let's Read English</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+body{font-family:system-ui,sans-serif;margin:0;background:#f4f8fb;color:#23394b}
+header{position:sticky;top:0;background:#23394b;color:#fff;padding:10px 16px;z-index:2}
+header small{opacity:.8}
+main{padding:12px 16px;max-width:980px;margin:auto}
+h2{margin:22px 0 6px}
+.row{display:grid;grid-template-columns:1fr auto auto auto auto;gap:8px;align-items:center;background:#fff;border-radius:10px;padding:8px 12px;margin:6px 0;border:2px solid #dbe6ee}
+.row.done{border-color:#58c46a;background:#effaf1}
+.k{font-size:22px;font-weight:700}.sub{font-size:13px;color:#6b8296}
+button{font-size:16px;padding:8px 12px;border-radius:8px;border:0;background:#2e9cca;color:#fff;cursor:pointer}
+button.rec{background:#e8553c}button.rec.on{background:#b3201a;animation:p 1s infinite}button.keep{background:#58c46a}button:disabled{opacity:.35}
+@keyframes p{50%{opacity:.6}}
+.tip{background:#fff6d6;border:2px solid #f2cf3c;border-radius:10px;padding:10px 14px;margin:10px 0}
+</style></head><body>
+<header><b>Voice recorder</b> <small>— replace the robot placeholder voices with a real human voice</small></header>
+<main>
+<div class="tip"><b>How:</b> click <b>● Record</b>, say the sound/word, click again to stop, <b>▶</b> to check, then <b>✔ Keep</b> (it downloads a file). When you have a batch, put the downloaded <code>rec_*.webm</code> files in one folder and run
+<code>node tools/apply_recordings.mjs &lt;folder&gt;</code> — it trims, converts and replaces the placeholders.
+<br><b>Letter sounds:</b> say the PURE sound — "mmm", "sss", "t" — with no extra "uh" ("tuh", "muh" is wrong). Stops (t, p, k, d, b, g, j, ch) are short and clipped. Speak a few words slowly and clearly; natural intonation is fine.
+Say your own accent consistently (the app is set to American English; keep yours if you prefer — just be consistent).</div>
+<div id="list">Loading…</div></main>
+<script>
+const types = { gpc: ['Letter sounds (say the sound, not the letter name)', k => 'Sound for: ' + k], w: ['Words (say the word on its own)', k => k], sent: ['Sentences (read naturally)', k => k] };
+let rec, chunks, stream, currentKey, urls = {};
+(async () => {
+  const man = await (await fetch('../audio/manifest.json')).json();
+  const groups = { gpc: [], w: [], sent: [] };
+  Object.keys(man).forEach(k => { const t = k.split(':')[0]; if (t === 'b') return; groups[t].push(k); });
+  const list = document.getElementById('list'); list.innerHTML = '';
+  for (const t of ['gpc', 'w', 'sent']) {
+    const h = document.createElement('h2'); h.textContent = types[t][0] + ' — ' + groups[t].length; list.appendChild(h);
+    for (const key of groups[t].sort()) {
+      const label = key.slice(key.indexOf(':') + 1);
+      const row = document.createElement('div'); row.className = 'row';
+      row.innerHTML = `<div><div class="k">${label}</div><div class="sub">${types[t][1](label)} · ${man[key]}</div></div>
+        <button class="rec">● Record</button><button class="play" disabled>▶</button><button class="orig">🤖</button><button class="keep" disabled>✔ Keep</button>`;
+      const [bRec, bPlay, bOrig, bKeep] = row.querySelectorAll('button');
+      bOrig.title = 'play the current placeholder'; bOrig.onclick = () => new Audio('../audio/' + man[key]).play();
+      bRec.onclick = async () => {
+        if (rec && rec.state === 'recording') { rec.stop(); return; }
+        stream ??= await navigator.mediaDevices.getUserMedia({ audio: true });
+        chunks = []; rec = new MediaRecorder(stream); currentKey = key;
+        rec.ondataavailable = e => chunks.push(e.data);
+        rec.onstop = () => { bRec.classList.remove('on'); bRec.textContent = '● Record'; urls[key] = URL.createObjectURL(new Blob(chunks, { type: 'audio/webm' })); bPlay.disabled = bKeep.disabled = false; };
+        rec.start(); bRec.classList.add('on'); bRec.textContent = '■ Stop';
+      };
+      bPlay.onclick = () => new Audio(urls[key]).play();
+      bKeep.onclick = () => { const a = document.createElement('a'); a.href = urls[key]; a.download = 'rec_' + man[key].replace(/\.mp3$/, '') + '.webm'; a.click(); row.classList.add('done'); };
+      list.appendChild(row);
+    }
+  }
+})();
+</script></body></html>
