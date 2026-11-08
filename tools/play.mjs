@@ -10,7 +10,7 @@ const port = srv.address().port;
 const LESSONS = +(process.argv[2] || 3), ACC = +(process.argv[3] ?? 1);
 const browser = await chromium.launch({ executablePath: '/usr/bin/google-chrome', args: ['--no-sandbox', '--autoplay-policy=no-user-gesture-required'] });
 const page = await browser.newPage({ viewport: { width: 1366, height: 598 } });
-const errors = []; page.on('pageerror', e => errors.push(String(e))); page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
+const errors = []; page.on('pageerror', e => errors.push(String(e.stack || e))); page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
 fs.mkdirSync('/tmp/shots', { recursive: true });
 await page.goto(`http://localhost:${port}/`); await page.waitForTimeout(600);
 await page.mouse.click(683, 300); await page.waitForTimeout(900);

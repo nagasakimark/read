@@ -115,3 +115,7 @@ Headless playthrough: `node tools/play.mjs <lessons> <accuracy> <skipToUnit>` (n
 - Home shows a 🎯 button on each stage page once that stage's last unit is passed (green with best % after a try). Scores live in `state.checkpoints[id] = {ok,n,pct,best,tries,at}` and are listed in the Teacher view. Pass thresholds in COURSE_PLAN remain guidance for the teacher.
 - Teacher view GPC table is now paged (36 per page, "More sounds") so all 100 sounds are reachable on 1366x598.
 - `CP=<n> node tools/play.mjs 1 0.9 8` opens the check-up headlessly.
+
+## Teaching screens for syllables / word parts
+- New `concept` lesson step (first lesson of a unit with `syl` or `morph` patterns): tap-through demo of 3 unit words — whole word, then split into coloured chunks (clap count for syllables; base + ending for morphemes), then heard again.
+- `tools/play.mjs` needs LESSONS >= 2 when starting from the home screen (it counts the initial home as lesson 1).

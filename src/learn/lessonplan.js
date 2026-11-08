@@ -36,6 +36,9 @@ export function planLesson(C, state, lessonSpec, rng, now = Date.now()) {
     // cluster lesson (no new letter-sounds): hear the extra-vowel contrast, then blend/spell words with the pattern
     const pats = lessonSpec.newPats;
     retr(6);
+    const firstTime = (u.newPatterns || []).every(pt => !(state.items['pat:' + pt]?.a?.length));
+    if (firstTime && u.syl) steps.push({ type: 'concept', kind: 'syl', n: 3 });
+    if (firstTime && u.morph) steps.push({ type: 'concept', kind: 'morph', n: 3 });
     const pk = packs.filter(p => p.unit === unit)[0];
     if (pk) steps.push({ type: 'minpair', pack: pk.id, n: 5 });
     steps.push({ type: 'blend', n: 5, focus: [], pats });

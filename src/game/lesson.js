@@ -62,6 +62,7 @@ export class LessonScene {
       this.ctx.now = Date.now();
       if (step.type === 'meet') await this.meet(step);
       else if (step.type === 'story') await this.story(step);
+      else if (step.type === 'concept') await this.concept(step);
       else {
         if (step.type === 'heart' && step.intro) for (const w of step.words) await this.heartIntro(w);
         const qs = stepQuestions(app.C, app.state, step, app.rng, this.ctx);
@@ -361,6 +362,46 @@ export class LessonScene {
   }
 
   // ------------------------------------------------------------------ stories
+  /** Teaching screen for syllables / word parts: tap to step through a few example words. */
+  async concept(step) {
+    const { app } = this, C = app.C, unit = this.spec.unit; this.mood = 'happy';
+    const pool = C.wordList.filter(w => w.u === unit && (step.kind === 'syl' ? w.syl && w.syl.length > 1 : w.morph && w.morph.length === 2 && w.morph.join('') === w.t.toLowerCase()));
+    const words = app.rng.shuffle(pool.slice()).slice(0, step.n); if (!words.length) return;
+    const COL = ['#ff8a5c', '#4aa3e8', '#58c46a', '#a478e8'];
+    let wi = 0, phase = 0, done = false, anim = 0;   // phase 0 whole word, 1 split, 2 (syl) clap / (morph) joined
+    const parts = w => {
+      if (step.kind === 'morph') return w.morph;
+      const letters = w.g.map(g => C.gpcs[g].g); let k = 0; return w.syl.map(n => { const part = letters.slice(k, k + n).join(''); k += n; return part; });
+    };
+    const next = new Btn({ x: 1180, y: 480, w: 160, h: 90, icon: '▶', size: 54, color: '#58c46a', onTap: async () => {
+      if (step.kind === 'syl') { if (phase < 2) { phase++; anim = 0; app.eng.tween(this, { _a: 1 }, 1, 'linear'); if (phase === 2) this.speak('w:' + words[wi].id); } else if (++wi >= words.length) done = true; else { phase = 0; this.speak('w:' + words[wi].id); } }
+      else { if (phase < 2) { phase++; if (phase === 2) this.speak('w:' + words[wi].id); } else if (++wi >= words.length) done = true; else { phase = 0; this.speak('w:' + words[wi].id); } }
+    } });
+    const hear = new Btn({ x: 350, y: 85, w: 100, h: 100, shadow: false, customDraw: (c) => speaker(c, 50, 50, 46, this.speaking), onTap: () => this.speak('w:' + words[wi].id) });
+    this.ui = [hear, next];
+    this.promptDraw = c => {
+      const w = words[Math.min(wi, words.length - 1)], ps = phase === 0 ? [w.t] : parts(w), size = 84;
+      rr(c, 330, 70, 860, 400, 40); c.fillStyle = 'rgba(255,255,255,.9)'; c.fill();
+      text(c, step.kind === 'syl' ? 'おとの かたまり（シラブル）' : 'ことばの パーツ', 760, 108, { size: 30, color: '#2d4a5e', font: JP });
+      if (w.pic) picText(c, w.pic, 960, 190, 90);
+      c.font = `bold ${size}px ${FONT}`;
+      const gap = phase === 0 ? 0 : 36, ws = ps.map(p => c.measureText(p).width + 36), plus = step.kind === 'morph' && phase === 1 ? 40 : 0;
+      const tw = ws.reduce((a, b) => a + b, 0) + gap * (ps.length - 1) + plus * (ps.length - 1); let x = 760 - tw / 2;
+      ps.forEach((p, i) => {
+        const lift = phase === 2 && step.kind === 'syl' ? -Math.abs(Math.sin(this.t * 5 + i * 1.6)) * 14 : 0;
+        rr(c, x, 250 + lift, ws[i], 130, 24); c.fillStyle = phase === 0 ? '#fff' : COL[i % COL.length] + '33'; c.fill(); c.lineWidth = 5; c.strokeStyle = phase === 0 ? '#bcd3e3' : COL[i % COL.length]; c.stroke();
+        text(c, p, x + ws[i] / 2, 318 + lift, { size, color: phase === 0 ? '#23394b' : COL[i % COL.length] });
+        x += ws[i] + gap; if (i < ps.length - 1 && plus) { text(c, '+', x - gap / 2 + plus / 2 - 4, 318, { size: 56, color: '#23394b' }); x += plus; }
+      });
+      if (step.kind === 'syl' && phase >= 1) text(c, ps.map((_, i) => '👏').join(' ') + '  ' + ps.length, 760, 430, { size: 44 });
+      if (step.kind === 'morph' && phase === 2) text(c, w.morph.join(' + ') + ' = ' + w.t, 760, 430, { size: 44, color: '#23394b' });
+      if (phase === 0) text(c, '👆', 1100, 440 + Math.sin(this.t * 5) * 6, { size: 40 });
+    };
+    this.speak('w:' + words[0].id);
+    await new Promise(r => { const iv = setInterval(() => { if (done || this.dead) { clearInterval(iv); r(); } }, 60); });
+    this.alive(); this.stopSpeak(); this.sfx('pop'); this.promptDraw = null; this.ui = []; this.mood = 'idle';
+  }
+
   async story(step) {
     const { app } = this, C = app.C, st = C.stories[step.story], read = step.read;
     this.mood = 'happy';
