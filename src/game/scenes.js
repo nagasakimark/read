@@ -3,6 +3,7 @@ import { background, speaker } from './ui.js';
 import { drawMonster, hatFor } from './monster.js';
 import { COLORS, toCode, fromCode } from './store.js';
 import { LessonScene } from './lesson.js';
+import { GamesScene } from './minigames.js';
 import * as M from '../learn/mastery.js';
 import { practiceSpec, checkpointSpec } from '../learn/lessonplan.js';
 
@@ -78,7 +79,8 @@ export class HomeScene {
     const stars = new Btn({ x: W - 90, y: 12, w: 76, h: 66, icon: '⭐', size: 38, color: '#f2b63c', onTap: () => app.eng.go(new MasteryScene(app)) });
     const gear = new Btn({ x: W - 176, y: 12, w: 76, h: 66, icon: '⚙️', size: 34, color: '#7d95a8', onTap: () => app.eng.go(new TeacherScene(app)) });
     const who = new Btn({ x: 14, y: 12, w: 76, h: 66, icon: '👥', size: 34, color: '#a478e8', onTap: () => app.chooseProfile() });
-    this.ui = [play, stars, gear, who];
+    const games = new Btn({ x: 14, y: 470, w: 100, h: 100, icon: '🎮', size: 50, color: '#a478e8', onTap: () => app.eng.go(new GamesScene(app)) });
+    this.ui = [play, stars, gear, who, games];
     const cp = (C.course?.checkpoints || []).find(c => stage.units.includes(c.after));
     if (cp && M.isUnitPassed(st, cp.after)) {
       const r = st.checkpoints?.[cp.id];

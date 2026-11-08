@@ -119,3 +119,11 @@ Headless playthrough: `node tools/play.mjs <lessons> <accuracy> <skipToUnit>` (n
 ## Teaching screens for syllables / word parts
 - New `concept` lesson step (first lesson of a unit with `syl` or `morph` patterns): tap-through demo of 3 unit words — whole word, then split into coloured chunks (clap count for syllables; base + ending for morphemes), then heard again.
 - `tools/play.mjs` needs LESSONS >= 2 when starting from the home screen (it counts the initial home as lesson 1).
+
+## Practice mini games (`src/game/minigames.js`)
+Inspired by Teach Your Monster's mini games; all single-tap, 1366x598, and draw only on content the child has already passed (`gameCap` = highest passed unit; unlocks after Unit 1). They record stars per game in `state.games` and do not change mastery.
+- **Sound Catch** (Flower Jump/Meteor): hear a sound, tap its bubble (reuses `Q.listenPick` lures). 10 rounds.
+- **Sound Ladder** (Rescue the Bear): tap each sound of a pictured word in order to climb; the whole word plays at the top. 5 words.
+- **Dragon Hunt** (Dragon): hear a sound, tap its spelling inside a segmented word; dragon health drops each hit. 6 rounds.
+- **Hungry Beast** (Tickle/Hungry Beast): hear a tricky word, feed the beast the matching card. 8 rounds.
+Home has a 🎮 button; `node tools/minitest.mjs` plays all four headlessly. Ideas not yet built: Space Race-style word spelling, Stepping Stones (alternatives), Knowledge Tree.
