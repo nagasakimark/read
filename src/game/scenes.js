@@ -5,6 +5,7 @@ import { COLORS, toCode, fromCode } from './store.js';
 import { LessonScene } from './lesson.js';
 import { GamesScene } from './minigames.js';
 import { IntroScene } from './intro.js';
+import { panel, starRow } from './sprites.js';
 import * as M from '../learn/mastery.js';
 import { practiceSpec, checkpointSpec } from '../learn/lessonplan.js';
 
@@ -30,7 +31,7 @@ export class BootScene {
     drawMonster(c, 380, 410, 300, { color: '#58c46a', mood: 'happy', t, hat: 'crown' });
     // how it works strip
     [['👂', 'きく', 'Listen'], ['👆', 'タップ', 'Tap'], ['⭐', 'ごほうび', 'Win stars']].forEach(([ic, ja, en], i) => {
-      const x = 700 + i * 200, y = 335; rr(c, x - 85, y - 70, 170, 170, 30); c.fillStyle = 'rgba(255,255,255,.85)'; c.fill();
+      const x = 700 + i * 200, y = 335; panel(c, x - 85, y - 70, 170, 170);
       text(c, ic, x, y - 18, { size: 66 }); text(c, ja, x, y + 48, { size: 28, color: '#23394b', font: JP }); text(c, en, x, y + 80, { size: 18, color: '#5b7388', weight: 'normal' });
       if (i < 2) text(c, '▶', x + 100, y + 12, { size: 26, color: '#e8553c' });
     });
@@ -48,7 +49,7 @@ export class ProfileScene {
     this.ui = COLORS.map((col, i) => {
       const x = 130 + (i % 4) * 300, y = 150 + Math.floor(i / 4) * 215, rec = byId[col.id];
       return new Btn({ x, y, w: 250, h: 200, shadow: false, customDraw: (c, u) => {
-        rr(c, 0, 0, u.w, u.h, 36); c.fillStyle = rec ? 'rgba(255,255,255,.88)' : 'rgba(255,255,255,.35)'; c.fill();
+        panel(c, 0, 0, u.w, u.h); if (!rec) { c.fillStyle = 'rgba(140,175,205,.4)'; rr(c, 6, 6, u.w - 12, u.h - 22, 26); c.fill(); }
         if (rec) { drawMonster(c, u.w / 2, 112, 130, { color: col.hex, t: this.t + i, hat: hatFor(passedCount(rec.state)) });
           text(c, '⭐ ' + Object.values(rec.state.items).filter(it => it.kind === 'gpc' && it.rung >= M.K.mastered).length, u.w / 2, 190, { size: 28, color: '#23394b' }); }
         else { c.globalAlpha = 0.55; drawMonster(c, u.w / 2, 112, 110, { color: col.hex, t: this.t, blink: false }); c.globalAlpha = 1; c.fillStyle = '#fff'; c.beginPath(); c.arc(u.w - 40, u.h - 40, 28, 0, 7); c.fill(); text(c, '＋', u.w - 40, u.h - 38, { size: 40, color: '#4a6275' }); }
@@ -261,7 +262,7 @@ export class ClassScene {
   draw(c) {
     const { app } = this; background(c, this.t, 'night');
     const u = app.C.unitById[this.unit]; text(c, 'Unit ' + this.unit, 255, 40, { size: 30, color: '#fff' }); text(c, 'Class mode · tap the big card', 900, 40, { size: 24, color: '#cfe3f2', weight: 'normal' });
-    const it = this.items()[this.i]; rr(c, 200, 110, 966, 440, 50); c.fillStyle = 'rgba(255,255,255,.96)'; c.fill();
+    const it = this.items()[this.i]; panel(c, 200, 110, 966, 440);
     if (!it) return drawUI(c, this.ui);
     if (it.id) { const g = app.C.gpcs[it.id]; text(c, gLabel(g), 580, 330, { size: gLabel(g).length > 1 ? 300 : 380, color: '#ff5a3c' }); drawMonster(c, 940, 400, 220, { color: app.colorHex, mouth: this.mouth, t: this.t, mood: this.mouth ? 'idle' : 'happy' });
       const b = (g.bank || g.fbank || [])[0]; if (b) text(c, b[1], 940, 200, { size: 90 }); }

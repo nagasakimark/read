@@ -3,6 +3,7 @@
 import { W, H, FONT, JP, text, rr, Btn, drawUI } from './engine.js';
 import { background, speaker, speech, card } from './ui.js';
 import { drawMonster } from './monster.js';
+import { panel } from './sprites.js';
 
 const PAGES = [
   { ja: 'ハロー！ ぼくは よみかたモンスター！', en: "Hi! I'm your reading monster.", cap: ['いっしょに えいごを よめるように なろう！', "Let's learn to read English together!"], art: 'hello' },
@@ -31,7 +32,7 @@ export class IntroScene {
     drawMonster(c, 150, 410, 220, { color: this.app.colorHex, mood: 'happy', t, hat: 'crown' });
     speech(c, 14, 72, 282, pg.ja, pg.en);
     // art card
-    rr(c, 340, 70, 700, 400, 40); c.fillStyle = 'rgba(30,50,70,.18)'; c.fill(); rr(c, 340, 62, 700, 400, 40); c.fillStyle = 'rgba(255,255,255,.94)'; c.fill();
+    panel(c, 340, 62, 700, 400);
     this.art(c, pg.art, 690, 235, t);
     text(c, pg.cap[0], 690, 392, { size: 28, color: '#23394b', font: JP });
     text(c, pg.cap[1], 690, 432, { size: 22, color: '#5b7388', weight: 'normal' });

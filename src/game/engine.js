@@ -1,3 +1,4 @@
+import { family, button, sprite } from './sprites.js';
 // Tiny canvas game engine: letterboxed 1366x598 stage, hi-DPI, Pointer Events (single click/tap only),
 // tweens, scene stack, button widgets. No DOM UI: everything is drawn on the canvas.
 export const W = 1366, H = 598;
@@ -117,13 +118,12 @@ export class Btn {
     if (this.customDraw) this.customDraw(c, this);
     else {
       const col = this.enabled === false ? '#8a99a5' : this.color;
-      if (this.shadow) { rr(c, 0, 7, this.w, this.h, this.r); c.fillStyle = shade(col, -0.45); c.fill(); }
-      const gr = c.createLinearGradient(0, 0, 0, this.h); gr.addColorStop(0, shade(col, 0.22)); gr.addColorStop(1, col);
-      rr(c, 0, 0, this.w, this.h, this.r); c.fillStyle = gr; c.fill();
-      c.lineWidth = 3; c.strokeStyle = shade(col, 0.4); c.stroke();
-      if (this.enabled !== false) { rr(c, 8, 6, this.w - 16, this.h * 0.36, this.r * 0.7); c.fillStyle = 'rgba(255,255,255,.22)'; c.fill(); }
-      if (this.icon) text(c, this.icon, this.w / 2, this.h / 2 + 2, { size: this.size });
-      if (this.label) text(c, this.label, this.w / 2, this.h / 2 + 2, { size: this.size, font: this.font || FONT });
+      const shape = this.round ? 'round' : (this.w < this.h * 1.35 ? 'square' : 'rectangle'), fam = family(col);
+      if (!button(c, fam, shape, 0, 0, this.w, this.h)) {   // sprites not loaded: plain fallback
+        rr(c, 0, 0, this.w, this.h, this.r); c.fillStyle = col; c.fill();
+      }
+      if (this.icon) text(c, this.icon, this.w / 2, this.h / 2 - 2, { size: this.size });
+      if (this.label) text(c, this.label, this.w / 2, this.h / 2 - 2, { size: this.size, font: this.font || FONT, color: fam === 'Yellow' || fam === 'Grey' ? '#23394b' : '#fff', stroke: fam === 'Yellow' || fam === 'Grey' ? null : { w: Math.max(4, this.size / 7), c: 'rgba(20,60,90,.55)' } });
     }
     c.restore();
   }

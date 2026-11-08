@@ -5,6 +5,7 @@ import { loadCurriculum } from '../learn/loader.browser.js';
 import { makeRng } from '../learn/rng.js';
 import { BootScene, ProfileScene, HomeScene } from './scenes.js';
 import { IntroScene } from './intro.js';
+import { loadSprites } from './sprites.js';
 
 const canvas = document.getElementById('game');
 const eng = new Engine(canvas);
@@ -14,7 +15,7 @@ eng.audio = audio; eng.sfx = n => audio.sfx(n);
 export const app = {
   eng, audio, store: new Store(), C: null, rec: null, state: null, rng: makeRng(Date.now() & 0xffffffff), colorHex: '#58c46a',
   async start() {
-    const [C] = await Promise.all([loadCurriculum(), this.store.open(), audio.loadManifest()]);
+    const [C] = await Promise.all([loadCurriculum(), this.store.open(), audio.loadManifest(), loadSprites()]);
     this.C = C; await this.chooseProfile();
   },
   async chooseProfile() { if (this.rec) await this.store.flush(this.rec); const list = await this.store.list(); eng.go(new ProfileScene(this, list)); },

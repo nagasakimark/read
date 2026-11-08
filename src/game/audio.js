@@ -31,12 +31,20 @@ export class AudioSys {
       await sleep(gap * 1000); if (this.token !== my) return;
     }
   }
+  /** Short UI click samples (Kenney, CC0); falls back to the synth tone if they cannot load. */
+  sample(file, vol = 0.6) {
+    this.sfxCache ??= {};
+    const p = this.sfxCache[file] ??= fetch(`assets/sfx/${file}.ogg`).then(r => r.arrayBuffer()).then(b => this.ctx.decodeAudioData(b)).catch(() => null);
+    p.then(buf => { if (!buf || !this.ctx || this.muted) return; const s = this.ctx.createBufferSource(), g = this.ctx.createGain(); g.gain.value = vol; s.buffer = buf; s.connect(g).connect(this.ctx.destination); s.start(); });
+  }
   // ---- sound effects (synth)
   sfx(name) {
     if (this.muted || !this.ctx) return; const t = this.ctx.currentTime;
     const tone = (f, s, d, type = 'sine', v = 0.15) => { const o = this.ctx.createOscillator(), g = this.ctx.createGain(); o.type = type; o.frequency.setValueAtTime(f, t + s);
       g.gain.setValueAtTime(0.0001, t + s); g.gain.exponentialRampToValueAtTime(v, t + s + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, t + s + d);
       o.connect(g).connect(this.ctx.destination); o.start(t + s); o.stop(t + s + d + 0.05); };
+    const SAMPLES = { tap: 'tap-a', pop: 'click-b' };
+    if (SAMPLES[name]) { this.sample(SAMPLES[name], name === 'tap' ? 0.7 : 0.6); return; }
     if (name === 'tap') tone(520, 0, 0.07, 'triangle', 0.07);
     else if (name === 'good') { tone(660, 0, 0.12); tone(880, 0.1, 0.18); }
     else if (name === 'bad') { tone(220, 0, 0.18, 'triangle', 0.1); }

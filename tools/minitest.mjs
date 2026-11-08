@@ -25,7 +25,7 @@ for (const id of ['catch', 'ladder', 'dragon', 'beast']) {
   await page.waitForTimeout(900); await page.screenshot({ path: `/tmp/shots/mg_${id}.png` });
   let wrongOnce = false, guard = 0;
   while (guard++ < 400) {
-    const r = await page.evaluate(() => { const s = window.__app.eng.scene; if (s.res) return { done: true, res: s.res }; if (s.busy) return { wait: true }; const u = s.answerBtn(); return { x: u.x + u.w / 2, y: u.y + u.h / 2 + 10 }; });
+    const r = await page.evaluate(() => { const s = window.__app.eng.scene; if (s.res) return { done: true, res: s.res }; if (s.busy) return { wait: true }; const u = s.answerBtn(); if (!u) return { wait: true }; return { x: u.x + u.w / 2, y: u.y + u.h / 2 + 10 }; });
     if (r.done) { console.log(id, 'done', JSON.stringify(r.res)); break; }
     if (!r.wait) await page.mouse.click(r.x, r.y);
     await page.waitForTimeout(r.wait ? 150 : 700);

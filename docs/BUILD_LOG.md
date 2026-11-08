@@ -134,3 +134,9 @@ Home has a 🎮 button; `node tools/minitest.mjs` plays all four headlessly. Ide
 - **Welcome tutorial** (`intro.js`, 5 pages) on a player's first start and via the ？ button on home; title screen explains listen → tap → stars; player-select explains colours/progress; home shows "next up", captions for each icon, and "Play".
 - Same/different screen redesigned (two numbered speakers light up; ＝おなじ / ≠ちがう buttons with captions).
 - Glossy buttons and answer cards. `tools/shots.mjs` captures the non-lesson screens and checks the home button.
+
+## Visual kit and audio upgrade
+- **UI kit:** Kenney UI Pack (CC0) in `assets/ui/` drives all buttons, answer cards, stars (`src/game/sprites.js`, SVGs rasterised 4x and 9-sliced). Colour families are picked from the button hex (purple = hue-rotated blue). Panels are drawn in code to match. Click sounds from the same pack (`assets/sfx`).
+- **Audio:** `tools/make_audio.py` now uses (1) real human IPA recordings from Wikimedia Commons for letter sounds (`audio_src/ipa`, CC BY-SA 3.0; diphthongs/r-vowels are crossfaded blends), (2) Piper neural TTS with the public-domain LJSpeech voice for words/sentences (`PIPER_VOICE=<en_US-ljspeech-high.onnx> python3 -I tools/make_audio.py`; `REUSE_WORDS=1` regenerates only the sounds). eSpeak remains the fallback. Credits: `audio_src/CREDITS.md`.
+- Still on eSpeak (Commons rate-limited the download): g, th, w, schwa. Re-run the fetch later (list in `audio_src/ipa_sources.txt`).
+- Best quality of all: the teacher's own voice via `tools/recorder.html` (44 phonemes are only ~10 minutes of recording).

@@ -1,7 +1,8 @@
 // Practice mini games (Teach-Your-Monster-style). Every game is single-tap, fits 1366x598, and is a fun
 // fluency layer on top of the lessons: they use only content the child has already passed and never change mastery.
 import { W, H, FONT, JP, text, rr, Btn, Particles, drawUI } from './engine.js';
-import { background, speaker, picText } from './ui.js';
+import { background, speaker, picText, card } from './ui.js';
+import { button, panel, starRow } from './sprites.js';
 import { drawMonster, hatFor } from './monster.js';
 import * as Q from '../learn/questions.js';
 import * as M from '../learn/mastery.js';
@@ -49,13 +50,13 @@ export class GamesScene {
     this.ui = [home, ...GAMES.map((g, i) => {
       const ready = gameReady(app, g.id), best = st.games[g.id]?.best || 0;
       return new Btn({ x: 90 + (i % 2) * 600, y: 90 + Math.floor(i / 2) * 240, w: 560, h: 215, shadow: false, customDraw: (c, u) => {
-        rr(c, 0, 8, u.w, u.h, 40); c.fillStyle = 'rgba(30,50,70,.3)'; c.fill();
-        rr(c, 0, 0, u.w, u.h, 40); c.fillStyle = ready ? '#fff' : '#d5dde4'; c.fill();
+        if (!panel(c, 0, 0, u.w, u.h)) { rr(c, 0, 0, u.w, u.h, 40); c.fillStyle = '#fff'; c.fill(); }
+        if (!ready) { c.fillStyle = 'rgba(150,165,180,.45)'; rr(c, 6, 6, u.w - 12, u.h - 24, 24); c.fill(); }
         text(c, g.icon, 110, 108, { size: 110 });
         text(c, g.name, 330, 75, { size: 44, color: ready ? '#23394b' : '#8a9aa7' });
         text(c, g.ja, 330, 125, { size: 28, color: '#4a6275', font: JP });
         text(c, ready ? g.skill : '🔒 もうすこし すすんでね', 330, 165, { size: 22, color: '#6b8193', weight: 'normal', font: ready ? FONT : JP });
-        if (ready) text(c, '⭐'.repeat(best) + '☆'.repeat(3 - best), 470, 195, { size: 26 });
+        if (ready) starRow(c, 470, 186, best, 3, 34);
       }, onTap: () => { if (ready) app.eng.go(new MiniScene(app, g.id)); else app.audio.sfx('bad'); } });
     })];
   }
@@ -88,9 +89,9 @@ export class MiniScene {
   }
   drawMon(c, x, y, s, mood) { drawMonster(c, x, y, s, { color: this.app.colorHex, mood: mood || this.mood, t: this.t, hat: hatFor(Object.values(this.app.state.units).filter(u => u.passed && u.skipped !== true).length) }); }
   drawResult(c) {
-    rr(c, 400, 80, 760, 380, 44); c.fillStyle = 'rgba(255,255,255,.94)'; c.fill();
+    if (!panel(c, 400, 80, 760, 380)) { rr(c, 400, 80, 760, 380, 44); c.fillStyle = '#fff'; c.fill(); }
     text(c, 'できたね！ 🎉', 780, 140, { size: 54, color: '#23394b', font: JP });
-    text(c, '⭐'.repeat(this.res.stars) + '☆'.repeat(3 - this.res.stars), 780, 240, { size: 80 });
+    starRow(c, 780, 235, this.res.stars, 3, 100);
     text(c, `${this.res.ok} / ${this.n}`, 780, 330, { size: 48, color: '#23394b' });
     this.drawMon(c, 220, 420, 230, 'happy'); drawUI(c, this.ui); this.parts.draw(c);
   }
@@ -122,9 +123,9 @@ export class MiniScene {
     return (c, u) => {
       const dx = Math.sin(u.shake * 40) * 10 * u.shake; c.translate(dx, 0);
       const f = fill ? fill(u) : u.st === 'right' ? '#8ee59a' : u.st === 'wrong' ? '#ffb3a8' : '#fff';
-      rr(c, 0, 8, u.w, u.h, r); c.fillStyle = 'rgba(30,50,70,.3)'; c.fill(); rr(c, 0, 0, u.w, u.h, r); c.fillStyle = f; c.fill(); c.lineWidth = 4; c.strokeStyle = '#9fb4c4'; c.stroke();
+      card(c, u.w, u.h, { r, fill: f });
       let sz = size; c.font = `bold ${sz}px ${FONT}`; const mw = c.measureText(label).width; if (mw > u.w - 24) sz = Math.floor(sz * (u.w - 24) / mw);
-      text(c, label, u.w / 2, u.h / 2 + 4, { size: sz, color: '#23394b' });
+      text(c, label, u.w / 2, u.h / 2 - 2, { size: sz, color: '#23394b' });
     };
   }
 
@@ -135,8 +136,7 @@ export class MiniScene {
     this.bubbles = q.options.map((o, i) => this.bubbleBtn(x0 + i * (bw + gap), 300, bw, bw, { idx: i, ph: this.rng.next() * 6,
       customDraw: (c, u) => {
         const bob = Math.sin(this.t * 2 + u.ph) * 14; c.translate(u.shake ? Math.sin(u.shake * 40) * 10 * u.shake : 0, bob);
-        c.beginPath(); c.arc(u.w / 2, u.h / 2, u.w / 2, 0, 7); c.fillStyle = u.st === 'right' ? 'rgba(142,229,154,.95)' : u.st === 'wrong' ? 'rgba(255,179,168,.95)' : 'rgba(255,255,255,.92)'; c.fill();
-        c.lineWidth = 6; c.strokeStyle = '#8fd0f2'; c.stroke(); c.beginPath(); c.arc(u.w * 0.3, u.h * 0.28, u.w * 0.08, 0, 7); c.fillStyle = 'rgba(255,255,255,.9)'; c.fill();
+        button(c, u.st === 'right' ? 'Green' : u.st === 'wrong' ? 'Red' : 'Grey', 'round', 0, 0, u.w, u.h);
         text(c, o.label, u.w / 2, u.h / 2 + 6, { size: o.label.length > 1 ? 84 : 110, color: '#23394b' });
       },
       onTap: async u => { if (this.busy || u.st === 'wrong') return; if (u.idx === q.answer) { u.st = 'right'; await this.say(['gpc:' + g.id]); this.right(u, 300); } else { this.wrong(u); this.say(['gpc:' + g.id]); } } }));

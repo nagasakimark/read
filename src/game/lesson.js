@@ -2,6 +2,7 @@
 // Every interaction is a single tap. Evidence is recorded on the FIRST attempt only; a wrong answer shows the
 // right one (informational feedback) and the child taps it to continue.
 import { W, H, FONT, JP, text, rr, shade, Btn, Particles, drawUI } from './engine.js';
+import { panel, starRow } from './sprites.js';
 import { background, flow, tileW, drawTile, speaker, bubble, segmentWord, drawSegments, picText, card, speech } from './ui.js';
 import { drawMonster, hatFor } from './monster.js';
 import { planLesson, stepQuestions, practiceSpec } from '../learn/lessonplan.js';
@@ -412,7 +413,7 @@ export class LessonScene {
     this.ui = [hear, next];
     this.promptDraw = c => {
       const w = words[Math.min(wi, words.length - 1)], ps = phase === 0 ? [w.t] : parts(w), size = 84;
-      rr(c, 330, 70, 860, 400, 40); c.fillStyle = 'rgba(255,255,255,.9)'; c.fill();
+      panel(c, 330, 70, 860, 400);
       text(c, step.kind === 'syl' ? 'おとの かたまり（シラブル）' : 'ことばの パーツ', 760, 108, { size: 30, color: '#2d4a5e', font: JP });
       if (w.pic) picText(c, w.pic, 960, 190, 90);
       c.font = `bold ${size}px ${FONT}`;
@@ -456,7 +457,7 @@ export class LessonScene {
       const next = new Btn({ x: 1180, y: 480, w: 160, h: 90, icon: '▶', size: 54, color: '#58c46a', onTap: () => { done = true; } });
       this.ui = [...wordBtns, listen, next];
       this.promptDraw = c => {
-        rr(c, 340, 70, 1000, 400, 40); c.fillStyle = 'rgba(255,255,255,.93)'; c.fill(); c.lineWidth = 5; c.strokeStyle = '#bcd3e3'; c.stroke();
+        panel(c, 340, 70, 1000, 400);
         picText(c, page.pic, 520, 200, page.pic.length > 3 ? 100 : 130); text(c, `${pi + 1}/${st.pages.length}`, 400, 100, { size: 26, color: '#7d95a8' });
         text(c, read === 1 ? 'タップ：わからないことば' : read === 2 ? '▶ きいて いっしょに よもう' : 'よんでみよう', 760, 100, { size: 24, color: '#7d95a8', font: JP });
         next.pop = 1 + Math.sin(this.t * 5) * 0.03;
@@ -518,12 +519,12 @@ export class LessonScene {
     const home = new Btn({ x: 590, y: 470, w: 200, h: 100, icon: '▶', size: 60, color: '#58c46a', onTap: () => { this.dead = true; app.goHome(); } });
     this.ui = [home];
     this.promptDraw = c => {
-      rr(c, 400, 70, 760, 370, 44); c.fillStyle = 'rgba(255,255,255,.93)'; c.fill();
+      panel(c, 400, 70, 760, 370);
       const msg = this.stopped === 'tired' ? 'すこし やすもう 😴' : this.stopped === 'time' ? 'きょうは ここまで！ 🌙' : 'できたね！ 🎉';
       text(c, msg, 780, 120, { size: 52, color: '#23394b', font: JP });
       const n = this.results.length, ok = this.results.filter(Boolean).length;
       if (cpRes) text(c, `${cpRes.ok} / ${cpRes.n}`, 780, 270, { size: 44, color: '#23394b' });
-      text(c, n ? '⭐'.repeat(Math.max(1, Math.round((ok / n) * 3))) : '⭐', 780, 200, { size: 64 });
+      starRow(c, 780, 205, Math.max(1, Math.round((ok / Math.max(1, n)) * 3)), 3, 84);
       gemObjs.forEach(o => { c.save(); c.translate(o.x + 40, o.y); c.scale(o.s, o.s); c.fillStyle = '#7be0ad'; c.beginPath(); c.moveTo(0, -60); c.lineTo(55, -15); c.lineTo(35, 55); c.lineTo(-35, 55); c.lineTo(-55, -15); c.closePath(); c.fill(); c.lineWidth = 6; c.strokeStyle = '#fff'; c.stroke(); text(c, o.g, 0, 0, { size: o.g.length > 1 ? 52 : 68, color: '#175d3b' }); c.restore(); });
       if (gems.length) text(c, 'あたらしい ジェム！', 780, 300, { size: 26, color: '#2d4a5e', font: JP });
     };

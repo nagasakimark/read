@@ -1,4 +1,5 @@
 import { W, H, FONT, JP, text, rr, shade, Btn } from './engine.js';
+import { family, button, panel } from './sprites.js';
 
 export function background(c, t, kind = 'day') {
   const g = c.createLinearGradient(0, 0, 0, H);
@@ -29,10 +30,9 @@ export const tileW = (label, size) => Math.max(size * 1.35, 30 + label.length * 
 export function drawTile(c, x, y, w, h, label, { size = 64, state = 'idle', hot = false, color = '#fff', textColor = '#23394b', press = 0 } = {}) {
   const fill = state === 'right' ? '#8ee59a' : state === 'wrong' ? '#ffb3a8' : state === 'ghost' ? 'rgba(255,255,255,.35)' : color;
   c.save(); c.translate(x + w / 2, y + h / 2); const s = 1 - press * 0.06; c.scale(s, s); c.translate(-w / 2, -h / 2);
-  if (state !== 'ghost') { rr(c, 0, 6, w, h, 20); c.fillStyle = 'rgba(30,50,70,.35)'; c.fill(); }
-  rr(c, 0, 0, w, h, 20); c.fillStyle = fill; c.fill();
-  c.lineWidth = hot ? 6 : 3; c.strokeStyle = hot ? '#ffd23f' : state === 'ghost' ? 'rgba(255,255,255,.7)' : shade('#9fb4c4', 0); c.stroke();
-  if (label) text(c, label, w / 2, h / 2 + size * 0.04, { size, color: textColor });
+  if (state !== 'ghost') card(c, w, h, { fill, hot });
+  else { rr(c, 0, 0, w, h, 20); c.fillStyle = fill; c.fill(); c.lineWidth = 4; c.setLineDash([10, 8]); c.strokeStyle = 'rgba(255,255,255,.85)'; c.stroke(); c.setLineDash([]); }
+  if (label) text(c, label, w / 2, h / 2 - 3, { size, color: textColor });
   c.restore();
 }
 
@@ -85,11 +85,11 @@ export function picText(c, p, x, y, size) {
   text(c, p, x, y, { size });
 }
 
-/** A soft white answer card with a glossy top and a chunky shadow. */
+/** An answer card: white glossy sprite (green/red when right/wrong), gold halo when "hot". */
 export function card(c, w, h, { r = 28, fill = '#fff', stroke = '#9fb4c4', hot = false } = {}) {
-  rr(c, 0, 9, w, h, r); c.fillStyle = 'rgba(30,50,70,.28)'; c.fill();
-  const g = c.createLinearGradient(0, 0, 0, h); g.addColorStop(0, fill); g.addColorStop(1, fill === '#fff' ? '#e9f3fa' : shade(fill, -0.08));
-  rr(c, 0, 0, w, h, r); c.fillStyle = g; c.fill(); c.lineWidth = hot ? 7 : 4; c.strokeStyle = hot ? '#ffd23f' : stroke; c.stroke();
+  const fam = fill === '#fff' ? 'Grey' : family(fill);
+  if (hot) { c.save(); c.shadowColor = '#ffd23f'; c.shadowBlur = 28; c.fillStyle = '#ffd23f'; rr(c, 4, 4, w - 8, h - 8, r); c.fill(); c.restore(); }
+  if (!button(c, fam, 'rectangle', 0, 0, w, h)) { rr(c, 0, 8, w, h, r); c.fillStyle = 'rgba(30,50,70,.28)'; c.fill(); rr(c, 0, 0, w, h, r); c.fillStyle = fill; c.fill(); c.lineWidth = 4; c.strokeStyle = stroke; c.stroke(); }
 }
 /** Monster speech bubble with Japanese (big) and English (small) lines; tail points down to the monster. */
 export function speech(c, x, y, w, ja, en) {
@@ -99,11 +99,8 @@ export function speech(c, x, y, w, ja, en) {
   const jl = ja ? wrap(ja, 25, w - 36) : [], el = en ? wrap(en, 19, w - 36, false) : [];
   const h = 28 + jl.length * 32 + (el.length ? 8 + el.length * 24 : 0);
   c.save(); c.translate(x, y);
-  c.fillStyle = 'rgba(30,50,70,.22)'; rr(c, 0, 6, w, h, 28); c.fill();
-  rr(c, 0, 0, w, h, 28); c.fillStyle = '#fffdf5'; c.fill(); c.lineWidth = 4; c.strokeStyle = '#ffcf5a'; c.stroke();
-  c.beginPath(); c.moveTo(w * 0.35, h - 2); c.lineTo(w * 0.5, h + 26); c.lineTo(w * 0.58, h - 2); c.fillStyle = '#fffdf5'; c.fill();
-  c.beginPath(); c.moveTo(w * 0.35, h); c.lineTo(w * 0.5, h + 26); c.lineTo(w * 0.58, h); c.strokeStyle = '#ffcf5a'; c.lineWidth = 4; c.stroke();
-  c.fillStyle = '#fffdf5'; c.fillRect(w * 0.35 + 2, h - 5, w * 0.23 - 4, 8);
+  c.beginPath(); c.moveTo(w * 0.34, h - 10); c.lineTo(w * 0.5, h + 26); c.lineTo(w * 0.6, h - 10); c.closePath(); c.fillStyle = '#fff'; c.fill(); c.lineWidth = 4; c.strokeStyle = '#a7a9bd'; c.lineJoin = 'round'; c.stroke();
+  if (!panel(c, 0, 0, w, h)) { rr(c, 0, 0, w, h, 28); c.fillStyle = '#fffdf5'; c.fill(); }
   let ty = 26; for (const l of jl) { text(c, l, w / 2, ty, { size: 25, color: '#23394b', font: JP }); ty += 32; }
   if (el.length) { ty += 2; for (const l of el) { text(c, l, w / 2, ty, { size: 19, color: '#5b7388', weight: 'normal' }); ty += 24; } }
   c.restore();
