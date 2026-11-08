@@ -96,7 +96,7 @@ export class HomeScene {
     const games = new Btn({ x: 14, y: 470, w: 100, h: 100, icon: '🎮', size: 50, color: '#a478e8', onTap: () => app.eng.go(new GamesScene(app)) });
     this.ui = [play, stars, gear, who, games, help];
     const cp = (C.course?.checkpoints || []).find(c => stage.units.includes(c.after));
-    if (cp && M.isUnitPassed(st, cp.after)) {
+    if (cp && (st.settings.unlockAll || M.isUnitPassed(st, cp.after))) {
       const r = st.checkpoints?.[cp.id];
       this.ui.push(new Btn({ x: W - 176, y: 470, w: 150, h: 100, label: r ? '🎯 ' + r.best + '%' : '🎯', size: 34, color: r ? '#8fcf6a' : '#f2b63c', onTap: () => app.eng.go(new LessonScene(app, checkpointSpec(cp))) }));
     }
@@ -106,6 +106,7 @@ export class HomeScene {
   }
   tapNode(n) {
     const { app } = this, st = app.state;
+    if (n.au && st.settings.unlockAll) return app.eng.go(new UnitPicker(app, n.id));
     if (n.au && M.isUnitPassed(st, n.id)) return app.eng.go(new LessonScene(app, practiceSpec(n.id)));
     if (n.au && n.id === this.cur) return this.play();
     app.audio.sfx('bad'); this.shake = 1; app.eng.tween(this, { shake: 0 }, 400, 'out');
@@ -126,7 +127,7 @@ export class HomeScene {
     c.strokeStyle = '#f7ebc8'; c.lineWidth = 8; c.setLineDash([2, 18]); c.stroke(); c.setLineDash([]);
     this.nodes.forEach(n => {
       const planned = !n.au;
-      const passed = !planned && M.isUnitPassed(st, n.id), open = !planned && (M.isUnitOpen(app.C, st, n.id) || n.id === 0), isCur = !planned && n.id === this.cur;
+      const passed = !planned && M.isUnitPassed(st, n.id), open = !planned && (st.settings.unlockAll || M.isUnitOpen(app.C, st, n.id) || n.id === 0), isCur = !planned && n.id === this.cur;
       const r = 48 + (isCur ? Math.sin(this.t * 4) * 3 : 0);
       c.fillStyle = 'rgba(30,50,70,.3)'; c.beginPath(); c.arc(n.x, n.y + 6, r, 0, 7); c.fill();
       c.fillStyle = planned ? '#d5dde4' : passed ? '#ffd23f' : isCur ? '#fff' : open ? '#e8f6ff' : '#b5c3cf'; c.beginPath(); c.arc(n.x, n.y, r, 0, 7); c.fill();
@@ -138,7 +139,8 @@ export class HomeScene {
       if (passed) text(c, '✔', n.x + 38, n.y - 38, { size: 30, color: '#2f9e44' });
       text(c, n.id === 0 ? '' : 'Unit ' + n.id, n.x, n.y + 78, { size: 20, color: '#4a6275' });
     });
-    if (this.next) { const au = app.C.units.find(u => u.id === this.next.unit); text(c, `つぎは：Unit ${this.next.unit}${au?.name ? '  ' + au.name : ''}`, W / 2, 458, { size: 22, color: '#23394b', font: JP }); }
+    if (st.settings.unlockAll) text(c, '🔓 先生モード：ユニットをタップ → レッスンをえらぶ  Teacher mode: tap any unit', W / 2, 458, { size: 22, color: '#b36b00', font: JP });
+    else if (this.next) { const au = app.C.units.find(u => u.id === this.next.unit); text(c, `つぎは：Unit ${this.next.unit}${au?.name ? '  ' + au.name : ''}`, W / 2, 458, { size: 22, color: '#23394b', font: JP }); }
     const cn = this.nodes.find(n => n.id === this.cur && n.au);
     if (cn) drawMonster(c, cn.x, cn.y - 100 + (this.shake ? Math.sin(this.t * 60) * 6 * this.shake : 0), 120, { color: app.colorHex, mood: 'happy', t: this.t, hat: hatFor(passedCount(st)) });
     if (!this.next && stage.id === 2) text(c, 'つぎの ユニットは じゅんびちゅう！ Next units are on their way.', W / 2, 440, { size: 22, color: '#4a6275', font: JP });
@@ -194,6 +196,7 @@ export class TeacherScene {
       mk(1180, 250, 170, 'Reset player', '#ec5d57', async () => { if (confirm('Erase all progress for this player?')) { app.replaceState(M.newState({ color: app.rec.id })); this.msg = 'Progress reset.'; } }),
       mk(1000, 310, 170, 'Class mode', '#a478e8', () => app.eng.go(new ClassScene(app))),
       mk(1000, 370, 170, 'More sounds ▶', '#7d95a8', () => { this.gp = ((this.gp || 0) + 1) % Math.ceil(C.gpcList.filter(g => !['suffix', 'silent'].includes(g.type)).length / 36); }),
+      mk(1180, 370, 170, st.settings.unlockAll ? 'Unlock all: ON' : 'Unlock all: OFF', '#e8a23a', u => { st.settings.unlockAll = !st.settings.unlockAll; u.label = st.settings.unlockAll ? 'Unlock all: ON' : 'Unlock all: OFF'; app.save(); }),
       mk(1180, 310, 170, 'Record voices', '#a478e8', () => open('tools/recorder.html', '_blank')),
     ];
   }
@@ -275,3 +278,21 @@ export class ClassScene {
 }
 import { picText } from './ui.js';
 const picText2 = (c, p, x, y) => picText(c, p, x, y, 110);
+
+// ------------------------------------------------------------------ teacher unlock: pick any lesson of a unit
+export class UnitPicker {
+  constructor(app, uid) { this.app = app; this.uid = uid; this.t = 0; this.ui = []; }
+  enter() {
+    const { app } = this, C = app.C, au = C.units.find(u => u.id === this.uid), st = app.state, us = st.units[this.uid] || {};
+    this.title = `Unit ${this.uid}  ${au?.name || ''}`;
+    this.ui = [new Btn({ x: 12, y: 10, w: 76, h: 56, icon: '🏠', size: 30, color: '#e8a23a', onTap: () => app.goHome() })];
+    const items = au.lessons.map(l => ({ label: `${l.id}\n${l.kind}`, done: !!us.lessonsDone?.[l.id], go: () => app.eng.go(new LessonScene(app, C.lessons[l.id])) }));
+    items.push({ label: 'Practice', done: false, go: () => app.eng.go(new LessonScene(app, practiceSpec(this.uid))) });
+    items.forEach((it, i) => {
+      const col = i % 4, row = Math.floor(i / 4);
+      this.ui.push(new Btn({ x: 190 + col * 250, y: 130 + row * 130, w: 230, h: 110, label: it.label.split('\n')[0] + (it.label.includes('\n') ? '  ' + it.label.split('\n')[1] : ''), size: 26, color: it.done ? '#8fcf6a' : '#58a8e8', onTap: it.go }));
+    });
+  }
+  update(dt) { this.t += dt; }
+  draw(c) { background(c, this.t, 'day'); text(c, this.title, W / 2, 40, { size: 36, color: '#23394b', font: JP }); text(c, 'Teacher mode — pick any lesson (green = done)', W / 2, 84, { size: 22, color: '#4a6275' }); drawUI(c, this.ui); }
+}

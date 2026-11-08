@@ -12,6 +12,7 @@ export const lab = g => (g.id === 'sz' ? 's/z' : g.g);
 
 /** Highest unit the child has passed (content cap for games); 0 when nothing is learned yet. */
 export function gameCap(app) {
+  if (app.state.settings.unlockAll) return Math.max(...app.C.units.map(u => u.id));
   const ids = Object.entries(app.state.units).filter(([, u]) => u.passed).map(([k]) => +k);
   return ids.length ? Math.max(...ids) : 0;
 }
