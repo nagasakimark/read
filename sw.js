@@ -1,7 +1,7 @@
 // Offline-first service worker: precaches the game, curriculum and audio so it works on school Wi-Fi that drops out.
-const VERSION = 'lre-v9';
+const VERSION = 'lre-v10';
 const CORE = ['./', 'index.html', 'manifest.webmanifest', 'icons/icon.svg', 'fonts/andika-latin-400-normal.woff2', 'fonts/andika-latin-700-normal.woff2',
-  'src/game/main.js', 'src/game/engine.js', 'src/game/audio.js', 'src/game/store.js', 'src/game/monster.js', 'src/game/ui.js', 'src/game/scenes.js', 'src/game/minigames.js', 'src/game/intro.js', 'src/game/sprites.js', 'assets/sfx/tap-a.ogg', 'assets/sfx/click-b.ogg', ...['Blue','Green','Red','Yellow','Grey'].flatMap(c => ['button_rectangle','button_square','button_round'].map(k => `assets/ui/${c}_${k}_depth_gloss.svg`).concat([`assets/ui/${c}_star.svg`])), 'assets/ui/Extra_input_rectangle.svg', 'assets/ui/Grey_panel.svg', 'assets/ui/Grey_panel_depth.svg', 'src/game/lesson.js',
+  'src/game/main.js', 'src/game/engine.js', 'src/game/audio.js', 'src/game/store.js', 'src/game/monster.js', 'src/game/ui.js', 'src/game/scenes.js', 'src/game/minigames.js', 'src/game/intro.js', 'src/game/sprites.js', 'src/game/icons.js', 'src/game/bankja.js', 'fonts/nunito-latin-600-normal.woff2', 'fonts/nunito-latin-800-normal.woff2', 'fonts/nunito-latin-900-normal.woff2', 'fonts/zenmaru-jp-700.woff2', 'fonts/zenmaru-jp-900.woff2', 'assets/sfx/tap-a.ogg', 'assets/sfx/click-b.ogg', 'src/game/lesson.js',
   'src/learn/curriculum.js', 'src/learn/lessonplan.js', 'src/learn/loader.browser.js', 'src/learn/mastery.js', 'src/learn/questions.js', 'src/learn/rng.js',
   ...['meta', 'phonemes', 'gpcs', 'words', 'tricky', 'packs', 'stories', 'sentences', 'units', 'course'].map(n => `curriculum/${n}.json`), 'audio/manifest.json'];
 self.addEventListener('install', e => {

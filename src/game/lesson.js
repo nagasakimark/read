@@ -309,6 +309,7 @@ export class LessonScene {
         if (ok) {
           done = true; u.st = 'right'; this.sfx('good'); this.mood = 'happy'; this.react(true); state.revealed = true; state.filled = true;
           this.parts.burst(u.x + u.w / 2, u.y + u.h / 2, first.ok && first.lat != null ? 16 : 8);
+          app.eng.tween(u, { pop: 1.09 }, 110, 'out').then(() => app.eng.tween(u, { pop: 1 }, 260, 'back'));
           this.stopSpeak();
           const after = q.prompt.after || (q.act === 'listen-pick' ? [] : []);
           const say = q.type === 'chain' ? ['w:' + q.to] : (after.length ? after : q.act === 'recall-flash' ? ['b:' + o.word] : []);
@@ -519,7 +520,7 @@ export class LessonScene {
     let first = null, done = false;
     this.cur = { type: 'choice', act: 'story-q', answer: opts.findIndex(o => o.ok) };
     const btns = opts.map((o, i) => new Btn({ x: 520 + i * 270, y: 320, w: 240, h: 230, shadow: false, st: 'idle', idx: i,
-      customDraw: (c, u) => { const off = cardFace(c, 0, 0, u.w, u.h, u.st === 'right' ? 'right' : u.st === 'wrong' ? 'wrong' : 'idle', u.press); picText(c, o.pic, u.w / 2, off + (u.h - 8) / 2, 120); },
+      customDraw: (c, u) => { const off = cardFace(c, 0, 0, u.w, u.h, u.st === 'right' ? 'right' : u.st === 'wrong' ? 'wrong' : 'idle', u.press); const ja = o.word && (app.C.words[o.word]?.ja || BANK_JA[o.word]); picText(c, o.pic, u.w / 2, off + (ja ? 92 : (u.h - 8) / 2), ja ? 104 : 120); if (ja) text(c, ja, u.w / 2, off + u.h - 44, { size: ja.length > 7 ? 22 : 28, color: INK2, font: JP, weight: '800' }); },
       onTap: async u => { if (done || u.st === 'wrong') return; if (first === null) first = !!o.ok;
         if (o.ok) { done = true; u.st = 'right'; this.sfx('good'); this.mood = 'happy'; this.react(true); this.parts.burst(u.x + 120, u.y + 100, 20); await app.eng.wait(700); } else { u.st = 'wrong'; this.sfx('bad'); this.react(false); } } }));
     this.ui = btns;
@@ -560,7 +561,7 @@ export class LessonScene {
       const msg = this.stopped === 'tired' ? 'すこし やすもう 😴' : this.stopped === 'time' ? 'きょうは ここまで！ 🌙' : 'できたね！ 🎉';
       text(c, msg, 780, 105, { size: 50, color: '#23394b', font: JP });
       const n = this.results.length, ok = this.results.filter(Boolean).length;
-      starRow(c, 780, 185, Math.max(1, Math.round((ok / Math.max(1, n)) * 3)), 3, 80);
+      starRow(c, 780, 185, Math.max(1, Math.round((ok / Math.max(1, n)) * 3)), 3, 80, (this.t - (this.finT ?? (this.finT = this.t))) * 2.2);
       text(c, cpRes ? `${cpRes.ok} / ${cpRes.n}  ただしい` : `${ok} / ${n}  ただしい`, 780, 250, { size: 30, color: '#23394b', font: JP });
       if (au && !isCp) {
         text(c, `Unit ${this.spec.unit}  レッスン ${Math.min(doneN, total)} / ${total}`, 780, 295, { size: 24, color: '#4a6275', font: JP });

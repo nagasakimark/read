@@ -8,7 +8,7 @@ import * as Q from '../learn/questions.js';
 import * as M from '../learn/mastery.js';
 
 const NORMAL = g => !['silent', 'split', 'suffix', 'ending', 'schwa'].includes(g.type);
-export const lab = g => (g.id === 'sz' ? 's/z' : g.g);
+export const lab = g => g.g;
 
 /** Highest unit the child has passed (content cap for games); 0 when nothing is learned yet. */
 export function gameCap(app) {
