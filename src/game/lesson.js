@@ -3,6 +3,7 @@
 // right one (informational feedback) and the child taps it to continue.
 import { W, H, FONT, JP, text, rr, shade, Btn, Particles, drawUI } from './engine.js';
 import { panel, starRow } from './sprites.js';
+import { BANK_JA } from './bankja.js';
 import { background, flow, tileW, drawTile, speaker, bubble, segmentWord, drawSegments, picText, card, speech } from './ui.js';
 import { drawMonster, hatFor } from './monster.js';
 import { planLesson, stepQuestions, practiceSpec } from '../learn/lessonplan.js';
@@ -244,6 +245,8 @@ export class LessonScene {
     const p = q.prompt || {};
     if (p.talk) { await this.speak(p.talk, { gap: 0.18 }); return; }
     if (p.audio?.length) await this.speak(p.audio, { gap: p.gap ?? 0.12 });
+    const nm = this.namingOpts;   // then say what each picture is, lighting it up, so no one has to guess the English names
+    if (nm) for (const o of nm) { if (this.dead) return; o.glow = 1; await this.speak(['b:' + o.word]); o.glow = 0; }
   }
   hintAudio(q) {
     const right = q.options[q.answer];
@@ -257,6 +260,7 @@ export class LessonScene {
   askChoice(q) {
     const { app } = this; const n = q.options.length;
     const hasPic = q.options.some(o => o.pic), isTile = !hasPic;
+    const naming = (q.act === 'initial-sound' || q.act === 'recall-flash') && q.options.every(o => o.word);
     const long = q.options.some(o => (o.label || '').length > 3);
     const cw = hasPic ? 230 : long ? 280 : 210, ch = hasPic ? 230 : 190, gap = 34, total = n * cw + (n - 1) * gap;
     const x0 = 790 - total / 2 + 60, y0 = hasPic ? 330 : 340;
@@ -268,12 +272,18 @@ export class LessonScene {
         c.translate(dx, 0);
         const fill = u.st === 'right' ? '#8ee59a' : u.st === 'wrong' ? '#ffb3a8' : '#fff';
         card(c, u.w, u.h, { r: 28, fill, hot: u.glow > 0 });
-        if (o.pic) picText(c, o.pic, u.w / 2, u.h / 2 + 4, 120);
+        if (o.pic) {
+          const ja = o.word && (app.C.words[o.word]?.ja || BANK_JA[o.word]);
+          picText(c, o.pic, u.w / 2, ja ? u.h / 2 - 14 : u.h / 2 + 4, ja ? 108 : 120);
+          if (ja) text(c, ja, u.w / 2, u.h - 40, { size: ja.length > 7 ? 22 : 28, color: '#4a6275', font: JP });
+          if (naming && o.word) { c.beginPath(); c.arc(38, 40, 28, 0, 7); c.fillStyle = '#2e9cca'; c.fill(); c.lineWidth = 3; c.strokeStyle = '#fff'; c.stroke(); text(c, '🔊', 38, 41, { size: 28 }); }
+        }
         else if (o.icon === 'same' || o.icon === 'diff') { text(c, o.icon === 'same' ? '＝' : '≠', u.w / 2, u.h / 2 - 24, { size: 100, color: o.icon === 'same' ? '#2f9e44' : '#d8402c' }); text(c, o.icon === 'same' ? 'おなじ' : 'ちがう', u.w / 2, u.h - 52, { size: 34, color: '#23394b', font: JP }); text(c, o.icon === 'same' ? 'same' : 'different', u.w / 2, u.h - 22, { size: 20, color: '#5b7388', weight: 'normal' }); }
         else text(c, o.label, u.w / 2, u.h / 2 + 6, { size: Math.min(o.label.length > 3 ? 78 : o.label.length > 1 ? 100 : 120, Math.floor((u.w - 30) / (o.label.length * 0.6))), color: '#23394b' });
         if (u.st === 'wrong') text(c, '✖', u.w - 30, 30, { size: 34, color: '#d8402c' });
       },
-      onTap: async u => {
+      onTap: async (u, px, py) => {
+        if (naming && o.word && px - u.x < 76 && py - u.y < 80) { this.speak(['b:' + o.word]); return; }   // 🔊 badge: hear the picture's name without answering
         if (!ready || done || u.st === 'wrong') return;
         const ok = u.idx === q.answer;
         if (!first) { first = { ok, lat: performance.now() - tStart, lure: o.gpc }; this.record(q, first); }
@@ -292,6 +302,7 @@ export class LessonScene {
           this.hintAudio(q); setTimeout(() => { if (!this.dead) this.mood = 'idle'; }, 900);
         }
       } }));
+    this.namingOpts = naming ? q.options.map((o, i) => Object.assign(opts[i], { word: o.word })) : null;
     const replay = this.makePrompt(q, state);
     this.ui = [replay, ...opts];
     return new Promise(async resolve => {

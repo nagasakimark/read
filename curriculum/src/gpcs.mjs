@@ -33,18 +33,18 @@ export const GPCS = [
   ['m','m',['m'],1,'single',[['mouse','🐭'],['moon','🌙'],['milk','🥛']]],
   ['t','t',['t'],1,'single',[['tiger','🐯'],['tree','🌳'],['tomato','🍅']]],
   // Unit 2
-  ['i','i',['i'],2,'single',[['insect','🐛'],['iguana','🦎'],['igloo','🧊']]],
+  ['i','i',['i'],2,'single',[['insect','🐛'],['iguana','🦎'],['inch','📏']]],
   ['n','n',['n'],2,'single',[['nose','👃'],['nut','🥜'],['nest','🪺']]],
   ['p','p',['p'],2,'single',[['pig','🐷'],['pizza','🍕'],['panda','🐼']]],
   // Unit 3
-  ['o','o',['o'],3,'single',[['octopus','🐙'],['otter','🦦'],['ostrich','🦤']]],
+  ['o','o',['o'],3,'single',[['octopus','🐙'],['otter','🦦'],['ox','🐂']]],
   ['d','d',['d'],3,'single',[['dog','🐶'],['duck','🦆'],['door','🚪']]],
   ['g','g',['g'],3,'single',[['goat','🐐'],['gorilla','🦍'],['guitar','🎸']]],
   ['c','c',['k'],3,'single',[['cat','🐱'],['cake','🍰'],['cow','🐄']]],
   // Unit 4
   ['k','k',['k'],4,'single',[['kite','🪁'],['key','🔑'],['kangaroo','🦘']]],
   ['e','e',['e'],4,'single',[['egg','🥚'],['elephant','🐘'],['envelope','✉️']]],
-  ['u','u',['u'],4,'single',[['umbrella','☂️'],['up','⬆️'],['umpire','🧑‍⚖️']]],
+  ['u','u',['u'],4,'single',[['umbrella','☂️'],['up','⬆️'],['uncle','👨']]],
   ['r','r',['r'],4,'single',[['rabbit','🐰'],['rain','🌧️'],['robot','🤖']]],
   ['h','h',['h'],4,'single',[['hat','🎩'],['horse','🐴'],['house','🏠']]],
   // Unit 5  (b is the only new sound; f/l new letters; ff ll ss ck are final spellings of known sounds)
@@ -60,10 +60,10 @@ export const GPCS = [
   ['v','v',['v'],6,'single',[['van','🚐'],['violin','🎻'],['volcano','🌋']]],
   ['w','w',['w'],6,'single',[['watch','⌚'],['worm','🪱'],['window','🪟']]],
   ['x','x',['k','s'],6,'single',null,[['box','📦'],['fox','🦊'],['six','6️⃣']]],
-  ['y','y',['y'],6,'single',[['yo-yo','🪀'],['yellow','💛'],['yak','🦬']]],
-  ['z','z',['z'],6,'single',[['zebra','🦓'],['zipper','🤐'],['zoo','🦒']]],
+  ['y','y',['y'],6,'single',[['yo-yo','🪀'],['yellow','💛'],['yarn','🧶']]],
+  ['z','z',['z'],6,'single',[['zebra','🦓'],['zero','0️⃣'],['zoo','🐘']]],
   ['zz','zz',['z'],6,'doubled',null,[['buzz','🐝'],['fizz','🥤'],['jazz','🎷']]],
-  ['qu','qu',['k','w'],6,'digraph',[['queen','👑'],['quilt','🛏️'],['quail','🐦']]],
+  ['qu','qu',['k','w'],6,'digraph',[['queen','👑'],['quack','🦆'],['quiz','❓']]],
   // Unit 7: the same letter s, now saying /z/ at the end of a word
   ['sz','s',['z'],7,'single',null,[['dogs','🐶'],['pigs','🐷'],['hens','🐔']]],
   // Unit 8: digraphs (two letters, ONE sound)
@@ -123,7 +123,7 @@ export const GPCS = [
   ['ea_e','ea',['e'],30,'vowel',null,null,[['bread','🍞'],['head','🗣️'],['feather','🪶'],['weather','🌦️']]],
   ['ie_i','ie',['ee'],30,'vowel',null,null,[['field','🌾'],['thief','🦹'],['shield','🛡️'],['chief','🧑‍✈️']]],
   ['c_soft','c',['s'],30,'initial',[['city','🏙️'],['circus','🎪'],['cent','🪙']]],
-  ['g_soft','g',['dj'],30,'initial',[['giant','🧌'],['gym','🏋️'],['gem','💎']]],
+  ['g_soft','g',['dj'],30,'initial',[['giraffe','🦒'],['gym','🏋️'],['gem','💎']]],
   ['ch_k','ch',['k'],30,'initial',[['school','🏫'],['chorus','🎶'],['Christmas','🎄']]],
   ['ph','ph',['f'],31,'initial',[['phone','📱'],['photo','📷'],['pharmacy','💊']]],
   ['wh','wh',['w'],31,'initial',[['whale','🐋'],['wheel','🛞'],['white','🤍']]],
