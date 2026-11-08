@@ -20,6 +20,9 @@ await shot('home2');
 // home button inside a lesson must work
 await page.mouse.click(683, 520); await page.waitForTimeout(1500); await shot('lesson');
 await page.mouse.click(44, 36); await page.waitForTimeout(600);
+for (const [n, expr] of [['teacher', 'new S.TeacherScene(a)'], ['mastery', 'new S.MasteryScene(a)'], ['class', 'new S.ClassScene(a)'], ['unitpicker', 'new S.UnitPicker(a, 3)'], ['games', 'new G.GamesScene(a)']]) {
+  await page.evaluate(async e => { const S = await import('/src/game/scenes.js'), G = await import('/src/game/minigames.js'), a = window.__app; a.state.settings.unlockAll = true; a.eng.go(eval(e)); }, expr); await shot('x_' + n);
+}
 console.log('after home tap scene:', await page.evaluate(() => window.__app.eng.scene.constructor.name));
 console.log('errors:', errors.length ? errors : 'none');
 await browser.close(); srv.close();

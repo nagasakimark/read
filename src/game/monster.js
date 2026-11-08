@@ -5,39 +5,53 @@ const HATS = ['none', 'cap', 'crown', 'party', 'flower', 'tophat', 'star', 'halo
 export const hatFor = unitsPassed => HATS[Math.min(unitsPassed, HATS.length - 1)];
 
 /** mood: idle|happy|oops|think. mouth: phoneme mouth pose or null. t: time in seconds for idle motion. */
-export function drawMonster(c, x, y, size, { color = '#58c46a', mouth = null, mood = 'idle', t = 0, hat = 'none', blink = true, look = 0 } = {}) {
-  const s = size / 200;
+export function drawMonster(c, x, y, size, { color = '#58c46a', mouth = null, mood = 'idle', t = 0, hat = 'none', blink = true, look = 0, jump = 0 } = {}) {
+  const s = size / 200, base = color, lite = shade(color, 0.34), dark = shade(color, -0.22), deep = shade(color, -0.42);
+  const bob = Math.sin(t * 2.4) * 3.5, breathe = 1 + Math.sin(t * 2.4) * 0.018;
+  const hop = mood === 'happy' ? -Math.abs(Math.sin(t * 7)) * 10 : 0;
   c.save(); c.translate(x, y);
-  const bob = Math.sin(t * 2.2) * 4 * s, sq = 1 + Math.sin(t * 2.2) * 0.02;
-  c.translate(0, bob); c.scale(s, s * sq);
+  // ground shadow (stays on the ground while the body bobs)
+  c.save(); c.translate(0, 104 * s); c.fillStyle = 'rgba(20,60,50,.22)'; const sh = 1 - (bob + hop + jump) / -90; c.beginPath(); c.ellipse(0, 0, 88 * s * Math.min(1.1, sh), 13 * s * Math.min(1.1, sh), 0, 0, 7); c.fill(); c.restore();
+  c.translate(0, (bob + hop + jump) * s); c.scale(s, s * breathe);
   // feet
-  c.fillStyle = shade(color, -0.35);
-  c.beginPath(); c.ellipse(-48, 92, 30, 14, 0, 0, 7); c.ellipse(48, 92, 30, 14, 0, 0, 7); c.fill();
-  // little arms
-  c.strokeStyle = shade(color, -0.2); c.lineWidth = 16; c.lineCap = 'round';
-  const wave = mood === 'happy' ? Math.sin(t * 12) * 18 : 0;
-  c.beginPath(); c.moveTo(-86, 20); c.quadraticCurveTo(-120, 30 - wave, -118, -10 - wave * 1.5); c.stroke();
-  c.beginPath(); c.moveTo(86, 20); c.quadraticCurveTo(120, 30 + wave, 118, -10 + wave * 1.5); c.stroke();
-  // horns / antennae
-  c.fillStyle = shade(color, -0.25);
-  c.beginPath(); c.moveTo(-50, -78); c.lineTo(-68, -122); c.lineTo(-24, -92); c.closePath(); c.fill();
-  c.beginPath(); c.moveTo(50, -78); c.lineTo(68, -122); c.lineTo(24, -92); c.closePath(); c.fill();
-  // body
-  const g = c.createRadialGradient(-30, -50, 20, 0, 0, 120); g.addColorStop(0, shade(color, 0.3)); g.addColorStop(1, color);
-  c.fillStyle = g; c.beginPath(); c.ellipse(0, 10, 100, 96, 0, 0, 7); c.fill();
-  c.lineWidth = 4; c.strokeStyle = shade(color, -0.3); c.stroke();
-  // belly
-  c.fillStyle = shade(color, 0.45); c.globalAlpha = 0.5; c.beginPath(); c.ellipse(0, 52, 60, 38, 0, 0, 7); c.fill(); c.globalAlpha = 1;
-  // eyes
-  const bl = blink && (t % 4.2) > 4.05 ? 0.12 : 1;
-  for (const ex of [-34, 34]) {
-    c.fillStyle = '#fff'; c.beginPath(); c.ellipse(ex, -26, 24, 28 * bl, 0, 0, 7); c.fill(); c.lineWidth = 3; c.strokeStyle = shade(color, -0.4); c.stroke();
-    c.fillStyle = '#1d2b36'; c.beginPath(); c.ellipse(ex + look * 8 + (mood === 'think' ? 6 : 0), -24 + (mood === 'think' ? -6 : 0), 11, 13 * bl, 0, 0, 7); c.fill();
-    c.fillStyle = '#fff'; c.beginPath(); c.arc(ex + 4, -30, 4, 0, 7); c.fill();
+  c.fillStyle = deep; c.beginPath(); c.ellipse(-46, 92, 32, 15, 0, 0, 7); c.ellipse(46, 92, 32, 15, 0, 0, 7); c.fill();
+  c.fillStyle = dark; c.beginPath(); c.ellipse(-46, 89, 32, 14, 0, 0, 7); c.ellipse(46, 89, 32, 14, 0, 0, 7); c.fill();
+  // arms (round capsules with hands)
+  const wave = mood === 'happy' ? Math.sin(t * 11) * 22 : Math.sin(t * 1.8) * 4;
+  c.lineCap = 'round';
+  for (const side of [-1, 1]) {
+    const w = side === 1 ? wave : -wave * 0.6, hx = side * 122, hy = 12 - (mood === 'happy' ? 34 : 0) - w;
+    c.strokeStyle = dark; c.lineWidth = 26; c.beginPath(); c.moveTo(side * 78, 28); c.quadraticCurveTo(side * 112, 40, hx, hy); c.stroke();
+    c.strokeStyle = base; c.lineWidth = 20; c.beginPath(); c.moveTo(side * 78, 28); c.quadraticCurveTo(side * 112, 40, hx, hy); c.stroke();
+    c.fillStyle = base; c.beginPath(); c.arc(hx, hy, 15, 0, 7); c.fill();
   }
-  if (mood === 'oops') { c.strokeStyle = shade(color, -0.45); c.lineWidth = 5; c.beginPath(); c.moveTo(-60, -62); c.lineTo(-14, -52); c.moveTo(60, -62); c.lineTo(14, -52); c.stroke(); }
-  // mouth
-  drawMouth(c, 0, 34, mouth || (mood === 'happy' ? 'smile' : mood === 'oops' ? 'flat' : 'rest'), color, t);
+  // horns
+  for (const side of [-1, 1]) {
+    c.fillStyle = '#fff1c9'; c.beginPath(); c.moveTo(side * 38, -80); c.quadraticCurveTo(side * 66, -104, side * 70, -128); c.quadraticCurveTo(side * 30, -116, side * 16, -88); c.closePath(); c.fill();
+    c.fillStyle = shade('#fff1c9', -0.12); c.beginPath(); c.moveTo(side * 38, -80); c.quadraticCurveTo(side * 54, -92, side * 58, -108); c.lineTo(side * 70, -128); c.quadraticCurveTo(side * 60, -100, side * 50, -86); c.closePath(); c.fill();
+  }
+  // body
+  c.save(); c.beginPath(); c.moveTo(0, -86); c.bezierCurveTo(70, -90, 108, -34, 104, 22); c.bezierCurveTo(100, 84, 54, 104, 0, 104); c.bezierCurveTo(-54, 104, -100, 84, -104, 22); c.bezierCurveTo(-108, -34, -70, -90, 0, -86); c.closePath();
+  const g = c.createRadialGradient(-34, -52, 10, 0, 10, 130); g.addColorStop(0, lite); g.addColorStop(0.45, base); g.addColorStop(1, dark); c.fillStyle = g; c.fill(); c.clip();
+  c.fillStyle = shade(color, 0.5); c.globalAlpha = 0.55; c.beginPath(); c.ellipse(0, 58, 62, 44, 0, 0, 7); c.fill(); c.globalAlpha = 1;      // belly
+  c.fillStyle = 'rgba(255,255,255,.35)'; c.beginPath(); c.ellipse(-48, -50, 22, 11, -0.7, 0, 7); c.fill();       // gloss
+  c.restore();
+  // cheeks
+  c.fillStyle = 'rgba(255,178,196,.8)'; for (const sx of [-1, 1]) { c.beginPath(); c.ellipse(sx * 66, 14, 17, 11, 0, 0, 7); c.fill(); }
+  // eyes
+  const bl = blink && (t % 4.4) > 4.28 ? 0.1 : 1;
+  for (const ex of [-34, 34]) {
+    if (mood === 'happy' && Math.floor(t * 1.2) % 3 === 2) {   // happy squint
+      c.strokeStyle = '#1d2b36'; c.lineWidth = 8; c.lineCap = 'round'; c.beginPath(); c.arc(ex, -18, 17, Math.PI * 1.1, Math.PI * 1.9); c.stroke(); continue;
+    }
+    c.fillStyle = '#fff'; c.beginPath(); c.ellipse(ex, -26, 25, 30 * bl, 0, 0, 7); c.fill();
+    c.fillStyle = shade(color, -0.1); c.globalAlpha = 0.25; c.beginPath(); c.ellipse(ex, -44 + 30 * (1 - bl), 24, 10, 0, 0, 7); c.fill(); c.globalAlpha = 1;
+    const px = ex + look * 8 + (mood === 'think' ? 7 : 0) + Math.sin(t * 0.7) * 2, py = -24 + (mood === 'think' ? -7 : 0);
+    c.fillStyle = '#1b2733'; c.beginPath(); c.ellipse(px, py, 14, 17 * bl, 0, 0, 7); c.fill();
+    c.fillStyle = '#fff'; c.beginPath(); c.arc(px + 5, py - 6, 5, 0, 7); c.arc(px - 5, py + 6, 2.4, 0, 7); c.fill();
+  }
+  if (mood === 'oops') { c.strokeStyle = deep; c.lineWidth = 6; c.lineCap = 'round'; c.beginPath(); c.moveTo(-62, -66); c.lineTo(-14, -56); c.moveTo(62, -66); c.lineTo(14, -56); c.stroke(); }
+  drawMouth(c, 0, 36, mouth || (mood === 'happy' ? 'smile' : mood === 'oops' ? 'flat' : 'rest'), color, t);
   if (hat !== 'none') drawHat(c, hat);
   c.restore();
 }
@@ -82,7 +96,7 @@ function drawMouth(c, x, y, m, color, t) {
 
 function drawHat(c, hat) {
   c.save(); c.translate(0, -84);
-  if (hat === 'cap') { c.fillStyle = '#e24b4b'; c.beginPath(); c.arc(0, 0, 52, Math.PI, 0); c.fill(); c.fillRect(-4, -6, 76, 12); }
+  if (hat === 'cap') { c.fillStyle = '#d93f46'; c.beginPath(); c.arc(0, 4, 50, Math.PI, 0); c.closePath(); c.fill(); c.fillStyle = '#ff6b6b'; c.beginPath(); c.arc(0, 0, 46, Math.PI * 1.05, Math.PI * 1.95); c.closePath(); c.fill(); c.fillStyle = '#d93f46'; c.beginPath(); c.ellipse(34, 8, 40, 9, 0.08, 0, 7); c.fill(); c.fillStyle = '#fff'; c.beginPath(); c.arc(0, -46, 6, 0, 7); c.fill(); }
   if (hat === 'crown') { c.fillStyle = '#ffd23f'; c.beginPath(); c.moveTo(-46, 8); c.lineTo(-46, -30); c.lineTo(-23, -8); c.lineTo(0, -40); c.lineTo(23, -8); c.lineTo(46, -30); c.lineTo(46, 8); c.closePath(); c.fill(); c.strokeStyle = '#c9971c'; c.lineWidth = 4; c.stroke(); }
   if (hat === 'party') { c.fillStyle = '#ff7ac8'; c.beginPath(); c.moveTo(-34, 8); c.lineTo(0, -80); c.lineTo(34, 8); c.closePath(); c.fill(); c.fillStyle = '#ffd23f'; c.beginPath(); c.arc(0, -82, 9, 0, 7); c.fill(); }
   if (hat === 'flower') { for (let i = 0; i < 6; i++) { c.fillStyle = '#ff8fb8'; c.beginPath(); c.ellipse(Math.cos(i) * 20, -10 + Math.sin(i) * 20, 14, 14, 0, 0, 7); c.fill(); } c.fillStyle = '#ffd23f'; c.beginPath(); c.arc(0, -10, 12, 0, 7); c.fill(); }

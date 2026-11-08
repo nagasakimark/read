@@ -44,7 +44,7 @@ while (lessonsDone < LESSONS && Date.now() - t0 < 600000) {
     }
     const fin = s.ui.find(u => u.y === 470 && u.label && u.label.includes('ホーム'));
     if (fin) return { act: 'click', x: fin.x + fin.w / 2, y: fin.y + 50, kind: 'finish' };
-    const next = s.ui.find(u => u.icon === '▶' && u.visible !== false);
+    const next = s.ui.find(u => (u.icon === 'play' || u.icon === '▶') && u.visible !== false);
     const big = s.ui.find(u => u.w === 330 && u.h === 230);
     if (s.finished) return { act: 'wait' };
     if (next) return next.enabled === false && big ? { act: 'click', x: big.x + 160, y: big.y + 100, kind: 'meet-hear' } : { act: 'click', x: next.x + next.w / 2, y: next.y + next.h / 2, kind: next.w === 200 ? 'finish' : 'next' + s.stepNo + (s.spec.id || '') };

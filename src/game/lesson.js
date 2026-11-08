@@ -1,8 +1,8 @@
 // The lesson runner: turns a planned lesson (steps) into game activities on the canvas.
 // Every interaction is a single tap. Evidence is recorded on the FIRST attempt only; a wrong answer shows the
 // right one (informational feedback) and the child taps it to continue.
-import { W, H, FONT, JP, text, rr, shade, Btn, Particles, drawUI } from './engine.js';
-import { panel, starRow } from './sprites.js';
+import { W, H, FONT, JP, UIF, text, rr, shade, Btn, Particles, drawUI } from './engine.js';
+import { panel, starRow, starShape, cardFace, progress, icon, PAL, INK, INK2 } from './sprites.js';
 import { BANK_JA } from './bankja.js';
 import { background, flow, tileW, drawTile, speaker, bubble, segmentWord, drawSegments, picText, card, speech } from './ui.js';
 import { drawMonster, hatFor } from './monster.js';
@@ -39,6 +39,7 @@ const INSTR = {
   morph: ['ことばは パーツで できているよ', 'Words are built from parts.'],
 };
 
+const faceOfCol = hex => hex;
 const COLS = ['#ff8a5c', '#4aa3e8', '#58c46a', '#a478e8', '#f2b63c'];
 
 export class LessonScene {
@@ -52,7 +53,7 @@ export class LessonScene {
     const { app } = this;
     this.steps = planLesson(app.C, app.state, this.spec, app.rng, Date.now());
     this.ctx = { used: new Set(), unit: this.spec.unit, now: Date.now() };
-    this.home = new Btn({ x: 12, y: 10, w: 64, h: 52, icon: '🏠', size: 30, color: '#e8a23a', onTap: () => this.leave2() });
+    this.home = new Btn({ x: 14, y: 12, w: 68, h: 56, icon: 'home', size: 30, color: '#e6ebf1', onTap: () => this.leave2() });
     this.run().catch(e => { if (!this.dead) console.error(e); });
   }
   leave() { this.dead = true; this.app.audio.stop(); }
@@ -67,20 +68,27 @@ export class LessonScene {
     background(c, this.t, 'day');
     this.drawBar(c);
     const hat = hatFor(Object.values(this.app.state.units).filter(u => u.passed && u.skipped !== true).length);
-    drawMonster(c, 150, 410, 220, { color: this.app.colorHex, mouth: this.mouth, mood: this.mood, t: this.t, hat });
-    if (this.instr && INSTR[this.instr]) speech(c, 14, 72, 282, INSTR[this.instr][0], INSTR[this.instr][1]);
+    drawMonster(c, 168, 412, 212, { color: this.app.colorHex, mouth: this.mouth, mood: this.mood, t: this.t, hat, jump: this.jump || 0 });
+    if (this.fb && this.fb.until > this.t) speech(c, 14, 78, 282, this.fb.ja, this.fb.en, this.fb.ok ? 'ok' : 'bad');
+    else if (this.instr && INSTR[this.instr]) speech(c, 14, 78, 282, INSTR[this.instr][0], INSTR[this.instr][1]);
     this.promptDraw?.(c);
     drawUI(c, [this.home, ...this.ui]);
     this.parts.draw(c);
     if (this.overlay) this.overlay(c);
   }
   drawBar(c) {
-    const n = this.steps?.length || 1, x0 = 100, w = 1000, segW = w / n;
-    rr(c, x0, 22, w, 20, 10); c.fillStyle = 'rgba(255,255,255,.55)'; c.fill();
-    c.save(); rr(c, x0, 22, w, 20, 10); c.clip();
-    c.fillStyle = '#58c46a'; c.fillRect(x0, 22, Math.min(w, segW * (this.stepNo + (this.stepFrac || 0))), 20); c.restore();
-    for (let i = 1; i < n; i++) { c.fillStyle = 'rgba(255,255,255,.8)'; c.fillRect(x0 + segW * i - 1, 22, 2, 20); }
-    if (this.errStreakBar) text(c, '', 0, 0);
+    const n = this.steps?.length || 1, target = Math.min(1, (this.stepNo + (this.stepFrac || 0)) / n);
+    this.barFrac = (this.barFrac ?? 0) + (target - (this.barFrac ?? 0)) * 0.12;
+    progress(c, 98, 26, 1000, 26, this.barFrac);
+    if (this.stepNo >= n) { /* finished */ }
+  }
+  /** The monster reacts out loud: praise on a right answer, a gentle nudge on a wrong one. */
+  react(ok) {
+    const PRAISE = [['すごい！', 'Great!'], ['いいね！', 'Nice!'], ['せいかい！', 'Correct!'], ['やったね！', 'Yes!'], ['ばっちり！', 'Perfect!']];
+    const NUDGE = [['おしい！ もういちど', 'Almost! Try again.'], ['だいじょうぶ！ もういちど', "It's okay. Try again."]];
+    const [ja, en] = ok ? PRAISE[(this.praiseN = ((this.praiseN ?? -1) + 1)) % PRAISE.length] : NUDGE[(this.nudgeN = ((this.nudgeN ?? -1) + 1)) % NUDGE.length];
+    this.fb = { ja, en, ok, until: this.t + (ok ? 1.3 : 1.8) };
+    if (ok) { this.jump = 0; this.eng.tween(this, { jump: -34 }, 150, 'out').then(() => this.eng.tween(this, { jump: 0 }, 420, 'bounce')); }
   }
 
   // ------------------------------------------------------------------ flow
@@ -119,9 +127,9 @@ export class LessonScene {
   async speak(keys, opts) {
     const { app } = this; const list = [].concat(keys); this.speaking = true;
     const my = ++this.speakId || (this.speakId = 1);
-    for (const k of list) {
+    for (const [li, k] of list.entries()) {
       this.alive(); this.mouth = k.startsWith('gpc:') ? app.C.phonemes[app.C.gpcs[k.slice(4)]?.ph?.[0]]?.mouth || 'open' : null;
-      this.talkIdx = list.indexOf(k);
+      this.talkIdx = li;
       await app.audio.play([k], opts); if (this.speakId !== my) return;
     }
     this.mouth = null; this.speaking = false; this.talkIdx = -1;
@@ -141,22 +149,22 @@ export class LessonScene {
     let heard = false, done = false;
     const cards = bank.map((b, i) => new Btn({ x: 400 + i * 250, y: 330, w: 230, h: 230, color: '#fff', shadow: false,
       customDraw: (c, u) => {
-        rr(c, 0, 6, u.w, u.h, 26); c.fillStyle = 'rgba(30,50,70,.3)'; c.fill(); rr(c, 0, 0, u.w, u.h, 26); c.fillStyle = '#fff'; c.fill();
-        picText(c, b[1], u.w / 2, 90, 100);
-        drawSegments(c, segmentWord(b[0], gLabel(g), pos), u.w / 2, 190, 52, '#ff5a3c', '#23394b', u.w - 24);
+        const o = cardFace(c, 0, 0, u.w, u.h, 'idle', u.press);
+        picText(c, b[1], u.w / 2, 92 + o, 100);
+        drawSegments(c, segmentWord(b[0], gLabel(g), pos), u.w / 2, 186 + o, 52, '#ff5a3c', INK, u.w - 24);
       }, onTap: () => this.speak('b:' + b[0]) }));
     const big = new Btn({ x: 520, y: 80, w: 330, h: 230, color: '#fff', shadow: false,
       customDraw: (c, u) => {
-        rr(c, 0, 8, u.w, u.h, 40); c.fillStyle = 'rgba(30,50,70,.3)'; c.fill(); rr(c, 0, 0, u.w, u.h, 40); c.fillStyle = '#fff4c2'; c.fill(); c.lineWidth = 6; c.strokeStyle = '#ffd23f'; c.stroke();
-        text(c, gLabel(g), u.w / 2, u.h / 2 + 8, { size: gLabel(g).length > 1 ? 150 : 190, color: '#ff5a3c' });
+        panel(c, 0, 0, u.w, u.h - 6, { r: 44, fill: '#fff6d6', border: '#ffd86b', lip: '#f1c24a' });
+        text(c, gLabel(g), u.w / 2, u.h / 2 + 4, { size: gLabel(g).length > 1 ? 150 : 190, color: '#ff5a3c' });
       }, onTap: () => { heard = true; return this.speak('gpc:' + g.id); } });
-    const spk = new Btn({ x: 880, y: 140, w: 110, h: 110, shadow: false, customDraw: (c, u) => speaker(c, 55, 55, 52, this.speaking), onTap: () => { heard = true; this.speak('gpc:' + g.id); } });
-    const next = new Btn({ x: 1180, y: 480, w: 160, h: 90, icon: '▶', size: 54, color: '#58c46a', onTap: () => { if (heard) done = true; } });
+    const spk = new Btn({ x: 880, y: 140, w: 110, h: 110, shadow: false, customDraw: (c, u) => speaker(c, 55, 55, 52, this.speaking, this.t), onTap: () => { heard = true; this.speak('gpc:' + g.id); } });
+    const next = new Btn({ x: 1170, y: 474, w: 172, h: 96, icon: 'play', size: 54, color: '#5bd16f', onTap: () => { if (heard) done = true; } });
     this.ui = [big, spk, ...cards, next];
     this.promptDraw = c => {
-      if (step.reteach) text(c, '🔁', 1030, 130, { size: 60 });
+      if (step.reteach) icon(c, 'replay', 1040, 130, 56, { color: '#ff9f4a', shadow: 3 });
       next.enabled = heard; next.pop = heard ? 1 + Math.sin(this.t * 6) * 0.04 : 1;
-      if (!heard) text(c, '👆', 700, 300 + Math.sin(this.t * 5) * 6, { size: 44 });
+      if (!heard) icon(c, 'tap', 690, 296 + Math.sin(this.t * 5) * 7, 60, { color: '#ff9f4a', shadow: 3 });
     };
     this.speak('gpc:' + g.id).then(() => { heard = true; });
     await new Promise(r => { const iv = setInterval(() => { if (done || this.dead) { clearInterval(iv); r(); } }, 60); });
@@ -170,17 +178,17 @@ export class LessonScene {
   async heartIntro(id) {
     const { app } = this, t = app.C.tricky[id]; this.mood = 'happy'; this.instr = 'heart'; let done = false, heard = false;
     const word = new Btn({ x: 400, y: 120, w: 700, h: 210, shadow: false, customDraw: (c, u) => {
-      rr(c, 0, 8, u.w, u.h, 40); c.fillStyle = 'rgba(30,50,70,.3)'; c.fill(); rr(c, 0, 0, u.w, u.h, 40); c.fillStyle = '#fff'; c.fill();
+      panel(c, 0, 0, u.w, u.h - 6, { r: 40 });
       const letters = t.parts.flatMap(p => p.replace('*', '').split('').map(ch => ({ ch, heart: p.startsWith('*') })));
       c.font = `bold 130px ${FONT}`; const ws = letters.map(l => c.measureText(l.ch).width + 8); const tw = ws.reduce((a, b) => a + b, 0); let x = u.w / 2 - tw / 2;
-      letters.forEach((l, i) => { text(c, l.ch, x + ws[i] / 2, 120, { size: 130, color: l.heart ? '#e8365d' : '#23394b' }); if (l.heart) text(c, '♥', x + ws[i] / 2, 40, { size: 40, color: '#e8365d' }); x += ws[i]; });
+      letters.forEach((l, i) => { text(c, l.ch, x + ws[i] / 2, 120, { size: 130, color: l.heart ? '#e8365d' : '#23394b' }); if (l.heart) icon(c, 'heart', x + ws[i] / 2, 36, 40, { color: '#ff5a78' }); x += ws[i]; });
     }, onTap: () => { heard = true; this.speak('w:' + id); } });
     const note = new Btn({ x: 400, y: 350, w: 700, h: 120, shadow: false, customDraw: (c, u) => {
-      rr(c, 0, 0, u.w, u.h, 30); c.fillStyle = 'rgba(255,255,255,.88)'; c.fill();
-      text(c, t.noteJa, u.w / 2, 38, { size: 30, color: '#23394b', font: JP });
-      text(c, t.noteEn, u.w / 2, 86, { size: 26, color: '#4a6275', weight: 'normal' });
+      panel(c, 0, 0, u.w, u.h - 6, { r: 30 });
+      text(c, t.noteJa, u.w / 2, 40, { size: 30, color: INK, font: JP, weight: '800' });
+      text(c, t.noteEn, u.w / 2, 88, { size: 24, color: INK2, font: UIF, weight: '600' });
     }, onTap: () => { heard = true; this.speak('w:' + id); } });
-    const next = new Btn({ x: 1180, y: 480, w: 160, h: 90, icon: '▶', size: 54, color: '#58c46a', onTap: () => { done = true; } });
+    const next = new Btn({ x: 1170, y: 474, w: 172, h: 96, icon: 'play', size: 54, color: '#5bd16f', onTap: () => { done = true; } });
     this.ui = [word, note, next];
     this.promptDraw = null; this.speak('w:' + id);
     await new Promise(r => { const iv = setInterval(() => { if (done || this.dead) { clearInterval(iv); r(); } }, 60); });
@@ -190,7 +198,7 @@ export class LessonScene {
 
   // ------------------------------------------------------------------ questions
   async ask(q) {
-    this.mood = 'idle'; this.cur = q; this.instr = q.act;
+    this.mood = 'idle'; this.cur = q; this.instr = q.act; this.fb = null;
     const r = (q.type === 'choice' || q.type === 'chain') ? await this.askChoice(q) : await this.askBuild(q);
     this.cur = null; this.bld = null; return r;
   }
@@ -198,44 +206,49 @@ export class LessonScene {
   /** Draw the shared prompt area above the answers. */
   makePrompt(q, state) {
     const { app } = this, p = q.prompt || {};
-    const replay = new Btn({ x: 505, y: 95, w: 96, h: 96, shadow: false, customDraw: (c, u) => speaker(c, 48, 48, 44, this.speaking), onTap: () => this.playPrompt(q), visible: !!(p.audio && p.audio.length) });
+    const replay = new Btn({ x: 500, y: 92, w: 100, h: 100, shadow: false, customDraw: (c, u) => speaker(c, 50, 50, 46, this.speaking, this.t), onTap: () => this.playPrompt(q), visible: !!(p.audio && p.audio.length) });
+    const lit = i => this.speaking && this.talkIdx === i;
     this.promptDraw = c => {
-      // speech bubble from the monster
       if (q.type === 'choice' || q.type === 'chain') {
         if (p.grapheme) {
-          rr(c, 640, 70, 250, 215, 36); c.fillStyle = '#fff4c2'; c.fill(); c.lineWidth = 6; c.strokeStyle = '#ffd23f'; c.stroke();
-          text(c, p.grapheme, 765, p.context ? 150 : 178, { size: p.grapheme.length > 1 ? 120 : 160, color: '#ff5a3c' });
+          panel(c, 640, 70, 250, 215, { r: 40, fill: '#fff6d6', border: '#ffd86b', lip: '#f1c24a' });
+          text(c, p.grapheme, 765, p.context ? 148 : 172, { size: p.grapheme.length > 1 ? 120 : 160, color: '#ff5a3c' });
           if (p.context) drawSegments(c, segmentWord(p.context, 's', 'final'), 765, 245, 54);
-          // position cue: a word bar with the start or end highlighted
+          // position cue: a word bar with the start / middle / end lit
           const fin = p.position === 'final', mid = p.position === 'inside';
-          for (let i = 0; i < 4; i++) { rr(c, 940 + i * 36, 160, 30, 30, 8); c.fillStyle = (mid ? (i === 1 || i === 2) : fin ? i === 3 : i === 0) ? '#ff5a3c' : '#d6e4ee'; c.fill(); }
-          text(c, mid ? 'なかの おと' : fin ? 'おわりの おと' : 'はじめの おと', 1030, 220, { size: 26, color: '#2d4a5e', font: JP });
+          for (let i = 0; i < 4; i++) { const on = (mid ? (i === 1 || i === 2) : fin ? i === 3 : i === 0); c.fillStyle = on ? '#d8472b' : 'rgba(0,0,0,.12)'; c.beginPath(); c.roundRect(942 + i * 38, 168, 32, 32, 9); c.fill(); c.fillStyle = on ? '#ff6b4a' : '#fff'; c.beginPath(); c.roundRect(942 + i * 38, 164, 32, 32, 9); c.fill(); }
+          text(c, mid ? 'なかの おと' : fin ? 'おわりの おと' : 'はじめの おと', 1032, 228, { size: 26, color: INK, font: JP, weight: '900', stroke: { w: 6, c: 'rgba(255,255,255,.9)' } });
         } else if (p.text) {
-          rr(c, 600, 70, 380, 200, 36); c.fillStyle = '#fff'; c.fill(); c.lineWidth = 5; c.strokeStyle = '#bcd3e3'; c.stroke();
-          { let sz = p.text.length > 4 ? 96 : 120; c.font = `bold ${sz}px ${FONT}`; const mw = c.measureText(p.text).width; if (mw > 350) sz = Math.floor(sz * 350 / mw);
-            text(c, p.text, 790, 172, { size: sz, color: '#23394b' }); }
+          panel(c, 600, 70, 380, 200, { r: 40 });
+          { let sz = p.text.length > 4 ? 96 : 120; c.font = `bold ${sz}px ${FONT}`; const mw = c.measureText(p.text).width; if (mw > 340) sz = Math.floor(sz * 340 / mw);
+            text(c, p.text, 790, 172, { size: sz, color: INK }); }
         } else if (p.talk) {
-          const n = p.talk.length;
-          for (let i = 0; i < n; i++) { const on = this.talkIdx === i || state.revealed; rr(c, 790 - (n * 100) / 2 + i * 100, 130, 84, 84, 42); c.fillStyle = on ? '#ffd23f' : 'rgba(255,255,255,.7)'; c.fill(); c.lineWidth = 4; c.strokeStyle = '#fff'; c.stroke(); }
-          text(c, '👂', 790, 100, { size: 40 });
-          if (p.pic && state.revealed) picText(c, p.pic, 1000, 170, 110);
+          // sound pips: one per sound, lit as each is spoken (by position, never by identity)
+          const n = p.talk.length, x0 = 790 - ((n - 1) * 104) / 2;
+          for (let i = 0; i < n; i++) { const on = lit(i) || state.revealed, x = x0 + i * 104;
+            c.fillStyle = on ? '#dc9a10' : '#2386cc'; c.beginPath(); c.arc(x, 192, 46, 0, 7); c.fill(); c.fillStyle = on ? '#ffc83d' : '#42b4f5'; c.beginPath(); c.arc(x, 185, 46, 0, 7); c.fill();
+            icon(c, 'speaker', x, 185, 46, { color: '#fff' }); }
+          icon(c, 'listen', 790, 92, 56, { color: '#fff', shadow: 3 });
+          if (p.pic && state.revealed) picText(c, p.pic, 1010, 170, 110);
         } else if (q.type === 'chain') {
           const tiles = q.start.map(l => ({ l, w: tileW(l, 70) })); const fill = state.filled;
           let x = 560; const total = tiles.reduce((s, t) => s + t.w + 14, 0) - 14; x = 790 - total / 2;
           tiles.forEach((t, i) => { const isPos = i === q.pos; const label = isPos ? (fill ? q.options[q.answer].label : '?') : t.l;
-            drawTile(c, x, 92, t.w, 100, label, { size: 70, state: isPos ? (fill ? 'right' : 'ghost') : 'idle', hot: isPos && !fill }); x += t.w + 14; });
-          if (p.pic) picText(c, p.pic, 1040, 140, 90);
+            drawTile(c, x, 92, t.w, 108, label, { size: 70, state: isPos ? (fill ? 'right' : 'ghost') : 'idle', hot: isPos && !fill }); x += t.w + 14; });
+          if (p.pic) picText(c, p.pic, 1040, 146, 90);
         } else if (p.pic) {
           picText(c, p.pic, 790, 150, 130);
         } else if (p.oral && !p.pic && q.act !== 'same-different') {
-          text(c, '👂', 790, 150, { size: 120 });
+          icon(c, 'listen', 790, 150, 120, { color: '#fff', shadow: 4 });
         } else if (p.monster) {
-          text(c, '❓', 790, 150, { size: 120 }); text(c, '👽', 880, 110, { size: 60 });
+          // a silly made-up word: a mystery monster
+          drawMonster(c, 790, 170, 130, { color: '#a97cf8', mood: 'think', t: this.t });
+          text(c, '?', 880, 96, { size: 70, color: '#fff', font: UIF, weight: '900', stroke: { w: 10, c: '#7a50d0' } });
         } else if (p.oral && q.act === 'same-different') {
-          [0, 1].forEach(i => { const on = this.speaking && (this.talkIdx === i || this.talkIdx < 0);
-            c.beginPath(); c.arc(700 + i * 190, 160, 62, 0, 7); c.fillStyle = on ? '#ffd23f' : '#fff'; c.fill(); c.lineWidth = 6; c.strokeStyle = on ? '#fff' : '#9fd4f2'; c.stroke();
-            text(c, '🔊', 700 + i * 190, 150, { size: 48 }); text(c, String(i + 1), 700 + i * 190, 205, { size: 30, color: '#2d4a5e' }); });
-          text(c, '?', 795, 160, { size: 70, color: '#ff7a3c' });
+          // two numbered speakers, lit strictly by play ORDER so the picture never reveals whether the sounds match
+          [0, 1].forEach(i => speaker(c, 690 + i * 200, 150, 58, lit(i), this.t));
+          [0, 1].forEach(i => text(c, String(i + 1), 690 + i * 200, 232, { size: 34, color: INK, font: UIF, weight: '900', stroke: { w: 7, c: 'rgba(255,255,255,.9)' } }));
+          text(c, '?', 790, 150, { size: 80, color: '#ff9f4a', font: UIF, weight: '900', stroke: { w: 10, c: '#fff' } });
         }
       }
     };
@@ -270,17 +283,23 @@ export class LessonScene {
       customDraw: (c, u) => {
         const dx = Math.sin(u.shake * 40) * 10 * u.shake;
         c.translate(dx, 0);
-        const fill = u.st === 'right' ? '#8ee59a' : u.st === 'wrong' ? '#ffb3a8' : '#fff';
-        card(c, u.w, u.h, { r: 28, fill, hot: u.glow > 0 });
+        const off = cardFace(c, 0, 0, u.w, u.h, u.st === 'right' ? 'right' : u.st === 'wrong' ? 'wrong' : 'idle', u.press, u.glow > 0 && u.st !== 'right');
+        const bodyH = u.h - 8;
         if (o.pic) {
           const ja = o.word && (app.C.words[o.word]?.ja || BANK_JA[o.word]);
-          picText(c, o.pic, u.w / 2, ja ? u.h / 2 - 14 : u.h / 2 + 4, ja ? 108 : 120);
-          if (ja) text(c, ja, u.w / 2, u.h - 40, { size: ja.length > 7 ? 22 : 28, color: '#4a6275', font: JP });
-          if (naming && o.word) { c.beginPath(); c.arc(38, 40, 28, 0, 7); c.fillStyle = '#2e9cca'; c.fill(); c.lineWidth = 3; c.strokeStyle = '#fff'; c.stroke(); text(c, '🔊', 38, 41, { size: 28 }); }
+          picText(c, o.pic, u.w / 2, off + (ja ? bodyH / 2 - 16 : bodyH / 2), ja ? 104 : 120);
+          if (ja) text(c, ja, u.w / 2, off + bodyH - 34, { size: ja.length > 7 ? 22 : 28, color: INK2, font: JP, weight: '800' });
+          if (naming && o.word) { c.fillStyle = '#2386cc'; c.beginPath(); c.arc(40, off + 42 + 3, 29, 0, 7); c.fill(); c.fillStyle = '#42b4f5'; c.beginPath(); c.arc(40, off + 42, 29, 0, 7); c.fill(); icon(c, 'speaker', 40, off + 42, 30, { color: '#fff' }); }
         }
-        else if (o.icon === 'same' || o.icon === 'diff') { text(c, o.icon === 'same' ? '＝' : '≠', u.w / 2, u.h / 2 - 24, { size: 100, color: o.icon === 'same' ? '#2f9e44' : '#d8402c' }); text(c, o.icon === 'same' ? 'おなじ' : 'ちがう', u.w / 2, u.h - 52, { size: 34, color: '#23394b', font: JP }); text(c, o.icon === 'same' ? 'same' : 'different', u.w / 2, u.h - 22, { size: 20, color: '#5b7388', weight: 'normal' }); }
-        else text(c, o.label, u.w / 2, u.h / 2 + 6, { size: Math.min(o.label.length > 3 ? 78 : o.label.length > 1 ? 100 : 120, Math.floor((u.w - 30) / (o.label.length * 0.6))), color: '#23394b' });
-        if (u.st === 'wrong') text(c, '✖', u.w - 30, 30, { size: 34, color: '#d8402c' });
+        else if (o.icon === 'same' || o.icon === 'diff') {
+          const same = o.icon === 'same', col = same ? PAL.Green : PAL.Red;
+          c.fillStyle = col[1]; c.beginPath(); c.arc(u.w / 2, off + 66, 46, 0, 7); c.fill(); c.fillStyle = col[0]; c.beginPath(); c.arc(u.w / 2, off + 60, 46, 0, 7); c.fill();
+          icon(c, same ? 'equal' : 'notequal', u.w / 2, off + 60, 50, { color: '#fff' });
+          text(c, same ? 'おなじ' : 'ちがう', u.w / 2, off + bodyH - 56, { size: 34, color: INK, font: JP, weight: '900' }); text(c, same ? 'same' : 'different', u.w / 2, off + bodyH - 22, { size: 20, color: INK2, font: UIF, weight: '800' });
+        }
+        else { let sz = o.label.length > 3 ? 78 : o.label.length > 1 ? 100 : 120; c.font = `bold ${sz}px ${FONT}`; const mw = c.measureText(o.label).width; if (mw > u.w - 40) sz = Math.floor(sz * (u.w - 40) / mw); text(c, o.label, u.w / 2, off + bodyH / 2 + 4, { size: sz, color: INK }); }
+        if (u.st === 'wrong') { c.fillStyle = '#ff6b6b'; c.beginPath(); c.arc(u.w - 30, 30, 20, 0, 7); c.fill(); icon(c, 'cross', u.w - 30, 30, 20, { color: '#fff' }); }
+        if (u.st === 'right') { c.fillStyle = '#35b454'; c.beginPath(); c.arc(u.w - 30, 30, 20, 0, 7); c.fill(); icon(c, 'check', u.w - 30, 30, 20, { color: '#fff' }); }
       },
       onTap: async (u, px, py) => {
         if (naming && o.word && px - u.x < 76 && py - u.y < 80) { this.speak(['b:' + o.word]); return; }   // 🔊 badge: hear the picture's name without answering
@@ -288,7 +307,7 @@ export class LessonScene {
         const ok = u.idx === q.answer;
         if (!first) { first = { ok, lat: performance.now() - tStart, lure: o.gpc }; this.record(q, first); }
         if (ok) {
-          done = true; u.st = 'right'; this.sfx('good'); this.mood = 'happy'; state.revealed = true; state.filled = true;
+          done = true; u.st = 'right'; this.sfx('good'); this.mood = 'happy'; this.react(true); state.revealed = true; state.filled = true;
           this.parts.burst(u.x + u.w / 2, u.y + u.h / 2, first.ok && first.lat != null ? 16 : 8);
           this.stopSpeak();
           const after = q.prompt.after || (q.act === 'listen-pick' ? [] : []);
@@ -297,7 +316,7 @@ export class LessonScene {
           await app.eng.wait(350);
           this.resolveAsk?.(first);
         } else {
-          u.st = 'wrong'; this.sfx('bad'); this.mood = 'oops'; app.eng.tween(u, { shake: 1 }, 1, 'linear'); u.shake = 1; app.eng.tween(u, { shake: 0 }, 450, 'out');
+          u.st = 'wrong'; this.sfx('bad'); this.mood = 'oops'; this.react(false); app.eng.tween(u, { shake: 1 }, 1, 'linear'); u.shake = 1; app.eng.tween(u, { shake: 0 }, 450, 'out');
           const right = opts[q.answer]; right.glow = 1;
           this.hintAudio(q); setTimeout(() => { if (!this.dead) this.mood = 'idle'; }, 900);
         }
@@ -357,12 +376,12 @@ export class LessonScene {
       const allOk = oks.every(Boolean);
       if (!first) { first = { ok: allOk, lat: null, tokOk: sentence ? oks : undefined }; this.record(q, first); }
       if (allOk) {
-        slotItems.forEach(s => { s.st = 'right'; trayItems[s.filled].st = 'right'; }); this.sfx('good'); this.mood = 'happy';
+        slotItems.forEach(s => { s.st = 'right'; trayItems[s.filled].st = 'right'; }); this.sfx('good'); this.mood = 'happy'; this.react(true);
         this.parts.burst(cx, 260, 18);
         await this.speak(sentence ? ['sent:' + q.text] : [q.act === 'heart-build' ? 'w:' + q.tricky : 'w:' + q.word]);
         await app.eng.wait(350); this.finishBuild(first); return;
       }
-      this.sfx('bad'); this.mood = 'oops';
+      this.sfx('bad'); this.mood = 'oops'; this.react(false);
       slotItems.forEach((s, i) => { if (!oks[i]) { s.st = 'wrong'; trayItems[s.filled].st = 'wrong'; trayItems[s.filled].shake = 1; } });
       await app.eng.wait(700); this.mood = 'idle';
       if (state.attempts >= 3) { // reveal the answer: place the right tiles
@@ -377,20 +396,20 @@ export class LessonScene {
       customDraw: () => {}, onTap: () => (t.placed >= 0 ? unplace(t) : place(t)) }));
     // tiles move, so hit areas follow them each frame
     const slotsUI = slotItems.map(s => new Btn({ x: s.x, y: s.y, w: s.w, h: slotH, shadow: false, customDraw: () => {}, onTap: () => { if (s.filled >= 0) unplace(trayItems[s.filled]); } }));
-    const replay = new Btn({ x: 505, y: 95, w: 96, h: 96, shadow: false, customDraw: (c, u) => speaker(c, 48, 48, 44, this.speaking), onTap: () => this.speak(q.prompt.audio, {}) });
+    const replay = new Btn({ x: 500, y: 92, w: 100, h: 100, shadow: false, customDraw: (c, u) => speaker(c, 50, 50, 46, this.speaking, this.t), onTap: () => this.speak(q.prompt.audio, {}) });
     const hearts = q.hearts || [];
     this.promptDraw = c => {
       if (q.prompt.pic) picText(c, q.prompt.pic, 760, 150, 110);
-      else if (!q.prompt.pic && !sentence) text(c, '👂', 760, 150, { size: 90 });
+      else if (!q.prompt.pic && !sentence) icon(c, 'listen', 700, 130, 64, { color: '#fff', shadow: 3 });
       slotItems.forEach((s, i) => {
         drawTile(c, s.x, s.y, s.w, slotH, '', { state: s.st === 'right' ? 'right' : s.st === 'wrong' ? 'wrong' : 'ghost', size });
-        if (hearts[i]) text(c, '♥', s.x + s.w / 2, s.y - 16, { size: 30, color: '#e8365d' });
+        if (hearts[i]) icon(c, 'heart', s.x + s.w / 2, s.y - 14, 28, { color: '#ff5a78', shadow: 2 });
       });
       for (const t of trayItems) {
         const dx = Math.sin(t.shake * 40) * 8 * t.shake;
         drawTile(c, t.cx + dx, t.cy, t.w, slotH, t.label, { size, state: t.st === 'idle' ? 'idle' : t.st });
         // empty tray home outline
-        if (t.placed >= 0) { rr(c, t.x, t.y, t.w, slotH, 20); c.fillStyle = 'rgba(255,255,255,.2)'; c.fill(); }
+        if (t.placed >= 0) { c.fillStyle = 'rgba(40,80,120,.12)'; c.beginPath(); c.roundRect(t.x, t.y + 4, t.w, slotH - 6, 24); c.fill(); }
       }
     };
     // hit regions follow tiles
@@ -416,29 +435,30 @@ export class LessonScene {
       if (step.kind === 'morph') return w.morph;
       const letters = w.g.map(g => C.gpcs[g].g); let k = 0; return w.syl.map(n => { const part = letters.slice(k, k + n).join(''); k += n; return part; });
     };
-    const next = new Btn({ x: 1180, y: 480, w: 160, h: 90, icon: '▶', size: 54, color: '#58c46a', onTap: async () => {
+    const next = new Btn({ x: 1170, y: 474, w: 172, h: 96, icon: 'play', size: 54, color: '#5bd16f', onTap: async () => {
       if (step.kind === 'syl') { if (phase < 2) { phase++; anim = 0; app.eng.tween(this, { _a: 1 }, 1, 'linear'); if (phase === 2) this.speak('w:' + words[wi].id); } else if (++wi >= words.length) done = true; else { phase = 0; this.speak('w:' + words[wi].id); } }
       else { if (phase < 2) { phase++; if (phase === 2) this.speak('w:' + words[wi].id); } else if (++wi >= words.length) done = true; else { phase = 0; this.speak('w:' + words[wi].id); } }
     } });
-    const hear = new Btn({ x: 350, y: 85, w: 100, h: 100, shadow: false, customDraw: (c) => speaker(c, 50, 50, 46, this.speaking), onTap: () => this.speak('w:' + words[wi].id) });
+    const hear = new Btn({ x: 350, y: 85, w: 100, h: 100, shadow: false, customDraw: (c) => speaker(c, 50, 50, 46, this.speaking, this.t), onTap: () => this.speak('w:' + words[wi].id) });
     this.ui = [hear, next];
     this.promptDraw = c => {
       const w = words[Math.min(wi, words.length - 1)], ps = phase === 0 ? [w.t] : parts(w), size = 84;
       panel(c, 330, 70, 860, 400);
-      text(c, step.kind === 'syl' ? 'おとの かたまり（シラブル）' : 'ことばの パーツ', 760, 108, { size: 30, color: '#2d4a5e', font: JP });
+      text(c, step.kind === 'syl' ? 'おとの かたまり（シラブル）' : 'ことばの パーツ', 760, 110, { size: 30, color: INK, font: JP, weight: '900' });
       if (w.pic) picText(c, w.pic, 960, 190, 90);
       c.font = `bold ${size}px ${FONT}`;
       const gap = phase === 0 ? 0 : 36, ws = ps.map(p => c.measureText(p).width + 36), plus = step.kind === 'morph' && phase === 1 ? 40 : 0;
       const tw = ws.reduce((a, b) => a + b, 0) + gap * (ps.length - 1) + plus * (ps.length - 1); let x = 760 - tw / 2;
       ps.forEach((p, i) => {
         const lift = phase === 2 && step.kind === 'syl' ? -Math.abs(Math.sin(this.t * 5 + i * 1.6)) * 14 : 0;
-        rr(c, x, 250 + lift, ws[i], 130, 24); c.fillStyle = phase === 0 ? '#fff' : COL[i % COL.length] + '33'; c.fill(); c.lineWidth = 5; c.strokeStyle = phase === 0 ? '#bcd3e3' : COL[i % COL.length]; c.stroke();
-        text(c, p, x + ws[i] / 2, 318 + lift, { size, color: phase === 0 ? '#23394b' : COL[i % COL.length] });
+        const fam = phase === 0 ? null : faceOfCol(COL[i % COL.length]);
+        cardFace(c, x, 250 + lift, ws[i], 138, 'idle', 0, false); if (fam) { c.fillStyle = fam + '22'; c.beginPath(); c.roundRect(x, 250 + lift, ws[i], 130, 28); c.fill(); }
+        text(c, p, x + ws[i] / 2, 316 + lift, { size, color: phase === 0 ? INK : COL[i % COL.length] });
         x += ws[i] + gap; if (i < ps.length - 1 && plus) { text(c, '+', x - gap / 2 + plus / 2 - 4, 318, { size: 56, color: '#23394b' }); x += plus; }
       });
       if (step.kind === 'syl' && phase >= 1) text(c, ps.map((_, i) => '👏').join(' ') + '  ' + ps.length, 760, 430, { size: 44 });
       if (step.kind === 'morph' && phase === 2) text(c, w.morph.join(' + ') + ' = ' + w.t, 760, 430, { size: 44, color: '#23394b' });
-      if (phase === 0) text(c, '👆', 1100, 440 + Math.sin(this.t * 5) * 6, { size: 40 });
+      if (phase === 0) icon(c, 'tap', 1110, 430 + Math.sin(this.t * 5) * 6, 52, { color: '#ff9f4a', shadow: 3 });
     };
     this.speak('w:' + words[0].id);
     await new Promise(r => { const iv = setInterval(() => { if (done || this.dead) { clearInterval(iv); r(); } }, 60); });
@@ -461,16 +481,16 @@ export class LessonScene {
       flow(items, 880, 270, 700, 6, 96);
       const wordBtns = items.map(it => new Btn({ x: it.x, y: it.y, w: it.w, h: 84, shadow: false, customDraw: (c, u) => {
         const on = hl === it.i, helpedNow = helped.has(pi + ':' + it.i);
-        if (on || helpedNow) { rr(c, 0, 0, u.w, u.h, 18); c.fillStyle = on ? '#ffe680' : 'rgba(255,214,102,.35)'; c.fill(); }
-        text(c, it.t.raw, u.w / 2, u.h / 2 + 4, { size: sz, color: '#23394b' });
+        if (on || helpedNow) { c.fillStyle = on ? '#ffe27a' : 'rgba(255,214,102,.38)'; c.beginPath(); c.roundRect(0, 4, u.w, u.h - 4, 20); c.fill(); }
+        text(c, it.t.raw, u.w / 2, u.h / 2 + 4, { size: sz, color: INK });
       }, onTap: () => { if (read === 1) helped.add(pi + ':' + it.i); this.speak('w:' + it.t.key); } }));
-      const listen = new Btn({ x: 1180, y: 110, w: 130, h: 110, shadow: false, customDraw: (c, u) => speaker(c, 65, 55, 50, this.speaking), onTap: () => this.readAlong(page.text, tk, i => { hl = i; }) });
-      const next = new Btn({ x: 1180, y: 480, w: 160, h: 90, icon: '▶', size: 54, color: '#58c46a', onTap: () => { done = true; } });
+      const listen = new Btn({ x: 1180, y: 110, w: 130, h: 110, shadow: false, customDraw: (c, u) => speaker(c, 65, 55, 50, this.speaking, this.t), onTap: () => this.readAlong(page.text, tk, i => { hl = i; }) });
+      const next = new Btn({ x: 1170, y: 474, w: 172, h: 96, icon: 'play', size: 54, color: '#5bd16f', onTap: () => { done = true; } });
       this.ui = [...wordBtns, listen, next];
       this.promptDraw = c => {
         panel(c, 340, 70, 1000, 400);
-        picText(c, page.pic, 520, 200, page.pic.length > 3 ? 100 : 130); text(c, `${pi + 1}/${st.pages.length}`, 400, 100, { size: 26, color: '#7d95a8' });
-        text(c, read === 1 ? 'タップ：わからないことば' : read === 2 ? '▶ きいて いっしょに よもう' : 'よんでみよう', 760, 100, { size: 24, color: '#7d95a8', font: JP });
+        picText(c, page.pic, 520, 200, page.pic.length > 3 ? 100 : 130); text(c, `${pi + 1} / ${st.pages.length}`, 410, 104, { size: 26, color: INK2, font: UIF, weight: '900' });
+        text(c, read === 1 ? 'タップ：わからない ことば' : read === 2 ? 'きいて いっしょに よもう' : 'よんでみよう', 780, 104, { size: 24, color: INK2, font: JP, weight: '800' });
         next.pop = 1 + Math.sin(this.t * 5) * 0.03;
       };
       if (read === 2) this.readAlong(page.text, tk, i => { hl = i; });
@@ -499,11 +519,11 @@ export class LessonScene {
     let first = null, done = false;
     this.cur = { type: 'choice', act: 'story-q', answer: opts.findIndex(o => o.ok) };
     const btns = opts.map((o, i) => new Btn({ x: 520 + i * 270, y: 320, w: 240, h: 230, shadow: false, st: 'idle', idx: i,
-      customDraw: (c, u) => { rr(c, 0, 8, u.w, u.h, 28); c.fillStyle = 'rgba(30,50,70,.3)'; c.fill(); rr(c, 0, 0, u.w, u.h, 28); c.fillStyle = u.st === 'right' ? '#8ee59a' : u.st === 'wrong' ? '#ffb3a8' : '#fff'; c.fill(); picText(c, o.pic, u.w / 2, u.h / 2, 120); },
+      customDraw: (c, u) => { const off = cardFace(c, 0, 0, u.w, u.h, u.st === 'right' ? 'right' : u.st === 'wrong' ? 'wrong' : 'idle', u.press); picText(c, o.pic, u.w / 2, off + (u.h - 8) / 2, 120); },
       onTap: async u => { if (done || u.st === 'wrong') return; if (first === null) first = !!o.ok;
-        if (o.ok) { done = true; u.st = 'right'; this.sfx('good'); this.mood = 'happy'; this.parts.burst(u.x + 120, u.y + 100, 20); await app.eng.wait(700); } else { u.st = 'wrong'; this.sfx('bad'); } } }));
+        if (o.ok) { done = true; u.st = 'right'; this.sfx('good'); this.mood = 'happy'; this.react(true); this.parts.burst(u.x + 120, u.y + 100, 20); await app.eng.wait(700); } else { u.st = 'wrong'; this.sfx('bad'); this.react(false); } } }));
     this.ui = btns;
-    this.promptDraw = c => { rr(c, 380, 70, 940, 200, 36); c.fillStyle = '#fff'; c.fill(); drawSegments(c, [{ s: q.q, hot: false }], 850, 140, q.q.length > 22 ? 48 : 60); text(c, '👂', 430, 110, { size: 44 }); };
+    this.promptDraw = c => { panel(c, 380, 70, 940, 200, { r: 40 }); drawSegments(c, [{ s: q.q, hot: false }], 880, 170, q.q.length > 22 ? 48 : 60, '#ff5a3c', INK, 840); icon(c, 'listen', 440, 120, 50, { color: '#42b4f5' }); };
     this.speak(['sent:' + q.q]);
     await new Promise(r => { const iv = setInterval(() => { if (done || this.dead) { clearInterval(iv); r(); } }, 60); });
     this.alive(); this.ui = []; this.promptDraw = null; this.mood = 'idle'; this.cur = null;
@@ -532,7 +552,7 @@ export class LessonScene {
     const au = C.units.find(u => u.id === this.spec.unit), us = app.state.units[this.spec.unit] || {};
     const total = au?.lessons.length || 0, doneN = au ? au.lessons.filter(l => us.lessonsDone?.[l.id]).length : 0;
     const newSounds = (this.spec.newGpcs || []).map(g => C.gpcs[g]).filter(Boolean).map(g => gLabel(g)).slice(0, 6);
-    const homeBtn = new Btn({ x: 400, y: 470, w: 170, h: 100, label: '🏠 ホーム', size: 28, color: '#e8a23a', font: JP, onTap: () => { this.dead = true; app.goHome(); } });
+    const homeBtn = new Btn({ x: 400, y: 470, w: 170, h: 100, icon: 'home', label: 'ホーム', size: 26, color: '#ff9f4a', font: JP, onTap: () => { this.dead = true; app.goHome(); } });
     const nextBtn = nxt && new Btn({ x: 600, y: 470, w: 560, h: 100, label: '▶ つぎの レッスン  Next lesson', size: 36, font: JP, color: '#58c46a', onTap: () => goLesson(nxt) });
     this.ui = nextBtn ? [homeBtn, nextBtn] : [new Btn({ x: 480, y: 470, w: 600, h: 100, label: '▶ ホームへ  Home', size: 38, font: JP, color: '#58c46a', onTap: () => { this.dead = true; app.goHome(); } })];
     this.promptDraw = c => {
