@@ -525,21 +525,32 @@ export class LessonScene {
     const unitDone = complete && app.state.units[this.spec.unit]?.passed && !this.unitWasPassed;
     await app.save(true);
     this.alive(); this.ui = []; this.promptDraw = null; this.mood = 'happy';
-    let pos = 0; const gemObjs = gems.map((g, i) => ({ g, y: -80, x: 700 + (i - (gems.length - 1) / 2) * 140, s: 0 }));
+    let pos = 0; const gemObjs = gems.map((g, i) => ({ g, y: -80, x: 700 + (i - (gems.length - 1) / 2) * 90, s: 0 }));
     this.overlay = null;
-    const home = new Btn({ x: 590, y: 470, w: 200, h: 100, icon: '▶', size: 60, color: '#58c46a', onTap: () => { this.dead = true; app.goHome(); } });
-    this.ui = [home];
+    const goLesson = nx => { this.dead = true; const sp = nx.kind === 'practice' ? practiceSpec(nx.unit) : C.lessons[nx.lessonId]; app.eng.go(new LessonScene(app, sp)); };
+    const nxt = (complete && !this.stopped && !isCp) ? M.nextLesson(C, app.state) : (isCp ? M.nextLesson(C, app.state) : null);
+    const au = C.units.find(u => u.id === this.spec.unit), us = app.state.units[this.spec.unit] || {};
+    const total = au?.lessons.length || 0, doneN = au ? au.lessons.filter(l => us.lessonsDone?.[l.id]).length : 0;
+    const newSounds = (this.spec.newGpcs || []).map(g => C.gpcs[g]).filter(Boolean).map(g => gLabel(g)).slice(0, 6);
+    const homeBtn = new Btn({ x: 400, y: 470, w: 170, h: 100, label: '🏠 ホーム', size: 28, color: '#e8a23a', font: JP, onTap: () => { this.dead = true; app.goHome(); } });
+    const nextBtn = nxt && new Btn({ x: 600, y: 470, w: 560, h: 100, label: '▶ つぎの レッスン  Next lesson', size: 36, font: JP, color: '#58c46a', onTap: () => goLesson(nxt) });
+    this.ui = nextBtn ? [homeBtn, nextBtn] : [new Btn({ x: 480, y: 470, w: 600, h: 100, label: '▶ ホームへ  Home', size: 38, font: JP, color: '#58c46a', onTap: () => { this.dead = true; app.goHome(); } })];
     this.promptDraw = c => {
-      panel(c, 400, 70, 760, 370);
+      panel(c, 400, 60, 760, 390);
       const msg = this.stopped === 'tired' ? 'すこし やすもう 😴' : this.stopped === 'time' ? 'きょうは ここまで！ 🌙' : 'できたね！ 🎉';
-      text(c, msg, 780, 120, { size: 52, color: '#23394b', font: JP });
+      text(c, msg, 780, 105, { size: 50, color: '#23394b', font: JP });
       const n = this.results.length, ok = this.results.filter(Boolean).length;
-      if (cpRes) text(c, `${cpRes.ok} / ${cpRes.n}`, 780, 270, { size: 44, color: '#23394b' });
-      starRow(c, 780, 205, Math.max(1, Math.round((ok / Math.max(1, n)) * 3)), 3, 84);
-      gemObjs.forEach(o => { c.save(); c.translate(o.x + 40, o.y); c.scale(o.s, o.s); c.fillStyle = '#7be0ad'; c.beginPath(); c.moveTo(0, -60); c.lineTo(55, -15); c.lineTo(35, 55); c.lineTo(-35, 55); c.lineTo(-55, -15); c.closePath(); c.fill(); c.lineWidth = 6; c.strokeStyle = '#fff'; c.stroke(); text(c, o.g, 0, 0, { size: o.g.length > 1 ? 52 : 68, color: '#175d3b' }); c.restore(); });
-      if (gems.length) text(c, 'あたらしい ジェム！', 780, 300, { size: 26, color: '#2d4a5e', font: JP });
+      starRow(c, 780, 185, Math.max(1, Math.round((ok / Math.max(1, n)) * 3)), 3, 80);
+      text(c, cpRes ? `${cpRes.ok} / ${cpRes.n}  ただしい` : `${ok} / ${n}  ただしい`, 780, 250, { size: 30, color: '#23394b', font: JP });
+      if (au && !isCp) {
+        text(c, `Unit ${this.spec.unit}  レッスン ${Math.min(doneN, total)} / ${total}`, 780, 295, { size: 24, color: '#4a6275', font: JP });
+        for (let k = 0; k < total; k++) { c.fillStyle = k < doneN ? '#58c46a' : '#d5dde4'; c.beginPath(); c.arc(780 + (k - (total - 1) / 2) * 34, 325, 11, 0, 7); c.fill(); }
+        if (unitDone) text(c, '🎊 ユニット クリア！ Unit complete!', 780, 365, { size: 30, color: '#b36b00', font: JP });
+        else if (newSounds.length) text(c, 'きょうの おと： ' + newSounds.join('  '), 780, 365, { size: 28, color: '#2d4a5e', font: JP });
+      }
+      gemObjs.forEach(o => { c.save(); c.translate(o.x + 40, o.y); c.scale(o.s * 0.5, o.s * 0.5); c.fillStyle = '#7be0ad'; c.beginPath(); c.moveTo(0, -60); c.lineTo(55, -15); c.lineTo(35, 55); c.lineTo(-35, 55); c.lineTo(-55, -15); c.closePath(); c.fill(); c.lineWidth = 6; c.strokeStyle = '#fff'; c.stroke(); text(c, o.g, 0, 0, { size: o.g.length > 1 ? 52 : 68, color: '#175d3b' }); c.restore(); });
     };
     this.sfx('win'); this.parts.burst(780, 200, 40);
-    for (const o of gemObjs) { this.sfx('gem'); await Promise.all([app.eng.tween(o, { y: 380, s: 1 }, 600, 'back'), app.eng.wait(250)]); this.parts.burst(o.x + 40, 380, 14); }
+    for (const o of gemObjs) { this.sfx('gem'); await Promise.all([app.eng.tween(o, { y: 410, s: 1 }, 600, 'back'), app.eng.wait(250)]); this.parts.burst(o.x + 40, 410, 14); }
   }
 }
