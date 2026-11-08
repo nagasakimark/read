@@ -4,7 +4,7 @@ import { drawMonster, hatFor } from './monster.js';
 import { COLORS, toCode, fromCode } from './store.js';
 import { LessonScene } from './lesson.js';
 import * as M from '../learn/mastery.js';
-import { practiceSpec } from '../learn/lessonplan.js';
+import { practiceSpec, checkpointSpec } from '../learn/lessonplan.js';
 
 export const gLabel = g => (g.id === 'sz' ? 's/z' : g.type === 'split' ? g.g + '_e' : g.g);
 const passedCount = st => Object.values(st.units).filter(u => u.passed && !u.skipped).length;
@@ -79,6 +79,11 @@ export class HomeScene {
     const gear = new Btn({ x: W - 176, y: 12, w: 76, h: 66, icon: '⚙️', size: 34, color: '#7d95a8', onTap: () => app.eng.go(new TeacherScene(app)) });
     const who = new Btn({ x: 14, y: 12, w: 76, h: 66, icon: '👥', size: 34, color: '#a478e8', onTap: () => app.chooseProfile() });
     this.ui = [play, stars, gear, who];
+    const cp = (C.course?.checkpoints || []).find(c => stage.units.includes(c.after));
+    if (cp && M.isUnitPassed(st, cp.after)) {
+      const r = st.checkpoints?.[cp.id];
+      this.ui.push(new Btn({ x: W - 176, y: 470, w: 150, h: 100, label: r ? '🎯 ' + r.best + '%' : '🎯', size: 34, color: r ? '#8fcf6a' : '#f2b63c', onTap: () => app.eng.go(new LessonScene(app, checkpointSpec(cp))) }));
+    }
     if (this.page > 0) this.ui.push(new Btn({ x: 14, y: 250, w: 64, h: 110, label: '◀', size: 40, color: '#5aa7d6', onTap: () => { this.page--; this.build(); } }));
     if (this.page < this.stages.length - 1) this.ui.push(new Btn({ x: W - 78, y: 250, w: 64, h: 110, label: '▶', size: 40, color: '#5aa7d6', onTap: () => { this.page++; this.build(); } }));
     this.nodes.forEach(nd => this.ui.push(new Btn({ x: nd.x - 52, y: nd.y - 52, w: 104, h: 104, shadow: false, customDraw: () => {}, onTap: () => this.tapNode(nd) })));
@@ -170,6 +175,7 @@ export class TeacherScene {
       mk(1000, 250, 170, 'Skip unit ▶', '#f2b63c', () => { const n = M.nextLesson(C, st); if (n) { M.skipUnit(st, n.unit); app.save(true); this.msg = 'Unit ' + n.unit + ' marked as skipped.'; this.enter(); } }),
       mk(1180, 250, 170, 'Reset player', '#ec5d57', async () => { if (confirm('Erase all progress for this player?')) { app.replaceState(M.newState({ color: app.rec.id })); this.msg = 'Progress reset.'; } }),
       mk(1000, 310, 170, 'Class mode', '#a478e8', () => app.eng.go(new ClassScene(app))),
+      mk(1000, 370, 170, 'More sounds ▶', '#7d95a8', () => { this.gp = ((this.gp || 0) + 1) % Math.ceil(C.gpcList.filter(g => !['suffix', 'silent'].includes(g.type)).length / 36); }),
       mk(1180, 310, 170, 'Record voices', '#a478e8', () => open('tools/recorder.html', '_blank')),
     ];
   }
@@ -182,9 +188,12 @@ export class TeacherScene {
     const gate = next ? M.gateStatus(C, st, next.unit) : null;
     text(c, next ? `Now: Unit ${next.unit}, lesson ${next.lessonId}` : 'All units complete 🎉', 40, 86, { size: 22, color: '#23394b', align: 'left' });
     if (gate && !gate.open) { text(c, 'To pass: ' + gate.reasons.slice(0, 3).join(' · '), 40, 114, { size: 17, color: '#7d4a00', align: 'left', weight: 'normal' }); }
+    { const cps = C.course?.checkpoints || [], got = st.checkpoints || {}; text(c, 'Check-ups: ' + cps.map(k => k.id.toUpperCase() + ' ' + (got[k.id] ? got[k.id].best + '%' : '–')).join('  ·  '), 40, 62, { size: 17, color: '#4a6275', align: 'left', weight: 'normal' }); }
     // GPC rung table
-    C.gpcList.filter(g => !['suffix', 'silent'].includes(g.type)).forEach((g, i) => {
-      const col = i % 6, row = Math.floor(i / 6), x = 40 + col * 218, y = 140 + row * 50;
+    const gl = C.gpcList.filter(g => !['suffix', 'silent'].includes(g.type)), PER = 36, pages = Math.ceil(gl.length / PER);
+    if (pages > 1) text(c, `Sounds ${(this.gp || 0) + 1}/${pages}`, 700, 62, { size: 17, color: '#4a6275', weight: 'normal' });
+    gl.slice((this.gp || 0) * PER, (this.gp || 0) * PER + PER).forEach((g, i) => {
+      const col = i % 4, row = Math.floor(i / 4), x = 40 + col * 218, y = 140 + row * 50;
       const it = st.items['gpc:' + g.id], r = it?.rung || 0;
       rr(c, x, y, 208, 44, 10); c.fillStyle = r >= M.K.mastered ? '#d8f5e3' : it ? '#fff' : '#e8eef2'; c.fill(); c.lineWidth = 2; c.strokeStyle = '#cfdbe4'; c.stroke();
       text(c, gLabel(g), x + 30, y + 24, { size: gLabel(g).length > 2 ? 22 : 28, color: '#23394b' });

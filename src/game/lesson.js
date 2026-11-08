@@ -78,6 +78,7 @@ export class LessonScene {
   shouldStop() {
     if (this.stopped) return true;
     const last = this.results.slice(-6);
+    if (this.spec.kind === 'checkpoint') { if ((Date.now() - this.startedAt) / 60000 > 25) this.stopped = 'time'; return !!this.stopped; }
     if (last.length >= 6 && last.filter(r => !r).length >= 4) this.stopped = 'tired';
     else if ((Date.now() - this.startedAt) / 60000 > (this.app.state.settings.sessionMin || 12) + 3) this.stopped = 'time';
     return !!this.stopped;
@@ -429,7 +430,12 @@ export class LessonScene {
   async finish() {
     const { app } = this, C = app.C;
     const complete = !this.stopped;
-    if (complete) M.completeLesson(C, app.state, this.spec, Date.now());
+    const isCp = this.spec.kind === 'checkpoint'; let cpRes = null;
+    if (isCp && complete) {
+      const n = this.results.length, ok = this.results.filter(Boolean).length, cps = (app.state.checkpoints ??= {}), prev = cps[this.spec.cp];
+      cpRes = { ok, n, pct: n ? Math.round(100 * ok / n) : 0, at: Date.now() };
+      cps[this.spec.cp] = { ...cpRes, best: Math.max(prev?.best ?? 0, cpRes.pct), tries: (prev?.tries ?? 0) + 1 };
+    } else if (complete) M.completeLesson(C, app.state, this.spec, Date.now());
     app.state.stats.secondsPlayed += Math.round((Date.now() - this.startedAt) / 1000);
     const gems = Object.values(app.state.items).filter(i => i.kind === 'gpc' && i.rung >= M.K.mastered && (this.rungsBefore[i.id] ?? 0) < M.K.mastered).map(i => i.id.slice(4));
     const unitDone = complete && app.state.units[this.spec.unit]?.passed && !this.unitWasPassed;
@@ -444,6 +450,7 @@ export class LessonScene {
       const msg = this.stopped === 'tired' ? 'すこし やすもう 😴' : this.stopped === 'time' ? 'きょうは ここまで！ 🌙' : 'できたね！ 🎉';
       text(c, msg, 780, 120, { size: 52, color: '#23394b', font: JP });
       const n = this.results.length, ok = this.results.filter(Boolean).length;
+      if (cpRes) text(c, `${cpRes.ok} / ${cpRes.n}`, 780, 270, { size: 44, color: '#23394b' });
       text(c, n ? '⭐'.repeat(Math.max(1, Math.round((ok / n) * 3))) : '⭐', 780, 200, { size: 64 });
       gemObjs.forEach(o => { c.save(); c.translate(o.x + 40, o.y); c.scale(o.s, o.s); c.fillStyle = '#7be0ad'; c.beginPath(); c.moveTo(0, -60); c.lineTo(55, -15); c.lineTo(35, 55); c.lineTo(-35, 55); c.lineTo(-55, -15); c.closePath(); c.fill(); c.lineWidth = 6; c.strokeStyle = '#fff'; c.stroke(); text(c, o.g, 0, 0, { size: o.g.length > 1 ? 52 : 68, color: '#175d3b' }); c.restore(); });
       if (gems.length) text(c, 'あたらしい ジェム！', 780, 300, { size: 26, color: '#2d4a5e', font: JP });

@@ -109,3 +109,9 @@ Headless playthrough: `node tools/play.mjs <lessons> <accuracy> <skipToUnit>` (n
 - Engine: `blendChoose` borrows look-alike words as distractors when a word has no one-sound neighbours (apple, uncle); long prompt text shrinks to fit.
 - `tools/author_s6.py` is the authoring aid (chunked spellings with `.` `/` `+` `_`, uppercase A E I O = open-syllable vowels, `@` = schwa).
 - Open: real audio and pictures; teaching screens for syllable / morpheme units; practice games; pilot with learners. Stage-checkpoint tests (cp1-cp4) are in the course plan but not yet built as scenes.
+
+## Stage checkpoints (cp1–cp6)
+- `kind: 'checkpoint'` lesson (planLesson): 8 pseudo-words, 8 real-word blends, 4 spellings, plus one story from cp2 on. Never blocks progress; no gate effects.
+- Home shows a 🎯 button on each stage page once that stage's last unit is passed (green with best % after a try). Scores live in `state.checkpoints[id] = {ok,n,pct,best,tries,at}` and are listed in the Teacher view. Pass thresholds in COURSE_PLAN remain guidance for the teacher.
+- Teacher view GPC table is now paged (36 per page, "More sounds") so all 100 sounds are reachable on 1366x598.
+- `CP=<n> node tools/play.mjs 1 0.9 8` opens the check-up headlessly.

@@ -48,6 +48,11 @@ while (lessonsDone < LESSONS && Date.now() - t0 < 600000) {
     return { act: 'wait' };
   }, ACC);
   const key = JSON.stringify(info);
+  if (info.act === 'home' && process.env.CP && !globalThis.__cpDone) {   // CP=<stage page offset back>: open that stage's check-up
+    globalThis.__cpDone = true; await page.screenshot({ path: '/tmp/shots/home_pre_cp.png' });
+    for (let k = 0; k < +process.env.CP; k++) { await page.mouse.click(46, 305); await page.waitForTimeout(300); }
+    await page.screenshot({ path: '/tmp/shots/home_cp.png' }); await page.mouse.click(1290, 520); await page.waitForTimeout(800); continue;
+  }
   if (info.act === 'home') { lessonsDone++; console.log('lesson', lessonsDone, 'back home'); await page.screenshot({ path: `/tmp/shots/home_${lessonsDone}.png` }); if (lessonsDone >= LESSONS) break; await page.mouse.click(683, 520); await page.waitForTimeout(800); continue; }
   if (info.act === 'click') {
     if (info.kind && !seenKinds.has(info.kind)) { seenKinds.add(info.kind); await page.waitForTimeout(500); await page.screenshot({ path: `/tmp/shots/act_${info.kind}.png` }); }

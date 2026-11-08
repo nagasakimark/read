@@ -15,6 +15,16 @@ export function planLesson(C, state, lessonSpec, rng, now = Date.now()) {
   const seenAny = Object.values(state.items).some(i => i.kind === 'gpc' && i.a.length);
   const retr = (n) => steps.push({ type: 'retrieval', n });
 
+  if (kind === 'checkpoint') {   // end-of-stage check-up: transfer to unseen words first, then real words, spelling, one story
+    steps.push({ type: 'pseudo', n: 8, focus: [], pats: null });
+    steps.push({ type: 'blend', n: 8, focus: [], pats: null });
+    steps.push({ type: 'spell', n: 4, focus: [], pats: null });
+    const sid = (u.stories || [])[0];
+    if (sid && lessonSpec.withStory) steps.push({ type: 'story', story: sid, read: 1 });
+    steps.push({ type: 'close' });
+    return steps;
+  }
+
   if (kind === 'oral') {
     const set = lessonSpec.oralSet || 1;
     steps.push({ type: 'samediff', n: 6 }, { type: 'initial', n: set === 1 ? 6 : 8, set }, { type: 'syllable', n: 4 });
@@ -206,3 +216,6 @@ export function stepQuestions(C, state, step, rng, ctx) {
 
 /** Virtual lesson spec for generated practice lessons ("repeat until mastery"). */
 export function practiceSpec(unit) { return { id: `P${unit}`, unit, kind: 'practice', newGpcs: [], newTricky: [], stories: [] }; }
+
+/** Virtual lesson spec for a stage checkpoint (see course.checkpoints). */
+export function checkpointSpec(cp) { return { id: cp.id, unit: cp.after, kind: 'checkpoint', cp: cp.id, withStory: cp.id !== 'cp1', newGpcs: [], newTricky: [], stories: [] }; }
