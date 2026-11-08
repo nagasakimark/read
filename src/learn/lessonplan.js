@@ -27,7 +27,10 @@ export function planLesson(C, state, lessonSpec, rng, now = Date.now()) {
 
   if (kind === 'oral') {
     const set = lessonSpec.oralSet || 1;
-    steps.push({ type: 'samediff', n: 6 }, { type: 'initial', n: set === 1 ? 6 : 8, set }, { type: 'syllable', n: 4 });
+    // each listening lesson is a different mix and short, so it never feels like the same quiz again
+    if (set === 1) steps.push({ type: 'samediff', n: 5 }, { type: 'syllable', n: 3 });
+    else if (set === 2) steps.push({ type: 'initial', n: 5, set: 1 }, { type: 'initial', n: 3, set: 2 });
+    else steps.push({ type: 'initial', n: 4, set: 3 }, { type: 'samediff', n: 3 }, { type: 'syllable', n: 3 });
     steps.push({ type: 'close' });
     return steps;
   }
