@@ -68,6 +68,7 @@ const ROUNDS = { catch: 10, ladder: 5, dragon: 6, beast: 8 };
 export class MiniScene {
   constructor(app, id) { this.app = app; this.id = id; this.t = 0; this.ui = []; this.parts = new Particles(); this.mood = 'idle'; this.score = 0; this.tries = 0; this.ri = 0; this.dead = false; this.busy = false; this.lock = 0; }
   get eng() { return this.app.eng; }
+  get fixed() { return [this.home]; }
   leave() { this.dead = true; this.app.audio.stop(); }
   enter() {
     const { app } = this; this.P = pools(app); this.rng = app.rng; this.n = ROUNDS[this.id];

@@ -127,3 +127,10 @@ Inspired by Teach Your Monster's mini games; all single-tap, 1366x598, and draw 
 - **Dragon Hunt** (Dragon): hear a sound, tap its spelling inside a segmented word; dragon health drops each hit. 6 rounds.
 - **Hungry Beast** (Tickle/Hungry Beast): hear a tricky word, feed the beast the matching card. 8 rounds.
 Home has a 🎮 button; `node tools/minitest.mjs` plays all four headlessly. Ideas not yet built: Space Race-style word spelling, Stepping Stones (alternatives), Knowledge Tree.
+
+## UX pass: guidance and polish
+- **Bug fixed:** the 🏠 button in lessons and games was drawn but never hit-tested (engine only tested `scene.ui`). Scenes can now expose `fixed` buttons.
+- **Monster speech bubble** on every activity (INSTR in lesson.js): Japanese first, English underneath, saying what to do.
+- **Welcome tutorial** (`intro.js`, 5 pages) on a player's first start and via the ？ button on home; title screen explains listen → tap → stars; player-select explains colours/progress; home shows "next up", captions for each icon, and "Play".
+- Same/different screen redesigned (two numbered speakers light up; ＝おなじ / ≠ちがう buttons with captions).
+- Glossy buttons and answer cards. `tools/shots.mjs` captures the non-lesson screens and checks the home button.

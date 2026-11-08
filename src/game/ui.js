@@ -1,4 +1,4 @@
-import { W, H, FONT, text, rr, shade, Btn } from './engine.js';
+import { W, H, FONT, JP, text, rr, shade, Btn } from './engine.js';
 
 export function background(c, t, kind = 'day') {
   const g = c.createLinearGradient(0, 0, 0, H);
@@ -83,4 +83,28 @@ export function picText(c, p, x, y, size) {
     c.restore(); return;
   }
   text(c, p, x, y, { size });
+}
+
+/** A soft white answer card with a glossy top and a chunky shadow. */
+export function card(c, w, h, { r = 28, fill = '#fff', stroke = '#9fb4c4', hot = false } = {}) {
+  rr(c, 0, 9, w, h, r); c.fillStyle = 'rgba(30,50,70,.28)'; c.fill();
+  const g = c.createLinearGradient(0, 0, 0, h); g.addColorStop(0, fill); g.addColorStop(1, fill === '#fff' ? '#e9f3fa' : shade(fill, -0.08));
+  rr(c, 0, 0, w, h, r); c.fillStyle = g; c.fill(); c.lineWidth = hot ? 7 : 4; c.strokeStyle = hot ? '#ffd23f' : stroke; c.stroke();
+}
+/** Monster speech bubble with Japanese (big) and English (small) lines; tail points down to the monster. */
+export function speech(c, x, y, w, ja, en) {
+  if (!ja && !en) return;
+  const wrap = (str, size, maxW, bold = true) => { c.font = `${bold ? 'bold ' : ''}${size}px ${JP}`; const out = []; let line = '';
+    for (const word of str.split(/(?<=[ 、。！？])/)) { if (line && c.measureText(line + word).width > maxW) { out.push(line); line = ''; } line += word; } if (line) out.push(line); return out; };
+  const jl = ja ? wrap(ja, 25, w - 36) : [], el = en ? wrap(en, 19, w - 36, false) : [];
+  const h = 28 + jl.length * 32 + (el.length ? 8 + el.length * 24 : 0);
+  c.save(); c.translate(x, y);
+  c.fillStyle = 'rgba(30,50,70,.22)'; rr(c, 0, 6, w, h, 28); c.fill();
+  rr(c, 0, 0, w, h, 28); c.fillStyle = '#fffdf5'; c.fill(); c.lineWidth = 4; c.strokeStyle = '#ffcf5a'; c.stroke();
+  c.beginPath(); c.moveTo(w * 0.35, h - 2); c.lineTo(w * 0.5, h + 26); c.lineTo(w * 0.58, h - 2); c.fillStyle = '#fffdf5'; c.fill();
+  c.beginPath(); c.moveTo(w * 0.35, h); c.lineTo(w * 0.5, h + 26); c.lineTo(w * 0.58, h); c.strokeStyle = '#ffcf5a'; c.lineWidth = 4; c.stroke();
+  c.fillStyle = '#fffdf5'; c.fillRect(w * 0.35 + 2, h - 5, w * 0.23 - 4, 8);
+  let ty = 26; for (const l of jl) { text(c, l, w / 2, ty, { size: 25, color: '#23394b', font: JP }); ty += 32; }
+  if (el.length) { ty += 2; for (const l of el) { text(c, l, w / 2, ty, { size: 19, color: '#5b7388', weight: 'normal' }); ty += 24; } }
+  c.restore();
 }

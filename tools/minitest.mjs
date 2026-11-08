@@ -14,7 +14,8 @@ const errors = []; page.on('pageerror', e => errors.push(String(e.stack || e)));
 fs.mkdirSync('/tmp/shots', { recursive: true });
 await page.goto(`http://localhost:${port}/`); await page.waitForTimeout(600);
 await page.mouse.click(683, 300); await page.waitForTimeout(900);
-await page.mouse.click(255, 225); await page.waitForTimeout(500);
+await page.mouse.click(255, 250); await page.waitForTimeout(500);
+await page.evaluate(() => { window.__app.state.seenIntro = true; window.__app.goHome(); }); await page.waitForTimeout(300);
 
 await page.evaluate(async n => { const M = await import('/src/learn/mastery.js'); for (let u = 0; u < n; u++) M.skipUnit(window.__app.state, u); window.__app.goHome(); }, 14);
 await page.waitForTimeout(500); await page.screenshot({ path: '/tmp/shots/mg_home.png' });

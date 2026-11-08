@@ -4,6 +4,7 @@ import { Store, COLORS } from './store.js';
 import { loadCurriculum } from '../learn/loader.browser.js';
 import { makeRng } from '../learn/rng.js';
 import { BootScene, ProfileScene, HomeScene } from './scenes.js';
+import { IntroScene } from './intro.js';
 
 const canvas = document.getElementById('game');
 const eng = new Engine(canvas);
@@ -20,7 +21,8 @@ export const app = {
   select(rec) {
     this.rec = rec; this.state = rec.state; this.colorHex = COLORS.find(c => c.id === rec.color)?.hex || '#58c46a';
     this.state.settings ??= { sessionMin: 12 }; audio.muted = this.state.settings.sound === false;
-    this.goHome();
+    if (!this.state.seenIntro) eng.go(new IntroScene(this, () => { this.state.seenIntro = true; this.save(true); this.goHome(); }));
+    else this.goHome();
   },
   replaceState(s) { this.rec.state = s; this.state = s; this.store.flush(this.rec); },
   goHome() { eng.go(new HomeScene(this)); },

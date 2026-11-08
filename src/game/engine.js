@@ -42,7 +42,7 @@ export class Engine {
   _up(e) { const p = this.toStage(e); this.pointer.down = false; const s = this.scene; if (s?.pointerUp) s.pointerUp(p.x, p.y); }
   _hit(x, y) {
     const s = this.scene; if (!s || s.locked) return;
-    const list = (s.ui || []).filter(u => u.visible !== false && u.enabled !== false);
+    const list = [...(s.fixed || []), ...(s.ui || [])].filter(u => u.visible !== false && u.enabled !== false);
     for (let i = list.length - 1; i >= 0; i--) {
       const u = list[i];
       if (x >= u.x && x <= u.x + u.w && y >= u.y && y <= u.y + u.h) { u.press = 1; this.sfx?.('tap'); u.onTap?.(u, x, y); return; }
@@ -117,9 +117,11 @@ export class Btn {
     if (this.customDraw) this.customDraw(c, this);
     else {
       const col = this.enabled === false ? '#8a99a5' : this.color;
-      if (this.shadow) { rr(c, 0, 6, this.w, this.h, this.r); c.fillStyle = shade(col, -0.4); c.fill(); }
-      rr(c, 0, 0, this.w, this.h, this.r); c.fillStyle = col; c.fill();
-      c.lineWidth = 3; c.strokeStyle = shade(col, 0.35); c.stroke();
+      if (this.shadow) { rr(c, 0, 7, this.w, this.h, this.r); c.fillStyle = shade(col, -0.45); c.fill(); }
+      const gr = c.createLinearGradient(0, 0, 0, this.h); gr.addColorStop(0, shade(col, 0.22)); gr.addColorStop(1, col);
+      rr(c, 0, 0, this.w, this.h, this.r); c.fillStyle = gr; c.fill();
+      c.lineWidth = 3; c.strokeStyle = shade(col, 0.4); c.stroke();
+      if (this.enabled !== false) { rr(c, 8, 6, this.w - 16, this.h * 0.36, this.r * 0.7); c.fillStyle = 'rgba(255,255,255,.22)'; c.fill(); }
       if (this.icon) text(c, this.icon, this.w / 2, this.h / 2 + 2, { size: this.size });
       if (this.label) text(c, this.label, this.w / 2, this.h / 2 + 2, { size: this.size, font: this.font || FONT });
     }

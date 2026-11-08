@@ -2,13 +2,40 @@
 // Every interaction is a single tap. Evidence is recorded on the FIRST attempt only; a wrong answer shows the
 // right one (informational feedback) and the child taps it to continue.
 import { W, H, FONT, JP, text, rr, shade, Btn, Particles, drawUI } from './engine.js';
-import { background, flow, tileW, drawTile, speaker, bubble, segmentWord, drawSegments, picText } from './ui.js';
+import { background, flow, tileW, drawTile, speaker, bubble, segmentWord, drawSegments, picText, card, speech } from './ui.js';
 import { drawMonster, hatFor } from './monster.js';
 import { planLesson, stepQuestions, practiceSpec } from '../learn/lessonplan.js';
 import * as M from '../learn/mastery.js';
 import * as Q from '../learn/questions.js';
 import { tokenize } from '../learn/curriculum.js';
 const gLabel = g => (g.id === 'sz' ? 's/z' : g.type === 'split' ? g.g + '_e' : g.g);
+
+
+// What the monster says at the top-left of every activity: Japanese first, English underneath.
+const INSTR = {
+  'listen-pick': ['おとを きいて、おなじ もじを タップ！', 'Listen. Tap the letter for that sound.'],
+  'recall-flash': ['この おとが ある えを タップ！', 'Tap the picture with this sound.'],
+  'initial-sound': ['はじめの おとが おなじ えは？', 'Which picture starts with this sound?'],
+  'same-different': ['ふたつの ことばは おなじ？ ちがう？', 'Do the two words sound the same?'],
+  'syllable': ['おとの かたまりは いくつ？', 'How many beats are in the word?'],
+  'minimal-pair': ['きいた ことばを タップ！', 'Listen. Tap the word you hear.'],
+  'blend-choose': ['おとを つなげて、ことばを えらぼう', 'Blend the sounds. Tap the word.'],
+  'read-match': ['ことばを よんで、あう えを タップ！', 'Read the word. Tap its picture.'],
+  'pseudo': ['へんな ことば！ きこえた ほうを タップ', 'A silly word! Tap what you hear.'],
+  'tricky-choose': ['きいた ことばを タップ！', 'Listen. Tap the word you hear.'],
+  'heart-build': ['ことばを ならべよう。♥は とくべつ！', 'Build the word. ♥ letters are tricky!'],
+  'spell-tiles': ['きいて、もじを じゅんばんに ならべよう', 'Listen. Tap the letters in order.'],
+  'dictation': ['きいて、ぶんを つくろう', 'Listen. Build the sentence.'],
+  'word-chain': ['もじを 1つ かえて あたらしい ことばを！', 'Change one letter to make a new word.'],
+  'syllable-chop': ['ことばを おとの かたまりに わけよう', 'Where does the word split?'],
+  'word-sum': ['パーツを くっつけると？', 'Join the parts. Which word?'],
+  'affix-build': ['きいた ことばを パーツで つくろう', 'Build the word from its parts.'],
+  meet: ['この おとを きいて おぼえよう！', 'Listen and learn this sound.'],
+  story: ['おはなしを よもう！ わからない ことばは タップ', 'Read the story. Tap a word to hear it.'],
+  heart: ['とくべつな ことば。まるごと おぼえよう！', 'A tricky word. Learn it by heart.'],
+  syl: ['おとの かたまりを かぞえよう', 'Count the beats in each word.'],
+  morph: ['ことばは パーツで できているよ', 'Words are built from parts.'],
+};
 
 const COLS = ['#ff8a5c', '#4aa3e8', '#58c46a', '#a478e8', '#f2b63c'];
 
@@ -29,6 +56,7 @@ export class LessonScene {
   leave() { this.dead = true; this.app.audio.stop(); }
   leave2() { this.dead = true; this.app.audio.stop(); this.app.save(true); this.app.goHome(); }
   get eng() { return this.app.eng; }
+  get fixed() { return [this.home]; }
   update(dt) { this.t += dt; this.parts.update(dt); }
   alive() { if (this.dead) throw new Error('dead'); }
 
@@ -38,6 +66,7 @@ export class LessonScene {
     this.drawBar(c);
     const hat = hatFor(Object.values(this.app.state.units).filter(u => u.passed && u.skipped !== true).length);
     drawMonster(c, 150, 410, 220, { color: this.app.colorHex, mouth: this.mouth, mood: this.mood, t: this.t, hat });
+    if (this.instr && INSTR[this.instr]) speech(c, 14, 72, 282, INSTR[this.instr][0], INSTR[this.instr][1]);
     this.promptDraw?.(c);
     drawUI(c, [this.home, ...this.ui]);
     this.parts.draw(c);
@@ -56,7 +85,7 @@ export class LessonScene {
   async run() {
     const { app } = this;
     for (let i = 0; i < this.steps.length; i++) {
-      this.alive(); this.stepNo = i; this.stepFrac = 0; const step = this.steps[i];
+      this.alive(); this.stepNo = i; this.stepFrac = 0; const step = this.steps[i]; this.instr = step.type === 'meet' ? 'meet' : null;
       if (step.type === 'close') break;
       if (this.shouldStop()) break;
       this.ctx.now = Date.now();
@@ -137,7 +166,7 @@ export class LessonScene {
   }
 
   async heartIntro(id) {
-    const { app } = this, t = app.C.tricky[id]; this.mood = 'happy'; let done = false, heard = false;
+    const { app } = this, t = app.C.tricky[id]; this.mood = 'happy'; this.instr = 'heart'; let done = false, heard = false;
     const word = new Btn({ x: 400, y: 120, w: 700, h: 210, shadow: false, customDraw: (c, u) => {
       rr(c, 0, 8, u.w, u.h, 40); c.fillStyle = 'rgba(30,50,70,.3)'; c.fill(); rr(c, 0, 0, u.w, u.h, 40); c.fillStyle = '#fff'; c.fill();
       const letters = t.parts.flatMap(p => p.replace('*', '').split('').map(ch => ({ ch, heart: p.startsWith('*') })));
@@ -159,7 +188,7 @@ export class LessonScene {
 
   // ------------------------------------------------------------------ questions
   async ask(q) {
-    this.mood = 'idle'; this.cur = q;
+    this.mood = 'idle'; this.cur = q; this.instr = q.act;
     const r = (q.type === 'choice' || q.type === 'chain') ? await this.askChoice(q) : await this.askBuild(q);
     this.cur = null; this.bld = null; return r;
   }
@@ -201,7 +230,10 @@ export class LessonScene {
         } else if (p.monster) {
           text(c, '❓', 790, 150, { size: 120 }); text(c, '👽', 880, 110, { size: 60 });
         } else if (p.oral && q.act === 'same-different') {
-          text(c, '👂 = ?  ≠ ?', 790, 150, { size: 60, color: '#23394b' });
+          [0, 1].forEach(i => { const on = this.speaking && (this.talkIdx === i || this.talkIdx < 0);
+            c.beginPath(); c.arc(700 + i * 190, 160, 62, 0, 7); c.fillStyle = on ? '#ffd23f' : '#fff'; c.fill(); c.lineWidth = 6; c.strokeStyle = on ? '#fff' : '#9fd4f2'; c.stroke();
+            text(c, '🔊', 700 + i * 190, 150, { size: 48 }); text(c, String(i + 1), 700 + i * 190, 205, { size: 30, color: '#2d4a5e' }); });
+          text(c, '?', 795, 160, { size: 70, color: '#ff7a3c' });
         }
       }
     };
@@ -234,10 +266,9 @@ export class LessonScene {
         const dx = Math.sin(u.shake * 40) * 10 * u.shake;
         c.translate(dx, 0);
         const fill = u.st === 'right' ? '#8ee59a' : u.st === 'wrong' ? '#ffb3a8' : '#fff';
-        rr(c, 0, 8, u.w, u.h, 28); c.fillStyle = 'rgba(30,50,70,.3)'; c.fill();
-        rr(c, 0, 0, u.w, u.h, 28); c.fillStyle = fill; c.fill(); c.lineWidth = u.glow > 0 ? 8 : 3; c.strokeStyle = u.glow > 0 ? '#ffd23f' : '#9fb4c4'; c.stroke();
+        card(c, u.w, u.h, { r: 28, fill, hot: u.glow > 0 });
         if (o.pic) picText(c, o.pic, u.w / 2, u.h / 2 + 4, 120);
-        else if (o.icon === 'same' || o.icon === 'diff') { text(c, o.icon === 'same' ? '＝' : '≠', u.w / 2, u.h / 2, { size: 120, color: '#23394b' }); }
+        else if (o.icon === 'same' || o.icon === 'diff') { text(c, o.icon === 'same' ? '＝' : '≠', u.w / 2, u.h / 2 - 24, { size: 100, color: o.icon === 'same' ? '#2f9e44' : '#d8402c' }); text(c, o.icon === 'same' ? 'おなじ' : 'ちがう', u.w / 2, u.h - 52, { size: 34, color: '#23394b', font: JP }); text(c, o.icon === 'same' ? 'same' : 'different', u.w / 2, u.h - 22, { size: 20, color: '#5b7388', weight: 'normal' }); }
         else text(c, o.label, u.w / 2, u.h / 2 + 6, { size: Math.min(o.label.length > 3 ? 78 : o.label.length > 1 ? 100 : 120, Math.floor((u.w - 30) / (o.label.length * 0.6))), color: '#23394b' });
         if (u.st === 'wrong') text(c, '✖', u.w - 30, 30, { size: 34, color: '#d8402c' });
       },
@@ -364,7 +395,7 @@ export class LessonScene {
   // ------------------------------------------------------------------ stories
   /** Teaching screen for syllables / word parts: tap to step through a few example words. */
   async concept(step) {
-    const { app } = this, C = app.C, unit = this.spec.unit; this.mood = 'happy';
+    const { app } = this, C = app.C, unit = this.spec.unit; this.mood = 'happy'; this.instr = step.kind;
     const pool = C.wordList.filter(w => w.u === unit && (step.kind === 'syl' ? w.syl && w.syl.length > 1 : w.morph && w.morph.length === 2 && w.morph.join('') === w.t.toLowerCase()));
     const words = app.rng.shuffle(pool.slice()).slice(0, step.n); if (!words.length) return;
     const COL = ['#ff8a5c', '#4aa3e8', '#58c46a', '#a478e8'];
@@ -404,7 +435,7 @@ export class LessonScene {
 
   async story(step) {
     const { app } = this, C = app.C, st = C.stories[step.story], read = step.read;
-    this.mood = 'happy';
+    this.mood = 'happy'; this.instr = 'story';
     const helped = new Set(); let total = 0;
     const toks = st.pages.map(p => tokenize(p.text));
     for (let pi = 0; pi < st.pages.length; pi++) {

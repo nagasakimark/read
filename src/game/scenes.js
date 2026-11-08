@@ -4,6 +4,7 @@ import { drawMonster, hatFor } from './monster.js';
 import { COLORS, toCode, fromCode } from './store.js';
 import { LessonScene } from './lesson.js';
 import { GamesScene } from './minigames.js';
+import { IntroScene } from './intro.js';
 import * as M from '../learn/mastery.js';
 import { practiceSpec, checkpointSpec } from '../learn/lessonplan.js';
 
@@ -20,13 +21,22 @@ export class BootScene {
   }
   update(dt) { this.t += dt; }
   draw(c) {
-    background(c, this.t, 'warm');
-    text(c, "Let's Read English!", W / 2, 120, { size: 90, color: '#fff', stroke: { w: 14, c: '#e8553c' } });
-    text(c, 'えいごを よもう', W / 2, 205, { size: 44, color: '#8a3a2a', font: JP });
-    drawMonster(c, W / 2, 400, 280, { color: '#58c46a', mood: 'happy', t: this.t, hat: 'crown' });
-    const p = 1 + Math.sin(this.t * 4) * 0.04;
-    c.save(); c.translate(W / 2 + 320, 440); c.scale(p, p); rr(c, -150, -45, 300, 90, 45); c.fillStyle = '#ffd23f'; c.fill(); c.lineWidth = 5; c.strokeStyle = '#fff'; c.stroke();
-    text(c, this.go ? '…' : '▶ タップ！', 0, 3, { size: 40, color: '#7a3b00', font: JP }); c.restore();
+    const t = this.t;
+    background(c, t, 'warm');
+    c.save(); c.translate(W / 2, 112); c.rotate(Math.sin(t * 1.5) * 0.015);
+    text(c, "Let's Read English!", 0, 0, { size: 92, color: '#fff', stroke: { w: 16, c: '#e8553c' } }); c.restore();
+    text(c, 'えいごの よみかたを たのしく まなぼう', W / 2, 190, { size: 34, color: '#8a3a2a', font: JP });
+    text(c, 'Learn to read English, step by step', W / 2, 224, { size: 24, color: '#a2573f', weight: 'normal' });
+    drawMonster(c, 380, 410, 300, { color: '#58c46a', mood: 'happy', t, hat: 'crown' });
+    // how it works strip
+    [['👂', 'きく', 'Listen'], ['👆', 'タップ', 'Tap'], ['⭐', 'ごほうび', 'Win stars']].forEach(([ic, ja, en], i) => {
+      const x = 700 + i * 200, y = 335; rr(c, x - 85, y - 70, 170, 170, 30); c.fillStyle = 'rgba(255,255,255,.85)'; c.fill();
+      text(c, ic, x, y - 18, { size: 66 }); text(c, ja, x, y + 48, { size: 28, color: '#23394b', font: JP }); text(c, en, x, y + 80, { size: 18, color: '#5b7388', weight: 'normal' });
+      if (i < 2) text(c, '▶', x + 100, y + 12, { size: 26, color: '#e8553c' });
+    });
+    const p = 1 + Math.sin(t * 4) * 0.04;
+    c.save(); c.translate(W / 2 + 160, 520); c.scale(p, p); rr(c, -190, -50, 380, 100, 50); c.fillStyle = '#ffd23f'; c.fill(); c.lineWidth = 6; c.strokeStyle = '#fff'; c.stroke();
+    text(c, this.go ? '…' : '▶ はじめる！  Start', 0, 3, { size: 38, color: '#7a3b00', font: JP }); c.restore();
   }
 }
 
@@ -36,8 +46,8 @@ export class ProfileScene {
   enter() {
     const byId = Object.fromEntries(this.profiles.map(p => [p.id, p]));
     this.ui = COLORS.map((col, i) => {
-      const x = 130 + (i % 4) * 300, y = 120 + Math.floor(i / 4) * 230, rec = byId[col.id];
-      return new Btn({ x, y, w: 250, h: 210, shadow: false, customDraw: (c, u) => {
+      const x = 130 + (i % 4) * 300, y = 150 + Math.floor(i / 4) * 215, rec = byId[col.id];
+      return new Btn({ x, y, w: 250, h: 200, shadow: false, customDraw: (c, u) => {
         rr(c, 0, 0, u.w, u.h, 36); c.fillStyle = rec ? 'rgba(255,255,255,.88)' : 'rgba(255,255,255,.35)'; c.fill();
         if (rec) { drawMonster(c, u.w / 2, 112, 130, { color: col.hex, t: this.t + i, hat: hatFor(passedCount(rec.state)) });
           text(c, '⭐ ' + Object.values(rec.state.items).filter(it => it.kind === 'gpc' && it.rung >= M.K.mastered).length, u.w / 2, 190, { size: 28, color: '#23394b' }); }
@@ -48,7 +58,9 @@ export class ProfileScene {
   update(dt) { this.t += dt; }
   draw(c) {
     background(c, this.t, 'day');
-    text(c, 'だれが あそぶ？', W / 2, 62, { size: 54, color: '#23394b', font: JP });
+    text(c, 'だれが あそぶ？  Who is playing?', W / 2, 44, { size: 44, color: '#23394b', font: JP });
+    text(c, 'すきな いろの モンスターを えらんでね。きろくは その モンスターに のこるよ。', W / 2, 90, { size: 24, color: '#2d4a5e', font: JP });
+    text(c, 'Pick a monster colour. Your progress is saved to that monster.', W / 2, 120, { size: 19, color: '#4a6275', weight: 'normal' });
     drawUI(c, this.ui);
   }
 }
@@ -75,12 +87,13 @@ export class HomeScene {
       return { id, au, cu, x: x0 + i * gap, y: 300 + Math.sin(i * 0.9) * 55 - (i % 2) * 16 };
     });
     const allDone = !this.next;
-    const play = new Btn({ x: W / 2 - 150, y: 470, w: 300, h: 100, label: allDone ? '🌱 もうすぐ…' : '▶ あそぶ', size: allDone ? 40 : 52, font: JP, color: allDone ? '#8fb08a' : '#58c46a', onTap: () => this.play() });
+    const play = new Btn({ x: W / 2 - 150, y: 470, w: 300, h: 100, label: allDone ? '🌱 もうすぐ…' : '▶ あそぶ  Play', size: allDone ? 40 : 38, font: JP, color: allDone ? '#8fb08a' : '#58c46a', onTap: () => this.play() });
     const stars = new Btn({ x: W - 90, y: 12, w: 76, h: 66, icon: '⭐', size: 38, color: '#f2b63c', onTap: () => app.eng.go(new MasteryScene(app)) });
     const gear = new Btn({ x: W - 176, y: 12, w: 76, h: 66, icon: '⚙️', size: 34, color: '#7d95a8', onTap: () => app.eng.go(new TeacherScene(app)) });
     const who = new Btn({ x: 14, y: 12, w: 76, h: 66, icon: '👥', size: 34, color: '#a478e8', onTap: () => app.chooseProfile() });
+    const help = new Btn({ x: 100, y: 12, w: 76, h: 66, label: '？', size: 44, color: '#4aa3e8', onTap: () => app.eng.go(new IntroScene(app, () => app.goHome())) });
     const games = new Btn({ x: 14, y: 470, w: 100, h: 100, icon: '🎮', size: 50, color: '#a478e8', onTap: () => app.eng.go(new GamesScene(app)) });
-    this.ui = [play, stars, gear, who, games];
+    this.ui = [play, stars, gear, who, games, help];
     const cp = (C.course?.checkpoints || []).find(c => stage.units.includes(c.after));
     if (cp && M.isUnitPassed(st, cp.after)) {
       const r = st.checkpoints?.[cp.id];
@@ -124,9 +137,11 @@ export class HomeScene {
       if (passed) text(c, '✔', n.x + 38, n.y - 38, { size: 30, color: '#2f9e44' });
       text(c, n.id === 0 ? '' : 'Unit ' + n.id, n.x, n.y + 78, { size: 20, color: '#4a6275' });
     });
+    if (this.next) { const au = app.C.units.find(u => u.id === this.next.unit); text(c, `つぎは：Unit ${this.next.unit}${au?.name ? '  ' + au.name : ''}`, W / 2, 458, { size: 22, color: '#23394b', font: JP }); }
     const cn = this.nodes.find(n => n.id === this.cur && n.au);
     if (cn) drawMonster(c, cn.x, cn.y - 100 + (this.shake ? Math.sin(this.t * 60) * 6 * this.shake : 0), 120, { color: app.colorHex, mood: 'happy', t: this.t, hat: hatFor(passedCount(st)) });
     if (!this.next && stage.id === 2) text(c, 'つぎの ユニットは じゅんびちゅう！ Next units are on their way.', W / 2, 440, { size: 22, color: '#4a6275', font: JP });
+    for (const [x, y, ja, en] of [[52, 97, 'ひと', 'Player'], [138, 97, 'ヘルプ', 'Help'], [W - 138, 97, 'せんせい', 'Teacher'], [W - 52, 97, 'きろく', 'Stars'], [64, 589, 'ゲーム', 'Games']]) { text(c, ja, x, y, { size: 15, color: '#23394b', font: JP }); }
     drawUI(c, this.ui);
     this.parts.draw(c);
   }
