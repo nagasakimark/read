@@ -537,8 +537,14 @@ export class LessonScene {
     for (let i = 0; i < tk.length; i++) { if (this.speakId !== my || this.dead) break; setHl(i); await this.app.eng.wait(Math.max(260, 120 + tk[i].raw.length * 85)); }
     setHl(-1); await p; this.speaking = false;
   }
+  /** Every question about the story, one after another; the reading counts as understood if most are right first time. */
   async storyQuestion(st) {
-    const q = st.questions[0]; if (!q) return true; this.instr = 'storyq';
+    const qs = (st.questions || []).slice(0, 3); if (!qs.length) return true;
+    let ok = 0; for (const q of qs) if (await this.storyQ(q)) ok++;
+    return ok >= Math.ceil(qs.length / 2);
+  }
+  async storyQ(q) {
+    this.instr = 'storyq';
     const { app } = this; const opts = this.app.rng.shuffle([{ pic: q.answer[0], word: q.answer[1], ok: true }, ...q.distractors.map(d => ({ pic: d[0], word: d[1] }))]);
     let first = null, done = false;
     this.cur = { type: 'choice', act: 'story-q', answer: opts.findIndex(o => o.ok) };

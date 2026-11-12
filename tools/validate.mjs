@@ -75,8 +75,9 @@ for (const s of C.storyList) {
   s.pages.forEach((p, i) => { const r = checkText(`story ${s.id} p${i + 1}`, p.text, s.unit, s.focus, s.pats); if (r) { content += r.content; hit += r.hit; } });
   if (content && hit / content < 0.3) warn(`story ${s.id}: only ${hit}/${content} content words use focus GPCs (blueprint DR: >=30%)`);
   if (!s.questions?.length) err(`story ${s.id}: no comprehension question`);
-  if (s.pages.length > 6) warn(`story ${s.id}: ${s.pages.length} pages is long for Stage 1`);
-  for (const p of s.pages) if (tokenize(p.text).length > 8) warn(`story ${s.id}: sentence over 8 words: "${p.text}"`);
+  const stg = C.unitById[s.unit]?.stage ?? 1, maxPages = stg <= 3 ? 6 : 8, maxWords = stg <= 3 ? 8 : stg <= 5 ? 11 : 14;
+  if (s.pages.length > maxPages) warn(`story ${s.id}: ${s.pages.length} pages is long for Stage ${stg}`);
+  for (const p of s.pages) if (tokenize(p.text).length > maxWords) warn(`story ${s.id}: sentence over ${maxWords} words: "${p.text}"`);
 }
 for (const s of C.sentences) checkText(`sentence "${s.text}"`, s.text, s.unit);
 

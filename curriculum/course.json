@@ -1139,7 +1139,10 @@
     "desktop",
     "catfish"
    ],
-   "tricky": [],
+   "tricky": [
+    "two",
+    "who"
+   ],
    "prereq": [
     15
    ],
@@ -1177,7 +1180,11 @@
     "food",
     "spoon"
    ],
-   "tricky": [],
+   "tricky": [
+    "could",
+    "would",
+    "should"
+   ],
    "prereq": [
     16
    ],
@@ -1214,7 +1221,9 @@
     "coat",
     "road"
    ],
-   "tricky": [],
+   "tricky": [
+    "again"
+   ],
    "prereq": [
     17
    ],
@@ -1258,7 +1267,9 @@
     "coin",
     "oil"
    ],
-   "tricky": [],
+   "tricky": [
+    "friend"
+   ],
    "prereq": [
     18
    ],
@@ -1303,7 +1314,10 @@
     "fork",
     "corn"
    ],
-   "tricky": [],
+   "tricky": [
+    "door",
+    "four"
+   ],
    "prereq": [
     19
    ],
@@ -1355,7 +1369,11 @@
     "ear",
     "hear"
    ],
-   "tricky": [],
+   "tricky": [
+    "mother",
+    "brother",
+    "water"
+   ],
    "prereq": [
     20
    ],
@@ -1394,7 +1412,10 @@
     "fly",
     "sky"
    ],
-   "tricky": [],
+   "tricky": [
+    "many",
+    "any"
+   ],
    "prereq": [
     21
    ],
@@ -1440,7 +1461,9 @@
     "bike",
     "like"
    ],
-   "tricky": [],
+   "tricky": [
+    "people"
+   ],
    "prereq": [
     22
    ],
@@ -1488,7 +1511,9 @@
     "tube",
     "these"
    ],
-   "tricky": [],
+   "tricky": [
+    "eye"
+   ],
    "prereq": [
     23
    ],
@@ -1566,7 +1591,9 @@
     "be",
     "key"
    ],
-   "tricky": [],
+   "tricky": [
+    "once"
+   ],
    "prereq": [
     25
    ],
@@ -1785,7 +1812,9 @@
     "page",
     "school"
    ],
-   "tricky": [],
+   "tricky": [
+    "laugh"
+   ],
    "prereq": [
     29
    ],

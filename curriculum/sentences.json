@@ -525,6 +525,566 @@
   "pic": "🦎"
  },
  {
+  "unit": 1,
+  "text": "Sam! Sam sat.",
+  "pic": "👦"
+ },
+ {
+  "unit": 2,
+  "text": "I sit.",
+  "pic": "🧒🪑"
+ },
+ {
+  "unit": 2,
+  "text": "I sip it.",
+  "pic": "🧒🥤"
+ },
+ {
+  "unit": 2,
+  "text": "Tim sat in it.",
+  "pic": "🧒📦"
+ },
+ {
+  "unit": 3,
+  "text": "The dog sat on a mat.",
+  "pic": "🐶"
+ },
+ {
+  "unit": 3,
+  "text": "Dad can dig.",
+  "pic": "👨⛏️"
+ },
+ {
+  "unit": 3,
+  "text": "The cat got the cod.",
+  "pic": "🐱🐟"
+ },
+ {
+  "unit": 4,
+  "text": "Go to the hut.",
+  "pic": "🛖"
+ },
+ {
+  "unit": 4,
+  "text": "Ken can run.",
+  "pic": "🏃"
+ },
+ {
+  "unit": 4,
+  "text": "A pup ran to the den.",
+  "pic": "🐶"
+ },
+ {
+  "unit": 5,
+  "text": "The bell is big.",
+  "pic": "🔔"
+ },
+ {
+  "unit": 5,
+  "text": "A fat cat is on the bed.",
+  "pic": "🐱🛏️"
+ },
+ {
+  "unit": 5,
+  "text": "Bob can kick the doll off the bed.",
+  "pic": "🧸"
+ },
+ {
+  "unit": 6,
+  "text": "You can zip the bag.",
+  "pic": "👜"
+ },
+ {
+  "unit": 6,
+  "text": "We can get in the van.",
+  "pic": "🚐"
+ },
+ {
+  "unit": 6,
+  "text": "The fox is in a box.",
+  "pic": "🦊📦"
+ },
+ {
+  "unit": 7,
+  "text": "Meg has six pigs.",
+  "pic": "🐷"
+ },
+ {
+  "unit": 7,
+  "text": "Do you like dogs?",
+  "pic": "🐶"
+ },
+ {
+  "unit": 7,
+  "text": "Ben said yes.",
+  "pic": "🙋"
+ },
+ {
+  "unit": 8,
+  "text": "She can shut the shed.",
+  "pic": "🚪"
+ },
+ {
+  "unit": 8,
+  "text": "Have a chip!",
+  "pic": "🍟"
+ },
+ {
+  "unit": 8,
+  "text": "I wish I had a fish.",
+  "pic": "🐟"
+ },
+ {
+  "unit": 9,
+  "text": "They are in the bath.",
+  "pic": "🛁"
+ },
+ {
+  "unit": 9,
+  "text": "This moth is thin.",
+  "pic": "🦋"
+ },
+ {
+  "unit": 9,
+  "text": "Was that a thud?",
+  "pic": "💥"
+ },
+ {
+  "unit": 10,
+  "text": "The king has a long song.",
+  "pic": "🤴🎶"
+ },
+ {
+  "unit": 10,
+  "text": "What a big pink sink!",
+  "pic": "🚰"
+ },
+ {
+  "unit": 10,
+  "text": "My dad can sing.",
+  "pic": "👨🎤"
+ },
+ {
+  "unit": 11,
+  "text": "Some milk is in the tent.",
+  "pic": "🥛⛺"
+ },
+ {
+  "unit": 11,
+  "text": "The wind is fast.",
+  "pic": "🌬️"
+ },
+ {
+  "unit": 11,
+  "text": "Jump in the pond!",
+  "pic": "🐸"
+ },
+ {
+  "unit": 12,
+  "text": "There is a spot on my skin.",
+  "pic": "🔴"
+ },
+ {
+  "unit": 12,
+  "text": "Stop! Stand still.",
+  "pic": "🛑"
+ },
+ {
+  "unit": 12,
+  "text": "One duck can swim.",
+  "pic": "🦆"
+ },
+ {
+  "unit": 13,
+  "text": "Here is a black flag.",
+  "pic": "🏴"
+ },
+ {
+  "unit": 13,
+  "text": "When can we clap?",
+  "pic": "👏"
+ },
+ {
+  "unit": 13,
+  "text": "The plum is on the plank.",
+  "pic": "🍑"
+ },
+ {
+  "unit": 14,
+  "text": "The frog can grab the bug.",
+  "pic": "🐸"
+ },
+ {
+  "unit": 14,
+  "text": "Drink a little milk.",
+  "pic": "🥛"
+ },
+ {
+  "unit": 14,
+  "text": "Get out of the truck!",
+  "pic": "🚚"
+ },
+ {
+  "unit": 15,
+  "text": "Your string is in the shed.",
+  "pic": "🧵"
+ },
+ {
+  "unit": 15,
+  "text": "Were you singing?",
+  "pic": "🎤"
+ },
+ {
+  "unit": 15,
+  "text": "Scrub the pot!",
+  "pic": "🧽"
+ },
+ {
+  "unit": 16,
+  "text": "Two cats jumped up.",
+  "pic": "🐱🐱"
+ },
+ {
+  "unit": 16,
+  "text": "Who landed on the mat?",
+  "pic": "🪂"
+ },
+ {
+  "unit": 16,
+  "text": "Dan filled the pot.",
+  "pic": "🍲"
+ },
+ {
+  "unit": 17,
+  "text": "We could see the moon.",
+  "pic": "🌙"
+ },
+ {
+  "unit": 17,
+  "text": "Would you like some food?",
+  "pic": "🍱"
+ },
+ {
+  "unit": 17,
+  "text": "You should sleep.",
+  "pic": "😴"
+ },
+ {
+  "unit": 18,
+  "text": "The goat is in the rain again.",
+  "pic": "🐐🌧️"
+ },
+ {
+  "unit": 18,
+  "text": "Sail the boat on the pond.",
+  "pic": "⛵"
+ },
+ {
+  "unit": 18,
+  "text": "Wait for the train.",
+  "pic": "🚂"
+ },
+ {
+  "unit": 19,
+  "text": "My friend has a cow.",
+  "pic": "🐄"
+ },
+ {
+  "unit": 19,
+  "text": "The light is on at night.",
+  "pic": "💡"
+ },
+ {
+  "unit": 19,
+  "text": "Point at the coin.",
+  "pic": "🪙"
+ },
+ {
+  "unit": 20,
+  "text": "Shut the door.",
+  "pic": "🚪"
+ },
+ {
+  "unit": 20,
+  "text": "Four cars are in the park.",
+  "pic": "🚗"
+ },
+ {
+  "unit": 20,
+  "text": "Look at the corn.",
+  "pic": "🌽"
+ },
+ {
+  "unit": 21,
+  "text": "My mother has red hair.",
+  "pic": "👩"
+ },
+ {
+  "unit": 21,
+  "text": "Her brother has a letter.",
+  "pic": "✉️"
+ },
+ {
+  "unit": 21,
+  "text": "The water is clear.",
+  "pic": "💧"
+ },
+ {
+  "unit": 22,
+  "text": "Do you have any candy?",
+  "pic": "🍬"
+ },
+ {
+  "unit": 22,
+  "text": "Many stars are in the sky.",
+  "pic": "✨"
+ },
+ {
+  "unit": 22,
+  "text": "The bunny is funny.",
+  "pic": "🐰"
+ },
+ {
+  "unit": 23,
+  "text": "People like cake.",
+  "pic": "🍰"
+ },
+ {
+  "unit": 23,
+  "text": "Five kites are in the sky.",
+  "pic": "🪁"
+ },
+ {
+  "unit": 23,
+  "text": "Make a game.",
+  "pic": "🎲"
+ },
+ {
+  "unit": 24,
+  "text": "Shut one eye.",
+  "pic": "😉"
+ },
+ {
+  "unit": 24,
+  "text": "The cube is cute.",
+  "pic": "🧊"
+ },
+ {
+  "unit": 24,
+  "text": "Pete has a home.",
+  "pic": "🏠"
+ },
+ {
+  "unit": 25,
+  "text": "May I play?",
+  "pic": "⚽"
+ },
+ {
+  "unit": 25,
+  "text": "Stay on the path.",
+  "pic": "🛤️"
+ },
+ {
+  "unit": 25,
+  "text": "Pay for the tray.",
+  "pic": "🍱"
+ },
+ {
+  "unit": 26,
+  "text": "Once we went to the sea.",
+  "pic": "🌊"
+ },
+ {
+  "unit": 26,
+  "text": "Eat a peach.",
+  "pic": "🍑"
+ },
+ {
+  "unit": 26,
+  "text": "The donkey has a key.",
+  "pic": "🫏🔑"
+ },
+ {
+  "unit": 27,
+  "text": "Joe will go home.",
+  "pic": "🏠"
+ },
+ {
+  "unit": 27,
+  "text": "The wind will blow.",
+  "pic": "🌬️"
+ },
+ {
+  "unit": 27,
+  "text": "Find the old gold.",
+  "pic": "🪙"
+ },
+ {
+  "unit": 28,
+  "text": "The girl has a new skirt.",
+  "pic": "👗"
+ },
+ {
+  "unit": 28,
+  "text": "The glue is blue.",
+  "pic": "🧴"
+ },
+ {
+  "unit": 28,
+  "text": "The bird flew.",
+  "pic": "🐦"
+ },
+ {
+  "unit": 29,
+  "text": "Look out for the mouse.",
+  "pic": "🐭"
+ },
+ {
+  "unit": 29,
+  "text": "Paul has a new toy.",
+  "pic": "🧸"
+ },
+ {
+  "unit": 29,
+  "text": "Draw a cloud.",
+  "pic": "☁️"
+ },
+ {
+  "unit": 30,
+  "text": "I laugh at the clown.",
+  "pic": "🤡"
+ },
+ {
+  "unit": 30,
+  "text": "The gem is in the city.",
+  "pic": "💎"
+ },
+ {
+  "unit": 30,
+  "text": "The circus is in the city.",
+  "pic": "🎪"
+ },
+ {
+  "unit": 31,
+  "text": "Write a letter to your friend.",
+  "pic": "✉️"
+ },
+ {
+  "unit": 31,
+  "text": "Phil can catch the fish.",
+  "pic": "🎣"
+ },
+ {
+  "unit": 31,
+  "text": "Knock on the door.",
+  "pic": "🚪"
+ },
+ {
+  "unit": 32,
+  "text": "The rabbit hid in the basket.",
+  "pic": "🐰🧺"
+ },
+ {
+  "unit": 32,
+  "text": "A robot can dance.",
+  "pic": "🤖"
+ },
+ {
+  "unit": 32,
+  "text": "The pumpkin is in the garden.",
+  "pic": "🎃"
+ },
+ {
+  "unit": 33,
+  "text": "A little apple fell.",
+  "pic": "🍎"
+ },
+ {
+  "unit": 33,
+  "text": "The baby had a bottle.",
+  "pic": "🍼"
+ },
+ {
+  "unit": 33,
+  "text": "The candle is little.",
+  "pic": "🕯️"
+ },
+ {
+  "unit": 34,
+  "text": "The cat is smaller.",
+  "pic": "🐱"
+ },
+ {
+  "unit": 34,
+  "text": "Meg sings softly.",
+  "pic": "🎶"
+ },
+ {
+  "unit": 34,
+  "text": "The box is helpful.",
+  "pic": "📦"
+ },
+ {
+  "unit": 35,
+  "text": "Untie the rope.",
+  "pic": "🪢"
+ },
+ {
+  "unit": 35,
+  "text": "Reread the book.",
+  "pic": "📖"
+ },
+ {
+  "unit": 35,
+  "text": "The water is unsafe.",
+  "pic": "⚠️"
+ },
+ {
+  "unit": 36,
+  "text": "Tom is hopping.",
+  "pic": "🐇"
+ },
+ {
+  "unit": 36,
+  "text": "Meg is riding a bike.",
+  "pic": "🚲"
+ },
+ {
+  "unit": 36,
+  "text": "The baby cried.",
+  "pic": "👶"
+ },
+ {
+  "unit": 37,
+  "text": "Take action!",
+  "pic": "🎬"
+ },
+ {
+  "unit": 37,
+  "text": "We saw a picture of nature.",
+  "pic": "🌿"
+ },
+ {
+  "unit": 37,
+  "text": "The station is near.",
+  "pic": "🚉"
+ },
+ {
+  "unit": 38,
+  "text": "We read a lot of books.",
+  "pic": "📚"
+ },
+ {
+  "unit": 38,
+  "text": "The people were happy.",
+  "pic": "😄"
+ },
+ {
+  "unit": 38,
+  "text": "Once a fox had a den.",
+  "pic": "🦊"
+ },
+ {
   "unit": 38,
   "text": "The tiger is in the jungle.",
   "pic": "🐯"

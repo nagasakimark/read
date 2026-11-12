@@ -189,16 +189,7 @@
      {
       "id": "s2b",
       "read": 2
-     }
-    ]
-   },
-   {
-    "id": "L2_5",
-    "unit": 2,
-    "kind": "story",
-    "newGpcs": [],
-    "newTricky": [],
-    "stories": [
+     },
      {
       "id": "s2b",
       "read": 3
@@ -1991,7 +1982,10 @@
    "ed_d$",
    "ed_id$"
   ],
-  "newTricky": [],
+  "newTricky": [
+   "two",
+   "who"
+  ],
   "prereqs": [
    15
   ],
@@ -2007,7 +2001,10 @@
     "newPats": [
      "ed_t$"
     ],
-    "newTricky": [],
+    "newTricky": [
+     "two",
+     "who"
+    ],
     "stories": []
    },
    {
@@ -2118,7 +2115,11 @@
   ],
   "suffixGpcs": [],
   "newPatterns": [],
-  "newTricky": [],
+  "newTricky": [
+   "could",
+   "would",
+   "should"
+  ],
   "prereqs": [
    16
   ],
@@ -2133,7 +2134,10 @@
     "newGpcs": [
      "ee"
     ],
-    "newTricky": [],
+    "newTricky": [
+     "could",
+     "would"
+    ],
     "stories": []
    },
    {
@@ -2143,7 +2147,9 @@
     "newGpcs": [
      "oo"
     ],
-    "newTricky": [],
+    "newTricky": [
+     "should"
+    ],
     "stories": []
    },
    {
@@ -2208,12 +2214,42 @@
       "read": 3
      }
     ]
+   },
+   {
+    "id": "L17_6",
+    "unit": 17,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s17d",
+      "read": 1
+     },
+     {
+      "id": "s17d",
+      "read": 2
+     },
+     {
+      "id": "s17d",
+      "read": 3
+     },
+     {
+      "id": "s17a",
+      "read": 4
+     },
+     {
+      "id": "s17b",
+      "read": 4
+     }
+    ]
    }
   ],
   "stories": [
    "s17a",
    "s17b",
-   "s17c"
+   "s17c",
+   "s17d"
   ],
   "mastery": {
    "rungRequired": 4,
@@ -2232,7 +2268,9 @@
   ],
   "suffixGpcs": [],
   "newPatterns": [],
-  "newTricky": [],
+  "newTricky": [
+   "again"
+  ],
   "prereqs": [
    17
   ],
@@ -2248,7 +2286,9 @@
     "newGpcs": [
      "ai"
     ],
-    "newTricky": [],
+    "newTricky": [
+     "again"
+    ],
     "stories": []
    },
    {
@@ -2323,12 +2363,42 @@
       "read": 3
      }
     ]
+   },
+   {
+    "id": "L18_6",
+    "unit": 18,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s18d",
+      "read": 1
+     },
+     {
+      "id": "s18d",
+      "read": 2
+     },
+     {
+      "id": "s18d",
+      "read": 3
+     },
+     {
+      "id": "s18a",
+      "read": 4
+     },
+     {
+      "id": "s18b",
+      "read": 4
+     }
+    ]
    }
   ],
   "stories": [
    "s18a",
    "s18b",
-   "s18c"
+   "s18c",
+   "s18d"
   ],
   "mastery": {
    "rungRequired": 4,
@@ -2348,7 +2418,9 @@
   ],
   "suffixGpcs": [],
   "newPatterns": [],
-  "newTricky": [],
+  "newTricky": [
+   "friend"
+  ],
   "prereqs": [
    18
   ],
@@ -2363,7 +2435,9 @@
     "newGpcs": [
      "igh"
     ],
-    "newTricky": [],
+    "newTricky": [
+     "friend"
+    ],
     "stories": []
    },
    {
@@ -2448,12 +2522,42 @@
       "read": 3
      }
     ]
+   },
+   {
+    "id": "L19_7",
+    "unit": 19,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s19d",
+      "read": 1
+     },
+     {
+      "id": "s19d",
+      "read": 2
+     },
+     {
+      "id": "s19d",
+      "read": 3
+     },
+     {
+      "id": "s19a",
+      "read": 4
+     },
+     {
+      "id": "s19b",
+      "read": 4
+     }
+    ]
    }
   ],
   "stories": [
    "s19a",
    "s19b",
-   "s19c"
+   "s19c",
+   "s19d"
   ],
   "mastery": {
    "rungRequired": 4,
@@ -2473,7 +2577,10 @@
   ],
   "suffixGpcs": [],
   "newPatterns": [],
-  "newTricky": [],
+  "newTricky": [
+   "door",
+   "four"
+  ],
   "prereqs": [
    19
   ],
@@ -2499,7 +2606,10 @@
     "newGpcs": [
      "ar"
     ],
-    "newTricky": [],
+    "newTricky": [
+     "door",
+     "four"
+    ],
     "stories": []
    },
    {
@@ -2574,12 +2684,42 @@
       "read": 3
      }
     ]
+   },
+   {
+    "id": "L20_7",
+    "unit": 20,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s20d",
+      "read": 1
+     },
+     {
+      "id": "s20d",
+      "read": 2
+     },
+     {
+      "id": "s20d",
+      "read": 3
+     },
+     {
+      "id": "s20a",
+      "read": 4
+     },
+     {
+      "id": "s20b",
+      "read": 4
+     }
+    ]
    }
   ],
   "stories": [
    "s20a",
    "s20b",
-   "s20c"
+   "s20c",
+   "s20d"
   ],
   "mastery": {
    "rungRequired": 4,
@@ -2600,7 +2740,11 @@
   ],
   "suffixGpcs": [],
   "newPatterns": [],
-  "newTricky": [],
+  "newTricky": [
+   "mother",
+   "brother",
+   "water"
+  ],
   "prereqs": [
    20
   ],
@@ -2616,7 +2760,10 @@
      "ur",
      "er"
     ],
-    "newTricky": [],
+    "newTricky": [
+     "mother",
+     "brother"
+    ],
     "stories": []
    },
    {
@@ -2627,7 +2774,9 @@
      "air",
      "ear"
     ],
-    "newTricky": [],
+    "newTricky": [
+     "water"
+    ],
     "stories": []
    },
    {
@@ -2692,12 +2841,42 @@
       "read": 3
      }
     ]
+   },
+   {
+    "id": "L21_6",
+    "unit": 21,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s21d",
+      "read": 1
+     },
+     {
+      "id": "s21d",
+      "read": 2
+     },
+     {
+      "id": "s21d",
+      "read": 3
+     },
+     {
+      "id": "s21a",
+      "read": 4
+     },
+     {
+      "id": "s21b",
+      "read": 4
+     }
+    ]
    }
   ],
   "stories": [
    "s21a",
    "s21b",
-   "s21c"
+   "s21c",
+   "s21d"
   ],
   "mastery": {
    "rungRequired": 4,
@@ -2716,7 +2895,10 @@
   ],
   "suffixGpcs": [],
   "newPatterns": [],
-  "newTricky": [],
+  "newTricky": [
+   "many",
+   "any"
+  ],
   "prereqs": [
    21
   ],
@@ -2729,7 +2911,9 @@
     "newGpcs": [
      "y_i"
     ],
-    "newTricky": [],
+    "newTricky": [
+     "many"
+    ],
     "stories": []
    },
    {
@@ -2739,7 +2923,9 @@
     "newGpcs": [
      "y_ai"
     ],
-    "newTricky": [],
+    "newTricky": [
+     "any"
+    ],
     "stories": []
    },
    {
@@ -2804,12 +2990,42 @@
       "read": 3
      }
     ]
+   },
+   {
+    "id": "L22_6",
+    "unit": 22,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s22d",
+      "read": 1
+     },
+     {
+      "id": "s22d",
+      "read": 2
+     },
+     {
+      "id": "s22d",
+      "read": 3
+     },
+     {
+      "id": "s22a",
+      "read": 4
+     },
+     {
+      "id": "s22b",
+      "read": 4
+     }
+    ]
    }
   ],
   "stories": [
    "s22a",
    "s22b",
-   "s22c"
+   "s22c",
+   "s22d"
   ],
   "mastery": {
    "rungRequired": 4,
@@ -2830,7 +3046,9 @@
    "e_s"
   ],
   "newPatterns": [],
-  "newTricky": [],
+  "newTricky": [
+   "people"
+  ],
   "prereqs": [
    22
   ],
@@ -2846,7 +3064,9 @@
     "newGpcs": [
      "a_e"
     ],
-    "newTricky": [],
+    "newTricky": [
+     "people"
+    ],
     "stories": []
    },
    {
@@ -2921,12 +3141,42 @@
       "read": 3
      }
     ]
+   },
+   {
+    "id": "L23_6",
+    "unit": 23,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s23d",
+      "read": 1
+     },
+     {
+      "id": "s23d",
+      "read": 2
+     },
+     {
+      "id": "s23d",
+      "read": 3
+     },
+     {
+      "id": "s23a",
+      "read": 4
+     },
+     {
+      "id": "s23b",
+      "read": 4
+     }
+    ]
    }
   ],
   "stories": [
    "s23a",
    "s23b",
-   "s23c"
+   "s23c",
+   "s23d"
   ],
   "mastery": {
    "rungRequired": 4,
@@ -2947,7 +3197,9 @@
   ],
   "suffixGpcs": [],
   "newPatterns": [],
-  "newTricky": [],
+  "newTricky": [
+   "eye"
+  ],
   "prereqs": [
    23
   ],
@@ -2962,7 +3214,9 @@
     "newGpcs": [
      "o_e"
     ],
-    "newTricky": [],
+    "newTricky": [
+     "eye"
+    ],
     "stories": []
    },
    {
@@ -3048,12 +3302,42 @@
       "read": 3
      }
     ]
+   },
+   {
+    "id": "L24_7",
+    "unit": 24,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s24d",
+      "read": 1
+     },
+     {
+      "id": "s24d",
+      "read": 2
+     },
+     {
+      "id": "s24d",
+      "read": 3
+     },
+     {
+      "id": "s24a",
+      "read": 4
+     },
+     {
+      "id": "s24b",
+      "read": 4
+     }
+    ]
    }
   ],
   "stories": [
    "s24a",
    "s24b",
-   "s24c"
+   "s24c",
+   "s24d"
   ],
   "mastery": {
    "rungRequired": 4,
@@ -3149,12 +3433,42 @@
       "read": 3
      }
     ]
+   },
+   {
+    "id": "L25_5",
+    "unit": 25,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s25d",
+      "read": 1
+     },
+     {
+      "id": "s25d",
+      "read": 2
+     },
+     {
+      "id": "s25d",
+      "read": 3
+     },
+     {
+      "id": "s25a",
+      "read": 4
+     },
+     {
+      "id": "s25b",
+      "read": 4
+     }
+    ]
    }
   ],
   "stories": [
    "s25a",
    "s25b",
-   "s25c"
+   "s25c",
+   "s25d"
   ],
   "mastery": {
    "rungRequired": 4,
@@ -3174,7 +3488,9 @@
   ],
   "suffixGpcs": [],
   "newPatterns": [],
-  "newTricky": [],
+  "newTricky": [
+   "once"
+  ],
   "prereqs": [
    25
   ],
@@ -3187,7 +3503,9 @@
     "newGpcs": [
      "ea_i"
     ],
-    "newTricky": [],
+    "newTricky": [
+     "once"
+    ],
     "stories": []
    },
    {
@@ -3272,12 +3590,42 @@
       "read": 3
      }
     ]
+   },
+   {
+    "id": "L26_7",
+    "unit": 26,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s26d",
+      "read": 1
+     },
+     {
+      "id": "s26d",
+      "read": 2
+     },
+     {
+      "id": "s26d",
+      "read": 3
+     },
+     {
+      "id": "s26a",
+      "read": 4
+     },
+     {
+      "id": "s26b",
+      "read": 4
+     }
+    ]
    }
   ],
   "stories": [
    "s26a",
    "s26b",
-   "s26c"
+   "s26c",
+   "s26d"
   ],
   "mastery": {
    "rungRequired": 4,
@@ -3399,12 +3747,42 @@
       "read": 3
      }
     ]
+   },
+   {
+    "id": "L27_7",
+    "unit": 27,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s27d",
+      "read": 1
+     },
+     {
+      "id": "s27d",
+      "read": 2
+     },
+     {
+      "id": "s27d",
+      "read": 3
+     },
+     {
+      "id": "s27a",
+      "read": 4
+     },
+     {
+      "id": "s27b",
+      "read": 4
+     }
+    ]
    }
   ],
   "stories": [
    "s27a",
    "s27b",
-   "s27c"
+   "s27c",
+   "s27d"
   ],
   "mastery": {
    "rungRequired": 4,
@@ -3515,12 +3893,42 @@
       "read": 3
      }
     ]
+   },
+   {
+    "id": "L28_6",
+    "unit": 28,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s28d",
+      "read": 1
+     },
+     {
+      "id": "s28d",
+      "read": 2
+     },
+     {
+      "id": "s28d",
+      "read": 3
+     },
+     {
+      "id": "s28a",
+      "read": 4
+     },
+     {
+      "id": "s28b",
+      "read": 4
+     }
+    ]
    }
   ],
   "stories": [
    "s28a",
    "s28b",
-   "s28c"
+   "s28c",
+   "s28d"
   ],
   "mastery": {
    "rungRequired": 4,
@@ -3631,12 +4039,42 @@
       "read": 3
      }
     ]
+   },
+   {
+    "id": "L29_6",
+    "unit": 29,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s29d",
+      "read": 1
+     },
+     {
+      "id": "s29d",
+      "read": 2
+     },
+     {
+      "id": "s29d",
+      "read": 3
+     },
+     {
+      "id": "s29a",
+      "read": 4
+     },
+     {
+      "id": "s29b",
+      "read": 4
+     }
+    ]
    }
   ],
   "stories": [
    "s29a",
    "s29b",
-   "s29c"
+   "s29c",
+   "s29d"
   ],
   "mastery": {
    "rungRequired": 4,
@@ -3658,7 +4096,9 @@
   ],
   "suffixGpcs": [],
   "newPatterns": [],
-  "newTricky": [],
+  "newTricky": [
+   "laugh"
+  ],
   "prereqs": [
    29
   ],
@@ -3693,7 +4133,9 @@
     "newGpcs": [
      "ch_k"
     ],
-    "newTricky": [],
+    "newTricky": [
+     "laugh"
+    ],
     "stories": []
    },
    {
@@ -3758,12 +4200,42 @@
       "read": 3
      }
     ]
+   },
+   {
+    "id": "L30_7",
+    "unit": 30,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s30d",
+      "read": 1
+     },
+     {
+      "id": "s30d",
+      "read": 2
+     },
+     {
+      "id": "s30d",
+      "read": 3
+     },
+     {
+      "id": "s30a",
+      "read": 4
+     },
+     {
+      "id": "s30b",
+      "read": 4
+     }
+    ]
    }
   ],
   "stories": [
    "s30a",
    "s30b",
-   "s30c"
+   "s30c",
+   "s30d"
   ],
   "mastery": {
    "rungRequired": 4,
@@ -3900,12 +4372,42 @@
       "read": 3
      }
     ]
+   },
+   {
+    "id": "L31_8",
+    "unit": 31,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s31d",
+      "read": 1
+     },
+     {
+      "id": "s31d",
+      "read": 2
+     },
+     {
+      "id": "s31d",
+      "read": 3
+     },
+     {
+      "id": "s31a",
+      "read": 4
+     },
+     {
+      "id": "s31b",
+      "read": 4
+     }
+    ]
    }
   ],
   "stories": [
    "s31a",
    "s31b",
-   "s31c"
+   "s31c",
+   "s31d"
   ],
   "mastery": {
    "rungRequired": 4,
@@ -4029,12 +4531,42 @@
       "read": 3
      }
     ]
+   },
+   {
+    "id": "L32_7",
+    "unit": 32,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s32d",
+      "read": 1
+     },
+     {
+      "id": "s32d",
+      "read": 2
+     },
+     {
+      "id": "s32d",
+      "read": 3
+     },
+     {
+      "id": "s32a",
+      "read": 4
+     },
+     {
+      "id": "s32b",
+      "read": 4
+     }
+    ]
    }
   ],
   "stories": [
    "s32a",
    "s32b",
-   "s32c"
+   "s32c",
+   "s32d"
   ],
   "mastery": {
    "rungRequired": 4,
@@ -4143,12 +4675,42 @@
       "read": 3
      }
     ]
+   },
+   {
+    "id": "L33_6",
+    "unit": 33,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s33d",
+      "read": 1
+     },
+     {
+      "id": "s33d",
+      "read": 2
+     },
+     {
+      "id": "s33d",
+      "read": 3
+     },
+     {
+      "id": "s33a",
+      "read": 4
+     },
+     {
+      "id": "s33b",
+      "read": 4
+     }
+    ]
    }
   ],
   "stories": [
    "s33a",
    "s33b",
-   "s33c"
+   "s33c",
+   "s33d"
   ],
   "mastery": {
    "rungRequired": 4,
@@ -4278,12 +4840,42 @@
       "read": 3
      }
     ]
+   },
+   {
+    "id": "L34_7",
+    "unit": 34,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s34d",
+      "read": 1
+     },
+     {
+      "id": "s34d",
+      "read": 2
+     },
+     {
+      "id": "s34d",
+      "read": 3
+     },
+     {
+      "id": "s34a",
+      "read": 4
+     },
+     {
+      "id": "s34b",
+      "read": 4
+     }
+    ]
    }
   ],
   "stories": [
    "s34a",
    "s34b",
-   "s34c"
+   "s34c",
+   "s34d"
   ],
   "mastery": {
    "rungRequired": 4,
@@ -4407,12 +4999,42 @@
       "read": 3
      }
     ]
+   },
+   {
+    "id": "L35_7",
+    "unit": 35,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s35d",
+      "read": 1
+     },
+     {
+      "id": "s35d",
+      "read": 2
+     },
+     {
+      "id": "s35d",
+      "read": 3
+     },
+     {
+      "id": "s35a",
+      "read": 4
+     },
+     {
+      "id": "s35b",
+      "read": 4
+     }
+    ]
    }
   ],
   "stories": [
    "s35a",
    "s35b",
-   "s35c"
+   "s35c",
+   "s35d"
   ],
   "mastery": {
    "rungRequired": 4,
@@ -4534,12 +5156,42 @@
       "read": 3
      }
     ]
+   },
+   {
+    "id": "L36_7",
+    "unit": 36,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s36d",
+      "read": 1
+     },
+     {
+      "id": "s36d",
+      "read": 2
+     },
+     {
+      "id": "s36d",
+      "read": 3
+     },
+     {
+      "id": "s36a",
+      "read": 4
+     },
+     {
+      "id": "s36b",
+      "read": 4
+     }
+    ]
    }
   ],
   "stories": [
    "s36a",
    "s36b",
-   "s36c"
+   "s36c",
+   "s36d"
   ],
   "mastery": {
    "rungRequired": 4,
@@ -4648,12 +5300,42 @@
       "read": 3
      }
     ]
+   },
+   {
+    "id": "L37_6",
+    "unit": 37,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s37d",
+      "read": 1
+     },
+     {
+      "id": "s37d",
+      "read": 2
+     },
+     {
+      "id": "s37d",
+      "read": 3
+     },
+     {
+      "id": "s37a",
+      "read": 4
+     },
+     {
+      "id": "s37b",
+      "read": 4
+     }
+    ]
    }
   ],
   "stories": [
    "s37a",
    "s37b",
-   "s37c"
+   "s37c",
+   "s37d"
   ],
   "mastery": {
    "rungRequired": 4,
@@ -4806,6 +5488,14 @@
      {
       "id": "s38d",
       "read": 3
+     },
+     {
+      "id": "s38e",
+      "read": 4
+     },
+     {
+      "id": "s38f",
+      "read": 4
      }
     ]
    }

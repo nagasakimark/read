@@ -2,7 +2,8 @@
 // Pages turn with a paper-flip animation. Three readings of each story (blueprint "repeated reading"):
 //   read 1  じぶんで よむ     the child reads; tapping a word says it (counted as help)
 //   read 2  いっしょに よむ   read-along: the narrator reads each page, words light up as they are spoken
-//   read 3  よんで こたえる   read again, then answer a question about the story
+//   read 3  よんで こたえる   read again, then answer questions about the story
+//   read 4  すらすら よむ     fluency: read aloud against the clock and try to beat your best time
 import { W, H, FONT, JP, UIF, text, Btn } from './engine.js';
 import { icon, INK, INK2 } from './sprites.js';
 import { picText, speaker } from './ui.js';
@@ -17,6 +18,7 @@ export const MODES = {
   1: { ja: 'じぶんで よむ', en: 'Read it yourself', ic: 'book', col: '#42b4f5', tip: ['じぶんで よんでね。わからない ことばは タップ！', 'Read it yourself. Tap a word to hear it.'] },
   2: { ja: 'いっしょに よむ', en: 'Read along', ic: 'listen', col: '#58c46a', tip: ['きいて、いっしょに よもう！', 'Listen and read along!'] },
   3: { ja: 'よんで こたえる', en: 'Read and answer', ic: 'help', col: '#ff9f4a', tip: ['もういちど よもう。あとで クイズ！', 'Read it again. Then a quiz!'] },
+  4: { ja: 'すらすら よむ', en: 'Beat your time', ic: 'bolt', col: '#a97cf8', tip: ['こえに だして よもう！ どれだけ はやく よめるかな？', 'Read it out loud. How fast can you go?'] },
 };
 
 function easeInOut(t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
@@ -173,13 +175,25 @@ export async function readStory(scene, st, read, onPage) {
   const nextBtn = new Btn({ x: SPINE + PW - 88, y: BY + PH - 70, w: 104, h: 96, icon: 'fwd', size: 46, color: '#5bd16f', onTap: () => {
     if (B.flip) return;
     if (B.page >= pages.length) { done = true; return; }
-    turn(B.page + 1).then(() => { if (B.page === pages.length) { scene.sfx('win'); scene.parts.burst(BX + PW / 2, BY + 160, 30); } else if (read === 2) readPage(); });
+    turn(B.page + 1).then(() => {
+      if (B.page === pages.length) {
+        scene.sfx('win'); scene.parts.burst(BX + PW / 2, BY + 160, 30);
+        if (read === 4 && B.t0) {   // fluency result: time, words per minute, personal best
+          const secs = (performance.now() - B.t0) / 1000, words = toks.reduce((a, t) => a + t.length, 0);
+          const fl = (app.state.fluency ??= {}), prev = fl[st.id];
+          const wpm = Math.round(words / secs * 60), tooFast = wpm > 180;   // nobody reads aloud that fast: pages were skipped
+          B.result = { secs, wpm, tooFast, best: !tooFast && (!prev || secs < prev.secs), prev };
+          if (B.result.best) fl[st.id] = { secs, wpm: B.result.wpm, at: Date.now() };
+          if (B.result.best && prev) { scene.sfx('gem'); scene.parts.burst(SPINE + PW / 2, BY + 200, 40); }
+        }
+      } else if (read === 2) readPage();
+    });
   } });
   const backBtn = new Btn({ x: BX - 16, y: BY + PH - 70, w: 88, h: 84, icon: 'back', size: 38, color: '#42b4f5', onTap: () => { if (!B.flip && B.page > 0 && B.page < pages.length) turn(B.page - 1); } });
   const spk = new Btn({ x: SPINE + PW - 86, y: BY - 22, w: 96, h: 96, shadow: false, customDraw: (c, u) => speaker(c, 48, 48, 42, scene.speaking, scene.t), onTap: () => readPage() });
   const openBtn = new Btn({ x: SPINE + PW / 2 - 150, y: BY + PH - 16, w: 300, h: 90, label: 'ひらく  Open', icon: 'book', size: 34, font: JP, color: '#5bd16f', onTap: () => openBook() });
   const coverTap = new Btn({ x: SPINE, y: BY, w: PW, h: PH, shadow: false, customDraw: () => {}, onTap: () => openBook() });
-  const openBook = async () => { if (started) return; started = true; await turn(0); if (read === 2) readPage(); };
+  const openBook = async () => { if (started) return; started = true; await turn(0); B.t0 = performance.now(); if (read === 2) readPage(); };
   const wordBtns = () => B.words.map(it => new Btn({ x: it.x, y: it.y, w: it.w, h: it.h, shadow: false, customDraw: () => {},
     onTap: () => { if (B.flip) return; if (read === 1) helped.add(B.page + ':' + it.j); B.hl = it.j; scene.speak('w:' + it.t.key).then(() => { if (B.hl === it.j) B.hl = -1; }); } }));
   function setUI() {
@@ -193,18 +207,37 @@ export async function readStory(scene, st, read, onPage) {
 
   // the cover: title, and which of the three readings this is
   scene.bookOverlay = c => {
+    if (read === 4 && B.t0 && B.page >= 0 && B.page < pages.length) {   // running clock
+      const secs = (performance.now() - B.t0) / 1000, lbl = secs.toFixed(1) + ' びょう';
+      c.fillStyle = '#a97cf8'; c.beginPath(); c.roundRect(SPINE - 90, BY - 30, 180, 44, 22); c.fill();
+      icon(c, 'bolt', SPINE - 62, BY - 8, 26, { color: '#fff36b' }); text(c, lbl, SPINE + 14, BY - 7, { size: 22, color: '#fff', font: JP, weight: '900' });
+    }
+    if (B.result && B.page >= pages.length) {
+      const r = B.result, x = SPINE + 40, w = PW - 80;
+      c.fillStyle = '#fff'; c.beginPath(); c.roundRect(x, BY + 60, w, 300, 28); c.fill(); c.strokeStyle = '#a97cf8'; c.lineWidth = 5; c.stroke();
+      if (r.tooFast) { text(c, 'はやすぎ！ Too fast!', x + w / 2, BY + 130, { size: 32, color: '#e8590c', font: JP, weight: '900' });
+        text(c, 'ことばを ぜんぶ こえに だして よんでね', x + w / 2, BY + 200, { size: 20, color: INK, font: JP, weight: '900' });
+        text(c, 'Read every word out loud.', x + w / 2, BY + 236, { size: 18, color: INK2, font: UIF, weight: '800' }); return; }
+      text(c, r.best && r.prev ? 'しんきろく！ New record!' : r.prev ? 'よく よめたね！' : 'きろく！ Your time', x + w / 2, BY + 104, { size: 28, color: r.best && r.prev ? '#e8590c' : INK, font: JP, weight: '900' });
+      text(c, r.secs.toFixed(1) + ' びょう', x + w / 2, BY + 178, { size: 60, color: '#7b4fc0', font: UIF, weight: '900' });
+      text(c, `1ぷんで ${r.wpm} ことば  ·  ${r.wpm} words a minute`, x + w / 2, BY + 238, { size: 20, color: INK2, font: JP, weight: '900' });
+      if (r.prev) text(c, `まえの きろく  Best before: ${r.prev.secs.toFixed(1)} びょう`, x + w / 2, BY + 284, { size: 18, color: INK2, font: JP, weight: '800' });
+      else text(c, 'つぎは もっと はやく よめるかな？', x + w / 2, BY + 284, { size: 18, color: INK2, font: JP, weight: '800' });
+    }
     if (B.page >= 0 || B.flip) { nextBtn.pop = B.page >= pages.length ? 1 + Math.sin(scene.t * 5) * 0.05 : 1; return; }
     const x0 = BX - 10, y0 = BY + 16;
     text(c, 'えほん', x0 + 230, y0 + 10, { size: 22, color: INK2, font: JP, weight: '900' });
-    [1, 2, 3].forEach((r, i) => {
-      const md = MODES[r], y = y0 + 54 + i * 112, on = r === read, doneR = r < read;
-      c.fillStyle = on ? '#fff' : 'rgba(255,255,255,.55)'; c.beginPath(); c.roundRect(x0 + 40, y, 400, 96, 26); c.fill();
+    const list = read === 4 ? [1, 2, 3, 4] : [1, 2, 3], gap = list.length === 4 ? 92 : 112, bh = list.length === 4 ? 80 : 96;
+    list.forEach((r, i) => {
+      const md = MODES[r], y = y0 + 44 + i * gap, on = r === read, doneR = r < read;
+      c.fillStyle = on ? '#fff' : 'rgba(255,255,255,.55)'; c.beginPath(); c.roundRect(x0 + 40, y, 400, bh, 26); c.fill();
       if (on) { c.strokeStyle = md.col; c.lineWidth = 5; c.stroke(); }
-      c.fillStyle = doneR ? '#ffc83d' : on ? md.col : '#c9d3dc'; c.beginPath(); c.arc(x0 + 92, y + 48, 32, 0, 7); c.fill();
-      icon(c, doneR ? 'check' : md.ic, x0 + 92, y + 48, 34, { color: '#fff' });
-      text(c, `${r}. ${md.ja}`, x0 + 140, y + 36, { size: 24, color: on ? INK : INK2, font: JP, weight: '900', align: 'left' });
-      text(c, md.en, x0 + 140, y + 68, { size: 17, color: INK2, font: UIF, weight: '800', align: 'left' });
+      c.fillStyle = doneR ? '#ffc83d' : on ? md.col : '#c9d3dc'; c.beginPath(); c.arc(x0 + 92, y + bh / 2, 30, 0, 7); c.fill();
+      icon(c, doneR ? 'check' : md.ic, x0 + 92, y + bh / 2, 32, { color: '#fff' });
+      text(c, `${r}. ${md.ja}`, x0 + 140, y + bh / 2 - 12, { size: 24, color: on ? INK : INK2, font: JP, weight: '900', align: 'left' });
+      text(c, md.en, x0 + 140, y + bh / 2 + 18, { size: 17, color: INK2, font: UIF, weight: '800', align: 'left' });
     });
+    if (read === 4) { const pb = app.state.fluency?.[st.id]; if (pb) text(c, `ベスト  Best: ${pb.secs.toFixed(1)} びょう`, x0 + 240, y0 + 44 + 4 * gap + 12, { size: 18, color: '#7b4fc0', font: JP, weight: '900' }); }
     openBtn.pop = 1 + Math.sin(scene.t * 4) * 0.04;
   };
 

@@ -413,5 +413,241 @@
   "decodableFrom": null,
   "noteEn": "\"our\" says /ɔr/ (or).",
   "noteJa": "your は「ヨア」"
+ },
+ {
+  "id": "two",
+  "t": "two",
+  "parts": [
+   "t",
+   "*wo"
+  ],
+  "release": 16,
+  "decodableFrom": null,
+  "noteEn": "\"wo\" says /uː/ (oo).",
+  "noteJa": "two は「トゥー」"
+ },
+ {
+  "id": "who",
+  "t": "who",
+  "parts": [
+   "*wh",
+   "*o"
+  ],
+  "release": 16,
+  "decodableFrom": null,
+  "noteEn": "\"who\" says /huː/.",
+  "noteJa": "who は「フー」"
+ },
+ {
+  "id": "could",
+  "t": "could",
+  "parts": [
+   "c",
+   "*oul",
+   "d"
+  ],
+  "release": 17,
+  "decodableFrom": null,
+  "noteEn": "\"oul\" says /ʊ/; the l is silent.",
+  "noteJa": "could の l は よまないよ"
+ },
+ {
+  "id": "would",
+  "t": "would",
+  "parts": [
+   "w",
+   "*oul",
+   "d"
+  ],
+  "release": 17,
+  "decodableFrom": null,
+  "noteEn": "\"oul\" says /ʊ/; the l is silent.",
+  "noteJa": "would の l は よまないよ"
+ },
+ {
+  "id": "should",
+  "t": "should",
+  "parts": [
+   "sh",
+   "*oul",
+   "d"
+  ],
+  "release": 17,
+  "decodableFrom": null,
+  "noteEn": "\"oul\" says /ʊ/; the l is silent.",
+  "noteJa": "should の l は よまないよ"
+ },
+ {
+  "id": "again",
+  "t": "again",
+  "parts": [
+   "*a",
+   "g",
+   "*ai",
+   "n"
+  ],
+  "release": 18,
+  "decodableFrom": null,
+  "noteEn": "a says /ə/ and ai says /ɛ/.",
+  "noteJa": "again は「アゲン」"
+ },
+ {
+  "id": "friend",
+  "t": "friend",
+  "parts": [
+   "f",
+   "r",
+   "*ie",
+   "n",
+   "d"
+  ],
+  "release": 19,
+  "decodableFrom": null,
+  "noteEn": "\"ie\" says /ɛ/ (eh).",
+  "noteJa": "friend の ie は「エ」"
+ },
+ {
+  "id": "door",
+  "t": "door",
+  "parts": [
+   "d",
+   "*oor"
+  ],
+  "release": 20,
+  "decodableFrom": null,
+  "noteEn": "\"oor\" says /ɔr/ (or).",
+  "noteJa": "door は「ドア」"
+ },
+ {
+  "id": "four",
+  "t": "four",
+  "parts": [
+   "f",
+   "*our"
+  ],
+  "release": 20,
+  "decodableFrom": null,
+  "noteEn": "\"our\" says /ɔr/ (or).",
+  "noteJa": "four は「フォー」"
+ },
+ {
+  "id": "mother",
+  "t": "mother",
+  "parts": [
+   "m",
+   "*o",
+   "th",
+   "er"
+  ],
+  "release": 21,
+  "decodableFrom": null,
+  "noteEn": "o says /ʌ/ (uh).",
+  "noteJa": "mother の o は「ア」"
+ },
+ {
+  "id": "brother",
+  "t": "brother",
+  "parts": [
+   "b",
+   "r",
+   "*o",
+   "th",
+   "er"
+  ],
+  "release": 21,
+  "decodableFrom": null,
+  "noteEn": "o says /ʌ/ (uh).",
+  "noteJa": "brother の o は「ア」"
+ },
+ {
+  "id": "water",
+  "t": "water",
+  "parts": [
+   "w",
+   "*a",
+   "t",
+   "er"
+  ],
+  "release": 21,
+  "decodableFrom": null,
+  "noteEn": "a says /ɔ/ (aw).",
+  "noteJa": "water の a は「オ」"
+ },
+ {
+  "id": "many",
+  "t": "many",
+  "parts": [
+   "m",
+   "*a",
+   "n",
+   "y"
+  ],
+  "release": 22,
+  "decodableFrom": null,
+  "noteEn": "a says /ɛ/ (eh).",
+  "noteJa": "many の a は「エ」"
+ },
+ {
+  "id": "any",
+  "t": "any",
+  "parts": [
+   "*a",
+   "n",
+   "y"
+  ],
+  "release": 22,
+  "decodableFrom": null,
+  "noteEn": "a says /ɛ/ (eh).",
+  "noteJa": "any の a は「エ」"
+ },
+ {
+  "id": "people",
+  "t": "people",
+  "parts": [
+   "p",
+   "*eo",
+   "p",
+   "*le"
+  ],
+  "release": 23,
+  "decodableFrom": null,
+  "noteEn": "\"eo\" says /iː/ (ee).",
+  "noteJa": "people は「ピープル」"
+ },
+ {
+  "id": "eye",
+  "t": "eye",
+  "parts": [
+   "*eye"
+  ],
+  "release": 24,
+  "decodableFrom": null,
+  "noteEn": "\"eye\" sounds like the letter I.",
+  "noteJa": "eye は「アイ」"
+ },
+ {
+  "id": "once",
+  "t": "once",
+  "parts": [
+   "*o",
+   "n",
+   "*ce"
+  ],
+  "release": 26,
+  "decodableFrom": null,
+  "noteEn": "\"once\" says /wʌns/.",
+  "noteJa": "once は「ワンス」"
+ },
+ {
+  "id": "laugh",
+  "t": "laugh",
+  "parts": [
+   "l",
+   "*augh"
+  ],
+  "release": 30,
+  "decodableFrom": null,
+  "noteEn": "\"augh\" says /æf/.",
+  "noteJa": "laugh は「ラフ」"
  }
 ]

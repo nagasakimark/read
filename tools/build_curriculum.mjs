@@ -69,7 +69,11 @@ const units = UNITS.map(u => {
     mk(1, 'consolidate', [{ id: st[0], read: 1 }]);
     // every reading of every story, in order, four readings per story lesson
     const reads = [{ id: st[0], read: 2 }, { id: st[0], read: 3 }, ...st.slice(1).flatMap(id => [1, 2, 3].map(read => ({ id, read })))];
-    for (let i = 0, k = 2; i < reads.length; i += 4, k++) mk(k, 'story', reads.slice(i, i + 4));
+    // fluency (Stage 4+): re-read a familiar story against the clock, beating your own best time
+    if (u.stage >= 4) for (const id of st.slice(0, 2)) reads.push({ id, read: 4 });
+    const chunks = []; for (let i = 0; i < reads.length; i += 4) chunks.push(reads.slice(i, i + 4));
+    if (chunks.length > 1 && chunks.at(-1).length === 1) chunks.at(-2).push(...chunks.pop());   // no one-reading lessons
+    chunks.forEach((ch, i) => mk(i + 2, 'story', ch));
   } else {
     mk(1, 'consolidate', []);
   }
