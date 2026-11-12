@@ -5,13 +5,15 @@ import { W, H, FONT, JP, UIF, text, rr, shade, Btn, Particles, drawUI } from './
 import { panel, starRow, starShape, cardFace, progress, icon, slab, PAL, INK, INK2 } from './sprites.js';
 import { BANK_JA } from './bankja.js';
 import { background, flow, tileW, drawTile, speaker, bubble, segmentWord, drawSegments, picText, card, speech } from './ui.js';
-import { drawMonster, hatFor } from './monster.js';
+import { drawMonster, hatFor, hatOf } from './monster.js';
 import { planLesson, stepQuestions, practiceSpec } from '../learn/lessonplan.js';
 import * as M from '../learn/mastery.js';
 import * as Q from '../learn/questions.js';
 import { tokenize } from '../learn/curriculum.js';
 import { gLabel, unitInfo } from './unitinfo.js';
 import { readStory } from './storybook.js';
+import { awardSticker, markDay, CelebrateScene } from './rewards.js';
+import { hatsUnlocked, HAT_LIST } from './monster.js';
 
 
 // What the monster says at the top-left of every activity: Japanese first, English underneath.
@@ -50,6 +52,7 @@ export class LessonScene {
     this.mouth = null; this.mood = 'idle'; this.promptDraw = null; this.dead = false; this.speaking = false;
     this.results = []; this.startedAt = Date.now(); this.stepNo = 0; this.stopped = null; this.overlay = null;
     this.rungsBefore = Object.fromEntries(Object.values(app.state.items).filter(i => i.kind === 'gpc').map(i => [i.id, i.rung]));
+    this.unitWasPassed = !!app.state.units[this.spec.unit]?.passed; this.hatsBefore = hatsUnlocked(app.state);
   }
   enter() {
     const { app } = this;
@@ -69,7 +72,7 @@ export class LessonScene {
   draw(c) {
     background(c, this.t, 'day');
     this.drawBar(c);
-    const hat = hatFor(Object.values(this.app.state.units).filter(u => u.passed && u.skipped !== true).length);
+    const hat = hatOf(this.app.state);
     drawMonster(c, 168, 412, 212, { color: this.app.colorHex, mouth: this.mouth, mood: this.mood, t: this.t, hat, jump: this.jump || 0 });
     if (this.fb && this.fb.until > this.t) speech(c, 14, 78, 282, this.fb.ja, this.fb.en, this.fb.ok ? 'ok' : 'bad');
     else if (this.bookTip) speech(c, 14, 78, 282, this.bookTip[0], this.bookTip[1]);
@@ -78,6 +81,15 @@ export class LessonScene {
     this.promptDraw?.(c);
     this.bookOverlay?.(c);
     drawUI(c, [this.home, ...this.ui]);
+    this.drawDemo(c);
+    if (this.comboShow && this.t - this.comboShow.at < 1.6) {   // "3 in a row!" banner
+      const a = this.t - this.comboShow.at, sc = a < 0.25 ? a / 0.25 * 1.15 : a < 0.4 ? 1.15 - (a - 0.25) : 1, fade = a > 1.2 ? 1 - (a - 1.2) / 0.4 : 1;
+      c.save(); c.globalAlpha = Math.max(0, fade); c.translate(780, 130); c.scale(sc, sc); c.rotate(-0.05);
+      const lbl = `${this.comboShow.n} れんぞく！`; c.font = `900 40px ${JP}`; const w = c.measureText(lbl).width + 110;
+      c.fillStyle = '#e8590c'; c.beginPath(); c.roundRect(-w / 2, -32, w, 70, 35); c.fill(); c.fillStyle = '#ff9f1c'; c.beginPath(); c.roundRect(-w / 2, -38, w, 70, 35); c.fill();
+      icon(c, 'bolt', -w / 2 + 44, -3, 46, { color: '#fff36b' }); text(c, lbl, 26, -2, { size: 40, color: '#fff', font: JP, weight: '900' });
+      c.restore();
+    }
     this.parts.draw(c);
     if (this.overlay) this.overlay(c);
   }
@@ -99,8 +111,9 @@ export class LessonScene {
   // ------------------------------------------------------------------ flow
   async run() {
     const { app } = this;
+    if (this.spec.kind === 'placement') return this.placement();
     for (let i = 0; i < this.steps.length; i++) {
-      this.alive(); this.stepNo = i; this.stepFrac = 0; const step = this.steps[i]; this.instr = step.type === 'meet' ? 'meet' : null;
+      this.alive(); this.stepNo = i; this.reached = i; this.stepFrac = 0; const step = this.steps[i]; this.instr = step.type === 'meet' ? 'meet' : null;
       if (step.type === 'close') break;
       if (this.shouldStop()) break;
       this.ctx.now = Date.now();
@@ -146,7 +159,9 @@ export class LessonScene {
 
   // ------------------------------------------------------------------ record
   record(q, res) {
-    const { app } = this; Q.applyResult(app.state, app.C, q, res, Date.now(), M.record); this.results.push(!!res.ok); app.save();
+    const { app } = this; if (this.noRecord || this.demo) { if (this.noRecord) this.results.push(!!res.ok); return; }
+    this.combo = res.ok ? (this.combo || 0) + 1 : 0;
+    if ([3, 5, 8, 12, 16, 20].includes(this.combo)) { this.comboShow = { n: this.combo, at: this.t }; setTimeout(() => this.sfx('gem'), 250); this.parts.burst(780, 120, 30); } Q.applyResult(app.state, app.C, q, res, Date.now(), M.record); this.results.push(!!res.ok); app.save();
   }
 
   // ------------------------------------------------------------------ meet a new sound
@@ -206,8 +221,29 @@ export class LessonScene {
   // ------------------------------------------------------------------ questions
   async ask(q) {
     this.mood = 'idle'; this.cur = q; this.instr = q.act; this.fb = null;
+    // the first time a child meets an activity, the monster shows the answer ("watch me"); that try is not counted
+    const seen = (this.app.state.seenActs ??= {});
+    this.demo = !this.noRecord && !seen[q.act]; if (this.demo) seen[q.act] = 1;
     const r = (q.type === 'choice' || q.type === 'chain') ? await this.askChoice(q) : await this.askBuild(q);
-    this.cur = null; this.bld = null; return r;
+    this.cur = null; this.bld = null; this.demo = false; return r;
+  }
+  /** Where the demo hand points: the right answer card, or the next right tile when building. */
+  demoPoint() {
+    if (!this.demo || !this.cur) return null;
+    if (this.bld) { const { trayItems, slotItems } = this.bld; const e = slotItems.find(x => x.filled < 0); if (!e) return null;
+      const t = trayItems.find(t => t.placed < 0 && t.label === e.label); return t ? { x: t.cx + t.w / 2, y: t.cy + 70 } : null; }
+    const o = this.ui.find(u => u.idx === this.cur.answer && u.enabled !== false); if (!o || o.st === 'right') return null;
+    return { x: o.x + o.w * 0.78, y: o.y + o.h * 0.72, label: { x: o.x + o.w / 2, y: o.y - 26 } };
+  }
+  drawDemo(c) {
+    const p = this.demoPoint(); if (!p) return;
+    const b = Math.abs(Math.sin(this.t * 4)) * 16;
+    c.fillStyle = 'rgba(255,200,61,.35)'; c.beginPath(); c.arc(p.x, p.y - 20, 34 + b * 0.6, 0, 7); c.fill();
+    icon(c, 'tap', p.x + 18, p.y + 16 + b, 66, { color: '#ff9f4a', shadow: 4 });
+    const lbl = 'おてほん  Watch me!'; c.font = `900 20px ${JP}`; const w = c.measureText(lbl).width + 32;
+    const L = p.label || { x: p.x + 18, y: p.y + 80 + b };
+    c.fillStyle = '#ff9f4a'; c.beginPath(); c.roundRect(L.x - w / 2, L.y - 18, w, 36, 18); c.fill();
+    text(c, lbl, L.x, L.y + 1, { size: 20, color: '#fff', font: JP, weight: '900' });
   }
 
   /** Draw the shared prompt area above the answers. */
@@ -303,6 +339,13 @@ export class LessonScene {
           c.fillStyle = col[1]; c.beginPath(); c.arc(u.w / 2, off + 66, 46, 0, 7); c.fill(); c.fillStyle = col[0]; c.beginPath(); c.arc(u.w / 2, off + 60, 46, 0, 7); c.fill();
           icon(c, same ? 'equal' : 'notequal', u.w / 2, off + 60, 50, { color: '#fff' });
           text(c, same ? 'おなじ' : 'ちがう', u.w / 2, off + bodyH - 56, { size: 34, color: INK, font: JP, weight: '900' }); text(c, same ? 'same' : 'different', u.w / 2, off + bodyH - 22, { size: 20, color: INK2, font: UIF, weight: '800' });
+        }
+        else if (o.label.includes('·')) {   // a word split into parts: each part in its own colour with a gap
+          const ps = o.label.split('·'), COLS = ['#ff7a3c', '#2f8de0', '#3fae5a']; let sz = 70; c.font = `bold ${sz}px ${FONT}`;
+          let tw = ps.reduce((a, p) => a + c.measureText(p).width, 0) + 26 * (ps.length - 1); if (tw > u.w - 36) { sz = Math.floor(sz * (u.w - 36) / tw); c.font = `bold ${sz}px ${FONT}`; tw = ps.reduce((a, p) => a + c.measureText(p).width, 0) + 26 * (ps.length - 1); }
+          let x = u.w / 2 - tw / 2;
+          ps.forEach((p, i) => { const pw = c.measureText(p).width; text(c, p, x + pw / 2, off + bodyH / 2 + 4, { size: sz, color: COLS[i % 3] }); x += pw;
+            if (i < ps.length - 1) { c.fillStyle = '#c9d3dc'; c.beginPath(); c.roundRect(x + 11, off + bodyH / 2 - sz * 0.42, 4, sz * 0.84, 2); c.fill(); x += 26; } });
         }
         else { let sz = o.label.length > 3 ? 78 : o.label.length > 1 ? 100 : 120; c.font = `bold ${sz}px ${FONT}`; const mw = c.measureText(o.label).width; if (mw > u.w - 40) sz = Math.floor(sz * (u.w - 40) / mw); text(c, o.label, u.w / 2, off + bodyH / 2 + 4, { size: sz, color: INK }); }
         if (u.st === 'wrong') { c.fillStyle = '#ff6b6b'; c.beginPath(); c.arc(u.w - 30, 30, 20, 0, 7); c.fill(); icon(c, 'cross', u.w - 30, 30, 20, { color: '#fff' }); }
@@ -511,10 +554,44 @@ export class LessonScene {
     return first === true;
   }
 
+  // ------------------------------------------------------------------ placement check
+  /** Read-a-word-tap-its-picture probes at rising levels; 3 right in a row passes a level, the first miss stops.
+   *  The child starts at the unit after the last level passed (earlier units are marked as skipped). */
+  async placement() {
+    const { app } = this, C = app.C, LEVELS = [3, 6, 10, 14, 18, 22, 24, 27, 31];
+    this.noRecord = true; this.steps = LEVELS.map(() => ({ type: 'probe' })); let passed = 0;
+    for (let i = 0; i < LEVELS.length; i++) {
+      this.alive(); this.stepNo = i; this.stepFrac = 0; const u = LEVELS[i], prev = LEVELS[i - 1] ?? 0;
+      const pool = app.rng.shuffle(C.wordsAt(u, { names: false, functionWords: false }).filter(w => w.pic && w.u > prev));
+      let ok = 0, asked = 0;
+      for (const w of pool) {
+        if (asked >= 3) break; const q = Q.readMatchPicture(C, w.id, u, app.rng); if (!q) continue;
+        asked++; const r = await this.ask(q); this.stepFrac = asked / 3; if (r?.ok) ok++; else break;
+      }
+      if (ok < 3) break; passed = u;
+    }
+    this.stepNo = this.steps.length;
+    const start = passed ? passed + 1 : 0, st = app.state;
+    for (let u = 0; u < start; u++) M.skipUnit(st, u);
+    st.placed = { at: Date.now(), start }; await app.save(true);
+    this.alive(); this.ui = []; this.mood = 'happy'; this.instr = null; this.sfx('win'); this.parts.burst(780, 180, 40);
+    const info = unitInfo(start), au = C.unitById[start];
+    this.promptDraw = c => {
+      panel(c, 400, 60, 760, 390);
+      text(c, start ? 'よく よめたね！' : 'いっしょに はじめよう！', 780, 112, { size: 46, color: INK, font: JP, weight: '900' });
+      text(c, start ? `ユニット ${start} から スタート！` : 'さいしょから スタート！', 780, 178, { size: 32, color: '#ff7a3c', font: JP, weight: '900' });
+      if (au) { text(c, info.ja, 780, 250, { size: 30, color: INK, font: JP, weight: '900' }); text(c, info.en, 780, 288, { size: 20, color: INK2, font: UIF, weight: '800' });
+        if (info.ex) text(c, info.ex, 780, 360, { size: 64, color: '#42b4f5' }); }
+    };
+    this.ui = [new Btn({ x: 530, y: 470, w: 500, h: 100, label: '▶ はじめる  Start', size: 38, font: JP, color: '#58c46a', onTap: () => { this.dead = true; app.goHome(); } })];
+  }
+
   // ------------------------------------------------------------------ finish
   async finish() {
     const { app } = this, C = app.C;
-    const complete = !this.stopped;
+    // a lesson cut short by the clock still counts if most of it was done (otherwise the child redoes it)
+    const complete = !this.stopped || (this.stopped === 'time' && (this.reached ?? 0) / Math.max(1, this.steps.length) >= 0.6);
+    if (complete) this.stopped = null;
     const isCp = this.spec.kind === 'checkpoint'; let cpRes = null;
     if (isCp && complete) {
       const n = this.results.length, ok = this.results.filter(Boolean).length, cps = (app.state.checkpoints ??= {}), prev = cps[this.spec.cp];
@@ -524,6 +601,18 @@ export class LessonScene {
     app.state.stats.secondsPlayed += Math.round((Date.now() - this.startedAt) / 1000);
     const gems = Object.values(app.state.items).filter(i => i.kind === 'gpc' && i.rung >= M.K.mastered && (this.rungsBefore[i.id] ?? 0) < M.K.mastered).map(i => C.gpcs[i.id.slice(4)] ? gLabel(C.gpcs[i.id.slice(4)]) : i.id.slice(4));
     const unitDone = complete && app.state.units[this.spec.unit]?.passed && !this.unitWasPassed;
+    // rewards: a sticker for every finished lesson, three more and a new hat for a finished unit
+    let sticker = null, celebrate = null;
+    if (complete && !isCp) {
+      sticker = awardSticker(app.state, app.rng); markDay(app.state);
+      if (unitDone) {
+        const stg = (C.course?.stages || []).find(sg => sg.units.includes(this.spec.unit));
+        const stageDone = stg && stg.units.filter(u => C.unitById[u]).every(u => M.isUnitPassed(app.state, u));
+        const hat = hatsUnlocked(app.state) > this.hatsBefore ? HAT_LIST[hatsUnlocked(app.state)] : null;
+        celebrate = { unit: this.spec.unit, stage: stageDone ? stg.id : null, hat, stickers: [awardSticker(app.state, app.rng), awardSticker(app.state, app.rng), awardSticker(app.state, app.rng)] };
+      }
+    }
+    this.sticker = sticker ? { s: sticker, k: 0 } : null;
     await app.save(true);
     this.alive(); this.ui = []; this.promptDraw = null; this.mood = 'happy';
     let pos = 0; const gemObjs = gems.slice(0, 4).map((g, i) => ({ g, y: -80, x: 1060, ty: 130 + i * 76, s: 0 }));
@@ -536,6 +625,7 @@ export class LessonScene {
     const homeBtn = new Btn({ x: 400, y: 470, w: 170, h: 100, icon: 'home', label: 'ホーム', size: 26, color: '#ff9f4a', font: JP, onTap: () => { this.dead = true; app.goHome(); } });
     const nextBtn = nxt && new Btn({ x: 600, y: 470, w: 560, h: 100, label: '▶ つぎの レッスン  Next lesson', size: 36, font: JP, color: '#58c46a', onTap: () => goLesson(nxt) });
     this.ui = nextBtn ? [homeBtn, nextBtn] : [new Btn({ x: 480, y: 470, w: 600, h: 100, label: '▶ ホームへ  Home', size: 38, font: JP, color: '#58c46a', onTap: () => { this.dead = true; app.goHome(); } })];
+    if (celebrate) this.ui = [new Btn({ x: 480, y: 470, w: 600, h: 100, label: '🎉 おいわい！  ホーム', size: 36, font: JP, color: '#ff9f4a', onTap: () => { this.dead = true; app.eng.go(new CelebrateScene(app, celebrate)); } })];
     this.promptDraw = c => {
       panel(c, 400, 60, 760, 390);
       const msg = this.stopped === 'tired' ? 'すこし やすもう 😴' : this.stopped === 'time' ? 'きょうは ここまで！ 🌙' : 'できたね！ 🎉';
@@ -566,9 +656,14 @@ export class LessonScene {
           else text(c, `あと ${Math.max(0, total - doneN)} レッスンで ユニット クリア`, 780, 378, { size: 22, color: INK2, font: JP, weight: '900' });
         }
       }
+      if (this.sticker) { const k = this.sticker.k; c.save(); c.translate(500, 150); c.scale(k, k); c.rotate(-0.12);
+        c.fillStyle = '#fff'; c.beginPath(); c.arc(0, 0, 50, 0, 7); c.fill(); c.strokeStyle = '#ffd24a'; c.lineWidth = 6; c.stroke();
+        text(c, this.sticker.s, 0, 3, { size: 56, font: FONT }); c.restore();
+        if (k > 0.9) text(c, 'シール ゲット！', 500, 218, { size: 18, color: '#b36b00', font: JP, weight: '900' }); }
       gemObjs.forEach(o => { c.save(); c.translate(o.x + 40, o.y); c.scale(o.s * 0.5, o.s * 0.5); c.fillStyle = '#7be0ad'; c.beginPath(); c.moveTo(0, -60); c.lineTo(55, -15); c.lineTo(35, 55); c.lineTo(-35, 55); c.lineTo(-55, -15); c.closePath(); c.fill(); c.lineWidth = 6; c.strokeStyle = '#fff'; c.stroke(); text(c, o.g, 0, 0, { size: o.g.length > 1 ? 52 : 68, color: '#175d3b' }); c.restore(); });
     };
     this.sfx('win'); this.parts.burst(780, 200, 40);
+    if (this.sticker) app.eng.tween(this.sticker, { k: 1 }, 600, 'back', 700).then(() => { this.sfx('gem'); this.parts.burst(500, 150, 16); });
     for (const o of gemObjs) { this.sfx('gem'); await Promise.all([app.eng.tween(o, { y: o.ty, s: 1 }, 600, 'back'), app.eng.wait(250)]); this.parts.burst(o.x + 40, o.ty, 14); }
   }
 }

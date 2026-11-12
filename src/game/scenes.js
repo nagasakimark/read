@@ -1,6 +1,6 @@
 import { W, H, FONT, JP, UIF, text, rr, shade, Btn, Particles, drawUI, star } from './engine.js';
 import { background, speaker, title, caption } from './ui.js';
-import { drawMonster, hatFor } from './monster.js';
+import { drawMonster, hatFor, hatOf } from './monster.js';
 import { COLORS, toCode, fromCode } from './store.js';
 import { LessonScene } from './lesson.js';
 import { GamesScene } from './minigames.js';
@@ -9,6 +9,7 @@ import { panel, starRow, starShape, cardFace, slab, icon, PAL, INK, INK2 } from 
 import * as M from '../learn/mastery.js';
 import { practiceSpec, checkpointSpec } from '../learn/lessonplan.js';
 import { unitInfo, STAGE_INFO, drawExample } from './unitinfo.js';
+import { StickerScene, currentStreak } from './rewards.js';
 
 import { gLabel } from './unitinfo.js';
 export { gLabel };
@@ -57,7 +58,7 @@ export class ProfileScene {
       return new Btn({ x, y, w: 250, h: 190, shadow: false, customDraw: (c, u) => {
         const off = cardFace(c, 0, 0, u.w, u.h, 'idle', u.press, false);
         if (rec) {
-          drawMonster(c, u.w / 2, 88 + off, 118, { color: col.hex, t: this.t + i, hat: hatFor(passedCount(rec.state)) });
+          drawMonster(c, u.w / 2, 88 + off, 118, { color: col.hex, t: this.t + i, hat: hatOf(rec.state) });
           const n = Object.values(rec.state.items).filter(it => it.kind === 'gpc' && it.rung >= M.K.mastered).length;
           starShape(c, u.w / 2 - 26, u.h - 40, 30, true); text(c, String(n), u.w / 2 + 6, u.h - 38, { size: 28, color: INK, font: UIF, weight: '900', align: 'left' });
         } else {
@@ -72,6 +73,33 @@ export class ProfileScene {
     background(c, this.t, 'day');
     title(c, 'だれが あそぶ？', W / 2, 52, 48); text(c, 'Who is playing?', W / 2, 98, { size: 24, color: INK2, font: UIF, weight: '800' });
     title(c, 'すきな いろの モンスターを えらんでね', W / 2, 138, 22, { outline: 'rgba(255,255,255,.0)', weight: '800' });
+    drawUI(c, this.ui);
+  }
+}
+
+// ------------------------------------------------------------------ first time: start at the beginning, or find my level
+export const placementSpec = () => ({ id: 'PLACE', unit: 3, kind: 'placement', newGpcs: [], newTricky: [], stories: [] });
+export class StartChoiceScene {
+  constructor(app) { this.app = app; this.t = 0; this.ui = []; }
+  enter() {
+    const { app } = this;
+    const mk = (x, ja, en, sub, col, art, go) => new Btn({ x, y: 150, w: 440, h: 330, shadow: false, customDraw: (c, u) => {
+      const off = cardFace(c, 0, 0, u.w, u.h, 'idle', u.press, false);
+      c.fillStyle = col; c.beginPath(); c.arc(u.w / 2, off + 100, 74, 0, 7); c.fill();
+      if (art === 'abc') text(c, 'abc', u.w / 2, off + 100, { size: 64, color: '#fff' }); else icon(c, 'book', u.w / 2, off + 100, 78, { color: '#fff' });
+      text(c, ja, u.w / 2, off + 212, { size: 36, color: INK, font: JP, weight: '900' });
+      text(c, en, u.w / 2, off + 252, { size: 20, color: INK2, font: UIF, weight: '800' });
+      text(c, sub, u.w / 2, off + 290, { size: 17, color: INK2, font: JP, weight: '800' });
+    }, onTap: go });
+    this.ui = [
+      mk(190, 'はじめから', 'Start from the beginning', 'えいごの もじは はじめて', '#58c46a', 'abc', () => app.goHome()),
+      mk(736, 'すこし よめる', 'I can read some English', 'かんたんな テストで レベルを きめるよ', '#42b4f5', 'book', () => app.eng.go(new LessonScene(app, placementSpec()))),
+    ];
+  }
+  update(dt) { this.t += dt; }
+  draw(c) {
+    background(c, this.t, 'day');
+    title(c, 'どこから はじめる？', W / 2, 60, 46); text(c, 'Where do you want to start?', W / 2, 108, { size: 22, color: INK2, font: UIF, weight: '800' });
     drawUI(c, this.ui);
   }
 }
@@ -118,7 +146,8 @@ export class HomeScene {
     const who = new Btn({ x: 14, y: 12, w: 70, h: 72, icon: 'people', size: 36, color: '#a97cf8', onTap: () => app.chooseProfile() });
     const help = new Btn({ x: 94, y: 12, w: 70, h: 72, icon: 'help', size: 38, color: '#42b4f5', onTap: () => app.eng.go(new IntroScene(app, () => app.goHome())) });
     const games = new Btn({ x: 22, y: 468, w: 96, h: 90, icon: 'gamepad', size: 42, color: '#a97cf8', onTap: () => app.eng.go(new GamesScene(app)) });
-    this.ui = [play, stars, gear, who, games, help];
+    const album = new Btn({ x: 174, y: 12, w: 70, h: 72, icon: 'sparkle', size: 38, color: '#ff8fd0', onTap: () => app.eng.go(new StickerScene(app)) });
+    this.ui = [play, stars, who, games, help, album, ...(app.teacher ? [gear] : [])];
     const cp = (C.course?.checkpoints || []).find(c => stage.units.includes(c.after));
     if (cp && (st.settings.unlockAll || M.isUnitPassed(st, cp.after))) {
       const r = st.checkpoints?.[cp.id];
@@ -181,12 +210,16 @@ export class HomeScene {
       if (isCur) text(c, info.en, n.x, n.y + 96, { size: 14, color: INK2, font: UIF, weight: '800', stroke: { w: 5, c: 'rgba(255,255,255,.9)' } });
     });
     const cn = this.nodes.find(n => n.id === this.cur && n.au);
-    if (cn) drawMonster(c, cn.x, cn.y - 104 + (this.shake ? Math.sin(this.t * 60) * 6 * this.shake : 0), 112, { color: app.colorHex, mood: 'happy', t: this.t, hat: hatFor(passedCount(st)) });
+    if (cn) drawMonster(c, cn.x, cn.y - 104 + (this.shake ? Math.sin(this.t * 60) * 6 * this.shake : 0), 112, { color: app.colorHex, mood: 'happy', t: this.t, hat: hatOf(st) });
     if (st.settings.unlockAll) chip(c, W / 2, 432, '🔓 先生モード  Teacher mode — tap a unit');
     else this.drawNextCard(c, 134, 458);
     this.drawKnown(c, W / 2 + 206, 458);
     if (!this.next && stage.id === 2) chip(c, W / 2, 432, 'つぎの ユニットは じゅんびちゅう！ Next units are on their way.');
-    for (const [x, y, ja] of [[49, 108, 'ひと'], [129, 108, 'ヘルプ'], [W - 129, 108, 'せんせい'], [W - 49, 108, 'きろく'], [70, 578, 'ゲーム']]) caption(c, ja, x, y, 14);
+    for (const [x, y, ja] of [[49, 108, 'ひと'], [129, 108, 'ヘルプ'], [209, 108, 'シール'], ...(app.teacher ? [[W - 129, 108, 'せんせい']] : []), [W - 49, 108, 'きろく'], [70, 578, 'ゲーム']]) caption(c, ja, x, y, 14);
+    const days = currentStreak(st);
+    if (days) { const rx = app.teacher ? W - 176 : W - 96, lbl = `${days}にち れんぞく`; c.font = `900 18px ${JP}`; const w = c.measureText(lbl).width + 58;
+      c.fillStyle = 'rgba(255,255,255,.92)'; c.beginPath(); c.roundRect(rx - w, 28, w, 40, 20); c.fill();
+      icon(c, 'bolt', rx - w + 22, 48, 26, { color: '#ff9f1c' }); text(c, lbl, rx - w + 40, 49, { size: 18, color: INK, font: JP, weight: '900', align: 'left' }); }
     if (this.ui.some(u => u.icon === 'trophy')) caption(c, 'チェック', W - 86, 578, 14);
     drawUI(c, this.ui);
     this.parts.draw(c);
@@ -302,6 +335,8 @@ export class TeacherScene {
       mk(1000, 370, 170, 'More sounds', '#42b4f5', () => { this.gp = ((this.gp || 0) + 1) % Math.ceil(C.gpcList.filter(g => !['suffix', 'silent'].includes(g.type)).length / 36); }),
       mk(1180, 370, 170, st.settings.unlockAll ? 'Unlock all: ON' : 'Unlock all: OFF', '#e8a23a', u => { st.settings.unlockAll = !st.settings.unlockAll; u.label = st.settings.unlockAll ? 'Unlock all: ON' : 'Unlock all: OFF'; app.save(); }),
       mk(1180, 310, 170, 'Record voices', '#a478e8', () => open('tools/recorder.html', '_blank')),
+      mk(1000, 430, 170, 'Class report', '#ff9f4a', () => open('report.html', '_blank')),
+      mk(1180, 430, 170, 'Placement check', '#ff9f4a', () => app.eng.go(new LessonScene(app, placementSpec()))),
     ];
   }
   update(dt) { this.t += dt; }

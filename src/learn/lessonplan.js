@@ -8,6 +8,25 @@ const MAX_NEW = 2;   // blueprint pseudocode: maxNew = 2 (Stage 0-1)
 
 /** Describe a lesson as an ordered list of steps. State is read for review/reteach decisions only. */
 export function planLesson(C, state, lessonSpec, rng, now = Date.now()) {
+  return budget(planRaw(C, state, lessonSpec, rng, now), lessonSpec.kind);
+}
+
+// Short lessons: a Japanese 7-10 year old manages ~15-20 questions (about 8-10 minutes) comfortably.
+// Step sizes are scaled down to fit; the mastery scheduler simply needs more (shorter) lessons.
+const TARGET = { teach: 20, consolidate: 18, practice: 18, story: 10, review: 10 };
+export const MEET_Q = 3;
+function budget(steps, kind) {
+  const target = TARGET[kind]; if (!target) return steps;
+  const size = st => st.type === 'meet' ? MEET_Q : st.type === 'heart' ? st.words.length * 2 : st.type === 'dictation' ? 1 : (st.n || 0);
+  const isFixed = st => st.keep || ['meet', 'heart', 'dictation'].includes(st.type);
+  const fixed = steps.filter(isFixed).reduce((a, st) => a + size(st), 0);
+  const flex = steps.filter(st => st.n && !isFixed(st));
+  const flexTot = flex.reduce((a, st) => a + st.n, 0); const room = Math.max(flex.length, target - fixed);
+  if (flexTot > room) { const f = room / flexTot; for (const st of flex) st.n = Math.max(st.type === 'retrieval' ? 3 : 1, Math.round(st.n * f)); }
+  return steps;
+}
+
+function planRaw(C, state, lessonSpec, rng, now) {
   const { kind, unit } = lessonSpec;
   const u = C.unitById[unit];
   const steps = [];
@@ -79,7 +98,7 @@ export function planLesson(C, state, lessonSpec, rng, now = Date.now()) {
   if (kind === 'consolidate' || kind === 'practice') {
     // review sized to what is still weak in this unit, so a big unit (7-8 new sounds) is not left half-practised
     const weak = (u.newGpcs || []).filter(g => M.rungOf(state, M.keys.gpc(g)) < M.K.mastered).length;
-    retr(Math.min(18, Math.max(8, weak * 3)));
+    steps.push({ type: 'retrieval', n: Math.min(12, Math.max(6, weak * 3)), keep: true });
     const pack = packs.length ? rng.pick(packs) : null;
     if (pack) steps.push({ type: 'minpair', pack: pack.id, n: 4 });
     steps.push({ type: 'blend', n: 3, focus: u.newGpcs, pats: u.newPatterns, weak: true });
@@ -215,8 +234,7 @@ export function stepQuestions(C, state, step, rng, ctx) {
     case 'syllable': for (let i = 0; i < step.n; i++) push(Q.syllableTap(C, rng)); break;
     case 'meet': {
       const g = step.gpc;
-      push(Q.listenPick(C, g, unit, rng, 3)); push(Q.recallFlash(C, g, unit, rng, 3));
-      push(Q.listenPick(C, g, unit, rng, 3)); push(Q.recallFlash(C, g, unit, rng, 4));
+      push(Q.listenPick(C, g, unit, rng, 3)); push(Q.recallFlash(C, g, unit, rng, 3)); push(Q.listenPick(C, g, unit, rng, 4));
       break;
     }
   }

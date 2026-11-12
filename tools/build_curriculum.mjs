@@ -67,14 +67,15 @@ const units = UNITS.map(u => {
   const mk = (k, kind, stories) => lessons.push({ id: `L${u.id}_${n + k}`, unit: u.id, kind, newGpcs: [], newTricky: [], stories });
   if (st.length) {
     mk(1, 'consolidate', [{ id: st[0], read: 1 }]);
-    mk(2, 'story', [{ id: st[0], read: 2 }, { id: st[0], read: 3 }, ...(st[1] ? [{ id: st[1], read: 1 }, { id: st[1], read: 2 }] : [])]);
-    mk(3, 'story', [...(st[1] ? [{ id: st[1], read: 3 }] : []), ...(st[2] ? [{ id: st[2], read: 1 }, { id: st[2], read: 2 }, { id: st[2], read: 3 }] : [])]);
+    // every reading of every story, in order, four readings per story lesson
+    const reads = [{ id: st[0], read: 2 }, { id: st[0], read: 3 }, ...st.slice(1).flatMap(id => [1, 2, 3].map(read => ({ id, read })))];
+    for (let i = 0, k = 2; i < reads.length; i += 4, k++) mk(k, 'story', reads.slice(i, i + 4));
   } else {
     mk(1, 'consolidate', []);
   }
   return { id: u.id, stage: u.stage, name: u.name, ja: u.ja, newGpcs: (u.groups || []).flat(), suffixGpcs: u.suffixGpcs || [], newPatterns: (u.patterns || []).flat().map(x => x.replace(/ /g, '')), ...(u.syl ? { syl: true } : {}), ...(u.morph ? { morph: true } : {}), newTricky: u.tricky.flat(),
     prereqs: u.id > 1 ? [u.id - 1] : [0], packs: PACKS.filter(p => p.unit === u.id).map(p => p.id), lessons,
-    stories: st, mastery: { rungRequired: 4, storyAccuracy: 0.9, questionsCorrect: st.length ? 2 : 0 } };
+    stories: st, mastery: { rungRequired: 4, storyAccuracy: 0.9, questionsCorrect: Math.min(2, st.length) } };
 });
 
 out('meta.json', { contentVersion: '0.1.0', accent: 'en-US', sFinalBank: S_FINAL_BANK, builtFrom: 'curriculum/src', blueprint: 'docs/BLUEPRINT.md',

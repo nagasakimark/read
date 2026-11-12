@@ -1,0 +1,17 @@
+import { chromium } from 'playwright';
+import http from 'node:http'; import fs from 'node:fs'; import path from 'node:path';
+const root = '/home/claude/read';
+const mime = { '.html': 'text/html', '.js': 'text/javascript', '.json': 'application/json', '.woff2': 'font/woff2' };
+const srv = http.createServer((q, r) => { let p = path.join(root, decodeURIComponent(q.url.split('?')[0])); if (p.endsWith('/')) p += 'index.html'; fs.readFile(p, (e, d) => { if (e) { r.writeHead(404); r.end(); } else { r.writeHead(200, { 'content-type': mime[path.extname(p)] || 'application/octet-stream' }); r.end(d); } }); }).listen(0);
+const browser = await chromium.launch({ executablePath: '/usr/bin/google-chrome', args: ['--no-sandbox'] });
+const page = await browser.newPage({ viewport: { width: 1366, height: 900 } });
+const errors = []; page.on('pageerror', e => errors.push(String(e)));
+const port = srv.address().port;
+await page.goto(`http://localhost:${port}/report.html`); await page.waitForTimeout(500);
+const st = fs.readFileSync('/tmp/play_state.json', 'utf8');
+const codes = await page.evaluate(async st => { const S = await import('/src/game/store.js'); const s = JSON.parse(st); const a = await S.toCode(s);
+  const s2 = JSON.parse(st); for (const it of Object.values(s2.items)) it.rung = Math.max(0, it.rung - 2); const b = await S.toCode(s2); return `Hana: ${a}\nKen: ${b}`; }, st);
+await page.fill('#codes', codes); await page.click('#go'); await page.waitForTimeout(800);
+await page.screenshot({ path: '/tmp/shots/report.png', fullPage: false }); console.log((await page.textContent('table')).replace(/\s+/g,' '));
+console.log(await page.textContent('#msg'), 'errors:', errors);
+await browser.close(); srv.close();

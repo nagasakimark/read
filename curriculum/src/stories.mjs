@@ -3,6 +3,17 @@
 // Questions: literal, picture-tap (question is read aloud; no reading of the question is required).
 const Q = (q, a, ...d) => ({ q, type: 'literal', answer: a, distractors: d });
 export const STORIES = [
+  // ---------------- Unit 1 (s a m t only: the very first book)
+  { id:'s1a', unit:1, title:'Sam', topic:'family', focus:['s','a','m','t'], pages:[
+      { text:'Sam.', pic:'👦' }, { text:'Sam sat.', pic:'👦🪑' }, { text:'Sam sat, sat, sat!', pic:'👦😆' } ],
+    questions:[ Q('Who sat?', ['👦','boy'], ['🐱','cat'], ['🐶','dog']) ] },
+  // ---------------- Unit 2
+  { id:'s2a', unit:2, title:'Tim, Pam, Sam', topic:'family', focus:['i','n','p'], pages:[
+      { text:'Tim sits.', pic:'🧒' }, { text:'Pam sits.', pic:'👧' }, { text:'Sam sits.', pic:'👦' }, { text:'Tim, Pam, Sam nap.', pic:'😴😴😴' } ],
+    questions:[ Q('What do they do?', ['😴','nap'], ['🗺️','map'], ['🍳','pan']) ] },
+  { id:'s2b', unit:2, title:'I Sip', topic:'food', focus:['i','n','p'], pages:[
+      { text:'I sit.', pic:'🧒🪑' }, { text:'I sip.', pic:'🧒🥤' }, { text:'I sip, sip, sip!', pic:'🧒🥤😋' }, { text:'I nap.', pic:'🧒😴' } ],
+    questions:[ Q('What do I do at the end?', ['😴','nap'], ['🗺️','map'], ['📌','pin']) ] },
   // ---------------- Unit 3
   { id:'s3a', unit:3, title:'The Cap', topic:'animals', focus:['o','c','d','g'], pages:[
       { text:'Tom got a cap.', pic:'🧒🧢' }, { text:'The cat sat in the cap.', pic:'🐱🧢' }, { text:'Tom pat the cat.', pic:'🧒🐱' } ],
@@ -339,6 +350,26 @@ export const STORIES = [
     questions:[ Q('Where do we go?', ['🏖️','vacation'], ['🏫','school'], ['🛏️','cot']) ] },
 
   // ---------------- Stage 7: fluency bridge (longer, unpractised passages)
+  { id:'s38e', unit:38, title:'The Little Kitten', topic:'animals', pages:[
+      { text:'One day, Meg found a little kitten in the garden.', pic:'👧🐱🌷' },
+      { text:'The kitten was wet and cold. It was sad.', pic:'🐱💧' },
+      { text:'Meg gave the kitten some milk and a little bed.', pic:'🐱🥛🛏️' },
+      { text:'Then Meg and her dad made a picture of the kitten.', pic:'👧👨🖍️' },
+      { text:'They stuck the picture on a tree by the gate.', pic:'🌳📄' },
+      { text:'Then a boy came to the garden gate.', pic:'👦🚪' },
+      { text:'"That is my kitten!" he said. "Her name is Max."', pic:'👦🐱' },
+      { text:'The kitten was happy to go home. The boy came back to play with Meg.', pic:'👧👦🐱😄' } ],
+    questions:[ Q('Where did Meg find the kitten?', ['🌷','garden'], ['🏫','school'], ['🏪','shop']), Q('What did Meg give the kitten?', ['🥛','milk'], ['🍰','cake'], ['🐟','fish']) ] },
+  { id:'s38f', unit:38, title:'The Rocket Game', topic:'play', pages:[
+      { text:'Max and his sister Meg made a rocket from a big box.', pic:'👦👧📦🚀' },
+      { text:'They made it red, with a star on the top.', pic:'🚀⭐' },
+      { text:'"Ready, set, go!" said Max.', pic:'🚀🔥' },
+      { text:'In the game, the rocket went up to the moon.', pic:'🚀🌙' },
+      { text:'They landed on the moon. It was pink and fun!', pic:'🌙🩷' },
+      { text:'A little green man with six legs said hi.', pic:'👽👋' },
+      { text:'Then Dad said, "Dinner time, rocket kids!"', pic:'👨🍝' },
+      { text:'Max and Meg ran home fast. Dinner is the best part of the game!', pic:'🚀🏠🍝' } ],
+    questions:[ Q('What did they make the rocket from?', ['📦','box'], ['🥫','can'], ['🧺','basket']), Q('Where did the rocket go?', ['🌙','moon'], ['🏫','school'], ['🏪','shop']) ] },
   { id:'s38a', unit:38, title:'The Jungle', topic:'nature', pages:[
       { text:'A tiger is in the jungle.', pic:'🐯🌴' }, { text:'The jungle has a big tree and a purple flower.', pic:'🌳🌸' }, { text:'A turtle sat by the lake in the sunshine.', pic:'🐢🏞️' }, { text:'The little bird is asleep in the tree.', pic:'🐦😴' }, { text:'It is a nice day in the jungle.', pic:'☀️' }, { text:'We can see nature at the lake.', pic:'🌿' } ],
     questions:[ Q('Who is in the jungle?', ['🐯','tiger'], ['🐷','pig'], ['🐱','cat']), Q('Who is asleep?', ['🐦','bird'], ['🐢','turtle'], ['🐯','tiger']) ] },

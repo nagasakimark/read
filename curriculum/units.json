@@ -77,14 +77,38 @@
     "kind": "consolidate",
     "newGpcs": [],
     "newTricky": [],
-    "stories": []
+    "stories": [
+     {
+      "id": "s1a",
+      "read": 1
+     }
+    ]
+   },
+   {
+    "id": "L1_4",
+    "unit": 1,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s1a",
+      "read": 2
+     },
+     {
+      "id": "s1a",
+      "read": 3
+     }
+    ]
    }
   ],
-  "stories": [],
+  "stories": [
+   "s1a"
+  ],
   "mastery": {
    "rungRequired": 4,
    "storyAccuracy": 0.9,
-   "questionsCorrect": 0
+   "questionsCorrect": 1
   }
  },
  {
@@ -136,14 +160,60 @@
     "kind": "consolidate",
     "newGpcs": [],
     "newTricky": [],
-    "stories": []
+    "stories": [
+     {
+      "id": "s2a",
+      "read": 1
+     }
+    ]
+   },
+   {
+    "id": "L2_4",
+    "unit": 2,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s2a",
+      "read": 2
+     },
+     {
+      "id": "s2a",
+      "read": 3
+     },
+     {
+      "id": "s2b",
+      "read": 1
+     },
+     {
+      "id": "s2b",
+      "read": 2
+     }
+    ]
+   },
+   {
+    "id": "L2_5",
+    "unit": 2,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s2b",
+      "read": 3
+     }
+    ]
    }
   ],
-  "stories": [],
+  "stories": [
+   "s2a",
+   "s2b"
+  ],
   "mastery": {
    "rungRequired": 4,
    "storyAccuracy": 0.9,
-   "questionsCorrect": 0
+   "questionsCorrect": 2
   }
  },
  {
@@ -4621,7 +4691,7 @@
     "newTricky": [],
     "stories": [
      {
-      "id": "s38a",
+      "id": "s38e",
       "read": 1
      }
     ]
@@ -4634,19 +4704,19 @@
     "newTricky": [],
     "stories": [
      {
-      "id": "s38a",
+      "id": "s38e",
       "read": 2
      },
      {
-      "id": "s38a",
+      "id": "s38e",
       "read": 3
      },
      {
-      "id": "s38b",
+      "id": "s38f",
       "read": 1
      },
      {
-      "id": "s38b",
+      "id": "s38f",
       "read": 2
      }
     ]
@@ -4659,13 +4729,55 @@
     "newTricky": [],
     "stories": [
      {
+      "id": "s38f",
+      "read": 3
+     },
+     {
+      "id": "s38a",
+      "read": 1
+     },
+     {
+      "id": "s38a",
+      "read": 2
+     },
+     {
+      "id": "s38a",
+      "read": 3
+     }
+    ]
+   },
+   {
+    "id": "L38_5",
+    "unit": 38,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s38b",
+      "read": 1
+     },
+     {
+      "id": "s38b",
+      "read": 2
+     },
+     {
       "id": "s38b",
       "read": 3
      },
      {
       "id": "s38c",
       "read": 1
-     },
+     }
+    ]
+   },
+   {
+    "id": "L38_6",
+    "unit": 38,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
      {
       "id": "s38c",
       "read": 2
@@ -4673,11 +4785,34 @@
      {
       "id": "s38c",
       "read": 3
+     },
+     {
+      "id": "s38d",
+      "read": 1
+     },
+     {
+      "id": "s38d",
+      "read": 2
+     }
+    ]
+   },
+   {
+    "id": "L38_7",
+    "unit": 38,
+    "kind": "story",
+    "newGpcs": [],
+    "newTricky": [],
+    "stories": [
+     {
+      "id": "s38d",
+      "read": 3
      }
     ]
    }
   ],
   "stories": [
+   "s38e",
+   "s38f",
    "s38a",
    "s38b",
    "s38c",

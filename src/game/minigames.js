@@ -3,7 +3,7 @@
 import { W, H, FONT, JP, UIF, text, rr, Btn, Particles, drawUI } from './engine.js';
 import { background, speaker, picText, card, title } from './ui.js';
 import { panel, starRow, cardFace, icon, progress, PAL, INK, INK2 } from './sprites.js';
-import { drawMonster, hatFor } from './monster.js';
+import { drawMonster, hatFor, hatOf } from './monster.js';
 import * as Q from '../learn/questions.js';
 import * as M from '../learn/mastery.js';
 
@@ -89,7 +89,7 @@ export class MiniScene {
     drawUI(c, [this.home, ...this.ui]);
     this.parts.draw(c);
   }
-  drawMon(c, x, y, s, mood) { drawMonster(c, x, y, s, { color: this.app.colorHex, mood: mood || this.mood, t: this.t, hat: hatFor(Object.values(this.app.state.units).filter(u => u.passed && u.skipped !== true).length) }); }
+  drawMon(c, x, y, s, mood) { drawMonster(c, x, y, s, { color: this.app.colorHex, mood: mood || this.mood, t: this.t, hat: hatOf(this.app.state) }); }
   drawResult(c) {
     panel(c, 400, 70, 760, 380);
     text(c, 'できたね！', 780, 130, { size: 54, color: INK, font: JP, weight: '900' });
@@ -116,8 +116,8 @@ export class MiniScene {
     const g = (app.state.games ??= {}); const prev = g[this.id] || { best: 0, plays: 0 }; g[this.id] = { best: Math.max(prev.best, stars), plays: prev.plays + 1 };
     app.state.stats.secondsPlayed += 0; app.save(true);
     this.res = { ok, stars }; this.app.audio.sfx('win'); this.parts.burst(780, 200, 40);
-    this.ui = [new Btn({ x: 540, y: 372, w: 210, h: 90, icon: 'replay', size: 50, color: '#5bd16f', onTap: () => app.eng.go(new MiniScene(app, this.id)) }),
-      new Btn({ x: 790, y: 372, w: 210, h: 90, icon: 'home', size: 50, color: '#ff9f4a', onTap: () => app.eng.go(new GamesScene(app)) })];
+    this.ui = [new Btn({ x: 540, y: 470, w: 210, h: 92, icon: 'replay', size: 50, color: '#5bd16f', onTap: () => app.eng.go(new MiniScene(app, this.id)) }),
+      new Btn({ x: 790, y: 470, w: 210, h: 92, icon: 'home', size: 50, color: '#ff9f4a', onTap: () => app.eng.go(new GamesScene(app)) })];
     this.home.visible = false;
   }
   bubbleBtn(x, y, w, h, o) { return new Btn({ x, y, w, h, shadow: false, st: 'idle', shake: 0, ...o }); }

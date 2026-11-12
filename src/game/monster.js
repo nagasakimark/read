@@ -3,6 +3,10 @@ import { shade, rr } from './engine.js';
 
 const HATS = ['none', 'cap', 'crown', 'party', 'flower', 'tophat', 'star', 'halo'];
 export const hatFor = unitsPassed => HATS[Math.min(unitsPassed, HATS.length - 1)];
+export const HAT_LIST = HATS;
+/** Hats are unlocked one per unit passed; the child can choose which to wear (state.hat). */
+export const hatsUnlocked = st => Math.min(HATS.length - 1, Object.values(st?.units || {}).filter(u => u.passed).length);
+export const hatOf = st => { const i = HATS.indexOf(st?.hat); return i >= 0 && i <= hatsUnlocked(st) ? st.hat : HATS[hatsUnlocked(st)]; };
 
 /** mood: idle|happy|oops|think. mouth: phoneme mouth pose or null. t: time in seconds for idle motion. */
 export function drawMonster(c, x, y, size, { color = '#58c46a', mouth = null, mood = 'idle', t = 0, hat = 'none', blink = true, look = 0, jump = 0 } = {}) {

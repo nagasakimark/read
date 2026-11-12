@@ -24,6 +24,7 @@ while (lessonsDone < LESSONS && Date.now() - t0 < 600000) {
   const info = await page.evaluate((acc) => {
     const a = window.__app, s = a.eng.scene, name = s.constructor.name;
     if (name === 'HomeScene') { return { act: 'home' }; }
+    if (name === 'CelebrateScene') { const b = s.ui[0]; return s.t > 2 ? { act: 'click', x: b.x + b.w / 2, y: b.y + b.h / 2, kind: 'celebrate' } : { act: 'wait' }; }
     if (name !== 'LessonScene') return { act: 'other', name };
     if (s.cur && s.ui.length) {
       const q = s.cur, good = Math.random() < acc;

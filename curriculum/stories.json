@@ -1,5 +1,149 @@
 [
  {
+  "id": "s1a",
+  "unit": 1,
+  "title": "Sam",
+  "topic": "family",
+  "focus": [
+   "s",
+   "a",
+   "m",
+   "t"
+  ],
+  "pages": [
+   {
+    "text": "Sam.",
+    "pic": "👦"
+   },
+   {
+    "text": "Sam sat.",
+    "pic": "👦🪑"
+   },
+   {
+    "text": "Sam sat, sat, sat!",
+    "pic": "👦😆"
+   }
+  ],
+  "questions": [
+   {
+    "q": "Who sat?",
+    "type": "literal",
+    "answer": [
+     "👦",
+     "boy"
+    ],
+    "distractors": [
+     [
+      "🐱",
+      "cat"
+     ],
+     [
+      "🐶",
+      "dog"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s2a",
+  "unit": 2,
+  "title": "Tim, Pam, Sam",
+  "topic": "family",
+  "focus": [
+   "i",
+   "n",
+   "p"
+  ],
+  "pages": [
+   {
+    "text": "Tim sits.",
+    "pic": "🧒"
+   },
+   {
+    "text": "Pam sits.",
+    "pic": "👧"
+   },
+   {
+    "text": "Sam sits.",
+    "pic": "👦"
+   },
+   {
+    "text": "Tim, Pam, Sam nap.",
+    "pic": "😴😴😴"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What do they do?",
+    "type": "literal",
+    "answer": [
+     "😴",
+     "nap"
+    ],
+    "distractors": [
+     [
+      "🗺️",
+      "map"
+     ],
+     [
+      "🍳",
+      "pan"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s2b",
+  "unit": 2,
+  "title": "I Sip",
+  "topic": "food",
+  "focus": [
+   "i",
+   "n",
+   "p"
+  ],
+  "pages": [
+   {
+    "text": "I sit.",
+    "pic": "🧒🪑"
+   },
+   {
+    "text": "I sip.",
+    "pic": "🧒🥤"
+   },
+   {
+    "text": "I sip, sip, sip!",
+    "pic": "🧒🥤😋"
+   },
+   {
+    "text": "I nap.",
+    "pic": "🧒😴"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What do I do at the end?",
+    "type": "literal",
+    "answer": [
+     "😴",
+     "nap"
+    ],
+    "distractors": [
+     [
+      "🗺️",
+      "map"
+     ],
+     [
+      "📌",
+      "pin"
+     ]
+    ]
+   }
+  ]
+ },
+ {
   "id": "s3a",
   "unit": 3,
   "title": "The Cap",
@@ -5077,6 +5221,162 @@
      [
       "🛏️",
       "cot"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s38e",
+  "unit": 38,
+  "title": "The Little Kitten",
+  "topic": "animals",
+  "pages": [
+   {
+    "text": "One day, Meg found a little kitten in the garden.",
+    "pic": "👧🐱🌷"
+   },
+   {
+    "text": "The kitten was wet and cold. It was sad.",
+    "pic": "🐱💧"
+   },
+   {
+    "text": "Meg gave the kitten some milk and a little bed.",
+    "pic": "🐱🥛🛏️"
+   },
+   {
+    "text": "Then Meg and her dad made a picture of the kitten.",
+    "pic": "👧👨🖍️"
+   },
+   {
+    "text": "They stuck the picture on a tree by the gate.",
+    "pic": "🌳📄"
+   },
+   {
+    "text": "Then a boy came to the garden gate.",
+    "pic": "👦🚪"
+   },
+   {
+    "text": "\"That is my kitten!\" he said. \"Her name is Max.\"",
+    "pic": "👦🐱"
+   },
+   {
+    "text": "The kitten was happy to go home. The boy came back to play with Meg.",
+    "pic": "👧👦🐱😄"
+   }
+  ],
+  "questions": [
+   {
+    "q": "Where did Meg find the kitten?",
+    "type": "literal",
+    "answer": [
+     "🌷",
+     "garden"
+    ],
+    "distractors": [
+     [
+      "🏫",
+      "school"
+     ],
+     [
+      "🏪",
+      "shop"
+     ]
+    ]
+   },
+   {
+    "q": "What did Meg give the kitten?",
+    "type": "literal",
+    "answer": [
+     "🥛",
+     "milk"
+    ],
+    "distractors": [
+     [
+      "🍰",
+      "cake"
+     ],
+     [
+      "🐟",
+      "fish"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "id": "s38f",
+  "unit": 38,
+  "title": "The Rocket Game",
+  "topic": "play",
+  "pages": [
+   {
+    "text": "Max and his sister Meg made a rocket from a big box.",
+    "pic": "👦👧📦🚀"
+   },
+   {
+    "text": "They made it red, with a star on the top.",
+    "pic": "🚀⭐"
+   },
+   {
+    "text": "\"Ready, set, go!\" said Max.",
+    "pic": "🚀🔥"
+   },
+   {
+    "text": "In the game, the rocket went up to the moon.",
+    "pic": "🚀🌙"
+   },
+   {
+    "text": "They landed on the moon. It was pink and fun!",
+    "pic": "🌙🩷"
+   },
+   {
+    "text": "A little green man with six legs said hi.",
+    "pic": "👽👋"
+   },
+   {
+    "text": "Then Dad said, \"Dinner time, rocket kids!\"",
+    "pic": "👨🍝"
+   },
+   {
+    "text": "Max and Meg ran home fast. Dinner is the best part of the game!",
+    "pic": "🚀🏠🍝"
+   }
+  ],
+  "questions": [
+   {
+    "q": "What did they make the rocket from?",
+    "type": "literal",
+    "answer": [
+     "📦",
+     "box"
+    ],
+    "distractors": [
+     [
+      "🥫",
+      "can"
+     ],
+     [
+      "🧺",
+      "basket"
+     ]
+    ]
+   },
+   {
+    "q": "Where did the rocket go?",
+    "type": "literal",
+    "answer": [
+     "🌙",
+     "moon"
+    ],
+    "distractors": [
+     [
+      "🏫",
+      "school"
+     ],
+     [
+      "🏪",
+      "shop"
      ]
     ]
    }
