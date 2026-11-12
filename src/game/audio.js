@@ -2,7 +2,9 @@
 // and synthesises small sound effects. Missing clips resolve quietly (the app must never stall on audio).
 export class AudioSys {
   constructor() { this.ctx = null; this.manifest = {}; this.cache = new Map(); this.token = 0; this.muted = false; this.log = []; }
-  async loadManifest(url = 'audio/manifest.json') { try { this.manifest = await (await fetch(url)).json(); } catch { this.manifest = {}; } }
+  async loadManifest(url = 'audio/manifest.json') { try { this.manifest = await (await fetch(url)).json(); } catch { this.manifest = {}; }
+    // names are recorded as w:Sam but looked up by word id (w:sam): add lower-case aliases
+    for (const [k, v] of Object.entries(this.manifest)) { const lk = k.toLowerCase(); if (/^[wb]:/.test(k) && !(lk in this.manifest)) this.manifest[lk] = v; } }
   unlock() {
     if (!this.ctx) { try { this.ctx = new (window.AudioContext || window.webkitAudioContext)(); } catch { return; } }
     if (this.ctx.state === 'suspended') this.ctx.resume();
