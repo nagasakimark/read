@@ -72,7 +72,7 @@ export const STORIES = [
       { text:'Meg can spin.', pic:'👧🌀' }, { text:'Ken can skip.', pic:'🧒🪢' }, { text:'Meg can skip and spin.', pic:'👧🪢🌀' }, { text:'It is fun!', pic:'🎉' } ],
     questions:[ Q('What can Ken do?', ['🪢','skip'], ['🤸','jump'], ['🏊','swim']) ] },
   { id:'s12c', unit:12, title:'The Spill', topic:'home', focus:[], pats:['^sp','^st'], pages:[
-      { text:'Spill, spill, spill!', pic:'🥛💦' }, { text:'There is milk on the step.', pic:'🥛👣' }, { text:'Tom can stop the spill.', pic:'🧒🛑' }, { text:'Tom got a mop.', pic:'🧒🧹' } ],
+      { text:'Spill, spill, spill!', pic:'🥛💧' }, { text:'There is milk on the step.', pic:'🥛👣' }, { text:'Tom can stop the spill.', pic:'🧒🛑' }, { text:'Tom got a mop.', pic:'🧒🧹' } ],
     questions:[ Q('What did Tom get?', ['🧹','mop'], ['🥛','milk'], ['🐷','pig']) ] },
   // ---------------- Unit 13
   { id:'s13a', unit:13, title:'The Black Cat', topic:'animals', focus:[], pats:['^bl','^cl','^fl','^gl','^pl','^sl'], pages:[
@@ -99,17 +99,17 @@ export const STORIES = [
       { text:'Dan got a string.', pic:'🧒🧵' }, { text:'He can strum.', pic:'🧒🎸' }, { text:'Dan is singing.', pic:'🧒🎤' }, { text:'It is a thrill!', pic:'🎉' } ],
     questions:[ Q('What did Dan get?', ['🧵','string'], ['🧢','cap'], ['🥤','cup']) ] },
   { id:'s15b', unit:15, title:'Splash!', topic:'animals', focus:[], pats:['^spl','ing$'], pages:[
-      { text:'Tom is jumping.', pic:'🧒🤸' }, { text:'Tom is kicking.', pic:'🧒⚽' }, { text:'Splash! Splash!', pic:'💦' }, { text:'Tom is wet.', pic:'🧒💦' } ],
+      { text:'Tom is jumping.', pic:'🧒🤸' }, { text:'Tom is kicking.', pic:'🧒⚽' }, { text:'Splash! Splash!', pic:'💧' }, { text:'Tom is wet.', pic:'🧒💧' } ],
     questions:[ Q('What is Tom doing?', ['🤸','jump'], ['😴','nap'], ['🏊','swim']) ] },
   { id:'s15c', unit:15, title:'Shrimp Lunch', topic:'food', focus:[], pats:['^shr','ing$'], pages:[
       { text:'Meg is fishing.', pic:'👧🎣' }, { text:'She got a shrimp.', pic:'👧🦐' }, { text:'The shrimp is in a dish.', pic:'🦐🍽️' }, { text:'It is a fresh lunch.', pic:'🍱' } ],
     questions:[ Q('What did Meg get?', ['🦐','shrimp'], ['🐜','ant'], ['🐸','frog']) ] },
   // ---------------- Unit 16
   { id:'s16a', unit:16, title:'Camping', topic:'places', focus:[], pats:['ed_t$','ed_id$','ed_d$'], pages:[
-      { text:'Sam and Dan camped.', pic:'👦🧒🏕️' }, { text:'They jumped and splashed.', pic:'🤸💦' }, { text:'They rested in the tent.', pic:'⛺😌' }, { text:'The sunset was red.', pic:'🌇' } ],
+      { text:'Sam and Dan camped.', pic:'👦🧒🏕️' }, { text:'They jumped and splashed.', pic:'🤸💧' }, { text:'They rested in the tent.', pic:'⛺😌' }, { text:'The sunset was red.', pic:'🌇' } ],
     questions:[ Q('Where did they rest?', ['⛺','tent'], ['🛏️','bed'], ['🚌','bus']) ] },
   { id:'s16b', unit:16, title:'The Catfish', topic:'animals', focus:[], pats:['ed_t$','ed_d$'], pages:[
-      { text:'Meg fished.', pic:'👧🎣' }, { text:'She got a catfish.', pic:'👧🐟' }, { text:'It kicked and splashed.', pic:'🐟💦' }, { text:'Meg yelled.', pic:'👧' }, { text:'She let the catfish go.', pic:'👧🐟' } ],
+      { text:'Meg fished.', pic:'👧🎣' }, { text:'She got a catfish.', pic:'👧🐟' }, { text:'It kicked and splashed.', pic:'🐟💧' }, { text:'Meg yelled.', pic:'👧' }, { text:'She let the catfish go.', pic:'👧🐟' } ],
     questions:[ Q('What did Meg get?', ['🐟','catfish'], ['🐸','frog'], ['🦀','crab']) ] },
   { id:'s16c', unit:16, title:'The Backpack', topic:'school', focus:[], pats:['ed_d$','ed_id$'], pages:[
       { text:'Ken filled a backpack.', pic:'🧒🎒' }, { text:'He lifted it.', pic:'🎒⬆️' }, { text:'He handed it to Dan.', pic:'🧒🎒🧒' }, { text:'Dan was glad.', pic:'🧒😊' } ],
@@ -474,7 +474,7 @@ export const SENTENCES = [
   { unit:2, text:'I sit.', pic:'🧒🪑' }, { unit:2, text:'I sip it.', pic:'🧒🥤' }, { unit:2, text:'Tim sat in it.', pic:'🧒📦' },
   { unit:3, text:'The dog sat on a mat.', pic:'🐶' }, { unit:3, text:'Dad can dig.', pic:'👨⛏️' }, { unit:3, text:'The cat got the cod.', pic:'🐱🐟' },
   { unit:4, text:'Go to the hut.', pic:'🛖' }, { unit:4, text:'Ken can run.', pic:'🏃' }, { unit:4, text:'A pup ran to the den.', pic:'🐶' },
-  { unit:5, text:'The bell is big.', pic:'🔔' }, { unit:5, text:'A fat cat is on the bed.', pic:'🐱🛏️' }, { unit:5, text:'Bob can kick the doll off the bed.', pic:'🧸' },
+  { unit:5, text:'The bell is big.', pic:'🔔' }, { unit:5, text:'A big cat is on the bed.', pic:'🐱🛏️' }, { unit:5, text:'Bob can kick the doll off the bed.', pic:'🧸' },
   { unit:6, text:'You can zip the bag.', pic:'👜' }, { unit:6, text:'We can get in the van.', pic:'🚐' }, { unit:6, text:'The fox is in a box.', pic:'🦊📦' },
   { unit:7, text:'Meg has six pigs.', pic:'🐷' }, { unit:7, text:'Do you like dogs?', pic:'🐶' }, { unit:7, text:'Ben said yes.', pic:'🙋' },
   { unit:8, text:'She can shut the shed.', pic:'🚪' }, { unit:8, text:'Have a chip!', pic:'🍟' }, { unit:8, text:'I wish I had a fish.', pic:'🐟' },
