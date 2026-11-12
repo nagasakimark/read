@@ -8,8 +8,10 @@ import { IntroScene } from './intro.js';
 import { panel, starRow, starShape, cardFace, slab, icon, PAL, INK, INK2 } from './sprites.js';
 import * as M from '../learn/mastery.js';
 import { practiceSpec, checkpointSpec } from '../learn/lessonplan.js';
+import { unitInfo, STAGE_INFO, drawExample } from './unitinfo.js';
 
-export const gLabel = g => (g.id === 'sz' ? 's/z' : g.type === 'split' ? g.g + '_e' : g.g);
+import { gLabel } from './unitinfo.js';
+export { gLabel };
 const passedCount = st => Object.values(st.units).filter(u => u.passed && !u.skipped).length;
 
 // ------------------------------------------------------------------ tap to start (also unlocks audio)
@@ -89,21 +91,27 @@ export class HomeScene {
   build() {
     const { app } = this, C = app.C, st = app.state;
     const stage = this.stages[this.page];
-    const n = stage.units.length, gap = Math.min(170, (W - 330) / Math.max(1, n - 1));
+    const n = stage.units.length, gap = Math.min(170, (W - 330) / Math.max(1, n - 1)); this.gap = gap;
     const x0 = W / 2 - (gap * (n - 1)) / 2;
     this.nodes = stage.units.map((id, i) => {
       const au = C.units.find(u => u.id === id), cu = C.course?.units[id];
-      return { id, au, cu, x: x0 + i * gap, y: 290 + Math.sin(i * 0.9) * 48 - (i % 2) * 14 };
+      return { id, au, cu, x: x0 + i * gap, y: 296 + Math.sin(i * 0.9) * 40 - (i % 2) * 12 };
     });
-    // where the child is: "Unit 3 · lesson 2 of 4"
+    // where the child is, and why: the "next up" card explains the next lesson in a child's words
     this.where = null;
     if (this.next) {
-      const au = C.units.find(u => u.id === this.next.unit);
-      if (this.next.kind === 'practice') this.where = { unit: this.next.unit, name: au?.name, ja: 'れんしゅう', en: 'Practice', no: 0, total: 0 };
-      else { const idx = au.lessons.findIndex(l => l.id === this.next.lessonId); this.where = { unit: this.next.unit, name: au?.name, no: idx + 1, total: au.lessons.length }; }
+      const au = C.units.find(u => u.id === this.next.unit), us = st.units[this.next.unit] || {};
+      const doneN = au.lessons.filter(l => us.lessonsDone?.[l.id]).length;
+      const l = C.lessons[this.next.lessonId];
+      this.where = { unit: au.id, kind: this.next.kind, no: Math.min(doneN + 1, au.lessons.length), total: au.lessons.length, done: doneN,
+        newGpcs: (l?.newGpcs || []).map(g => C.gpcs[g]).filter(Boolean), unitGpcs: au.newGpcs.map(g => C.gpcs[g]).filter(g => g && !['suffix', 'silent'].includes(g.type)) };
     }
+    // overall journey: units passed out of all units
+    this.journey = C.units.filter(u => M.isUnitPassed(st, u.id)).length / C.units.length;
+    const gl = C.gpcList.filter(g => !['suffix', 'silent'].includes(g.type));
+    this.known = gl.filter(g => (st.items['gpc:' + g.id]?.rung || 0) >= M.K.mastered).length; this.knownTotal = gl.length;
     const allDone = !this.next;
-    const play = new Btn({ x: W / 2 - 200, y: 458, w: 400, h: 104, label: allDone ? 'もうすぐ…' : 'あそぶ  Play', icon: allDone ? '' : 'play', size: 42, font: JP, color: allDone ? '#9fb3a4' : '#5bd16f', onTap: () => this.play() });
+    const play = new Btn({ x: W / 2 - 190, y: 462, w: 380, h: 100, label: allDone ? 'もうすぐ…' : 'あそぶ  Play', icon: allDone ? '' : 'play', size: 42, font: JP, color: allDone ? '#9fb3a4' : '#5bd16f', onTap: () => this.play() });
     this.play_ = play;
     const stars = new Btn({ x: W - 84, y: 12, w: 70, h: 72, icon: 'star', size: 38, color: '#ffc83d', onTap: () => app.eng.go(new MasteryScene(app)) });
     const gear = new Btn({ x: W - 164, y: 12, w: 70, h: 72, icon: 'gear', size: 36, color: '#8398ad', onTap: () => app.eng.go(new TeacherScene(app)) });
@@ -136,44 +144,102 @@ export class HomeScene {
   draw(c) {
     const { app } = this, st = app.state, stage = this.stages[this.page];
     background(c, this.t, 'day');
-    title(c, `Stage ${stage.id}  ${stage.ja}`, W / 2, 38, 36, { font: UIF });
-    text(c, stage.name, W / 2, 76, { size: 20, color: INK2, font: UIF, weight: '800' });
+    const si = STAGE_INFO[stage.id] || { ja: stage.ja, en: stage.name };
+    title(c, `ステージ ${stage.id}  ${si.ja}`, W / 2, 36, 34);
+    text(c, si.en, W / 2, 70, { size: 18, color: INK2, font: UIF, weight: '800' });
+    this.drawJourney(c, W / 2, 98);
     // the road
     c.lineCap = 'round'; c.lineJoin = 'round';
     c.strokeStyle = 'rgba(120,90,50,.28)'; c.lineWidth = 50; c.beginPath(); this.nodes.forEach((n, i) => (i ? c.lineTo(n.x, n.y + 8) : c.moveTo(n.x, n.y + 8))); c.stroke();
     c.strokeStyle = '#f3dcaa'; c.lineWidth = 46; c.beginPath(); this.nodes.forEach((n, i) => (i ? c.lineTo(n.x, n.y) : c.moveTo(n.x, n.y))); c.stroke();
     c.strokeStyle = '#fff6dc'; c.lineWidth = 6; c.setLineDash([1, 20]); c.stroke(); c.setLineDash([]);
     this.nodes.forEach(n => {
-      const planned = !n.au;
+      const planned = !n.au, info = unitInfo(n.id);
       const passed = !planned && M.isUnitPassed(st, n.id), open = !planned && (st.settings.unlockAll || M.isUnitOpen(app.C, st, n.id) || n.id === 0), isCur = !planned && n.id === this.cur;
       const r = 46 + (isCur ? Math.sin(this.t * 4) * 2.5 : 0);
       const [face, lip] = planned ? ['#e3e9ee', '#c2ccd5'] : passed ? PAL.Yellow : isCur ? PAL.Green : open ? PAL.Blue : ['#c9d3dc', '#a8b4bf'];
-      if (isCur) { c.fillStyle = 'rgba(88,209,111,.28)'; c.beginPath(); c.arc(n.x, n.y, r + 14 + Math.sin(this.t * 4) * 3, 0, 7); c.fill(); }
+      if (isCur) {
+        c.fillStyle = 'rgba(88,209,111,.22)'; c.beginPath(); c.arc(n.x, n.y + 4, r + 18 + Math.sin(this.t * 4) * 3, 0, 7); c.fill();
+        // progress ring: lessons finished in this unit
+        const w = this.where, f = w && w.total ? w.done / w.total : 0;
+        c.lineCap = 'round'; c.lineWidth = 9; c.strokeStyle = 'rgba(255,255,255,.85)'; c.beginPath(); c.arc(n.x, n.y + 4, r + 12, 0, 7); c.stroke();
+        if (f > 0) { c.strokeStyle = '#ffb92e'; c.beginPath(); c.arc(n.x, n.y + 4, r + 12, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * f); c.stroke(); }
+      }
       c.fillStyle = lip; c.beginPath(); c.arc(n.x, n.y + 9, r, 0, 7); c.fill();
       c.fillStyle = face; c.beginPath(); c.arc(n.x, n.y, r, 0, 7); c.fill();
       c.fillStyle = 'rgba(255,255,255,.3)'; c.beginPath(); c.ellipse(n.x - 6, n.y - r * 0.55, r * 0.6, r * 0.22, 0, 0, 7); c.fill();
-      const lab = n.id === 0 ? '' : n.au ? (n.au.newGpcs.length ? n.au.newGpcs.map(g => gLabel(app.C.gpcs[g])).slice(0, 4).join(' ') : n.au.newPatterns.map(x => x.replace(/[\^$]/g, '').replace(/^(sy|af):/, '')).slice(0, 3).join(' ')) : (n.cu.gpcs.map(g => g[1]).slice(0, 4).join(' ') || (n.cu.concepts[0] || '…').replace(/[:(].*/, '').trim().split(' ').slice(0, 3).join(' '));
-      const ink = passed ? '#7a5200' : isCur || open ? '#fff' : '#7d8b98';
-      if (planned) { text(c, lab, n.x, n.y - 5, { size: lab.length > 6 ? 20 : 28, color: '#8a9aa7' }); text(c, 'soon', n.x, n.y + 22, { size: 17, color: '#8a9aa7', font: UIF, weight: '800' }); }
+      const ink = passed ? '#7a5200' : isCur || open ? '#fff' : '#7d8b98', hot = passed ? '#d2571e' : isCur ? '#fff36b' : open ? '#ffe36b' : '#7d8b98';
+      if (planned) text(c, 'soon', n.x, n.y, { size: 18, color: '#8a9aa7', font: UIF, weight: '800' });
       else if (!open && !passed) icon(c, 'lock', n.x, n.y, 38, { color: '#fff', color2: '#a8b4bf' });
       else if (n.id === 0) icon(c, 'listen', n.x, n.y, 46, { color: ink });
-      else text(c, lab, n.x, n.y + 2, { size: lab.length > 8 ? 22 : lab.length > 4 ? 28 : 34, color: ink, weight: '900' });
+      else if (info.ex) drawExample(c, info, n.x, n.y + 2, 34, 78, hot, ink, FONT);
+      else icon(c, 'book', n.x, n.y, 44, { color: ink });
       if (passed) { c.fillStyle = '#35b454'; c.beginPath(); c.arc(n.x + 36, n.y - 36, 17, 0, 7); c.fill(); c.lineWidth = 4; c.strokeStyle = '#fff'; c.stroke(); icon(c, 'check', n.x + 36, n.y - 36, 17, { color: '#fff' }); }
-      if (n.id !== 0) text(c, 'Unit ' + n.id, n.x, n.y + 74, { size: 19, color: INK, font: UIF, weight: '900', stroke: { w: 6, c: 'rgba(255,255,255,.9)' } });
+      // friendly name under the node
+      let fs = 17; c.font = `900 ${fs}px ${JP}`; const nm = info.ja; while (fs > 11 && c.measureText(nm).width > this.gap - 14) { fs--; c.font = `900 ${fs}px ${JP}`; }
+      text(c, nm, n.x, n.y + 74, { size: fs, color: open || passed ? INK : '#7d8b98', font: JP, weight: '900', stroke: { w: 6, c: 'rgba(255,255,255,.92)' } });
+      if (isCur) text(c, info.en, n.x, n.y + 96, { size: 14, color: INK2, font: UIF, weight: '800', stroke: { w: 5, c: 'rgba(255,255,255,.9)' } });
     });
     const cn = this.nodes.find(n => n.id === this.cur && n.au);
-    if (cn) drawMonster(c, cn.x, cn.y - 98 + (this.shake ? Math.sin(this.t * 60) * 6 * this.shake : 0), 118, { color: app.colorHex, mood: 'happy', t: this.t, hat: hatFor(passedCount(st)) });
-    // "where am I" chip above the play button
-    if (st.settings.unlockAll) { chip(c, W / 2, 430, '🔓 先生モード  Teacher mode — tap a unit'); }
-    else if (this.where) {
-      const w = this.where, txt = w.total ? `Unit ${w.unit}  ·  レッスン ${w.no} / ${w.total}` : `Unit ${w.unit}  ·  ${w.ja} ${w.en}`;
-      chip(c, W / 2, 430, txt);
-    }
-    if (!this.next && stage.id === 2) chip(c, W / 2, 430, 'つぎの ユニットは じゅんびちゅう！ Next units are on their way.');
+    if (cn) drawMonster(c, cn.x, cn.y - 104 + (this.shake ? Math.sin(this.t * 60) * 6 * this.shake : 0), 112, { color: app.colorHex, mood: 'happy', t: this.t, hat: hatFor(passedCount(st)) });
+    if (st.settings.unlockAll) chip(c, W / 2, 432, '🔓 先生モード  Teacher mode — tap a unit');
+    else this.drawNextCard(c, 134, 458);
+    this.drawKnown(c, W / 2 + 206, 458);
+    if (!this.next && stage.id === 2) chip(c, W / 2, 432, 'つぎの ユニットは じゅんびちゅう！ Next units are on their way.');
     for (const [x, y, ja] of [[49, 108, 'ひと'], [129, 108, 'ヘルプ'], [W - 129, 108, 'せんせい'], [W - 49, 108, 'きろく'], [70, 578, 'ゲーム']]) caption(c, ja, x, y, 14);
     if (this.ui.some(u => u.icon === 'trophy')) caption(c, 'チェック', W - 86, 578, 14);
     drawUI(c, this.ui);
     this.parts.draw(c);
+  }
+  /** The whole course as a strip of stages: filled = done, the current one partly filled, a flag at the end. */
+  drawJourney(c, cx, y) {
+    const { app } = this, C = app.C, st = app.state, stages = this.stages, w = 420, gap = 6;
+    const segW = (w - gap * (stages.length - 1)) / stages.length; let x = cx - w / 2;
+    stages.forEach((sg, i) => {
+      const us = sg.units.filter(u => C.unitById[u]); const f = us.length ? us.filter(u => M.isUnitPassed(st, u)).length / us.length : 0;
+      c.fillStyle = 'rgba(38,56,75,.14)'; c.beginPath(); c.roundRect(x, y - 7, segW, 14, 7); c.fill();
+      if (f > 0) { c.fillStyle = f >= 1 ? '#ffb92e' : '#58c46a'; c.beginPath(); c.roundRect(x, y - 7, Math.max(14, segW * f), 14, 7); c.fill(); }
+      if (i === this.page) { c.strokeStyle = '#fff'; c.lineWidth = 3; c.beginPath(); c.roundRect(x - 2, y - 9, segW + 4, 18, 9); c.stroke(); }
+      x += segW + gap;
+    });
+    icon(c, 'flag', cx + w / 2 + 22, y - 4, 30, { color: '#ff5a5a', shadow: 2 });
+    text(c, 'よむ たび', cx - w / 2 - 14, y, { size: 15, color: INK2, font: JP, weight: '900', align: 'right' });
+  }
+  /** "Next up": what the next lesson is and why (new sounds / review / story / practice to unlock). */
+  drawNextCard(c, x, y) {
+    const w = this.where; if (!w) return; const C = this.app.C;
+    const cw = 326, ch = 108; panel(c, x, y, cw, ch, { r: 26 });
+    const kindTxt = { teach: ['あたらしい おと', 'New sounds'], consolidate: ['ふくしゅう', 'Review'], story: ['おはなし', 'Story time'], oral: ['おとあそび', 'Sound games'], practice: ['もうすこし！', 'Practice to unlock'] }[w.kind] || ['レッスン', 'Lesson'];
+    c.fillStyle = '#ff9f4a'; c.beginPath(); c.roundRect(x + 14, y + 13, 46, 26, 13); c.fill(); text(c, 'つぎ', x + 37, y + 27, { size: 16, color: '#fff', font: JP, weight: '900' });
+    text(c, kindTxt[0], x + 70, y + 27, { size: 22, color: INK, font: JP, weight: '900', align: 'left' });
+    c.font = `900 22px ${JP}`; const kw = c.measureText(kindTxt[0]).width; c.font = `800 14px ${UIF}`;
+    if (70 + kw + 14 + c.measureText(kindTxt[1]).width < cw - 16) text(c, kindTxt[1], x + cw - 16, y + 28, { size: 14, color: INK2, font: UIF, weight: '800', align: 'right' });
+    const cy = y + 72;
+    if (w.kind === 'practice') {
+      // one tile per sound in this unit: gold = secure; that is what unlocks the next unit
+      const tiles = w.unitGpcs.slice(0, 8), tw = Math.min(40, (cw - 30) / tiles.length - 6);
+      tiles.forEach((g, i) => { const got = (this.app.state.items['gpc:' + g.id]?.rung || 0) >= M.K.mastered, tx = x + 16 + i * (tw + 6);
+        slab(c, tx, cy - 20, tw, 40, { r: 10, face: got ? '#ffd24a' : '#eef3f8', lip: got ? '#e8a915' : '#c9d4df', depth: 4 });
+        text(c, gLabel(g), tx + tw / 2, cy - 2, { size: gLabel(g).length > 2 ? 14 : 20, color: got ? '#7a5200' : INK2 }); });
+    } else if (w.kind === 'teach' && w.newGpcs.length) {
+      w.newGpcs.forEach((g, i) => { const tx = x + 16 + i * 66; slab(c, tx, cy - 22, 58, 44, { r: 12, face: '#fff1d6', lip: '#f5c46b', depth: 4 });
+        text(c, gLabel(g), tx + 29, cy - 2, { size: gLabel(g).length > 2 ? 20 : 28, color: '#ff5a3c' }); });
+    } else icon(c, w.kind === 'story' ? 'book' : w.kind === 'oral' ? 'listen' : 'replay', x + 40, cy, 40, { color: '#42b4f5' });
+    if (w.kind === 'practice') { if (w.unitGpcs.length <= 4) text(c, 'ぜんぶ きんいろで', x + cw - 16, cy - 10, { size: 13, color: INK2, font: JP, weight: '900', align: 'right' }); if (w.unitGpcs.length <= 4) text(c, 'つぎの ユニットへ！', x + cw - 16, cy + 10, { size: 13, color: INK2, font: JP, weight: '900', align: 'right' }); }
+    // lesson dots: where in the unit we are
+    else if (w.total) { const dx = x + cw - 18 - (w.total - 1) * 18;
+      for (let i = 0; i < w.total; i++) { c.fillStyle = i < w.done ? '#58c46a' : i === w.done && w.kind !== 'practice' ? '#ffb92e' : 'rgba(38,56,75,.16)'; c.beginPath(); c.arc(dx + i * 18, cy, i === w.done && w.kind !== 'practice' ? 7 : 6, 0, 7); c.fill(); } }
+  }
+  /** Sounds the child can read (secure), out of all of them. */
+  drawKnown(c, x, y) {
+    const cw = 290, ch = 108; panel(c, x, y, cw, ch, { r: 26 });
+    icon(c, 'star', x + 44, y + 54, 50, { color: '#ffc83d' });
+    text(c, 'よめる おと', x + 84, y + 30, { size: 18, color: INK2, font: JP, weight: '900', align: 'left' });
+    text(c, `${this.known}`, x + 84, y + 66, { size: 40, color: INK, font: UIF, weight: '900', align: 'left' });
+    c.font = `900 40px ${UIF}`; const nw = c.measureText(String(this.known)).width;
+    text(c, `/ ${this.knownTotal}`, x + 90 + nw, y + 72, { size: 20, color: INK2, font: UIF, weight: '800', align: 'left' });
+    const bx = x + 84, bw = cw - 104; c.fillStyle = 'rgba(38,56,75,.12)'; c.beginPath(); c.roundRect(bx, y + 88, bw, 10, 5); c.fill();
+    c.fillStyle = '#ffc83d'; c.beginPath(); c.roundRect(bx, y + 88, Math.max(10, bw * this.known / this.knownTotal), 10, 5); c.fill();
   }
 }
 function chip(c, x, y, str) {

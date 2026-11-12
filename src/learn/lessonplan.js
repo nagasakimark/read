@@ -68,7 +68,7 @@ export function planLesson(C, state, lessonSpec, rng, now = Date.now()) {
     steps.push({ type: 'spell', n: 3, focus: lessonSpec.newGpcs });
     steps.push({ type: 'readmatch', n: 2, focus: lessonSpec.newGpcs });
     if (unit >= 2) steps.push({ type: 'chain', n: 2, focus: lessonSpec.newGpcs });
-    if (unit >= 2 && C.sillyAt(unit).length >= 3) steps.push({ type: 'pseudo', n: 2, focus: lessonSpec.newGpcs });
+    if (C.sillyAt(unit).length >= 3) steps.push({ type: 'pseudo', n: 3, focus: lessonSpec.newGpcs });
     const tr = lessonSpec.newTricky || [];
     if (tr.length) steps.push({ type: 'heart', words: tr, intro: true });
     if (C.sentences.some(s => s.unit <= unit)) steps.push({ type: 'dictation', n: 1 });
@@ -77,7 +77,9 @@ export function planLesson(C, state, lessonSpec, rng, now = Date.now()) {
   }
 
   if (kind === 'consolidate' || kind === 'practice') {
-    retr(10);
+    // review sized to what is still weak in this unit, so a big unit (7-8 new sounds) is not left half-practised
+    const weak = (u.newGpcs || []).filter(g => M.rungOf(state, M.keys.gpc(g)) < M.K.mastered).length;
+    retr(Math.min(18, Math.max(8, weak * 3)));
     const pack = packs.length ? rng.pick(packs) : null;
     if (pack) steps.push({ type: 'minpair', pack: pack.id, n: 4 });
     steps.push({ type: 'blend', n: 3, focus: u.newGpcs, pats: u.newPatterns, weak: true });
@@ -104,7 +106,7 @@ export function planLesson(C, state, lessonSpec, rng, now = Date.now()) {
   }
 
   // 'story' / 'review' lessons: connected text, with brief retrieval and transfer probes around it
-  retr(5);
+  retr(Math.min(10, 4 + 2 * (u.newGpcs || []).filter(g => M.rungOf(state, M.keys.gpc(g)) < M.K.mastered).length));
   for (const s of lessonSpec.stories || []) steps.push({ type: 'story', story: s.id, read: s.read });
   if (C.sillyAt(unit).length >= 3) steps.push({ type: 'pseudo', n: 4, focus: u.newGpcs, pats: u.newPatterns });
   steps.push({ type: 'spell', n: 2, focus: u.newGpcs, pats: u.newPatterns, weak: true });
@@ -174,7 +176,8 @@ export function stepQuestions(C, state, step, rng, ctx) {
       // Priority: reteach -> GPCs still climbing the ladder (lowest rung first) -> due for review -> everything else seen.
       const seen = Object.values(state.items).filter(i => (i.kind === 'gpc' || i.kind === 'tricky') && i.a.length && !['suffix', 'silent'].includes(C.gpcs[i.id.slice(4)]?.type)
         && (i.kind === 'tricky' ? (C.tricky[i.id.slice(3)]?.release ?? 99) : (C.gpcs[i.id.slice(4)]?.unit ?? 99)) <= unit);
-      const rank = i => (state.reteach.includes(i.id) ? -2 : i.kind === 'gpc' && i.rung < M.K.mastered ? -1 : 0);
+      const cur = new Set(C.unitById[unit]?.newGpcs || []);
+      const rank = i => (state.reteach.includes(i.id) ? -3 : i.kind === 'gpc' && i.rung < M.K.mastered ? (cur.has(i.id.slice(4)) ? -2 : -1) : 0);
       const sorted = seen.map(i => ({ i, k: rank(i), p: M.recallProb(i, ctx.now), r: i.rung }))
         .sort((a, b) => a.k - b.k || (a.k === -1 ? a.r - b.r : 0) || a.p - b.p || rng.next() - 0.5).map(o => o.i);
       const conf = M.confusionPairs(state);
@@ -185,7 +188,7 @@ export function stepQuestions(C, state, step, rng, ctx) {
         if (it.kind === 'gpc') {
           const force = conf.find(c => c.pair[0] === id)?.pair[1];
           if (force && it.rung < 2 && rng.chance(0.35)) push(Q.listenPick(C, id, unit, rng, 3, force));
-          else { push(questionForGpc(C, state, id, unit, rng, ctx)); if (it.rung < 2 && out.length < step.n) push(questionForGpc(C, state, id, unit, rng, ctx)); }
+          else { push(questionForGpc(C, state, id, unit, rng, ctx)); if (it.rung < M.K.mastered && out.length < step.n) push(questionForGpc(C, state, id, unit, rng, ctx)); }
         } else if (ti < 2) push((ti++ % 2) ? Q.heartBuild(C, id, unit, rng) : Q.trickyChoose(C, id, unit, rng));
       }
       break;

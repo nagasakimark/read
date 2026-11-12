@@ -3,10 +3,10 @@
 // DR (design recommendation -- validate with real children); constants are collected in K.
 export const HOUR = 3600e3;
 export const K = {
-  recogWindow: 5, recogNeed: 4, recogMinOptions: 3,        // rung 1
-  recallWindow: 5, recallNeed: 4,                          // rung 2
-  applyWindow: 10, applyNeed: 9, applyMinActs: 2,          // rung 3
-  transferWindow: 5, transferNeed: 4,                      // rung 4
+  recogWindow: 4, recogNeed: 3, recogMinOptions: 3,        // rung 1
+  recallWindow: 4, recallNeed: 3,                          // rung 2
+  applyWindow: 8, applyNeed: 7, applyMinActs: 2,           // rung 3
+  transferWindow: 4, transferNeed: 3,                      // rung 4 (tuned with tools/progress_sim.mjs: ~1 practice lesson per unit at 90%)
   autoLatencyMs: 2000, autoWindow: 5,                      // rung 5
   retentionHours: 24,                                      // rung 6
   mastered: 4,                                             // rung >= 4 = "mastered" (blueprint)
@@ -249,6 +249,15 @@ export function completeLesson(C, state, spec, now = Date.now()) {
   else markLessonDone(C, state, spec.id, now);
   // practice lessons also re-check the gate (blueprint: repeat until mastery, then progress)
   const us = unitState(state, spec.unit);
+  // Safety valve (DR): after two extra practice lessons, a child who can apply every new sound (rung >= 3) moves on;
+  // anything not yet secure goes on the review list so later lessons keep practising it. Nobody loops forever.
+  const u = C.unitById[spec.unit];
+  const pc = us.practiceCount || 0;
+  if (!us.passed && !u.oral && pc >= 2 && u.lessons.every(l => us.lessonsDone[l.id])
+      && u.newGpcs.every(g => rungOf(state, keys.gpc(g)) >= (pc >= 4 ? 2 : 3))) {
+    for (const g of u.newGpcs) if (rungOf(state, keys.gpc(g)) < K.mastered && !state.reteach.includes(keys.gpc(g))) state.reteach.push(keys.gpc(g));
+    us.passed = true; us.passedAt = now; us.eased = true;
+  }
   if (!us.passed && gateStatus(C, state, spec.unit, now).open && C.unitById[spec.unit].lessons.every(l => us.lessonsDone[l.id])) { us.passed = true; us.passedAt = now; }
   state.stats.sessions++;
 }

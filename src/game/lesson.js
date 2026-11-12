@@ -2,7 +2,7 @@
 // Every interaction is a single tap. Evidence is recorded on the FIRST attempt only; a wrong answer shows the
 // right one (informational feedback) and the child taps it to continue.
 import { W, H, FONT, JP, UIF, text, rr, shade, Btn, Particles, drawUI } from './engine.js';
-import { panel, starRow, starShape, cardFace, progress, icon, PAL, INK, INK2 } from './sprites.js';
+import { panel, starRow, starShape, cardFace, progress, icon, slab, PAL, INK, INK2 } from './sprites.js';
 import { BANK_JA } from './bankja.js';
 import { background, flow, tileW, drawTile, speaker, bubble, segmentWord, drawSegments, picText, card, speech } from './ui.js';
 import { drawMonster, hatFor } from './monster.js';
@@ -10,7 +10,8 @@ import { planLesson, stepQuestions, practiceSpec } from '../learn/lessonplan.js'
 import * as M from '../learn/mastery.js';
 import * as Q from '../learn/questions.js';
 import { tokenize } from '../learn/curriculum.js';
-const gLabel = g => (g.id === 'sz' ? 's/z' : g.type === 'split' ? g.g + '_e' : g.g);
+import { gLabel, unitInfo } from './unitinfo.js';
+import { readStory } from './storybook.js';
 
 
 // What the monster says at the top-left of every activity: Japanese first, English underneath.
@@ -33,6 +34,7 @@ const INSTR = {
   'word-sum': ['パーツを くっつけると？', 'Join the parts. Which word?'],
   'affix-build': ['きいた ことばを パーツで つくろう', 'Build the word from its parts.'],
   meet: ['この おとを きいて おぼえよう！', 'Listen and learn this sound.'],
+  storyq: ['おはなしの クイズ！ こたえを タップ', 'Story quiz! Tap the answer.'],
   story: ['おはなしを よもう！ わからない ことばは タップ', 'Read the story. Tap a word to hear it.'],
   heart: ['とくべつな ことば。まるごと おぼえよう！', 'A tricky word. Learn it by heart.'],
   syl: ['おとの かたまりを かぞえよう', 'Count the beats in each word.'],
@@ -51,7 +53,7 @@ export class LessonScene {
   }
   enter() {
     const { app } = this;
-    this.steps = planLesson(app.C, app.state, this.spec, app.rng, Date.now());
+    this.steps = globalThis.__forceSteps || planLesson(app.C, app.state, this.spec, app.rng, Date.now());   // test hook
     this.ctx = { used: new Set(), unit: this.spec.unit, now: Date.now() };
     this.home = new Btn({ x: 14, y: 12, w: 68, h: 56, icon: 'home', size: 30, color: '#e6ebf1', onTap: () => this.leave2() });
     this.run().catch(e => { if (!this.dead) console.error(e); });
@@ -70,8 +72,11 @@ export class LessonScene {
     const hat = hatFor(Object.values(this.app.state.units).filter(u => u.passed && u.skipped !== true).length);
     drawMonster(c, 168, 412, 212, { color: this.app.colorHex, mouth: this.mouth, mood: this.mood, t: this.t, hat, jump: this.jump || 0 });
     if (this.fb && this.fb.until > this.t) speech(c, 14, 78, 282, this.fb.ja, this.fb.en, this.fb.ok ? 'ok' : 'bad');
+    else if (this.bookTip) speech(c, 14, 78, 282, this.bookTip[0], this.bookTip[1]);
     else if (this.instr && INSTR[this.instr]) speech(c, 14, 78, 282, INSTR[this.instr][0], INSTR[this.instr][1]);
+    this.bookDraw?.(c);
     this.promptDraw?.(c);
+    this.bookOverlay?.(c);
     drawUI(c, [this.home, ...this.ui]);
     this.parts.draw(c);
     if (this.overlay) this.overlay(c);
@@ -99,7 +104,9 @@ export class LessonScene {
       if (step.type === 'close') break;
       if (this.shouldStop()) break;
       this.ctx.now = Date.now();
-      if (step.type === 'meet') await this.meet(step);
+      if (step.type === 'meet') { await this.meet(step); this.instr = null;
+        const qs = stepQuestions(app.C, app.state, step, app.rng, this.ctx);   // "we do": hear it, find it, say it
+        for (let k = 0; k < qs.length; k++) { this.alive(); this.stepFrac = (k + 1) / (qs.length + 1); if (this.shouldStop()) break; await this.ask(qs[k]); } }
       else if (step.type === 'story') await this.story(step);
       else if (step.type === 'concept') await this.concept(step);
       else {
@@ -468,39 +475,12 @@ export class LessonScene {
 
   async story(step) {
     const { app } = this, C = app.C, st = C.stories[step.story], read = step.read;
-    this.mood = 'happy'; this.instr = 'story';
-    const helped = new Set(); let total = 0;
-    const toks = st.pages.map(p => tokenize(p.text));
-    for (let pi = 0; pi < st.pages.length; pi++) {
-      this.alive(); this.stepFrac = pi / (st.pages.length + (read === 3 ? 1 : 0));
-      const page = st.pages[pi], tk = toks[pi]; total += tk.length;
-      let done = false, hl = -1;
-      const items = tk.map((t, i) => ({ t, i, w: 0 }));
-      const sz = 64;
-      const meas = document.createElement('canvas').getContext('2d'); meas.font = `bold ${sz}px ${FONT}`;
-      items.forEach(it => { it.w = meas.measureText(it.t.raw).width + 24; });
-      flow(items, 880, 270, 700, 6, 96);
-      const wordBtns = items.map(it => new Btn({ x: it.x, y: it.y, w: it.w, h: 84, shadow: false, customDraw: (c, u) => {
-        const on = hl === it.i, helpedNow = helped.has(pi + ':' + it.i);
-        if (on || helpedNow) { c.fillStyle = on ? '#ffe27a' : 'rgba(255,214,102,.38)'; c.beginPath(); c.roundRect(0, 4, u.w, u.h - 4, 20); c.fill(); }
-        text(c, it.t.raw, u.w / 2, u.h / 2 + 4, { size: sz, color: INK });
-      }, onTap: () => { if (read === 1) helped.add(pi + ':' + it.i); this.speak('w:' + it.t.key); } }));
-      const listen = new Btn({ x: 1180, y: 110, w: 130, h: 110, shadow: false, customDraw: (c, u) => speaker(c, 65, 55, 50, this.speaking, this.t), onTap: () => this.readAlong(page.text, tk, i => { hl = i; }) });
-      const next = new Btn({ x: 1170, y: 474, w: 172, h: 96, icon: 'play', size: 54, color: '#5bd16f', onTap: () => { done = true; } });
-      this.ui = [...wordBtns, listen, next];
-      this.promptDraw = c => {
-        panel(c, 340, 70, 1000, 400);
-        picText(c, page.pic, 520, 200, page.pic.length > 3 ? 100 : 130); text(c, `${pi + 1} / ${st.pages.length}`, 410, 104, { size: 26, color: INK2, font: UIF, weight: '900' });
-        text(c, read === 1 ? 'タップ：わからない ことば' : read === 2 ? 'きいて いっしょに よもう' : 'よんでみよう', 780, 104, { size: 24, color: INK2, font: JP, weight: '800' });
-        next.pop = 1 + Math.sin(this.t * 5) * 0.03;
-      };
-      if (read === 2) this.readAlong(page.text, tk, i => { hl = i; });
-      await new Promise(r => { const iv = setInterval(() => { if (done || this.dead) { clearInterval(iv); r(); } }, 60); });
-      this.alive(); this.stopSpeak(); this.sfx('pop');
-    }
+    this.mood = 'happy';
+    const { helped, total } = await readStory(this, st, read, f => { this.stepFrac = f * (read === 3 ? 0.8 : 1); });
+    this.storiesRead = (this.storiesRead || 0) + 1;
     this.mood = 'idle'; this.promptDraw = null; this.ui = [];
     if (read === 1) {
-      const acc = Math.max(0, 1 - helped.size / Math.max(1, total));
+      const acc = Math.max(0, 1 - helped / Math.max(1, total));
       M.recordStory(app.state, this.spec.unit, step.story, 1, { accuracy: acc, now: Date.now() });
     } else if (read === 3) {
       const ok = await this.storyQuestion(st);
@@ -515,7 +495,7 @@ export class LessonScene {
     setHl(-1); await p; this.speaking = false;
   }
   async storyQuestion(st) {
-    const q = st.questions[0]; if (!q) return true;
+    const q = st.questions[0]; if (!q) return true; this.instr = 'storyq';
     const { app } = this; const opts = this.app.rng.shuffle([{ pic: q.answer[0], word: q.answer[1], ok: true }, ...q.distractors.map(d => ({ pic: d[0], word: d[1] }))]);
     let first = null, done = false;
     this.cur = { type: 'choice', act: 'story-q', answer: opts.findIndex(o => o.ok) };
@@ -542,11 +522,11 @@ export class LessonScene {
       cps[this.spec.cp] = { ...cpRes, best: Math.max(prev?.best ?? 0, cpRes.pct), tries: (prev?.tries ?? 0) + 1 };
     } else if (complete) M.completeLesson(C, app.state, this.spec, Date.now());
     app.state.stats.secondsPlayed += Math.round((Date.now() - this.startedAt) / 1000);
-    const gems = Object.values(app.state.items).filter(i => i.kind === 'gpc' && i.rung >= M.K.mastered && (this.rungsBefore[i.id] ?? 0) < M.K.mastered).map(i => i.id.slice(4));
+    const gems = Object.values(app.state.items).filter(i => i.kind === 'gpc' && i.rung >= M.K.mastered && (this.rungsBefore[i.id] ?? 0) < M.K.mastered).map(i => C.gpcs[i.id.slice(4)] ? gLabel(C.gpcs[i.id.slice(4)]) : i.id.slice(4));
     const unitDone = complete && app.state.units[this.spec.unit]?.passed && !this.unitWasPassed;
     await app.save(true);
     this.alive(); this.ui = []; this.promptDraw = null; this.mood = 'happy';
-    let pos = 0; const gemObjs = gems.map((g, i) => ({ g, y: -80, x: 700 + (i - (gems.length - 1) / 2) * 90, s: 0 }));
+    let pos = 0; const gemObjs = gems.slice(0, 4).map((g, i) => ({ g, y: -80, x: 1060, ty: 130 + i * 76, s: 0 }));
     this.overlay = null;
     const goLesson = nx => { this.dead = true; const sp = nx.kind === 'practice' ? practiceSpec(nx.unit) : C.lessons[nx.lessonId]; app.eng.go(new LessonScene(app, sp)); };
     const nxt = (complete && !this.stopped && !isCp) ? M.nextLesson(C, app.state) : (isCp ? M.nextLesson(C, app.state) : null);
@@ -560,18 +540,35 @@ export class LessonScene {
       panel(c, 400, 60, 760, 390);
       const msg = this.stopped === 'tired' ? 'すこし やすもう 😴' : this.stopped === 'time' ? 'きょうは ここまで！ 🌙' : 'できたね！ 🎉';
       text(c, msg, 780, 105, { size: 50, color: '#23394b', font: JP });
-      const n = this.results.length, ok = this.results.filter(Boolean).length;
-      starRow(c, 780, 185, Math.max(1, Math.round((ok / Math.max(1, n)) * 3)), 3, 80, (this.t - (this.finT ?? (this.finT = this.t))) * 2.2);
-      text(c, cpRes ? `${cpRes.ok} / ${cpRes.n}  ただしい` : `${ok} / ${n}  ただしい`, 780, 250, { size: 30, color: '#23394b', font: JP });
+      const n = this.results.length, ok = this.results.filter(Boolean).length, sr = this.storiesRead || 0;
+      const nStars = isCp ? Math.max(1, Math.round((cpRes?.pct ?? 0) / 34)) : n ? Math.max(1, Math.round((ok / n) * 3)) : 3;
+      starRow(c, 780, 185, nStars, 3, 80, (this.t - (this.finT ?? (this.finT = this.t))) * 2.2);
+      const parts = [];
+      if (cpRes) parts.push(`${cpRes.ok} / ${cpRes.n} せいかい`); else if (n) parts.push(`${ok} / ${n} せいかい`);
+      if (sr) parts.push(`えほん ${sr}かい よんだ`);
+      text(c, parts.join('  ·  '), 780, 250, { size: 28, color: INK, font: JP, weight: '900' });
       if (au && !isCp) {
-        text(c, `Unit ${this.spec.unit}  レッスン ${Math.min(doneN, total)} / ${total}`, 780, 295, { size: 24, color: '#4a6275', font: JP });
-        for (let k = 0; k < total; k++) { c.fillStyle = k < doneN ? '#58c46a' : '#d5dde4'; c.beginPath(); c.arc(780 + (k - (total - 1) / 2) * 34, 325, 11, 0, 7); c.fill(); }
-        if (unitDone) text(c, '🎊 ユニット クリア！ Unit complete!', 780, 365, { size: 30, color: '#b36b00', font: JP });
-        else if (newSounds.length) text(c, 'きょうの おと： ' + newSounds.join('  '), 780, 365, { size: 28, color: '#2d4a5e', font: JP });
+        const ui = unitInfo(au.id);
+        text(c, `Unit ${au.id}  ${ui.ja}`, 780, 296, { size: 22, color: INK2, font: JP, weight: '900' });
+        if (this.spec.kind === 'practice' && !unitDone) {
+          // gold = secure. All gold unlocks the next unit: this is why practice lessons happen
+          const gs = au.newGpcs.map(g => C.gpcs[g]).filter(g => g && !['suffix', 'silent'].includes(g.type)).slice(0, 8), tw = 58;
+          gs.forEach((g, i) => { const got = (app.state.items['gpc:' + g.id]?.rung || 0) >= M.K.mastered, tx = 780 + (i - (gs.length - 1) / 2) * (tw + 10) - tw / 2;
+            slab(c, tx, 314, tw, 50, { r: 12, face: got ? '#ffd24a' : '#eef3f8', lip: got ? '#e8a915' : '#c9d4df', depth: 5 });
+            text(c, gLabel(g), tx + tw / 2, 336, { size: gLabel(g).length > 2 ? 18 : 26, color: got ? '#7a5200' : INK2 }); });
+          const left = gs.filter(g => (app.state.items['gpc:' + g.id]?.rung || 0) < M.K.mastered).length;
+          text(c, left ? `あと ${left}こ きんいろに なったら つぎの ユニット！` : 'もうすぐ つぎの ユニット！', 780, 398, { size: 22, color: '#b36b00', font: JP, weight: '900' });
+        } else {
+          for (let k = 0; k < total; k++) { c.fillStyle = k < doneN ? '#58c46a' : '#d5dde4'; c.beginPath(); c.arc(780 + (k - (total - 1) / 2) * 34, 330, 11, 0, 7); c.fill(); }
+          if (unitDone) { const nu = C.unitById[au.id + 1]; text(c, '🎊 ユニット クリア！ Unit complete!', 780, 378, { size: 30, color: '#b36b00', font: JP, weight: '900' });
+            if (nu) text(c, `つぎは：${unitInfo(nu.id).ja}`, 780, 418, { size: 22, color: INK2, font: JP, weight: '900' }); }
+          else if (newSounds.length) text(c, 'きょうの おと： ' + newSounds.join('  '), 780, 378, { size: 28, color: '#2d4a5e', font: JP, weight: '900' });
+          else text(c, `あと ${Math.max(0, total - doneN)} レッスンで ユニット クリア`, 780, 378, { size: 22, color: INK2, font: JP, weight: '900' });
+        }
       }
       gemObjs.forEach(o => { c.save(); c.translate(o.x + 40, o.y); c.scale(o.s * 0.5, o.s * 0.5); c.fillStyle = '#7be0ad'; c.beginPath(); c.moveTo(0, -60); c.lineTo(55, -15); c.lineTo(35, 55); c.lineTo(-35, 55); c.lineTo(-55, -15); c.closePath(); c.fill(); c.lineWidth = 6; c.strokeStyle = '#fff'; c.stroke(); text(c, o.g, 0, 0, { size: o.g.length > 1 ? 52 : 68, color: '#175d3b' }); c.restore(); });
     };
     this.sfx('win'); this.parts.burst(780, 200, 40);
-    for (const o of gemObjs) { this.sfx('gem'); await Promise.all([app.eng.tween(o, { y: 410, s: 1 }, 600, 'back'), app.eng.wait(250)]); this.parts.burst(o.x + 40, 410, 14); }
+    for (const o of gemObjs) { this.sfx('gem'); await Promise.all([app.eng.tween(o, { y: o.ty, s: 1 }, 600, 'back'), app.eng.wait(250)]); this.parts.burst(o.x + 40, o.ty, 14); }
   }
 }

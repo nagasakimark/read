@@ -50,6 +50,13 @@ export class AudioSys {
     else if (name === 'bad') { tone(220, 0, 0.18, 'triangle', 0.1); }
     else if (name === 'pop') tone(740, 0, 0.09, 'triangle', 0.08);
     else if (name === 'win') { [523, 659, 784, 1046].forEach((f, i) => tone(f, i * 0.11, 0.25)); }
+    else if (name === 'page') {   // paper swish: band-passed noise sweeping up then down
+      const n = this.ctx.sampleRate * 0.45, buf = this.ctx.createBuffer(1, n, this.ctx.sampleRate), d = buf.getChannelData(0);
+      for (let i = 0; i < n; i++) d[i] = (Math.random() * 2 - 1) * Math.sin(Math.PI * i / n) ** 2;
+      const src = this.ctx.createBufferSource(), bp = this.ctx.createBiquadFilter(), g = this.ctx.createGain();
+      src.buffer = buf; bp.type = 'bandpass'; bp.Q.value = 0.9; bp.frequency.setValueAtTime(900, t); bp.frequency.linearRampToValueAtTime(2600, t + 0.2); bp.frequency.linearRampToValueAtTime(1200, t + 0.45);
+      g.gain.value = 0.22; src.connect(bp).connect(g).connect(this.ctx.destination); src.start(t);
+    }
     else if (name === 'gem') { [880, 1175, 1568].forEach((f, i) => tone(f, i * 0.09, 0.3, 'sine', 0.12)); }
   }
 }

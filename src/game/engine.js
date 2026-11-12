@@ -4,7 +4,7 @@ import { buttonFace, icon, hasIcon, faceOf } from './sprites.js';
 export const W = 1366, H = 598;
 export const FONT = '"Andika","Comic Sans MS","Trebuchet MS",system-ui,sans-serif';
 export const UIF = '"Nunito","ZenMaru","Hiragino Maru Gothic ProN","Yu Gothic","Noto Sans JP",system-ui,sans-serif';
-export const JP = '"ZenMaru","Nunito","Hiragino Maru Gothic ProN","Yu Gothic","Noto Sans JP","Meiryo",sans-serif';
+export const JP = '"Nunito","ZenMaru","Hiragino Maru Gothic ProN","Yu Gothic","Noto Sans JP","Meiryo",sans-serif';   // Latin from Nunito, kana from Zen Maru
 
 export const ease = {
   linear: t => t, out: t => 1 - Math.pow(1 - t, 3), inOut: t => (t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2),

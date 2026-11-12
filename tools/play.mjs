@@ -44,6 +44,7 @@ while (lessonsDone < LESSONS && Date.now() - t0 < 600000) {
     }
     const fin = s.ui.find(u => u.y === 470 && u.label && u.label.includes('ホーム'));
     if (fin) return { act: 'click', x: fin.x + fin.w / 2, y: fin.y + 50, kind: 'finish' };
+    if (s.book) { const b = s.ui.find(u => u.icon === 'book' || u.icon === 'fwd' || u.icon === 'check'); if (b && !s.book.flip) return { act: 'click', x: b.x + b.w / 2, y: b.y + b.h / 2, kind: 'book' }; return { act: 'wait' }; }
     const next = s.ui.find(u => (u.icon === 'play' || u.icon === '▶') && u.visible !== false);
     const big = s.ui.find(u => u.w === 330 && u.h === 230);
     if (s.finished) return { act: 'wait' };
@@ -65,5 +66,10 @@ while (lessonsDone < LESSONS && Date.now() - t0 < 600000) {
 }
 const st = await page.evaluate(() => { const s = window.__app.state; return { sessions: s.stats.sessions, items: Object.keys(s.items).length, units: Object.keys(s.units).filter(u => s.units[u].passed), done: Object.fromEntries(Object.entries(s.units).map(([k, u]) => [k, Object.keys(u.lessonsDone)])) }; });
 console.log('state', JSON.stringify(st), 'kinds', [...seenKinds].join(','));
+const gate = await page.evaluate(async () => { const M = await import('/src/learn/mastery.js'); const a = window.__app, s = a.state;
+  const out = {}; for (const u of Object.keys(s.units)) out[u] = M.gateStatus(a.C, s, +u).reasons;
+  out.rungs = Object.fromEntries(Object.values(s.items).map(i => [i.id, i.rung])); return out; });
+console.log('gate', JSON.stringify(gate));
+fs.writeFileSync('/tmp/play_state.json', JSON.stringify(await page.evaluate(() => window.__app.state)));
 console.log('errors:', errors.length ? errors.slice(0, 5) : 'none');
 await browser.close(); srv.close();
